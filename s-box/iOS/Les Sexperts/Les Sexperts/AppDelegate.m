@@ -54,3 +54,10 @@
 }
 
 @end
+
+NSManagedObjectContext * kMainManagedObjectContext(void) {
+    NSCParameterAssert([NSThread isMainThread]);
+    AppDelegate* delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    CoreDataStack* stack = delegate.dataStack;
+    return stack.mainQueueManagedObjectContext;
+}

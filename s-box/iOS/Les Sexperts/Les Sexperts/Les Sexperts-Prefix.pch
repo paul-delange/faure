@@ -13,6 +13,7 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
 
 #if DEBUG
 #define DLog(fmt, ...)          \
@@ -30,5 +31,7 @@ NSLog(@"\n\n----!!!EXCEPTION!!!-----\n%s [Line %d]\n\nName: '%@'\nReason: '%@'\n
 #define DLogError(error)
 #define DLogException(exception)
 #endif
+
+extern NSManagedObjectContext * kMainManagedObjectContext(void);
 
 #endif

@@ -4,6 +4,7 @@
 #import "_Advice.h"
 
 const struct AdviceAttributes AdviceAttributes = {
+	.targetGender = @"targetGender",
 	.text = @"text",
 	.title = @"title",
 };
@@ -41,9 +42,40 @@ const struct AdviceFetchedProperties AdviceFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"targetGenderValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"targetGender"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic targetGender;
+
+
+
+- (int16_t)targetGenderValue {
+	NSNumber *result = [self targetGender];
+	return [result shortValue];
+}
+
+- (void)setTargetGenderValue:(int16_t)value_ {
+	[self setTargetGender:[NSNumber numberWithShort:value_]];
+}
+
+- (int16_t)primitiveTargetGenderValue {
+	NSNumber *result = [self primitiveTargetGender];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveTargetGenderValue:(int16_t)value_ {
+	[self setPrimitiveTargetGender:[NSNumber numberWithShort:value_]];
+}
+
 
 
 

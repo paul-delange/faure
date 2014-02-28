@@ -34,6 +34,11 @@
 		FD2BA4E518C08885009AFC9F /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4DF18C08885009AFC9F /* Question.m */; };
 		FD2BA4E618C08885009AFC9F /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4E118C08885009AFC9F /* Theme.m */; };
 		FD2BA4FE18C09CF1009AFC9F /* ContentLibrary.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA4FD18C09CF1009AFC9F /* ContentLibrary.sqlite */; };
+		FD2BA50118C0A696009AFC9F /* ThemeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50018C0A696009AFC9F /* ThemeCollectionViewController.m */; };
+		FD2BA50418C0B994009AFC9F /* AdviceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50318C0B994009AFC9F /* AdviceTableViewController.m */; };
+		FD2BA50718C0C316009AFC9F /* AdviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50618C0C316009AFC9F /* AdviceViewController.m */; };
+		FD2BA50A18C0C3F2009AFC9F /* ContentLock.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50918C0C3F2009AFC9F /* ContentLock.m */; };
+		FD2BA50D18C0CA77009AFC9F /* ThemeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50C18C0CA77009AFC9F /* ThemeCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +90,16 @@
 		FD2BA4E018C08885009AFC9F /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
 		FD2BA4E118C08885009AFC9F /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = "<group>"; };
 		FD2BA4FD18C09CF1009AFC9F /* ContentLibrary.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = ContentLibrary.sqlite; path = "Les Sexperts/Les Sexperts/ContentLibrary.sqlite"; sourceTree = "<group>"; };
+		FD2BA4FF18C0A696009AFC9F /* ThemeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeCollectionViewController.h; sourceTree = "<group>"; };
+		FD2BA50018C0A696009AFC9F /* ThemeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeCollectionViewController.m; sourceTree = "<group>"; };
+		FD2BA50218C0B994009AFC9F /* AdviceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdviceTableViewController.h; sourceTree = "<group>"; };
+		FD2BA50318C0B994009AFC9F /* AdviceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdviceTableViewController.m; sourceTree = "<group>"; };
+		FD2BA50518C0C316009AFC9F /* AdviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdviceViewController.h; sourceTree = "<group>"; };
+		FD2BA50618C0C316009AFC9F /* AdviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdviceViewController.m; sourceTree = "<group>"; };
+		FD2BA50818C0C3F2009AFC9F /* ContentLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentLock.h; sourceTree = "<group>"; };
+		FD2BA50918C0C3F2009AFC9F /* ContentLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentLock.m; sourceTree = "<group>"; };
+		FD2BA50B18C0CA77009AFC9F /* ThemeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeCollectionViewCell.h; sourceTree = "<group>"; };
+		FD2BA50C18C0CA77009AFC9F /* ThemeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +188,12 @@
 				FD2BA41218C06F95009AFC9F /* AppDelegate.m */,
 				FD2BA43E18C0730F009AFC9F /* HomeViewController.h */,
 				FD2BA43F18C0730F009AFC9F /* HomeViewController.m */,
+				FD2BA4FF18C0A696009AFC9F /* ThemeCollectionViewController.h */,
+				FD2BA50018C0A696009AFC9F /* ThemeCollectionViewController.m */,
+				FD2BA50218C0B994009AFC9F /* AdviceTableViewController.h */,
+				FD2BA50318C0B994009AFC9F /* AdviceTableViewController.m */,
+				FD2BA50518C0C316009AFC9F /* AdviceViewController.h */,
+				FD2BA50618C0C316009AFC9F /* AdviceViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -180,6 +201,8 @@
 		FD2BA43B18C06FA1009AFC9F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FD2BA50B18C0CA77009AFC9F /* ThemeCollectionViewCell.h */,
+				FD2BA50C18C0CA77009AFC9F /* ThemeCollectionViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -190,6 +213,8 @@
 				FD2BA45D18C086FE009AFC9F /* Entities */,
 				FD2BA44418C082EC009AFC9F /* CoreDataStack.h */,
 				FD2BA44518C082EC009AFC9F /* CoreDataStack.m */,
+				FD2BA50818C0C3F2009AFC9F /* ContentLock.h */,
+				FD2BA50918C0C3F2009AFC9F /* ContentLock.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -364,16 +389,21 @@
 				FD2BA44618C082EC009AFC9F /* CoreDataStack.m in Sources */,
 				FD2BA4D318C08879009AFC9F /* _Advice.m in Sources */,
 				FD2BA4E618C08885009AFC9F /* Theme.m in Sources */,
+				FD2BA50118C0A696009AFC9F /* ThemeCollectionViewController.m in Sources */,
 				FD2BA4D518C08879009AFC9F /* _Joke.m in Sources */,
 				FD2BA4E218C08885009AFC9F /* Advice.m in Sources */,
 				FD2BA4D618C08879009AFC9F /* _Question.m in Sources */,
+				FD2BA50718C0C316009AFC9F /* AdviceViewController.m in Sources */,
 				FD2BA41318C06F95009AFC9F /* AppDelegate.m in Sources */,
 				FD2BA45018C085EA009AFC9F /* ContentLibrary.xcdatamodeld in Sources */,
 				FD2BA4E318C08885009AFC9F /* Answer.m in Sources */,
 				FD2BA40F18C06F95009AFC9F /* main.m in Sources */,
 				FD2BA4D718C08879009AFC9F /* _Theme.m in Sources */,
+				FD2BA50D18C0CA77009AFC9F /* ThemeCollectionViewCell.m in Sources */,
 				FD2BA4E518C08885009AFC9F /* Question.m in Sources */,
 				FD2BA4D418C08879009AFC9F /* _Answer.m in Sources */,
+				FD2BA50418C0B994009AFC9F /* AdviceTableViewController.m in Sources */,
+				FD2BA50A18C0C3F2009AFC9F /* ContentLock.m in Sources */,
 				FD2BA44018C0730F009AFC9F /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

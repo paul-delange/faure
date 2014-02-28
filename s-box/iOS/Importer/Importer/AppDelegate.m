@@ -47,8 +47,9 @@
 
 - (Advice*) adviceFromSource: (NSArray*) asrc inTheme: (NSArray*) tsrc inContent: (NSManagedObjectContext*) context {
     Advice* advice = [NSEntityDescription insertNewObjectForEntityForName: @"Advice" inManagedObjectContext: context];
-    advice.title = asrc[1];
-    advice.text = asrc[2];
+    advice.title = asrc[2];
+    advice.text = asrc[3];
+    advice.targetGender = @([asrc[5] integerValue]);
     
     id tid = tsrc[3];
     NSPredicate* predicate = [NSPredicate predicateWithFormat: @"name = %@", tid];
