@@ -39,6 +39,9 @@
 		FD2BA50718C0C316009AFC9F /* AdviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50618C0C316009AFC9F /* AdviceViewController.m */; };
 		FD2BA50A18C0C3F2009AFC9F /* ContentLock.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50918C0C3F2009AFC9F /* ContentLock.m */; };
 		FD2BA50D18C0CA77009AFC9F /* ThemeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50C18C0CA77009AFC9F /* ThemeCollectionViewCell.m */; };
+		FD54AB8918C0DFFD0012695C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8718C0DFFD0012695C /* libcrypto.a */; };
+		FD54AB8A18C0DFFD0012695C /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8818C0DFFD0012695C /* libssl.a */; };
+		FD54AB8E18C0E07D0012695C /* ReceiptValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +103,10 @@
 		FD2BA50918C0C3F2009AFC9F /* ContentLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentLock.m; sourceTree = "<group>"; };
 		FD2BA50B18C0CA77009AFC9F /* ThemeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeCollectionViewCell.h; sourceTree = "<group>"; };
 		FD2BA50C18C0CA77009AFC9F /* ThemeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeCollectionViewCell.m; sourceTree = "<group>"; };
+		FD54AB8718C0DFFD0012695C /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = OpenSSL/libcrypto.a; sourceTree = "<group>"; };
+		FD54AB8818C0DFFD0012695C /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = OpenSSL/libssl.a; sourceTree = "<group>"; };
+		FD54AB8C18C0E07D0012695C /* ReceiptValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptValidator.h; sourceTree = "<group>"; };
+		FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptValidator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +114,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD54AB8A18C0DFFD0012695C /* libssl.a in Frameworks */,
 				FD2BA40518C06F95009AFC9F /* CoreGraphics.framework in Frameworks */,
 				FD2BA40718C06F95009AFC9F /* UIKit.framework in Frameworks */,
+				FD54AB8918C0DFFD0012695C /* libcrypto.a in Frameworks */,
 				FD2BA40318C06F95009AFC9F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,6 +224,8 @@
 				FD2BA44518C082EC009AFC9F /* CoreDataStack.m */,
 				FD2BA50818C0C3F2009AFC9F /* ContentLock.h */,
 				FD2BA50918C0C3F2009AFC9F /* ContentLock.m */,
+				FD54AB8C18C0E07D0012695C /* ReceiptValidator.h */,
+				FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -236,6 +247,7 @@
 		FD2BA45118C086E2009AFC9F /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FD54AB8B18C0E0070012695C /* OpenSSL */,
 				FD2BA45C18C086F3009AFC9F /* mogenerator */,
 			);
 			name = Vendor;
@@ -268,6 +280,15 @@
 				FD2BA4E118C08885009AFC9F /* Theme.m */,
 			);
 			name = Entities;
+			sourceTree = "<group>";
+		};
+		FD54AB8B18C0E0070012695C /* OpenSSL */ = {
+			isa = PBXGroup;
+			children = (
+				FD54AB8718C0DFFD0012695C /* libcrypto.a */,
+				FD54AB8818C0DFFD0012695C /* libssl.a */,
+			);
+			name = OpenSSL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,6 +410,7 @@
 				FD2BA44618C082EC009AFC9F /* CoreDataStack.m in Sources */,
 				FD2BA4D318C08879009AFC9F /* _Advice.m in Sources */,
 				FD2BA4E618C08885009AFC9F /* Theme.m in Sources */,
+				FD54AB8E18C0E07D0012695C /* ReceiptValidator.m in Sources */,
 				FD2BA50118C0A696009AFC9F /* ThemeCollectionViewController.m in Sources */,
 				FD2BA4D518C08879009AFC9F /* _Joke.m in Sources */,
 				FD2BA4E218C08885009AFC9F /* Advice.m in Sources */,
@@ -535,7 +557,16 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Les Sexperts/Les Sexperts-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					OpenSSL,
+				);
 				INFOPLIST_FILE = "Les Sexperts/Les Sexperts-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/pauldelange/Documents/faure/s-box/iOS/Les\\ Sexperts/OpenSSL",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -548,7 +579,16 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Les Sexperts/Les Sexperts-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					OpenSSL,
+				);
 				INFOPLIST_FILE = "Les Sexperts/Les Sexperts-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/pauldelange/Documents/faure/s-box/iOS/Les\\ Sexperts/OpenSSL",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

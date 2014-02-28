@@ -34,4 +34,6 @@ NSLog(@"\n\n----!!!EXCEPTION!!!-----\n%s [Line %d]\n\nName: '%@'\nReason: '%@'\n
 
 extern NSManagedObjectContext * kMainManagedObjectContext(void);
 
+extern NSString * const kContentUnlockProductIdentifier;
+
 #endif

@@ -8,7 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^kContentLockRemovedHandler)(NSError* error);
+
 @interface ContentLock : NSObject
+
++ (BOOL) unlockWithCompletion: (kContentLockRemovedHandler) completionHandler;
++ (BOOL) lock;
 
 + (BOOL) tryLock;
 
