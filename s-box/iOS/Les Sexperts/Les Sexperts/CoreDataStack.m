@@ -8,7 +8,7 @@
 
 #import "CoreDataStack.h"
 
-@import CoreData;
+#import <CoreData/CoreData.h>
 
 void SetExcludeFromBackupAttributeForItemAtPath(NSString *path)
 {

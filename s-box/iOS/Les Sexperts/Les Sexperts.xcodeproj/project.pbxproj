@@ -23,16 +23,17 @@
 		FD2BA44018C0730F009AFC9F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA43F18C0730F009AFC9F /* HomeViewController.m */; };
 		FD2BA44618C082EC009AFC9F /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA44518C082EC009AFC9F /* CoreDataStack.m */; };
 		FD2BA45018C085EA009AFC9F /* ContentLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA44E18C085EA009AFC9F /* ContentLibrary.xcdatamodeld */; };
-		FD2BA45718C086F0009AFC9F /* _Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA45218C086F0009AFC9F /* _Advice.m */; };
-		FD2BA45818C086F0009AFC9F /* _Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA45318C086F0009AFC9F /* _Answer.m */; };
-		FD2BA45918C086F0009AFC9F /* _Joke.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA45418C086F0009AFC9F /* _Joke.m */; };
-		FD2BA45A18C086F0009AFC9F /* _Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA45518C086F0009AFC9F /* _Question.m */; };
-		FD2BA45B18C086F0009AFC9F /* _Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA45618C086F0009AFC9F /* _Theme.m */; };
-		FD2BA46818C0870F009AFC9F /* Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA45F18C0870F009AFC9F /* Advice.m */; };
-		FD2BA46918C0870F009AFC9F /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA46118C0870F009AFC9F /* Answer.m */; };
-		FD2BA46A18C0870F009AFC9F /* Joke.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA46318C0870F009AFC9F /* Joke.m */; };
-		FD2BA46B18C0870F009AFC9F /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA46518C0870F009AFC9F /* Question.m */; };
-		FD2BA46C18C0870F009AFC9F /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA46718C0870F009AFC9F /* Theme.m */; };
+		FD2BA4D318C08879009AFC9F /* _Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4CE18C08879009AFC9F /* _Advice.m */; };
+		FD2BA4D418C08879009AFC9F /* _Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4CF18C08879009AFC9F /* _Answer.m */; };
+		FD2BA4D518C08879009AFC9F /* _Joke.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4D018C08879009AFC9F /* _Joke.m */; };
+		FD2BA4D618C08879009AFC9F /* _Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4D118C08879009AFC9F /* _Question.m */; };
+		FD2BA4D718C08879009AFC9F /* _Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4D218C08879009AFC9F /* _Theme.m */; };
+		FD2BA4E218C08885009AFC9F /* Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4D918C08885009AFC9F /* Advice.m */; };
+		FD2BA4E318C08885009AFC9F /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4DB18C08885009AFC9F /* Answer.m */; };
+		FD2BA4E418C08885009AFC9F /* Joke.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4DD18C08885009AFC9F /* Joke.m */; };
+		FD2BA4E518C08885009AFC9F /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4DF18C08885009AFC9F /* Question.m */; };
+		FD2BA4E618C08885009AFC9F /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4E118C08885009AFC9F /* Theme.m */; };
+		FD2BA4FE18C09CF1009AFC9F /* ContentLibrary.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA4FD18C09CF1009AFC9F /* ContentLibrary.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,21 +69,22 @@
 		FD2BA44418C082EC009AFC9F /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		FD2BA44518C082EC009AFC9F /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 		FD2BA44F18C085EA009AFC9F /* ContentLibrary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContentLibrary.xcdatamodel; sourceTree = "<group>"; };
-		FD2BA45218C086F0009AFC9F /* _Advice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Advice.m; sourceTree = "<group>"; };
-		FD2BA45318C086F0009AFC9F /* _Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Answer.m; sourceTree = "<group>"; };
-		FD2BA45418C086F0009AFC9F /* _Joke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Joke.m; sourceTree = "<group>"; };
-		FD2BA45518C086F0009AFC9F /* _Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Question.m; sourceTree = "<group>"; };
-		FD2BA45618C086F0009AFC9F /* _Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Theme.m; sourceTree = "<group>"; };
-		FD2BA45E18C0870F009AFC9F /* Advice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Advice.h; sourceTree = SOURCE_ROOT; };
-		FD2BA45F18C0870F009AFC9F /* Advice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Advice.m; sourceTree = SOURCE_ROOT; };
-		FD2BA46018C0870F009AFC9F /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = SOURCE_ROOT; };
-		FD2BA46118C0870F009AFC9F /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = SOURCE_ROOT; };
-		FD2BA46218C0870F009AFC9F /* Joke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Joke.h; sourceTree = SOURCE_ROOT; };
-		FD2BA46318C0870F009AFC9F /* Joke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Joke.m; sourceTree = SOURCE_ROOT; };
-		FD2BA46418C0870F009AFC9F /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = SOURCE_ROOT; };
-		FD2BA46518C0870F009AFC9F /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = SOURCE_ROOT; };
-		FD2BA46618C0870F009AFC9F /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = SOURCE_ROOT; };
-		FD2BA46718C0870F009AFC9F /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = SOURCE_ROOT; };
+		FD2BA4CE18C08879009AFC9F /* _Advice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Advice.m; path = "Les Sexperts/_Advice.m"; sourceTree = "<group>"; };
+		FD2BA4CF18C08879009AFC9F /* _Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Answer.m; path = "Les Sexperts/_Answer.m"; sourceTree = "<group>"; };
+		FD2BA4D018C08879009AFC9F /* _Joke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Joke.m; path = "Les Sexperts/_Joke.m"; sourceTree = "<group>"; };
+		FD2BA4D118C08879009AFC9F /* _Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Question.m; path = "Les Sexperts/_Question.m"; sourceTree = "<group>"; };
+		FD2BA4D218C08879009AFC9F /* _Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Theme.m; path = "Les Sexperts/_Theme.m"; sourceTree = "<group>"; };
+		FD2BA4D818C08885009AFC9F /* Advice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Advice.h; sourceTree = "<group>"; };
+		FD2BA4D918C08885009AFC9F /* Advice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Advice.m; sourceTree = "<group>"; };
+		FD2BA4DA18C08885009AFC9F /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
+		FD2BA4DB18C08885009AFC9F /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
+		FD2BA4DC18C08885009AFC9F /* Joke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Joke.h; sourceTree = "<group>"; };
+		FD2BA4DD18C08885009AFC9F /* Joke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Joke.m; sourceTree = "<group>"; };
+		FD2BA4DE18C08885009AFC9F /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		FD2BA4DF18C08885009AFC9F /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		FD2BA4E018C08885009AFC9F /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
+		FD2BA4E118C08885009AFC9F /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = "<group>"; };
+		FD2BA4FD18C09CF1009AFC9F /* ContentLibrary.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = ContentLibrary.sqlite; path = "Les Sexperts/Les Sexperts/ContentLibrary.sqlite"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 		FD2BA43D18C06FC8009AFC9F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FD2BA4FD18C09CF1009AFC9F /* ContentLibrary.sqlite */,
 				FD2BA44E18C085EA009AFC9F /* ContentLibrary.xcdatamodeld */,
 				FD2BA40B18C06F95009AFC9F /* InfoPlist.strings */,
 				FD2BA40A18C06F95009AFC9F /* Les Sexperts-Info.plist */,
@@ -216,11 +219,11 @@
 		FD2BA45C18C086F3009AFC9F /* mogenerator */ = {
 			isa = PBXGroup;
 			children = (
-				FD2BA45218C086F0009AFC9F /* _Advice.m */,
-				FD2BA45318C086F0009AFC9F /* _Answer.m */,
-				FD2BA45418C086F0009AFC9F /* _Joke.m */,
-				FD2BA45518C086F0009AFC9F /* _Question.m */,
-				FD2BA45618C086F0009AFC9F /* _Theme.m */,
+				FD2BA4CE18C08879009AFC9F /* _Advice.m */,
+				FD2BA4CF18C08879009AFC9F /* _Answer.m */,
+				FD2BA4D018C08879009AFC9F /* _Joke.m */,
+				FD2BA4D118C08879009AFC9F /* _Question.m */,
+				FD2BA4D218C08879009AFC9F /* _Theme.m */,
 			);
 			name = mogenerator;
 			sourceTree = "<group>";
@@ -228,16 +231,16 @@
 		FD2BA45D18C086FE009AFC9F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				FD2BA45E18C0870F009AFC9F /* Advice.h */,
-				FD2BA45F18C0870F009AFC9F /* Advice.m */,
-				FD2BA46018C0870F009AFC9F /* Answer.h */,
-				FD2BA46118C0870F009AFC9F /* Answer.m */,
-				FD2BA46218C0870F009AFC9F /* Joke.h */,
-				FD2BA46318C0870F009AFC9F /* Joke.m */,
-				FD2BA46418C0870F009AFC9F /* Question.h */,
-				FD2BA46518C0870F009AFC9F /* Question.m */,
-				FD2BA46618C0870F009AFC9F /* Theme.h */,
-				FD2BA46718C0870F009AFC9F /* Theme.m */,
+				FD2BA4D818C08885009AFC9F /* Advice.h */,
+				FD2BA4D918C08885009AFC9F /* Advice.m */,
+				FD2BA4DA18C08885009AFC9F /* Answer.h */,
+				FD2BA4DB18C08885009AFC9F /* Answer.m */,
+				FD2BA4DC18C08885009AFC9F /* Joke.h */,
+				FD2BA4DD18C08885009AFC9F /* Joke.m */,
+				FD2BA4DE18C08885009AFC9F /* Question.h */,
+				FD2BA4DF18C08885009AFC9F /* Question.m */,
+				FD2BA4E018C08885009AFC9F /* Theme.h */,
+				FD2BA4E118C08885009AFC9F /* Theme.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD2BA41E18C06F95009AFC9F /* Images.xcassets in Resources */,
+				FD2BA4FE18C09CF1009AFC9F /* ContentLibrary.sqlite in Resources */,
 				FD2BA40D18C06F95009AFC9F /* InfoPlist.strings in Resources */,
 				FD2BA41618C06F95009AFC9F /* Main.storyboard in Resources */,
 			);
@@ -347,7 +351,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mogenerator -m \"ContentLibrary.xcdatamodeld/ContentLibrary.xcdatamodel/\" --template-var arc=true";
+			shellScript = "mogenerator -m \"ContentLibrary.xcdatamodeld/ContentLibrary.xcdatamodel/\" --template-var arc=true --output-dir \"Les Sexperts\"    ";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -356,20 +360,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD2BA46A18C0870F009AFC9F /* Joke.m in Sources */,
+				FD2BA4E418C08885009AFC9F /* Joke.m in Sources */,
 				FD2BA44618C082EC009AFC9F /* CoreDataStack.m in Sources */,
-				FD2BA45718C086F0009AFC9F /* _Advice.m in Sources */,
-				FD2BA46C18C0870F009AFC9F /* Theme.m in Sources */,
-				FD2BA45918C086F0009AFC9F /* _Joke.m in Sources */,
-				FD2BA46818C0870F009AFC9F /* Advice.m in Sources */,
-				FD2BA45A18C086F0009AFC9F /* _Question.m in Sources */,
+				FD2BA4D318C08879009AFC9F /* _Advice.m in Sources */,
+				FD2BA4E618C08885009AFC9F /* Theme.m in Sources */,
+				FD2BA4D518C08879009AFC9F /* _Joke.m in Sources */,
+				FD2BA4E218C08885009AFC9F /* Advice.m in Sources */,
+				FD2BA4D618C08879009AFC9F /* _Question.m in Sources */,
 				FD2BA41318C06F95009AFC9F /* AppDelegate.m in Sources */,
 				FD2BA45018C085EA009AFC9F /* ContentLibrary.xcdatamodeld in Sources */,
-				FD2BA46918C0870F009AFC9F /* Answer.m in Sources */,
+				FD2BA4E318C08885009AFC9F /* Answer.m in Sources */,
 				FD2BA40F18C06F95009AFC9F /* main.m in Sources */,
-				FD2BA45B18C086F0009AFC9F /* _Theme.m in Sources */,
-				FD2BA46B18C0870F009AFC9F /* Question.m in Sources */,
-				FD2BA45818C086F0009AFC9F /* _Answer.m in Sources */,
+				FD2BA4D718C08879009AFC9F /* _Theme.m in Sources */,
+				FD2BA4E518C08885009AFC9F /* Question.m in Sources */,
+				FD2BA4D418C08879009AFC9F /* _Answer.m in Sources */,
 				FD2BA44018C0730F009AFC9F /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

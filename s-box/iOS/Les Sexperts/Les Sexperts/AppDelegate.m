@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    self.dataStack = [CoreDataStack stackWithStoreFilename: @"ContentLibrary"];
+    self.dataStack = [CoreDataStack stackWithStoreFilename: @"ContentLibrary.sqlite"];
     
     return YES;
 }
