@@ -21,6 +21,18 @@
 		FD2BA42F18C06F95009AFC9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA42D18C06F95009AFC9F /* InfoPlist.strings */; };
 		FD2BA43118C06F95009AFC9F /* Les_SexpertsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA43018C06F95009AFC9F /* Les_SexpertsTests.m */; };
 		FD2BA44018C0730F009AFC9F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA43F18C0730F009AFC9F /* HomeViewController.m */; };
+		FD2BA44618C082EC009AFC9F /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA44518C082EC009AFC9F /* CoreDataStack.m */; };
+		FD2BA45018C085EA009AFC9F /* ContentLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA44E18C085EA009AFC9F /* ContentLibrary.xcdatamodeld */; };
+		FD2BA45718C086F0009AFC9F /* _Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA45218C086F0009AFC9F /* _Advice.m */; };
+		FD2BA45818C086F0009AFC9F /* _Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA45318C086F0009AFC9F /* _Answer.m */; };
+		FD2BA45918C086F0009AFC9F /* _Joke.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA45418C086F0009AFC9F /* _Joke.m */; };
+		FD2BA45A18C086F0009AFC9F /* _Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA45518C086F0009AFC9F /* _Question.m */; };
+		FD2BA45B18C086F0009AFC9F /* _Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA45618C086F0009AFC9F /* _Theme.m */; };
+		FD2BA46818C0870F009AFC9F /* Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA45F18C0870F009AFC9F /* Advice.m */; };
+		FD2BA46918C0870F009AFC9F /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA46118C0870F009AFC9F /* Answer.m */; };
+		FD2BA46A18C0870F009AFC9F /* Joke.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA46318C0870F009AFC9F /* Joke.m */; };
+		FD2BA46B18C0870F009AFC9F /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA46518C0870F009AFC9F /* Question.m */; };
+		FD2BA46C18C0870F009AFC9F /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA46718C0870F009AFC9F /* Theme.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +65,24 @@
 		FD2BA43018C06F95009AFC9F /* Les_SexpertsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Les_SexpertsTests.m; sourceTree = "<group>"; };
 		FD2BA43E18C0730F009AFC9F /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		FD2BA43F18C0730F009AFC9F /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		FD2BA44418C082EC009AFC9F /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
+		FD2BA44518C082EC009AFC9F /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
+		FD2BA44F18C085EA009AFC9F /* ContentLibrary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContentLibrary.xcdatamodel; sourceTree = "<group>"; };
+		FD2BA45218C086F0009AFC9F /* _Advice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Advice.m; sourceTree = "<group>"; };
+		FD2BA45318C086F0009AFC9F /* _Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Answer.m; sourceTree = "<group>"; };
+		FD2BA45418C086F0009AFC9F /* _Joke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Joke.m; sourceTree = "<group>"; };
+		FD2BA45518C086F0009AFC9F /* _Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Question.m; sourceTree = "<group>"; };
+		FD2BA45618C086F0009AFC9F /* _Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Theme.m; sourceTree = "<group>"; };
+		FD2BA45E18C0870F009AFC9F /* Advice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Advice.h; sourceTree = SOURCE_ROOT; };
+		FD2BA45F18C0870F009AFC9F /* Advice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Advice.m; sourceTree = SOURCE_ROOT; };
+		FD2BA46018C0870F009AFC9F /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = SOURCE_ROOT; };
+		FD2BA46118C0870F009AFC9F /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = SOURCE_ROOT; };
+		FD2BA46218C0870F009AFC9F /* Joke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Joke.h; sourceTree = SOURCE_ROOT; };
+		FD2BA46318C0870F009AFC9F /* Joke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Joke.m; sourceTree = SOURCE_ROOT; };
+		FD2BA46418C0870F009AFC9F /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = SOURCE_ROOT; };
+		FD2BA46518C0870F009AFC9F /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = SOURCE_ROOT; };
+		FD2BA46618C0870F009AFC9F /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = SOURCE_ROOT; };
+		FD2BA46718C0870F009AFC9F /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +112,7 @@
 		FD2BA3F618C06F94009AFC9F = {
 			isa = PBXGroup;
 			children = (
+				FD2BA45118C086E2009AFC9F /* Vendor */,
 				FD2BA40818C06F95009AFC9F /* Code */,
 				FD2BA43D18C06FC8009AFC9F /* Resources */,
 				FD2BA42A18C06F95009AFC9F /* Les SexpertsTests */,
@@ -154,6 +185,9 @@
 		FD2BA43C18C06FA3009AFC9F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FD2BA45D18C086FE009AFC9F /* Entities */,
+				FD2BA44418C082EC009AFC9F /* CoreDataStack.h */,
+				FD2BA44518C082EC009AFC9F /* CoreDataStack.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -161,6 +195,7 @@
 		FD2BA43D18C06FC8009AFC9F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FD2BA44E18C085EA009AFC9F /* ContentLibrary.xcdatamodeld */,
 				FD2BA40B18C06F95009AFC9F /* InfoPlist.strings */,
 				FD2BA40A18C06F95009AFC9F /* Les Sexperts-Info.plist */,
 				FD2BA41418C06F95009AFC9F /* Main.storyboard */,
@@ -170,6 +205,43 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		FD2BA45118C086E2009AFC9F /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				FD2BA45C18C086F3009AFC9F /* mogenerator */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		FD2BA45C18C086F3009AFC9F /* mogenerator */ = {
+			isa = PBXGroup;
+			children = (
+				FD2BA45218C086F0009AFC9F /* _Advice.m */,
+				FD2BA45318C086F0009AFC9F /* _Answer.m */,
+				FD2BA45418C086F0009AFC9F /* _Joke.m */,
+				FD2BA45518C086F0009AFC9F /* _Question.m */,
+				FD2BA45618C086F0009AFC9F /* _Theme.m */,
+			);
+			name = mogenerator;
+			sourceTree = "<group>";
+		};
+		FD2BA45D18C086FE009AFC9F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FD2BA45E18C0870F009AFC9F /* Advice.h */,
+				FD2BA45F18C0870F009AFC9F /* Advice.m */,
+				FD2BA46018C0870F009AFC9F /* Answer.h */,
+				FD2BA46118C0870F009AFC9F /* Answer.m */,
+				FD2BA46218C0870F009AFC9F /* Joke.h */,
+				FD2BA46318C0870F009AFC9F /* Joke.m */,
+				FD2BA46418C0870F009AFC9F /* Question.h */,
+				FD2BA46518C0870F009AFC9F /* Question.m */,
+				FD2BA46618C0870F009AFC9F /* Theme.h */,
+				FD2BA46718C0870F009AFC9F /* Theme.m */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,6 +249,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD2BA43418C06F95009AFC9F /* Build configuration list for PBXNativeTarget "Les Sexperts" */;
 			buildPhases = (
+				FD2BA44718C084C8009AFC9F /* ShellScript */,
 				FD2BA3FB18C06F95009AFC9F /* Sources */,
 				FD2BA3FC18C06F95009AFC9F /* Frameworks */,
 				FD2BA3FD18C06F95009AFC9F /* Resources */,
@@ -262,13 +335,41 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FD2BA44718C084C8009AFC9F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mogenerator -m \"ContentLibrary.xcdatamodeld/ContentLibrary.xcdatamodel/\" --template-var arc=true";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FD2BA3FB18C06F95009AFC9F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD2BA46A18C0870F009AFC9F /* Joke.m in Sources */,
+				FD2BA44618C082EC009AFC9F /* CoreDataStack.m in Sources */,
+				FD2BA45718C086F0009AFC9F /* _Advice.m in Sources */,
+				FD2BA46C18C0870F009AFC9F /* Theme.m in Sources */,
+				FD2BA45918C086F0009AFC9F /* _Joke.m in Sources */,
+				FD2BA46818C0870F009AFC9F /* Advice.m in Sources */,
+				FD2BA45A18C086F0009AFC9F /* _Question.m in Sources */,
 				FD2BA41318C06F95009AFC9F /* AppDelegate.m in Sources */,
+				FD2BA45018C085EA009AFC9F /* ContentLibrary.xcdatamodeld in Sources */,
+				FD2BA46918C0870F009AFC9F /* Answer.m in Sources */,
 				FD2BA40F18C06F95009AFC9F /* main.m in Sources */,
+				FD2BA45B18C086F0009AFC9F /* _Theme.m in Sources */,
+				FD2BA46B18C0870F009AFC9F /* Question.m in Sources */,
+				FD2BA45818C086F0009AFC9F /* _Answer.m in Sources */,
 				FD2BA44018C0730F009AFC9F /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +581,7 @@
 				FD2BA43618C06F95009AFC9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FD2BA43718C06F95009AFC9F /* Build configuration list for PBXNativeTarget "Les SexpertsTests" */ = {
 			isa = XCConfigurationList;
@@ -488,8 +590,23 @@
 				FD2BA43918C06F95009AFC9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FD2BA44E18C085EA009AFC9F /* ContentLibrary.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FD2BA44F18C085EA009AFC9F /* ContentLibrary.xcdatamodel */,
+			);
+			currentVersion = FD2BA44F18C085EA009AFC9F /* ContentLibrary.xcdatamodel */;
+			name = ContentLibrary.xcdatamodeld;
+			path = "Les Sexperts/ContentLibrary.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FD2BA3F718C06F94009AFC9F /* Project object */;
 }

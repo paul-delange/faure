@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Advice" representedClassName="Advice" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="theme" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Theme" inverseName="advices" inverseEntity="Theme" syncable="YES"/>
+    </entity>
+    <entity name="Answer" representedClassName="Answer" syncable="YES">
+        <attribute name="isCorrect" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="answers" inverseEntity="Question" syncable="YES"/>
+    </entity>
+    <entity name="Joke" representedClassName="Joke" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Question" representedClassName="Question" syncable="YES">
+        <attribute name="explanation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastDisplayedTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="answers" optional="YES" toMany="YES" minCount="1" deletionRule="Cascade" ordered="YES" destinationEntity="Answer" inverseName="question" inverseEntity="Answer" syncable="YES"/>
+    </entity>
+    <entity name="Theme" representedClassName="Theme" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="advices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Advice" inverseName="theme" inverseEntity="Advice" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Question" positionX="160" positionY="254" width="128" height="103"/>
+        <element name="Answer" positionX="376" positionY="252" width="128" height="88"/>
+        <element name="Advice" positionX="396" positionY="452" width="128" height="88"/>
+        <element name="Theme" positionX="162" positionY="468" width="128" height="73"/>
+        <element name="Joke" positionX="160" positionY="603" width="128" height="58"/>
+    </elements>
+</model>

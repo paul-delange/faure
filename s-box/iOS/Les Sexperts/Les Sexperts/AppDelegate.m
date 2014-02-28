@@ -8,11 +8,21 @@
 
 #import "AppDelegate.h"
 
+#import "CoreDataStack.h"
+
+@interface AppDelegate ()
+
+@property (strong, nonatomic) CoreDataStack* dataStack;
+
+@end
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.dataStack = [CoreDataStack stackWithStoreFilename: @"ContentLibrary"];
+    
     return YES;
 }
 							
