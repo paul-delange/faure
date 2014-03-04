@@ -1,6 +1,5 @@
 #import "Joke.h"
 
-
 @interface Joke ()
 
 // Private interface goes here.
@@ -9,7 +8,5 @@
 
 
 @implementation Joke
-
-// Custom logic goes here.
 
 @end

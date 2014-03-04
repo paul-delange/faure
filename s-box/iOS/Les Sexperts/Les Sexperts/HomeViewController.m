@@ -8,6 +8,8 @@
 
 #import "HomeViewController.h"
 
+#import "Joke.h"
+
 @interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
@@ -17,6 +19,10 @@
 #pragma mark - Actions
 - (IBAction)menuPushed:(id)sender {
 
+}
+
+- (IBAction)unwindGame:(UIStoryboardSegue*)sender {
+    
 }
 
 #pragma mark - UIViewController
@@ -69,14 +75,14 @@
     UITableViewCell* cell = [tableView cellForRowAtIndexPath: indexPath];
     switch (indexPath.row) {
         case 0:
-            
+            [self performSegueWithIdentifier: @"GamePushSegue" sender: cell];
             break;
         case 1:
             [self performSegueWithIdentifier: @"ThemePushSegue" sender: cell];
             break;
             
         case 2:
-            
+            [self performSegueWithIdentifier: @"JokePushSegue" sender: cell];
             break;
         default:
             break;

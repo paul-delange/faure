@@ -42,6 +42,12 @@
 		FD54AB8918C0DFFD0012695C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8718C0DFFD0012695C /* libcrypto.a */; };
 		FD54AB8A18C0DFFD0012695C /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8818C0DFFD0012695C /* libssl.a */; };
 		FD54AB8E18C0E07D0012695C /* ReceiptValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */; };
+		FDCF131E18C4CE5D002F0B1D /* CountDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF131D18C4CE5D002F0B1D /* CountDownViewController.m */; };
+		FDCF132118C4D1CF002F0B1D /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132018C4D1CF002F0B1D /* QuizViewController.m */; };
+		FDCF132718C5B74E002F0B1D /* FinishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132618C5B74E002F0B1D /* FinishedViewController.m */; };
+		FDCF132A18C5B75B002F0B1D /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132918C5B75B002F0B1D /* ResultsViewController.m */; };
+		FDCF132D18C5BB67002F0B1D /* JokeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132C18C5BB67002F0B1D /* JokeViewController.m */; };
+		FDCF133018C5BF4F002F0B1D /* JokePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132F18C5BF4F002F0B1D /* JokePageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +113,18 @@
 		FD54AB8818C0DFFD0012695C /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = OpenSSL/libssl.a; sourceTree = "<group>"; };
 		FD54AB8C18C0E07D0012695C /* ReceiptValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptValidator.h; sourceTree = "<group>"; };
 		FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptValidator.m; sourceTree = "<group>"; };
+		FDCF131C18C4CE5D002F0B1D /* CountDownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDownViewController.h; sourceTree = "<group>"; };
+		FDCF131D18C4CE5D002F0B1D /* CountDownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDownViewController.m; sourceTree = "<group>"; };
+		FDCF131F18C4D1CF002F0B1D /* QuizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizViewController.h; sourceTree = "<group>"; };
+		FDCF132018C4D1CF002F0B1D /* QuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizViewController.m; sourceTree = "<group>"; };
+		FDCF132518C5B74E002F0B1D /* FinishedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishedViewController.h; sourceTree = "<group>"; };
+		FDCF132618C5B74E002F0B1D /* FinishedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishedViewController.m; sourceTree = "<group>"; };
+		FDCF132818C5B75B002F0B1D /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
+		FDCF132918C5B75B002F0B1D /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
+		FDCF132B18C5BB67002F0B1D /* JokeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokeViewController.h; sourceTree = "<group>"; };
+		FDCF132C18C5BB67002F0B1D /* JokeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokeViewController.m; sourceTree = "<group>"; };
+		FDCF132E18C5BF4F002F0B1D /* JokePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokePageViewController.h; sourceTree = "<group>"; };
+		FDCF132F18C5BF4F002F0B1D /* JokePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokePageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +211,7 @@
 		FD2BA43A18C06F9F009AFC9F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FDCF131B18C4CD46002F0B1D /* Game */,
 				FD2BA41118C06F95009AFC9F /* AppDelegate.h */,
 				FD2BA41218C06F95009AFC9F /* AppDelegate.m */,
 				FD2BA43E18C0730F009AFC9F /* HomeViewController.h */,
@@ -203,6 +222,10 @@
 				FD2BA50318C0B994009AFC9F /* AdviceTableViewController.m */,
 				FD2BA50518C0C316009AFC9F /* AdviceViewController.h */,
 				FD2BA50618C0C316009AFC9F /* AdviceViewController.m */,
+				FDCF132B18C5BB67002F0B1D /* JokeViewController.h */,
+				FDCF132C18C5BB67002F0B1D /* JokeViewController.m */,
+				FDCF132E18C5BF4F002F0B1D /* JokePageViewController.h */,
+				FDCF132F18C5BF4F002F0B1D /* JokePageViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -289,6 +312,21 @@
 				FD54AB8818C0DFFD0012695C /* libssl.a */,
 			);
 			name = OpenSSL;
+			sourceTree = "<group>";
+		};
+		FDCF131B18C4CD46002F0B1D /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				FDCF131C18C4CE5D002F0B1D /* CountDownViewController.h */,
+				FDCF131D18C4CE5D002F0B1D /* CountDownViewController.m */,
+				FDCF131F18C4D1CF002F0B1D /* QuizViewController.h */,
+				FDCF132018C4D1CF002F0B1D /* QuizViewController.m */,
+				FDCF132518C5B74E002F0B1D /* FinishedViewController.h */,
+				FDCF132618C5B74E002F0B1D /* FinishedViewController.m */,
+				FDCF132818C5B75B002F0B1D /* ResultsViewController.h */,
+				FDCF132918C5B75B002F0B1D /* ResultsViewController.m */,
+			);
+			name = Game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,20 +448,26 @@
 				FD2BA44618C082EC009AFC9F /* CoreDataStack.m in Sources */,
 				FD2BA4D318C08879009AFC9F /* _Advice.m in Sources */,
 				FD2BA4E618C08885009AFC9F /* Theme.m in Sources */,
+				FDCF132718C5B74E002F0B1D /* FinishedViewController.m in Sources */,
 				FD54AB8E18C0E07D0012695C /* ReceiptValidator.m in Sources */,
 				FD2BA50118C0A696009AFC9F /* ThemeCollectionViewController.m in Sources */,
 				FD2BA4D518C08879009AFC9F /* _Joke.m in Sources */,
 				FD2BA4E218C08885009AFC9F /* Advice.m in Sources */,
 				FD2BA4D618C08879009AFC9F /* _Question.m in Sources */,
+				FDCF132118C4D1CF002F0B1D /* QuizViewController.m in Sources */,
 				FD2BA50718C0C316009AFC9F /* AdviceViewController.m in Sources */,
 				FD2BA41318C06F95009AFC9F /* AppDelegate.m in Sources */,
 				FD2BA45018C085EA009AFC9F /* ContentLibrary.xcdatamodeld in Sources */,
+				FDCF132A18C5B75B002F0B1D /* ResultsViewController.m in Sources */,
 				FD2BA4E318C08885009AFC9F /* Answer.m in Sources */,
+				FDCF133018C5BF4F002F0B1D /* JokePageViewController.m in Sources */,
 				FD2BA40F18C06F95009AFC9F /* main.m in Sources */,
+				FDCF132D18C5BB67002F0B1D /* JokeViewController.m in Sources */,
 				FD2BA4D718C08879009AFC9F /* _Theme.m in Sources */,
 				FD2BA50D18C0CA77009AFC9F /* ThemeCollectionViewCell.m in Sources */,
 				FD2BA4E518C08885009AFC9F /* Question.m in Sources */,
 				FD2BA4D418C08879009AFC9F /* _Answer.m in Sources */,
+				FDCF131E18C4CE5D002F0B1D /* CountDownViewController.m in Sources */,
 				FD2BA50418C0B994009AFC9F /* AdviceTableViewController.m in Sources */,
 				FD2BA50A18C0C3F2009AFC9F /* ContentLock.m in Sources */,
 				FD2BA44018C0730F009AFC9F /* HomeViewController.m in Sources */,

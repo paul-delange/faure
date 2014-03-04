@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 
 #import "CoreDataStack.h"
+#import "Question.h"
+
+#define kUserPreferenceHasShuffledQuestionsKey  @"questions_shuffled"
 
 @interface AppDelegate ()
 
@@ -22,6 +25,14 @@
 {
     // Override point for customization after application launch.
     self.dataStack = [CoreDataStack stackWithStoreFilename: @"ContentLibrary.sqlite"];
+    
+    if( ![[NSUserDefaults standardUserDefaults] boolForKey: kUserPreferenceHasShuffledQuestionsKey] ) {
+        
+        [Question resetHistoryAndShuffle];
+        
+        [[NSUserDefaults standardUserDefaults] setBool: YES forKey: kUserPreferenceHasShuffledQuestionsKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
     return YES;
 }
