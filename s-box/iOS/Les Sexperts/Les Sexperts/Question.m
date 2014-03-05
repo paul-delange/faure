@@ -1,5 +1,6 @@
 #import "Question.h"
 
+#import "Answer.h"
 
 @interface Question ()
 
@@ -49,6 +50,16 @@
     
     NSArray* results = [kMainManagedObjectContext() executeFetchRequest: fetch error: nil];
     return results.lastObject;
+}
+
+- (Answer*) correctAnswer {
+    NSOrderedSet* correct = [self.answers filteredOrderedSetUsingPredicate: [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+        Answer* ans = (Answer*)evaluatedObject;
+        return ans.isCorrectValue;
+    }]];
+    NSParameterAssert([correct count] == 1);
+    
+    return correct.lastObject;
 }
 
 @end
