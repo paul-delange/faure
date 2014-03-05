@@ -39,7 +39,11 @@ NSString * const kContentUnlockProductIdentifier = @"sexpert_unlock";
 }
 
 + (BOOL) tryLock {
+#if TARGET_IPHONE_SIMULATOR
+    return YES;
+#else
     return isUnlockSubscriptionPurchased();
+#endif
 }
 
 #pragma mark - NSObject

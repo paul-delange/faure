@@ -7,7 +7,9 @@
 //
 
 #import "ResultsViewController.h"
+#import "QuestionViewController.h"
 
+#import "ContentLock.h"
 #import "Question.h"
 #import "Answer.h"
 
@@ -37,22 +39,37 @@
     [self.tableView reloadData];
 }
 
+- (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if( [identifier isEqualToString: @"QuestionPushSegue"] ) {
+        return [ContentLock tryLock];
+    }
+    
+    return YES;
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if( [segue.identifier isEqualToString: @"QuestionPushSegue"] ) {
+        UITableViewCell* cell = (UITableViewCell*)sender;
+        NSIndexPath* path = [self.tableView indexPathForCell: cell];
+        Question* question = self.questionsArray[path.row];
+        
+        QuestionViewController* vc = segue.destinationViewController;
+        vc.question = question;
+    }
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.answersArray.count;
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle
-                                                   reuseIdentifier: nil];
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"AnswerCellIdentifier" forIndexPath: indexPath];
     
     Question* question = self.questionsArray[indexPath.row];
     cell.textLabel.text = question.text;
-    cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont preferredFontForTextStyle: UIFontTextStyleHeadline];
     cell.detailTextLabel.font = [UIFont preferredFontForTextStyle: UIFontTextStyleSubheadline];
-    
-    cell.detailTextLabel.numberOfLines = 0;
     
     Answer* answer = self.answersArray[indexPath.row];
     
@@ -112,6 +129,19 @@
     height += (4 * 8 );
     
     return height;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if( [ContentLock tryLock] ) {
+        Question* question = self.questionsArray[indexPath.row];
+        
+    }
+    else {
+        
+    }
+    
+    [tableView deselectRowAtIndexPath: indexPath animated: YES];
 }
 
 @end
