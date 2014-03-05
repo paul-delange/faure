@@ -7,15 +7,24 @@
 //
 
 #import "QuizViewController.h"
+#import "FinishedViewController.h"
 
 #import "Question.h"
+#import "Answer.h"
+
+#import "AppDelegate.h"
+#import "CoreDataStack.h"
 
 @interface QuizViewController () {
     NSTimeInterval          _timeRemaining;
     dispatch_source_t       _timerSource;
 }
 
-@property (strong, nonatomic) Question* currentQuestion;
+@property (strong) IBOutletCollection(UIButton) NSArray* answerButtons;
+
+@property (strong) NSMutableArray* questions;
+@property (strong) NSMutableArray* answers;
+
 @property (weak) IBOutlet UILabel* timerLabel;
 
 @end
@@ -23,18 +32,69 @@
 @implementation QuizViewController
 
 - (void) updateDisplayForQuestion: (Question*) aQuestion {
+    aQuestion.lastDisplayedTime = [NSDate date];
+    
+    //Save!
+    AppDelegate* delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    CoreDataStack* stack = delegate.dataStack;
+    
+    [stack save];
+    
     self.questionLabel.text = aQuestion.text;
+    
+    [self.answerButtons makeObjectsPerformSelector: @selector(removeFromSuperview)];
+    
+    NSMutableArray* answerButtons = [NSMutableArray new];
+    
+    UIButton* previousButton;
+    for(Answer* answer in aQuestion.answers) {
+        UIButton* button = [UIButton buttonWithType: UIButtonTypeCustom];
+        [button setTitle: answer.text forState: UIControlStateNormal];
+        button.translatesAutoresizingMaskIntoConstraints = NO;
+        [button addTarget: self action: @selector(answerPushed:) forControlEvents: UIControlEventTouchUpInside];
+        button.titleLabel.numberOfLines = 0;
+        
+        [self.view addSubview: button];
+        
+        [self.view addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"H:|[button]|"
+                                                                           options: 0
+                                                                           metrics: nil
+                                                                             views: NSDictionaryOfVariableBindings(button)]];
+         
+         if( previousButton) {
+             [self.view addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"V:[previousButton]-[button]"
+                                                                                options: 0
+                                                                                metrics: nil
+                                                                                  views: NSDictionaryOfVariableBindings(previousButton, button)]];
+         }
+         else {
+             [self.view addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"V:[_questionLabel]-(==20)-[button]"
+                                                                                options: 0
+                                                                                metrics: nil
+                                                                                  views: NSDictionaryOfVariableBindings(button, _questionLabel)]];
+         }
+        
+        previousButton = button;
+        
+        button.backgroundColor = [UIColor redColor];
+        [answerButtons addObject: button];
+    }
+    
+    self.answerButtons = [answerButtons copy];
 }
 
-- (void) setCurrentQuestion:(Question *)currentQuestion {
-    NSParameterAssert(currentQuestion != _currentQuestion);
+- (IBAction) answerPushed: (id)sender {
+    NSUInteger index = [self.answerButtons indexOfObject: sender];
+    NSParameterAssert(index != NSNotFound);
     
-    _currentQuestion = currentQuestion;
-    _currentQuestion.lastDisplayedTime = [NSDate date];
+    Question* question = [self.questions lastObject];
+    Answer* answer = [question.answers objectAtIndex: index];
+   
+    [self.answers addObject: answer];
     
-    if( [self isViewLoaded] ) {
-        [self updateDisplayForQuestion: _currentQuestion];
-    }
+    Question* nextQuestion = [Question leastUsedQuestion];
+    [self.questions addObject: nextQuestion];
+    [self updateDisplayForQuestion: nextQuestion];
 }
 
 - (void) timeUp {
@@ -101,13 +161,26 @@
     }
     return self;
 }
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if( [segue.identifier isEqualToString: @"FinishSegue"] ) {
+        FinishedViewController* finishVC = segue.destinationViewController;
+        finishVC.questionsArray = self.questions;
+        finishVC.answersArray = self.answers;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = kAppName();
     
-    self.currentQuestion = [Question leastUsedQuestion];
+    Question* firstQuestion =[Question leastUsedQuestion];
+    self.questions = [NSMutableArray arrayWithObject: firstQuestion];
+    self.answers = [NSMutableArray new];
+    
+    [self updateDisplayForQuestion: firstQuestion];
     
     UILabel* timerLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, 60, 44)];
     timerLabel.textAlignment = NSTextAlignmentRight;

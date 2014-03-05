@@ -9,8 +9,13 @@
 #import "JokePageViewController.h"
 #import "JokeViewController.h"
 
-@interface JokePageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate> {
+#import "Joke.h"
+
+@import MessageUI;
+
+@interface JokePageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, MFMailComposeViewControllerDelegate> {
     NSArray* _jokes;
+    Joke*    _currentJoke;
 }
 
 @end
@@ -19,11 +24,29 @@
 
 #pragma mark - Actions
 - (IBAction) addPushed:(id)sender {
+    MFMailComposeViewController* mailVC = [MFMailComposeViewController new];
+    mailVC.mailComposeDelegate = self;
     
+    NSString* format = NSLocalizedString(@"%@: Joke Submission", @"");
+    [mailVC setSubject: [NSString stringWithFormat: format, kAppName()]];
+    [mailVC setToRecipients: @[@"gilmert.bentley@gmail.com"]];
+    
+    [self presentViewController: mailVC animated: YES completion: NULL];
 }
 
 - (IBAction) sharePushed:(id)sender {
-    
+    if( [_currentJoke.text length] ) {
+        NSString* format = NSLocalizedString(@"'%@'\n\nJoke from %@", @"");
+        NSString* msg = [NSString stringWithFormat: format, _currentJoke.text, kAppName()];
+        
+        UIActivityViewController* activityVC = [[UIActivityViewController alloc] initWithActivityItems: @[msg]
+                                                                                 applicationActivities: nil];
+        activityVC.completionHandler = ^(NSString* activityType, BOOL completed) {
+            
+        };
+        
+        [self presentViewController: activityVC animated: YES completion: NULL];
+    }
 }
 
 #pragma mark - NSObject
@@ -62,10 +85,14 @@
     UIBarButtonItem* shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAction
                                                                                  target: self
                                                                                  action: @selector(sharePushed:)];
-    self.navigationItem.rightBarButtonItems = @[shareButton, addButton];
+    if( [MFMailComposeViewController canSendMail] )
+        self.navigationItem.rightBarButtonItems = @[shareButton, addButton];
+    else
+        self.navigationItem.rightBarButtonItems = @[shareButton];
     
     UIViewController* vc = [self pageViewController: self viewControllerAfterViewController: nil];
     [self setViewControllers: @[vc] direction: UIPageViewControllerNavigationDirectionForward animated: NO completion: NULL];
+    _currentJoke = _jokes[0];
 }
 
 // Custom logic goes here.
@@ -110,6 +137,18 @@
     else {
         return nil;
     }
+}
+
+#pragma mark - UIPageViewControllerDelegate
+- (void) pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray *)pendingViewControllers {
+    NSParameterAssert([pendingViewControllers count] == 1);
+    JokeViewController* jokeVC = [pendingViewControllers lastObject];
+    _currentJoke = jokeVC.joke;
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    [self dismissViewControllerAnimated: YES completion: NULL];
 }
 
 @end

@@ -10,4 +10,7 @@
 
 @interface FinishedViewController : UIViewController
 
+@property (copy) NSArray* questionsArray;
+@property (copy) NSArray* answersArray;
+
 @end

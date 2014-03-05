@@ -215,7 +215,6 @@
                                 <action selector="menuPushed:" destination="c9S-i3-ChY" id="muC-0B-UiS"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="6yf-SH-HX8"/>
                     </navigationItem>
                     <connections>
                         <segue destination="vUj-S6-rtF" kind="push" identifier="ThemePushSegue" id="Ime-i8-kmE"/>
@@ -328,7 +327,19 @@
                     <view key="view" contentMode="scaleToFill" id="b0e-bv-ncx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Benjamin" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="265" translatesAutoresizingMaskIntoConstraints="NO" id="krb-u9-b1g">
+                                <rect key="frame" x="28" y="260" width="265" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="krb-u9-b1g" secondAttribute="centerX" id="6Qp-7L-CpX"/>
+                            <constraint firstAttribute="centerY" secondItem="krb-u9-b1g" secondAttribute="centerY" id="brn-ob-Osa"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9I7-4Q-yfm"/>
                     <connections>
@@ -350,7 +361,20 @@
                     <view key="view" contentMode="scaleToFill" id="4gn-IQ-MqM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oU-UI-hl3">
+                                <rect key="frame" x="20" y="72" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5oU-UI-hl3" firstAttribute="leading" secondItem="4gn-IQ-MqM" secondAttribute="leading" constant="20" symbolic="YES" id="7xu-W2-v08"/>
+                            <constraint firstItem="5oU-UI-hl3" firstAttribute="top" secondItem="Nri-1w-OJ8" secondAttribute="bottom" constant="20" symbolic="YES" id="K2f-oD-0lT"/>
+                            <constraint firstAttribute="trailing" secondItem="5oU-UI-hl3" secondAttribute="trailing" constant="20" symbolic="YES" id="X5z-bO-u2m"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oLm-8j-jtu">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="VFr-zN-bb9">
@@ -359,6 +383,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="totalScoreLabel" destination="5oU-UI-hl3" id="Ndq-lS-xPN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUZ-ce-TRX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

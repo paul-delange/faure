@@ -26,7 +26,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	NSParameterAssert(self.answersArray);
+    
+    NSString* format = NSLocalizedString(@"Scores on %@ Answers", @"");
+    self.totalScoreLabel.text = [NSString stringWithFormat: format, @(self.answersArray.count)];
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -10,4 +10,9 @@
 
 @interface ResultsViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *totalScoreLabel;
+
+@property (copy) NSArray* questionsArray;
+@property (copy) NSArray* answersArray;
+
 @end

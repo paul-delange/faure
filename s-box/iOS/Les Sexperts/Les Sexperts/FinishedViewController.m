@@ -7,6 +7,7 @@
 //
 
 #import "FinishedViewController.h"
+#import "ResultsViewController.h"
 
 @interface FinishedViewController ()
 
@@ -15,6 +16,15 @@
 @implementation FinishedViewController
 
 #pragma mark - UIViewController
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if( [segue.identifier isEqualToString:@"ResultsSegue"] ) {
+        UINavigationController* navController = segue.destinationViewController;
+        ResultsViewController* resultsVC = navController.viewControllers.lastObject;
+        resultsVC.questionsArray = self.questionsArray;
+        resultsVC.answersArray = self.answersArray;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -23,6 +33,8 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear: animated];
+    
+    NSParameterAssert([self.questionsArray count] > [self.answersArray count]);
     
     double delayInSeconds = 3.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));

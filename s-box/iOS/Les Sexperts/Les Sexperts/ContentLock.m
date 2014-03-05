@@ -14,7 +14,7 @@
 
 static const void* kCompletionHandlerAssocationKey = "PurchaseCompletionHandler";
 
-NSString * const kContentUnlockProductIdentifier = @"IDENTIFIER";
+NSString * const kContentUnlockProductIdentifier = @"sexpert_unlock";
 
 @import StoreKit;
 
