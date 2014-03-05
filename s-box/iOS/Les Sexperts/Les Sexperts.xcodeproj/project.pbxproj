@@ -43,6 +43,8 @@
 		FD54AB8A18C0DFFD0012695C /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8818C0DFFD0012695C /* libssl.a */; };
 		FD54AB8E18C0E07D0012695C /* ReceiptValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */; };
 		FDAD91E318C72401009CFC7F /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91E218C72401009CFC7F /* QuestionViewController.m */; };
+		FDAD91E918C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91E818C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m */; };
+		FDAD91EC18C7C893009CFC7F /* ResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91EB18C7C893009CFC7F /* ResultCollectionViewCell.m */; };
 		FDCF131E18C4CE5D002F0B1D /* CountDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF131D18C4CE5D002F0B1D /* CountDownViewController.m */; };
 		FDCF132118C4D1CF002F0B1D /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132018C4D1CF002F0B1D /* QuizViewController.m */; };
 		FDCF132718C5B74E002F0B1D /* FinishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132618C5B74E002F0B1D /* FinishedViewController.m */; };
@@ -116,6 +118,10 @@
 		FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptValidator.m; sourceTree = "<group>"; };
 		FDAD91E118C72401009CFC7F /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		FDAD91E218C72401009CFC7F /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
+		FDAD91E718C7C093009CFC7F /* ResultsCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		FDAD91E818C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		FDAD91EA18C7C893009CFC7F /* ResultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultCollectionViewCell.h; sourceTree = "<group>"; };
+		FDAD91EB18C7C893009CFC7F /* ResultCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultCollectionViewCell.m; sourceTree = "<group>"; };
 		FDCF131C18C4CE5D002F0B1D /* CountDownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDownViewController.h; sourceTree = "<group>"; };
 		FDCF131D18C4CE5D002F0B1D /* CountDownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDownViewController.m; sourceTree = "<group>"; };
 		FDCF131F18C4D1CF002F0B1D /* QuizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizViewController.h; sourceTree = "<group>"; };
@@ -240,6 +246,8 @@
 			children = (
 				FD2BA50B18C0CA77009AFC9F /* ThemeCollectionViewCell.h */,
 				FD2BA50C18C0CA77009AFC9F /* ThemeCollectionViewCell.m */,
+				FDAD91EA18C7C893009CFC7F /* ResultCollectionViewCell.h */,
+				FDAD91EB18C7C893009CFC7F /* ResultCollectionViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -254,6 +262,8 @@
 				FD2BA50918C0C3F2009AFC9F /* ContentLock.m */,
 				FD54AB8C18C0E07D0012695C /* ReceiptValidator.h */,
 				FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */,
+				FDAD91E718C7C093009CFC7F /* ResultsCollectionViewFlowLayout.h */,
+				FDAD91E818C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -466,8 +476,10 @@
 				FDCF132118C4D1CF002F0B1D /* QuizViewController.m in Sources */,
 				FD2BA50718C0C316009AFC9F /* AdviceViewController.m in Sources */,
 				FD2BA41318C06F95009AFC9F /* AppDelegate.m in Sources */,
+				FDAD91E918C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m in Sources */,
 				FD2BA45018C085EA009AFC9F /* ContentLibrary.xcdatamodeld in Sources */,
 				FDCF132A18C5B75B002F0B1D /* ResultsViewController.m in Sources */,
+				FDAD91EC18C7C893009CFC7F /* ResultCollectionViewCell.m in Sources */,
 				FD2BA4E318C08885009AFC9F /* Answer.m in Sources */,
 				FDCF133018C5BF4F002F0B1D /* JokePageViewController.m in Sources */,
 				FD2BA40F18C06F95009AFC9F /* main.m in Sources */,

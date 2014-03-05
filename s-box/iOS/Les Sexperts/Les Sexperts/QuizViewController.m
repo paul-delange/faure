@@ -157,7 +157,7 @@
 - (id) initWithCoder:(NSCoder *)aDecoder {
     self =[super initWithCoder: aDecoder];
     if( self ) {
-        _timeRemaining = 15.;
+        _timeRemaining = 11.;
     }
     return self;
 }

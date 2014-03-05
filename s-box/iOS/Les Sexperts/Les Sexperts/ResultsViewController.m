@@ -13,7 +13,13 @@
 #import "Question.h"
 #import "Answer.h"
 
-@interface ResultsViewController () <UITableViewDataSource, UITableViewDelegate>
+#import "ResultCollectionViewCell.h"
+
+#import "ResultsCollectionViewFlowLayout.h"
+
+@interface ResultsViewController () /*<UITableViewDataSource, UITableViewDelegate> */ <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource> {
+    NSInteger       _currentAnimatedCell;
+}
 
 @end
 
@@ -39,6 +45,32 @@
     [self.tableView reloadData];
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear: animated];
+    
+    dispatch_source_t sourceTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+    dispatch_source_set_timer(sourceTimer, dispatch_time(DISPATCH_TIME_NOW, 0), 1 * NSEC_PER_SEC, 0);
+    dispatch_source_set_event_handler(sourceTimer, ^{
+        
+        if( _currentAnimatedCell < [self collectionView: nil numberOfItemsInSection: 0] ) {
+            NSIndexPath* indexPath = [NSIndexPath indexPathForRow: _currentAnimatedCell inSection: 0];
+            ResultsCollectionViewFlowLayout* layout = (ResultsCollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
+            
+            [layout setPosition: kResultCollectionViewCellPositionCenter atIndexPath: indexPath animated: YES];
+           
+            [self.collectionView scrollToItemAtIndexPath: indexPath atScrollPosition: UICollectionViewScrollPositionTop animated: YES];
+            
+            _currentAnimatedCell++;
+        }
+        else {
+            self.tableView.scrollEnabled = YES;
+            dispatch_source_cancel(sourceTimer);
+        }
+    });
+    
+    dispatch_resume(sourceTimer);
+}
+
 - (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if( [identifier isEqualToString: @"QuestionPushSegue"] ) {
         return [ContentLock tryLock];
@@ -58,13 +90,13 @@
     }
 }
 
-#pragma mark - UITableViewDataSource
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#pragma mark - UICollectionViewDataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.answersArray.count;
 }
 
-- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"AnswerCellIdentifier" forIndexPath: indexPath];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    ResultCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier: @"ResultsCellIdentifier" forIndexPath: indexPath];
     
     Question* question = self.questionsArray[indexPath.row];
     cell.textLabel.text = question.text;
@@ -93,12 +125,13 @@
         
         cell.detailTextLabel.attributedText = detailString;
     }
+
     
     return cell;
 }
 
-#pragma mark - UITableViewDelegate
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+#pragma mark - UICollectionViewFlowLayoutDelegate
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     Question* question = self.questionsArray[indexPath.row];
     Answer* answer = self.answersArray[indexPath.row];
     Answer* correctAnswer = [question correctAnswer];
@@ -106,17 +139,17 @@
     NSDictionary* questionAttributes = @{ NSFontAttributeName : [UIFont preferredFontForTextStyle: UIFontTextStyleHeadline] };
     NSDictionary* answerAttribute = @{ NSFontAttributeName : [UIFont preferredFontForTextStyle: UIFontTextStyleSubheadline] };
     
-    CGRect questionSize = [question.text boundingRectWithSize: CGSizeMake(CGRectGetWidth(tableView.bounds),  MAXFLOAT)
+    CGRect questionSize = [question.text boundingRectWithSize: CGSizeMake(CGRectGetWidth(collectionView.bounds),  MAXFLOAT)
                                                       options: NSStringDrawingUsesLineFragmentOrigin
                                                    attributes: questionAttributes
                                                       context: nil];
     
-    CGRect answerSize = [answer.text boundingRectWithSize: CGSizeMake(CGRectGetWidth(tableView.bounds),  MAXFLOAT)
+    CGRect answerSize = [answer.text boundingRectWithSize: CGSizeMake(CGRectGetWidth(collectionView.bounds),  MAXFLOAT)
                                                   options: NSStringDrawingUsesLineFragmentOrigin
                                                attributes: answerAttribute
                                                   context: nil];
     
-    CGRect correctAnswerSize = [correctAnswer.text boundingRectWithSize: CGSizeMake(CGRectGetWidth(tableView.bounds),  MAXFLOAT)
+    CGRect correctAnswerSize = [correctAnswer.text boundingRectWithSize: CGSizeMake(CGRectGetWidth(collectionView.bounds),  MAXFLOAT)
                                                                 options: NSStringDrawingUsesLineFragmentOrigin
                                                              attributes: answerAttribute
                                                                 context: nil];
@@ -128,20 +161,7 @@
     
     height += (4 * 8 );
     
-    return height;
-}
-
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if( [ContentLock tryLock] ) {
-        Question* question = self.questionsArray[indexPath.row];
-        
-    }
-    else {
-        
-    }
-    
-    [tableView deselectRowAtIndexPath: indexPath animated: YES];
+    return CGSizeMake(CGRectGetWidth(collectionView.bounds), height);
 }
 
 @end
