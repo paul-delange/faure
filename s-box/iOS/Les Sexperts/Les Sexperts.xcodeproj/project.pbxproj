@@ -45,6 +45,7 @@
 		FDAD91E318C72401009CFC7F /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91E218C72401009CFC7F /* QuestionViewController.m */; };
 		FDAD91E918C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91E818C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m */; };
 		FDAD91EC18C7C893009CFC7F /* ResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91EB18C7C893009CFC7F /* ResultCollectionViewCell.m */; };
+		FDAD91EF18C86CAF009CFC7F /* ResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91EE18C86CAF009CFC7F /* ResumeViewController.m */; };
 		FDCF131E18C4CE5D002F0B1D /* CountDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF131D18C4CE5D002F0B1D /* CountDownViewController.m */; };
 		FDCF132118C4D1CF002F0B1D /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132018C4D1CF002F0B1D /* QuizViewController.m */; };
 		FDCF132718C5B74E002F0B1D /* FinishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132618C5B74E002F0B1D /* FinishedViewController.m */; };
@@ -122,6 +123,8 @@
 		FDAD91E818C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		FDAD91EA18C7C893009CFC7F /* ResultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultCollectionViewCell.h; sourceTree = "<group>"; };
 		FDAD91EB18C7C893009CFC7F /* ResultCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultCollectionViewCell.m; sourceTree = "<group>"; };
+		FDAD91ED18C86CAF009CFC7F /* ResumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResumeViewController.h; sourceTree = "<group>"; };
+		FDAD91EE18C86CAF009CFC7F /* ResumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResumeViewController.m; sourceTree = "<group>"; };
 		FDCF131C18C4CE5D002F0B1D /* CountDownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDownViewController.h; sourceTree = "<group>"; };
 		FDCF131D18C4CE5D002F0B1D /* CountDownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDownViewController.m; sourceTree = "<group>"; };
 		FDCF131F18C4D1CF002F0B1D /* QuizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizViewController.h; sourceTree = "<group>"; };
@@ -237,6 +240,8 @@
 				FDCF132F18C5BF4F002F0B1D /* JokePageViewController.m */,
 				FDAD91E118C72401009CFC7F /* QuestionViewController.h */,
 				FDAD91E218C72401009CFC7F /* QuestionViewController.m */,
+				FDAD91ED18C86CAF009CFC7F /* ResumeViewController.h */,
+				FDAD91EE18C86CAF009CFC7F /* ResumeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -468,6 +473,7 @@
 				FD2BA4E618C08885009AFC9F /* Theme.m in Sources */,
 				FDCF132718C5B74E002F0B1D /* FinishedViewController.m in Sources */,
 				FD54AB8E18C0E07D0012695C /* ReceiptValidator.m in Sources */,
+				FDAD91EF18C86CAF009CFC7F /* ResumeViewController.m in Sources */,
 				FD2BA50118C0A696009AFC9F /* ThemeCollectionViewController.m in Sources */,
 				FD2BA4D518C08879009AFC9F /* _Joke.m in Sources */,
 				FD2BA4E218C08885009AFC9F /* Advice.m in Sources */,

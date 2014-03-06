@@ -436,7 +436,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="tCu-WA-nz1" kind="unwind" unwindAction="unwindGame:" id="IbA-iF-hVS"/>
+                                    <segue destination="tCu-WA-nz1" kind="unwind" identifier="UnwindGameSegue" unwindAction="unwindGame:" id="IbA-iF-hVS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -447,6 +447,7 @@
                         <outlet property="collectionView" destination="Pva-Ak-jYV" id="gZo-l6-zVp"/>
                         <outlet property="continueButton" destination="4El-V2-rHn" id="ckp-sY-C3u"/>
                         <outlet property="totalScoreLabel" destination="5oU-UI-hl3" id="Ndq-lS-xPN"/>
+                        <segue destination="9yE-SV-9Q1" kind="modal" identifier="ResumeModalSegue" modalTransitionStyle="crossDissolve" id="AIG-D7-feZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUZ-ce-TRX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -500,7 +501,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pS6-7g-1pq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5264" y="-291"/>
+            <point key="canvasLocation" x="5458" y="-291"/>
+        </scene>
+        <!--Resume View Controller-->
+        <scene sceneID="RvF-FI-Xg1">
+            <objects>
+                <viewController id="HjO-e6-Fmo" customClass="ResumeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sa6-wi-34f"/>
+                        <viewControllerLayoutGuide type="bottom" id="pdG-aj-HeO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5ck-8S-E2a">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAO-bP-uQC">
+                                <rect key="frame" x="20" y="530" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="tCu-WA-nz1" kind="unwind" unwindAction="unwindGame:" id="ENm-bg-zOZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DaG-OH-X6c">
+                                <rect key="frame" x="20" y="376" width="280" height="146"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sharePushed:" destination="HjO-e6-Fmo" eventType="touchUpInside" id="pbH-sZ-uXO"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="USB-rV-aG5">
+                                <rect key="frame" x="20" y="64" width="280" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="XPX-SH-5eE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="rDD-qu-Qji">
+                                <rect key="frame" x="20" y="322" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhW-er-vZO">
+                                <rect key="frame" x="20" y="351" width="280" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="USB-rV-aG5" firstAttribute="leading" secondItem="5ck-8S-E2a" secondAttribute="leading" constant="20" symbolic="YES" id="2N1-U0-K4T"/>
+                            <constraint firstItem="rDD-qu-Qji" firstAttribute="top" secondItem="USB-rV-aG5" secondAttribute="bottom" constant="8" symbolic="YES" id="2kO-rA-Ni6"/>
+                            <constraint firstItem="FhW-er-vZO" firstAttribute="leading" secondItem="5ck-8S-E2a" secondAttribute="leading" constant="20" symbolic="YES" id="2l7-V5-eXC"/>
+                            <constraint firstItem="DaG-OH-X6c" firstAttribute="leading" secondItem="5ck-8S-E2a" secondAttribute="leading" constant="20" symbolic="YES" id="9Hc-OH-xsG"/>
+                            <constraint firstItem="xAO-bP-uQC" firstAttribute="top" secondItem="DaG-OH-X6c" secondAttribute="bottom" constant="8" symbolic="YES" id="A29-xC-QmS"/>
+                            <constraint firstItem="pdG-aj-HeO" firstAttribute="top" secondItem="xAO-bP-uQC" secondAttribute="bottom" constant="20" symbolic="YES" id="D4q-9n-r6e"/>
+                            <constraint firstItem="rDD-qu-Qji" firstAttribute="leading" secondItem="5ck-8S-E2a" secondAttribute="leading" constant="20" symbolic="YES" id="Gbv-Vp-YXl"/>
+                            <constraint firstItem="DaG-OH-X6c" firstAttribute="top" secondItem="FhW-er-vZO" secondAttribute="bottom" constant="8" symbolic="YES" id="Ieb-Tm-YLk"/>
+                            <constraint firstItem="DaG-OH-X6c" firstAttribute="top" secondItem="FhW-er-vZO" secondAttribute="bottom" constant="8" symbolic="YES" id="Kb1-v1-VyE"/>
+                            <constraint firstItem="xAO-bP-uQC" firstAttribute="top" secondItem="DaG-OH-X6c" secondAttribute="bottom" constant="8" symbolic="YES" id="N9q-LM-Bex"/>
+                            <constraint firstItem="DaG-OH-X6c" firstAttribute="top" secondItem="rDD-qu-Qji" secondAttribute="bottom" constant="8" symbolic="YES" id="TCs-z2-5Jl"/>
+                            <constraint firstAttribute="trailing" secondItem="FhW-er-vZO" secondAttribute="trailing" constant="20" symbolic="YES" id="YBi-ea-rrC"/>
+                            <constraint firstItem="xAO-bP-uQC" firstAttribute="leading" secondItem="5ck-8S-E2a" secondAttribute="leading" constant="20" symbolic="YES" id="Zpa-iC-Gbb"/>
+                            <constraint firstAttribute="trailing" secondItem="xAO-bP-uQC" secondAttribute="trailing" constant="20" symbolic="YES" id="cjJ-os-gXi"/>
+                            <constraint firstItem="USB-rV-aG5" firstAttribute="top" secondItem="Sa6-wi-34f" secondAttribute="bottom" id="eJy-zT-D3Y"/>
+                            <constraint firstAttribute="trailing" secondItem="DaG-OH-X6c" secondAttribute="trailing" constant="20" symbolic="YES" id="h0x-fK-pYN"/>
+                            <constraint firstItem="FhW-er-vZO" firstAttribute="top" secondItem="rDD-qu-Qji" secondAttribute="bottom" constant="8" symbolic="YES" id="pj2-bX-db1"/>
+                            <constraint firstAttribute="trailing" secondItem="rDD-qu-Qji" secondAttribute="trailing" constant="20" symbolic="YES" id="q9m-eL-IEm"/>
+                            <constraint firstAttribute="trailing" secondItem="USB-rV-aG5" secondAttribute="trailing" constant="20" symbolic="YES" id="xfV-Yt-Ux4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="n12-m9-qmk"/>
+                    <connections>
+                        <outlet property="continueButton" destination="xAO-bP-uQC" id="IPa-dE-rwt"/>
+                        <outlet property="detailTextLabel" destination="FhW-er-vZO" id="Yde-Id-qk7"/>
+                        <outlet property="imageView" destination="USB-rV-aG5" id="xbH-f1-fNE"/>
+                        <outlet property="shareButton" destination="DaG-OH-X6c" id="kSr-ch-oy7"/>
+                        <outlet property="textLabel" destination="rDD-qu-Qji" id="gCS-DQ-7Lj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lvM-fn-mwc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5984" y="470"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rZU-9R-dwL">
@@ -627,6 +716,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QGN-uH-9ro" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4409" y="-291"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HFj-OD-vBP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9yE-SV-9Q1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uai-Gk-wEq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HjO-e6-Fmo" kind="relationship" relationship="rootViewController" id="X1D-r5-g7Y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ce7-KU-YCg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5458" y="470"/>
         </scene>
     </scenes>
     <resources>

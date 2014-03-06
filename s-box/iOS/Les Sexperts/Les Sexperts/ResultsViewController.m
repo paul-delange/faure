@@ -8,6 +8,7 @@
 
 #import "ResultsViewController.h"
 #import "QuestionViewController.h"
+#import "ResumeViewController.h"
 
 #import "ContentLock.h"
 #import "Question.h"
@@ -58,7 +59,7 @@
             
             [layout setPosition: kResultCollectionViewCellPositionCenter atIndexPath: indexPath animated: YES];
            
-            [self.collectionView scrollToItemAtIndexPath: indexPath atScrollPosition: UICollectionViewScrollPositionTop animated: YES];
+            [self.collectionView scrollToItemAtIndexPath: indexPath atScrollPosition: UICollectionViewScrollPositionCenteredVertically animated: YES];
             
             _currentAnimatedCell++;
         }
@@ -75,6 +76,16 @@
     if( [identifier isEqualToString: @"QuestionPushSegue"] ) {
         return [ContentLock tryLock];
     }
+    else if( [identifier isEqualToString: @"UnwindGameSegue"] ) {
+        NSUInteger score = [self totalCorrect];
+        BOOL needsResume = ![ResumeViewController hasDisplayedForScore: score];
+        
+        if( needsResume ) {
+            [self performSegueWithIdentifier: @"ResumeModalSegue" sender: sender];
+        }
+        
+        return !needsResume;
+    }
     
     return YES;
 }
@@ -87,6 +98,11 @@
         
         QuestionViewController* vc = segue.destinationViewController;
         vc.question = question;
+    }
+    else if( [segue.identifier isEqualToString: @"ResumeModalSegue"] ) {
+        UINavigationController* navController = segue.destinationViewController;
+        ResumeViewController* resume = navController.viewControllers.lastObject;
+        resume.score = [self totalCorrect];
     }
 }
 

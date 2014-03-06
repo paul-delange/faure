@@ -127,8 +127,37 @@
 - (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if( [identifier isEqualToString: @"AdvicePushSegue"] ) {
         NSIndexPath* indexPath = [self.tableView indexPathForCell: sender];
-        if( indexPath.row )
-            return [ContentLock tryLock];
+        if( indexPath.row ) {
+            BOOL available = [ContentLock tryLock];
+            
+            if( !available ) {
+                BOOL tryingToUnlock = [ContentLock unlockWithCompletion: ^(NSError *error) {
+                    if( error ) {
+                        DLogError(error);
+                    }
+                    else {
+                        NSParameterAssert([ContentLock tryLock]);
+                        
+                        [self performSegueWithIdentifier: identifier sender: sender];
+                        
+                        [self.tableView reloadData];
+                    }
+                }];
+                
+                if( !tryingToUnlock ) {
+                    NSString* title = NSLocalizedString(@"Purchases disabled", @"");
+                    NSString* msg = NSLocalizedString(@"You must enable In-App Purchases in your device Settings app (General > Restrictions > In-App Purchases)", @"");
+                    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
+                                                                    message: msg
+                                                                   delegate: nil
+                                                          cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                                          otherButtonTitles: nil];
+                    [alert show];
+                }
+            }
+            
+            return available;
+        }
     }
     
     return YES;

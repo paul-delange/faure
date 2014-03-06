@@ -22,7 +22,7 @@
     self.positionsArray = mutable;
     
     if( animated ) {
-        self.collectionView.viewForBaselineLayout.layer.speed = 0.1;
+        self.collectionView.viewForBaselineLayout.layer.speed = 0.25;
         
         [self.collectionView performBatchUpdates:^{
             [self invalidateLayout];
