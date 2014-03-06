@@ -43,6 +43,10 @@
     self.totalScoreLabel.text = [NSString stringWithFormat: format, @([self totalCorrect])];
     
     
+    self.continueButton.enabled = NO;
+    self.collectionView.scrollEnabled = NO;
+    [self.continueButton setTitle: NSLocalizedString(@"Continue", @"") forState: UIControlStateNormal];
+    
     [self.tableView reloadData];
 }
 
@@ -64,6 +68,7 @@
             _currentAnimatedCell++;
         }
         else {
+            self.continueButton.enabled = YES;
             self.tableView.scrollEnabled = YES;
             dispatch_source_cancel(sourceTimer);
         }
