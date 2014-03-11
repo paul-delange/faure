@@ -42,6 +42,12 @@
 		FD54AB8918C0DFFD0012695C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8718C0DFFD0012695C /* libcrypto.a */; };
 		FD54AB8A18C0DFFD0012695C /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8818C0DFFD0012695C /* libssl.a */; };
 		FD54AB8E18C0E07D0012695C /* ReceiptValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */; };
+		FD8524D918CEF056005E6A3F /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524D818CEF056005E6A3F /* AdColony.framework */; };
+		FD8524DB18CEF2D1005E6A3F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524DA18CEF2D1005E6A3F /* CoreMedia.framework */; };
+		FD8524DD18CEF2E1005E6A3F /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524DC18CEF2E1005E6A3F /* EventKit.framework */; };
+		FD8524DF18CEF2EA005E6A3F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524DE18CEF2EA005E6A3F /* MediaPlayer.framework */; };
+		FD8524E118CEF2FB005E6A3F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524E018CEF2FB005E6A3F /* Social.framework */; };
+		FD8524E318CEF305005E6A3F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524E218CEF305005E6A3F /* libz.dylib */; };
 		FDAD91E318C72401009CFC7F /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91E218C72401009CFC7F /* QuestionViewController.m */; };
 		FDAD91E918C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91E818C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m */; };
 		FDAD91EC18C7C893009CFC7F /* ResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91EB18C7C893009CFC7F /* ResultCollectionViewCell.m */; };
@@ -124,6 +130,12 @@
 		FD54AB8818C0DFFD0012695C /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = OpenSSL/libssl.a; sourceTree = "<group>"; };
 		FD54AB8C18C0E07D0012695C /* ReceiptValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptValidator.h; sourceTree = "<group>"; };
 		FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptValidator.m; sourceTree = "<group>"; };
+		FD8524D818CEF056005E6A3F /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdColony.framework; path = AdColony/AdColony.framework; sourceTree = "<group>"; };
+		FD8524DA18CEF2D1005E6A3F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		FD8524DC18CEF2E1005E6A3F /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		FD8524DE18CEF2EA005E6A3F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		FD8524E018CEF2FB005E6A3F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		FD8524E218CEF305005E6A3F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		FDAD91E118C72401009CFC7F /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		FDAD91E218C72401009CFC7F /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		FDAD91E718C7C093009CFC7F /* ResultsCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsCollectionViewFlowLayout.h; sourceTree = "<group>"; };
@@ -170,6 +182,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD8524E318CEF305005E6A3F /* libz.dylib in Frameworks */,
+				FD8524E118CEF2FB005E6A3F /* Social.framework in Frameworks */,
+				FD8524DF18CEF2EA005E6A3F /* MediaPlayer.framework in Frameworks */,
+				FD8524DD18CEF2E1005E6A3F /* EventKit.framework in Frameworks */,
+				FD8524DB18CEF2D1005E6A3F /* CoreMedia.framework in Frameworks */,
 				FDF2113118C8D8FE00C8621F /* SystemConfiguration.framework in Frameworks */,
 				FDF2112B18C8D8C300C8621F /* CoreTelephony.framework in Frameworks */,
 				FDF2112918C8D8B900C8621F /* AdSupport.framework in Frameworks */,
@@ -177,6 +194,7 @@
 				FDF2112518C8D89E00C8621F /* AVFoundation.framework in Frameworks */,
 				FD54AB8A18C0DFFD0012695C /* libssl.a in Frameworks */,
 				FD2BA40518C06F95009AFC9F /* CoreGraphics.framework in Frameworks */,
+				FD8524D918CEF056005E6A3F /* AdColony.framework in Frameworks */,
 				FD2BA40718C06F95009AFC9F /* UIKit.framework in Frameworks */,
 				FD54AB8918C0DFFD0012695C /* libcrypto.a in Frameworks */,
 				FD2BA40318C06F95009AFC9F /* Foundation.framework in Frameworks */,
@@ -221,6 +239,11 @@
 		FD2BA40118C06F95009AFC9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD8524E218CEF305005E6A3F /* libz.dylib */,
+				FD8524E018CEF2FB005E6A3F /* Social.framework */,
+				FD8524DE18CEF2EA005E6A3F /* MediaPlayer.framework */,
+				FD8524DC18CEF2E1005E6A3F /* EventKit.framework */,
+				FD8524DA18CEF2D1005E6A3F /* CoreMedia.framework */,
 				FDF2113018C8D8FE00C8621F /* SystemConfiguration.framework */,
 				FDF2112E18C8D8E200C8621F /* MobileCoreServices.framework */,
 				FDF2112C18C8D8D100C8621F /* CFNetwork.framework */,
@@ -323,6 +346,7 @@
 		FD2BA45118C086E2009AFC9F /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FD8524D818CEF056005E6A3F /* AdColony.framework */,
 				FDF2112118C8D71000C8621F /* Admob */,
 				FD54AB8B18C0E0070012695C /* OpenSSL */,
 				FD2BA45C18C086F3009AFC9F /* mogenerator */,
@@ -704,6 +728,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/pauldelange/Documents/faure/s-box/iOS/Les\\ Sexperts/AdColony",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Les Sexperts/Les Sexperts-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -732,6 +760,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Gilmert Bentley (SHLVY923BZ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Gilmert Bentley (SHLVY923BZ)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/pauldelange/Documents/faure/s-box/iOS/Les\\ Sexperts/AdColony",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Les Sexperts/Les Sexperts-Prefix.pch";
 				HEADER_SEARCH_PATHS = (

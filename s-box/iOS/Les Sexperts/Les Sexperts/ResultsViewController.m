@@ -18,7 +18,7 @@
 
 #import "ResultsCollectionViewFlowLayout.h"
 
-@interface ResultsViewController () /*<UITableViewDataSource, UITableViewDelegate> */ <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource> {
+@interface ResultsViewController () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource> {
     NSInteger       _currentAnimatedCell;
 }
 
