@@ -14,9 +14,11 @@
 
 #import "ContentLock.h"
 
+#import <AdColony/AdColony.h>
+
 #define     kUserDefaultsGenderPreferenceKey        @"GenderPreference"
 
-@interface AdviceTableViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
+@interface AdviceTableViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, AdColonyAdDelegate>
 
 @property (strong) NSFetchedResultsController* resultsController;
 
@@ -131,6 +133,13 @@
             BOOL available = [ContentLock tryLock];
             
             if( !available ) {
+                //TODO: Ask User if they want to purchase or watch a video
+                [AdColony playVideoAdForZone: @"vzd5640bc5e87746d083"
+                                withDelegate: self
+                            withV4VCPrePopup: YES
+                            andV4VCPostPopup: YES];
+                
+                /*
                 BOOL tryingToUnlock = [ContentLock unlockWithCompletion: ^(NSError *error) {
                     if( error ) {
                         DLogError(error);
@@ -153,7 +162,7 @@
                                                           cancelButtonTitle: NSLocalizedString(@"OK", @"")
                                                           otherButtonTitles: nil];
                     [alert show];
-                }
+                } */
             }
             
             return available;
@@ -183,6 +192,15 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     id<NSFetchedResultsSectionInfo> info = [self.resultsController.sections objectAtIndex: section];
     return [info numberOfObjects];
+}
+
+#pragma mark - AdColonyAdDelegate
+- ( void ) onAdColonyAdStartedInZone:( NSString * )zoneID {
+    
+}
+
+- ( void ) onAdColonyAdAttemptFinished:(BOOL)shown inZone:( NSString * )zoneID {
+    
 }
 
 @end

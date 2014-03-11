@@ -11,6 +11,8 @@
 
 #import "Joke.h"
 
+#import <AdColony/AdColony.h>
+
 @import MessageUI;
 
 @interface JokePageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, MFMailComposeViewControllerDelegate> {
@@ -103,6 +105,9 @@
     JokeViewController* previousVC = (JokeViewController*)viewController;
     
     Joke* previousJoke = previousVC.joke;
+    
+    //TODO: Maybe need to watch video:
+    // ZoneID: vz51c5cf827bd54c548a
     
     if( previousJoke ) {
         NSUInteger index = [_jokes indexOfObject: previousJoke];
