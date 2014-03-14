@@ -9,6 +9,7 @@
 #import "ResultsViewController.h"
 #import "QuestionViewController.h"
 #import "ResumeViewController.h"
+#import "MZFormSheetController.h"
 
 #import "ContentLock.h"
 #import "Question.h"
@@ -62,7 +63,7 @@
             ResultsCollectionViewFlowLayout* layout = (ResultsCollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
             
             [layout setPosition: kResultCollectionViewCellPositionCenter atIndexPath: indexPath animated: YES];
-           
+            
             [self.collectionView scrollToItemAtIndexPath: indexPath atScrollPosition: UICollectionViewScrollPositionCenteredVertically animated: YES];
             
             _currentAnimatedCell++;
@@ -71,6 +72,24 @@
             self.continueButton.enabled = YES;
             self.tableView.scrollEnabled = YES;
             dispatch_source_cancel(sourceTimer);
+            
+            NSUInteger score = [self totalCorrect];
+            BOOL needsResume = ![ResumeViewController hasDisplayedForScore: score];
+            
+            if( needsResume ) {
+                ResumeViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier: @"ResumeViewController"];
+                vc.score = score;
+                
+                MZFormSheetController* formSheet = [[MZFormSheetController alloc] initWithViewController: vc];
+                formSheet.transitionStyle = MZFormSheetTransitionStyleFade;
+                formSheet.presentedFormSheetSize = CGSizeMake(300., 360.);
+                formSheet.didTapOnBackgroundViewCompletionHandler = ^(CGPoint location) {
+                    [self mz_dismissFormSheetControllerAnimated: YES completionHandler: NULL];
+                };
+                [self mz_presentFormSheetController: formSheet
+                                           animated: YES
+                                  completionHandler: NULL];
+            }
         }
     });
     
@@ -80,16 +99,6 @@
 - (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if( [identifier isEqualToString: @"QuestionPushSegue"] ) {
         return [ContentLock tryLock];
-    }
-    else if( [identifier isEqualToString: @"UnwindGameSegue"] ) {
-        NSUInteger score = [self totalCorrect];
-        BOOL needsResume = ![ResumeViewController hasDisplayedForScore: score];
-        
-        if( needsResume ) {
-            [self performSegueWithIdentifier: @"ResumeModalSegue" sender: sender];
-        }
-        
-        return !needsResume;
     }
     
     return YES;
@@ -103,11 +112,6 @@
         
         QuestionViewController* vc = segue.destinationViewController;
         vc.question = question;
-    }
-    else if( [segue.identifier isEqualToString: @"ResumeModalSegue"] ) {
-        UINavigationController* navController = segue.destinationViewController;
-        ResumeViewController* resume = navController.viewControllers.lastObject;
-        resume.score = [self totalCorrect];
     }
 }
 
@@ -146,7 +150,7 @@
         
         cell.detailTextLabel.attributedText = detailString;
     }
-
+    
     
     return cell;
 }

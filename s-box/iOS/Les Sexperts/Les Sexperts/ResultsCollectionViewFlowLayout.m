@@ -21,13 +21,15 @@
     [mutable replaceObjectAtIndex: indexPath.row withObject: @(position)];
     self.positionsArray = mutable;
     
+    NSLog(@"Set %lu for index: %ld", position, (long)indexPath.item);
+    
     if( animated ) {
-        self.collectionView.viewForBaselineLayout.layer.speed = 0.25;
+        self.collectionView.viewForBaselineLayout.layer.speed = 0.5;
         
         [self.collectionView performBatchUpdates:^{
             [self invalidateLayout];
         } completion:^(BOOL finished) {
-            
+            NSLog(@"Complete: %@", [self.collectionView cellForItemAtIndexPath: indexPath]);
         }];
     }
     else {
@@ -67,7 +69,28 @@
         }
     }
     
+    //NSLog(@"%@ Attributes: %@", NSStringFromCGRect(rect), attributes);
     return attributes;
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewLayoutAttributes* attrib = [super layoutAttributesForItemAtIndexPath: indexPath];
+    kResultCollectionViewCellPosition position = [self.positionsArray[indexPath.row] unsignedIntegerValue];
+    
+    switch (position) {
+        case kResultCollectionViewCellPositionCenter:
+            attrib.transform = CGAffineTransformIdentity;
+            attrib.alpha = 1;
+            break;
+        case kResultCollectionViewCellPositionRight:
+            attrib.transform = CGAffineTransformMakeTranslation(CGRectGetWidth(self.collectionView.bounds)/2.f, 0);
+            attrib.alpha = 0;
+            break;
+        default:
+            break;
+    }
+    
+    return attrib;
 }
 
 @end

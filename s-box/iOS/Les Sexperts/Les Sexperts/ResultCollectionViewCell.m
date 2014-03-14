@@ -10,5 +10,10 @@
 
 @implementation ResultCollectionViewCell
 
+- (void) prepareForReuse {
+    [super prepareForReuse];
+    
+    NSLog(@"Prepare: %@", self);
+}
 
 @end
