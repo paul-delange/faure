@@ -266,7 +266,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4Zz-WA-uwc">
-                        <barButtonItem key="leftBarButtonItem" image="reveal_menu_icon" style="plain" id="IJU-Xi-Qlo">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="action" id="IJU-Xi-Qlo">
                             <connections>
                                 <action selector="menuPushed:" destination="c9S-i3-ChY" id="muC-0B-UiS"/>
                             </connections>
@@ -892,7 +892,6 @@
     </scenes>
     <resources>
         <image name="conseil" width="24" height="24"/>
-        <image name="reveal_menu_icon" width="25" height="19"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

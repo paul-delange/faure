@@ -17,6 +17,7 @@
 		FD1D861C18D332BF00F333A6 /* MZAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D861918D332BF00F333A6 /* MZAppearance.m */; };
 		FD1D861D18D332BF00F333A6 /* NSInvocation+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D861B18D332BF00F333A6 /* NSInvocation+Copy.m */; };
 		FD1D862018D3340D00F333A6 /* UnlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D861F18D3340D00F333A6 /* UnlockViewController.m */; };
+		FD1D862518D4308900F333A6 /* IBActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D862418D4308900F333A6 /* IBActionSheet.m */; };
 		FD2BA40318C06F95009AFC9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40218C06F95009AFC9F /* Foundation.framework */; };
 		FD2BA40518C06F95009AFC9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40418C06F95009AFC9F /* CoreGraphics.framework */; };
 		FD2BA40718C06F95009AFC9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40618C06F95009AFC9F /* UIKit.framework */; };
@@ -108,6 +109,8 @@
 		FD1D861B18D332BF00F333A6 /* NSInvocation+Copy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSInvocation+Copy.m"; path = "MZFormSheetController/NSInvocation+Copy.m"; sourceTree = "<group>"; };
 		FD1D861E18D3340D00F333A6 /* UnlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnlockViewController.h; sourceTree = "<group>"; };
 		FD1D861F18D3340D00F333A6 /* UnlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnlockViewController.m; sourceTree = "<group>"; };
+		FD1D862318D4308900F333A6 /* IBActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBActionSheet.h; sourceTree = "<group>"; };
+		FD1D862418D4308900F333A6 /* IBActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBActionSheet.m; sourceTree = "<group>"; };
 		FD2BA3FF18C06F95009AFC9F /* Les Sexperts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Les Sexperts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2BA40218C06F95009AFC9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD2BA40418C06F95009AFC9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -403,6 +406,8 @@
 		FD2BA45118C086E2009AFC9F /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FD1D862318D4308900F333A6 /* IBActionSheet.h */,
+				FD1D862418D4308900F333A6 /* IBActionSheet.m */,
 				FD1D861718D3325E00F333A6 /* MZFormSheetController */,
 				FD8524D818CEF056005E6A3F /* AdColony.framework */,
 				FDF2112118C8D71000C8621F /* Admob */,
@@ -641,6 +646,7 @@
 				FD1D861018D3325B00F333A6 /* MZFormSheetBackgroundWindow.m in Sources */,
 				FDAD91E318C72401009CFC7F /* QuestionViewController.m in Sources */,
 				FDCF132118C4D1CF002F0B1D /* QuizViewController.m in Sources */,
+				FD1D862518D4308900F333A6 /* IBActionSheet.m in Sources */,
 				FD2BA50718C0C316009AFC9F /* AdviceViewController.m in Sources */,
 				FD2BA41318C06F95009AFC9F /* AppDelegate.m in Sources */,
 				FDAD91E918C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m in Sources */,
