@@ -52,7 +52,7 @@
 
 - (void) countDownFinished {
     self.countDownLabel.text = NSLocalizedString(@"Go!", @"");
-    self.countDownLabel.transform = CGAffineTransformMakeScale(4.0, 4.0);
+    self.countDownLabel.transform = CGAffineTransformMakeScale(2.0, 2.0);
     self.countDownLabel.hidden = YES;
     
     [UIView animateWithDuration: 0.9
@@ -74,6 +74,20 @@
     
     self.countDownLabel.hidden = YES;
     self.instructionLabel.text = NSLocalizedString(@"69 seconds to see if you are a real Sexpert...", @"");
+    
+    UIColor* topColor = [UIColor colorWithRed: 35/255. green: 40/255. blue: 43/255. alpha: 1.];
+    UIColor* centerColor = [UIColor colorWithRed: 39/255. green: 56/255. blue: 66/255. alpha: 1.];
+    UIColor* bottomColor = [UIColor colorWithRed: 23/255. green: 85/255. blue: 102/255. alpha: 1.];
+    
+    CAGradientLayer* gradient = [CAGradientLayer layer];
+    gradient.colors = @[(id)topColor.CGColor, (id)centerColor.CGColor, (id)bottomColor.CGColor];
+    gradient.startPoint = CGPointMake(0.5, 0.);
+    gradient.endPoint = CGPointMake(0.5, 1.);
+    gradient.locations = @[@(0.25), @(0.75)];
+    gradient.bounds = self.view.bounds;
+    gradient.anchorPoint = CGPointMake(CGRectGetMinX(gradient.bounds), 0);
+    
+    [self.view.layer insertSublayer: gradient atIndex: 0];
 }
 
 - (void) viewWillAppear:(BOOL)animated {

@@ -28,10 +28,21 @@
 @property (weak, nonatomic) IBOutlet UIButton *adviceButton;
 @property (weak, nonatomic) IBOutlet UIButton *jokeButton;
 @property (weak, nonatomic) IBOutlet UIButton *upgradeButton;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareBarButtonItem;
 
 @end
 
 @implementation HomeViewController
+
+- (void) showLoadingUI {
+    
+}
+
+- (void) hideLoadingUI {
+    
+}
 
 #pragma mark - Actions
 - (IBAction)menuPushed:(id)sender {
@@ -79,9 +90,9 @@
 }
 
 #pragma mark - UIViewController
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder: aDecoder];
     if (self) {
         // Custom initialization
         _accountStore = [ACAccountStore new];
@@ -97,12 +108,15 @@
     [self.adviceButton setTitle: NSLocalizedString(@"Advice", @"") forState: UIControlStateNormal];
     [self.jokeButton setTitle: NSLocalizedString(@"Jokes", @"") forState: UIControlStateNormal];
     [self.upgradeButton setTitle: NSLocalizedString(@"Become a Sexpert", @"Devenir un(e) Sexpert(e)") forState: UIControlStateNormal];
+    
+    self.titleLabel.text = kAppName();
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
     
     self.upgradeButton.hidden = ![ContentLock tryLock];
+    [self.navigationController setNavigationBarHidden: YES animated: NO];
 }
 
 #pragma mark - IBActionSheetDelegate
@@ -113,8 +127,6 @@
 #if !HAS_CONFIGURED_FACEBOOK
     hasFacebookButton = NO;
 #endif
-    if( !hasTwitterButton )
-        buttonIndex++;
     
     if( !hasFacebookButton )
         buttonIndex++;
@@ -125,11 +137,19 @@
             //  Step 1:  Obtain access to the user's Twitter accounts
             ACAccountType *facebookAccountType = [self.accountStore accountTypeWithAccountTypeIdentifier: ACAccountTypeIdentifierFacebook];
             
-            NSDictionary *FacebookOptions = @{ACFacebookAppIdKey: @"XXXXXXXXXX",ACFacebookPermissionsKey: @[@"publish_action"],ACFacebookAudienceKey:ACFacebookAudienceEveryone};
+            NSDictionary *FacebookOptions = @{
+                                              ACFacebookAppIdKey: @"753907327975175",
+                                              ACFacebookPermissionsKey: @[@"publish_action"],
+#if DEBUG
+                                              ACFacebookAudienceKey : ACFacebookAudienceOnlyMe
+#else
+                                              ACFacebookAudienceKey : ACFacebookAudienceEveryone
+#endif
+                                              };
   
             
             [self.accountStore requestAccessToAccountsWithType:facebookAccountType
-                                                       options:NULL
+                                                       options: FacebookOptions
                                                     completion:^(BOOL granted, NSError *error) {
                                                         if (granted) {
                                                             //  Step 2:  Create a request
@@ -246,7 +266,14 @@
                                                         }
                                                         else {
                                                             // Access was not granted, or an error occurred
-                                                            NSLog(@"%@", [error localizedDescription]);
+                                                            NSString* format = NSLocalizedString(@"You must give permission to %@. Access this via Twitter in the Settings app", @"");
+                                                            NSString* msg = [NSString stringWithFormat: format, kAppName()];
+                                                            UIAlertView* alert = [[UIAlertView alloc] initWithTitle: nil
+                                                                                                            message: msg
+                                                                                                           delegate: nil
+                                                                                                  cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                                                                                  otherButtonTitles: nil];
+                                                            [alert show];
                                                         }
                                                     }];
             break;

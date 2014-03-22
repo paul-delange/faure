@@ -188,6 +188,20 @@
     UIBarButtonItem* timerBarButton = [[UIBarButtonItem alloc] initWithCustomView: timerLabel];
     self.navigationItem.rightBarButtonItem = timerBarButton;
     self.timerLabel = timerLabel;
+    
+    UIColor* topColor = [UIColor colorWithRed: 35/255. green: 40/255. blue: 43/255. alpha: 1.];
+    UIColor* centerColor = [UIColor colorWithRed: 39/255. green: 56/255. blue: 66/255. alpha: 1.];
+    UIColor* bottomColor = [UIColor colorWithRed: 23/255. green: 85/255. blue: 102/255. alpha: 1.];
+    
+    CAGradientLayer* gradient = [CAGradientLayer layer];
+    gradient.colors = @[(id)topColor.CGColor, (id)centerColor.CGColor, (id)bottomColor.CGColor];
+    gradient.startPoint = CGPointMake(0.5, 0.);
+    gradient.endPoint = CGPointMake(0.5, 1.);
+    gradient.locations = @[@(0.25), @(0.75)];
+    gradient.bounds = self.view.bounds;
+    gradient.anchorPoint = CGPointMake(CGRectGetMinX(gradient.bounds), 0);
+    
+    [self.view.layer insertSublayer: gradient atIndex: 0];
 }
 
 - (void) viewDidAppear:(BOOL)animated {

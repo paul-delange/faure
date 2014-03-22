@@ -3,11 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "gamecenter_icon.png"
+      "filename" : "logo_transparent.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "logo_transparent@2x.png"
     }
   ],
   "info" : {

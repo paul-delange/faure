@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 
 @property (strong, nonatomic) Joke* joke;
+@property (assign, nonatomic) BOOL blocked;
 
 @end

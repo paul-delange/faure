@@ -50,6 +50,20 @@
     banner.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview: banner];
     self.bannerView = banner;
+    
+    UIColor* topColor = [UIColor colorWithRed: 35/255. green: 40/255. blue: 43/255. alpha: 1.];
+    UIColor* centerColor = [UIColor colorWithRed: 39/255. green: 56/255. blue: 66/255. alpha: 1.];
+    UIColor* bottomColor = [UIColor colorWithRed: 23/255. green: 85/255. blue: 102/255. alpha: 1.];
+    
+    CAGradientLayer* gradient = [CAGradientLayer layer];
+    gradient.colors = @[(id)topColor.CGColor, (id)centerColor.CGColor, (id)bottomColor.CGColor];
+    gradient.startPoint = CGPointMake(0.5, 0.);
+    gradient.endPoint = CGPointMake(0.5, 1.);
+    gradient.locations = @[@(0.25), @(0.75)];
+    gradient.bounds = self.view.bounds;
+    gradient.anchorPoint = CGPointMake(CGRectGetMinX(gradient.bounds), 0);
+    
+    [self.view.layer insertSublayer: gradient atIndex: 0];
 }
 
 
@@ -57,7 +71,9 @@
     [super viewWillAppear: animated];
     
     GADRequest* request = [GADRequest request];
-    request.testDevices = @[ GAD_SIMULATOR_ID ];
+    request.testDevices = @[ GAD_SIMULATOR_ID,
+                             @"5847239deac1f26ea408b154815af621"            //Paul iPhone4
+                             ];
     
     [self.bannerView loadRequest: request];
 }

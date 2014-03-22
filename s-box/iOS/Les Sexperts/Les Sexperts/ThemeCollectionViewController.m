@@ -42,6 +42,12 @@
     [self.collectionView reloadData];
 }
 
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear: animated];
+    
+    [self.navigationController setNavigationBarHidden: NO animated: YES];
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if( [segue.identifier isEqualToString: @"AdvicePushSegue"] ) {
         NSParameterAssert([segue.destinationViewController isKindOfClass: [AdviceTableViewController class]]);

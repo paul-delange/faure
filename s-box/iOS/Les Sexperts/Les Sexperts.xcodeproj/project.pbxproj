@@ -18,6 +18,8 @@
 		FD1D861D18D332BF00F333A6 /* NSInvocation+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D861B18D332BF00F333A6 /* NSInvocation+Copy.m */; };
 		FD1D862018D3340D00F333A6 /* UnlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D861F18D3340D00F333A6 /* UnlockViewController.m */; };
 		FD1D862518D4308900F333A6 /* IBActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D862418D4308900F333A6 /* IBActionSheet.m */; };
+		FD1D86B118D8D3CE00F333A6 /* american_typewriter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD1D86B018D8D3CE00F333A6 /* american_typewriter.ttf */; };
+		FD29D60818DD9A6900DD5675 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29D60718DD9A6900DD5675 /* UIImage+ImageEffects.m */; };
 		FD2BA40318C06F95009AFC9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40218C06F95009AFC9F /* Foundation.framework */; };
 		FD2BA40518C06F95009AFC9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40418C06F95009AFC9F /* CoreGraphics.framework */; };
 		FD2BA40718C06F95009AFC9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40618C06F95009AFC9F /* UIKit.framework */; };
@@ -111,6 +113,9 @@
 		FD1D861F18D3340D00F333A6 /* UnlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnlockViewController.m; sourceTree = "<group>"; };
 		FD1D862318D4308900F333A6 /* IBActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBActionSheet.h; sourceTree = "<group>"; };
 		FD1D862418D4308900F333A6 /* IBActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBActionSheet.m; sourceTree = "<group>"; };
+		FD1D86B018D8D3CE00F333A6 /* american_typewriter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = american_typewriter.ttf; sourceTree = "<group>"; };
+		FD29D60618DD9A6900DD5675 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		FD29D60718DD9A6900DD5675 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		FD2BA3FF18C06F95009AFC9F /* Les Sexperts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Les Sexperts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2BA40218C06F95009AFC9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD2BA40418C06F95009AFC9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -392,6 +397,7 @@
 		FD2BA43D18C06FC8009AFC9F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FD1D86B018D8D3CE00F333A6 /* american_typewriter.ttf */,
 				FD2BA4FD18C09CF1009AFC9F /* ContentLibrary.sqlite */,
 				FD2BA44E18C085EA009AFC9F /* ContentLibrary.xcdatamodeld */,
 				FD2BA40B18C06F95009AFC9F /* InfoPlist.strings */,
@@ -406,6 +412,8 @@
 		FD2BA45118C086E2009AFC9F /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FD29D60618DD9A6900DD5675 /* UIImage+ImageEffects.h */,
+				FD29D60718DD9A6900DD5675 /* UIImage+ImageEffects.m */,
 				FD1D862318D4308900F333A6 /* IBActionSheet.h */,
 				FD1D862418D4308900F333A6 /* IBActionSheet.m */,
 				FD1D861718D3325E00F333A6 /* MZFormSheetController */,
@@ -592,6 +600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD2BA41E18C06F95009AFC9F /* Images.xcassets in Resources */,
+				FD1D86B118D8D3CE00F333A6 /* american_typewriter.ttf in Resources */,
 				FD2BA4FE18C09CF1009AFC9F /* ContentLibrary.sqlite in Resources */,
 				FD2BA40D18C06F95009AFC9F /* InfoPlist.strings in Resources */,
 				FD2BA41618C06F95009AFC9F /* Main.storyboard in Resources */,
@@ -633,6 +642,7 @@
 				FD2BA44618C082EC009AFC9F /* CoreDataStack.m in Sources */,
 				FD1D862018D3340D00F333A6 /* UnlockViewController.m in Sources */,
 				FD2BA4D318C08879009AFC9F /* _Advice.m in Sources */,
+				FD29D60818DD9A6900DD5675 /* UIImage+ImageEffects.m in Sources */,
 				FD2BA4E618C08885009AFC9F /* Theme.m in Sources */,
 				FD1D861518D3325B00F333A6 /* UIImage+Additional.m in Sources */,
 				FDCF132718C5B74E002F0B1D /* FinishedViewController.m in Sources */,
@@ -802,7 +812,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/pauldelange/Documents/faure/s-box/iOS/Les\\ Sexperts/AdColony",
+					AdColony,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Les Sexperts/Les Sexperts-Prefix.pch";
@@ -815,8 +825,8 @@
 				INFOPLIST_FILE = "Les Sexperts/Les Sexperts-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/pauldelange/Documents/faure/s-box/iOS/Les\\ Sexperts/OpenSSL",
-					"/Users/pauldelange/Documents/faure/s-box/iOS/Les\\ Sexperts/Admob",
+					OpenSSL,
+					Admob,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -834,7 +844,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Gilmert Bentley (SHLVY923BZ)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/pauldelange/Documents/faure/s-box/iOS/Les\\ Sexperts/AdColony",
+					AdColony,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Les Sexperts/Les Sexperts-Prefix.pch";
@@ -847,8 +857,8 @@
 				INFOPLIST_FILE = "Les Sexperts/Les Sexperts-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/pauldelange/Documents/faure/s-box/iOS/Les\\ Sexperts/OpenSSL",
-					"/Users/pauldelange/Documents/faure/s-box/iOS/Les\\ Sexperts/Admob",
+					OpenSSL,
+					Admob,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
