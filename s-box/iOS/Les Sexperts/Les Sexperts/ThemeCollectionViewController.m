@@ -21,6 +21,15 @@
 
 @implementation ThemeCollectionViewController
 
+#pragma mark - NSObject
+- (instancetype) initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder: aDecoder];
+    if( self ) {
+        self.title = NSLocalizedString(@"Themes", @"");
+    }
+    return self;
+}
+
 #pragma mark - UIViewController
 - (void)viewDidLoad
 {

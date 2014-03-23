@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
+@property (assign, nonatomic) BOOL blocked;
+
 - (IBAction)sharePushed:(id)sender;
 
 @end

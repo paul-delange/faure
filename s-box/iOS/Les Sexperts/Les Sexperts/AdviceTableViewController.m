@@ -14,11 +14,9 @@
 
 #import "ContentLock.h"
 
-#import <AdColony/AdColony.h>
-
 #define     kUserDefaultsGenderPreferenceKey        @"GenderPreference"
 
-@interface AdviceTableViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, AdColonyAdDelegate>
+@interface AdviceTableViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
 @property (strong) NSFetchedResultsController* resultsController;
 
@@ -89,6 +87,14 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+- (instancetype) initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder: aDecoder];
+    if( self ) {
+        
+    }
+    return self;
+}
+
 #pragma mark - UIViewController
 - (void)viewDidLoad
 {
@@ -123,53 +129,10 @@
         NSIndexPath* indexPath = [self.tableView indexPathForCell: sender];
         Advice* advice = [self.resultsController objectAtIndexPath: indexPath];
         adviceTV.advice = advice;
+        
+        if( indexPath.row && [ContentLock tryLock] )
+            adviceTV.blocked = YES;
     }
-}
-
-- (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    if( [identifier isEqualToString: @"AdvicePushSegue"] ) {
-        NSIndexPath* indexPath = [self.tableView indexPathForCell: sender];
-        if( indexPath.row ) {
-            BOOL available = [ContentLock tryLock];
-            
-            if( !available ) {
-                //TODO: Ask User if they want to purchase or watch a video
-                [AdColony playVideoAdForZone: @"vzd5640bc5e87746d083"
-                                withDelegate: self
-                            withV4VCPrePopup: YES
-                            andV4VCPostPopup: YES];
-                
-                /*
-                BOOL tryingToUnlock = [ContentLock unlockWithCompletion: ^(NSError *error) {
-                    if( error ) {
-                        DLogError(error);
-                    }
-                    else {
-                        NSParameterAssert([ContentLock tryLock]);
-                        
-                        [self performSegueWithIdentifier: identifier sender: sender];
-                        
-                        [self.tableView reloadData];
-                    }
-                }];
-                
-                if( !tryingToUnlock ) {
-                    NSString* title = NSLocalizedString(@"Purchases disabled", @"");
-                    NSString* msg = NSLocalizedString(@"You must enable In-App Purchases in your device Settings app (General > Restrictions > In-App Purchases)", @"");
-                    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
-                                                                    message: msg
-                                                                   delegate: nil
-                                                          cancelButtonTitle: NSLocalizedString(@"OK", @"")
-                                                          otherButtonTitles: nil];
-                    [alert show];
-                } */
-            }
-            
-            return available;
-        }
-    }
-    
-    return YES;
 }
 
 #pragma mark - UITableViewDataSource
@@ -194,13 +157,9 @@
     return [info numberOfObjects];
 }
 
-#pragma mark - AdColonyAdDelegate
-- ( void ) onAdColonyAdStartedInZone:( NSString * )zoneID {
-    
-}
-
-- ( void ) onAdColonyAdAttemptFinished:(BOOL)shown inZone:( NSString * )zoneID {
-    
+#pragma mark - UITableViewDelegate 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath: indexPath animated: YES];
 }
 
 @end

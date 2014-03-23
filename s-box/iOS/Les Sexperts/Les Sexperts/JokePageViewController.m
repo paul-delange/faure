@@ -52,7 +52,7 @@
     textLabel.font = [UIFont fontWithName: @"American Typewriter" size: 20.];
     
     UIButton* videoButton = [UIButton buttonWithType: UIButtonTypeCustom];
-    [videoButton setTitle: NSLocalizedString(@"i. Watch a free video to unlock it...", @"") forState: UIControlStateNormal];
+    [videoButton setTitle: NSLocalizedString(@"i. Watch a free video...", @"") forState: UIControlStateNormal];
     [videoButton setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
     [videoButton setTitleColor: [UIColor lightGrayColor] forState: UIControlStateHighlighted];
     [videoButton addTarget: self action: @selector(videoPushed:) forControlEvents: UIControlEventTouchUpInside];
@@ -185,7 +185,37 @@
 }
 
 - (IBAction) unlockPushed:(id)sender {
+    BOOL tryingToUnlock = [ContentLock unlockWithCompletion: ^(NSError *error) {
+        if( error ) {
+            DLogError(error);
+        }
+        else {
+            NSParameterAssert([ContentLock tryLock]);
+            [UIView transitionWithView: self.view
+                              duration: 0.3
+                               options: UIViewAnimationOptionCurveEaseInOut
+                            animations: ^{
+                                [self.blockedMessageView removeFromSuperview];
+                                for(JokeViewController* jokeVC in self.viewControllers) {
+                                    if( [jokeVC.joke isEqual: _currentJoke] ) {
+                                        jokeVC.blocked = NO;
+                                    }
+                                }
+                            } completion: NULL];
+        }
+    }];
     
+    if( !tryingToUnlock ) {
+        NSString* title = NSLocalizedString(@"Purchases disabled", @"");
+        NSString* msg = NSLocalizedString(@"You must enable In-App Purchases in your device Settings app (General > Restrictions > In-App Purchases)", @"");
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
+                                                        message: msg
+                                                       delegate: nil
+                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                              otherButtonTitles: nil];
+        [alert show];
+    }
+
 }
 
 #pragma mark - NSObject
@@ -383,15 +413,14 @@
                            options: UIViewAnimationOptionCurveEaseOut
                         animations: ^{
                             [self.blockedMessageView removeFromSuperview];
-                        } completion:^(BOOL finished) {
-                            self.blockedMessageView = nil;
-                        }];
-        
-        for(JokeViewController* jokeVC in self.viewControllers) {
-            if( [jokeVC.joke isEqual: _currentJoke] ) {
-                jokeVC.blocked = NO;
-            }
-        }
+                            
+                            for(JokeViewController* jokeVC in self.viewControllers) {
+                                if( [jokeVC.joke isEqual: _currentJoke] ) {
+                                    jokeVC.blocked = NO;
+                                }
+                            }
+                            
+                        } completion: NULL];
     }
 }
 
