@@ -21,6 +21,12 @@ NSString * const kContentUnlockProductIdentifier = @"sexpert_unlock";
 @implementation ContentLock
 
 + (BOOL) unlockWithCompletion: (kContentLockRemovedHandler) completionHandler {
+#if TARGET_IPHONE_SIMULATOR
+    [[NSUserDefaults standardUserDefaults] setBool: YES forKey: @"SimulatorContentLocked"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    completionHandler(NULL);
+    return YES;
+#else
     if( ![SKPaymentQueue canMakePayments] )
         return NO;
     
@@ -32,6 +38,7 @@ NSString * const kContentUnlockProductIdentifier = @"sexpert_unlock";
     objc_setAssociatedObject(self, kCompletionHandlerAssocationKey, completionHandler, OBJC_ASSOCIATION_COPY);
     
     return YES;
+#endif
 }
 
 + (BOOL) lock {
@@ -40,7 +47,7 @@ NSString * const kContentUnlockProductIdentifier = @"sexpert_unlock";
 
 + (BOOL) tryLock {
 #if TARGET_IPHONE_SIMULATOR
-    return YES;
+    return ![[NSUserDefaults standardUserDefaults] boolForKey: @"SimulatorContentLocked"];
 #else
     return !isUnlockSubscriptionPurchased();
 #endif

@@ -161,7 +161,7 @@
             DLogError(error);
         }
         else {
-            NSParameterAssert([ContentLock tryLock]);
+            NSParameterAssert(![ContentLock tryLock]);
             [UIView transitionWithView: self.view
                               duration: 0.3
                                options: UIViewAnimationOptionCurveEaseInOut

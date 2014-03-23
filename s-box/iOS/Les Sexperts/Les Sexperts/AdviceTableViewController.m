@@ -141,13 +141,13 @@
     
     Advice* advice = [self.resultsController objectAtIndexPath: indexPath];
     cell.textLabel.text = advice.title;
-    
+    /*
     if( indexPath.row ) {
         cell.imageView.image = [ContentLock tryLock] ? nil : [UIImage imageNamed: @"lock_icon"];
     }
     else {
         cell.imageView.image = nil;
-    }
+    }*/
     
     return cell;
 }

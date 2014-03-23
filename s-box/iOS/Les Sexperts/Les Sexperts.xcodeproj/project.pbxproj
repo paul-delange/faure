@@ -20,6 +20,10 @@
 		FD1D862518D4308900F333A6 /* IBActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D862418D4308900F333A6 /* IBActionSheet.m */; };
 		FD1D86B118D8D3CE00F333A6 /* american_typewriter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD1D86B018D8D3CE00F333A6 /* american_typewriter.ttf */; };
 		FD29D60818DD9A6900DD5675 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29D60718DD9A6900DD5675 /* UIImage+ImageEffects.m */; };
+		FD29D60A18DEDAD500DD5675 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29D60918DEDAD500DD5675 /* EventKitUI.framework */; };
+		FD29D60C18DEDAE500DD5675 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29D60B18DEDAE500DD5675 /* MessageUI.framework */; };
+		FD29D60E18DEDAF200DD5675 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29D60D18DEDAF200DD5675 /* QuartzCore.framework */; };
+		FD29D61018DEDAFD00DD5675 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29D60F18DEDAFD00DD5675 /* StoreKit.framework */; };
 		FD2BA40318C06F95009AFC9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40218C06F95009AFC9F /* Foundation.framework */; };
 		FD2BA40518C06F95009AFC9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40418C06F95009AFC9F /* CoreGraphics.framework */; };
 		FD2BA40718C06F95009AFC9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40618C06F95009AFC9F /* UIKit.framework */; };
@@ -116,6 +120,10 @@
 		FD1D86B018D8D3CE00F333A6 /* american_typewriter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = american_typewriter.ttf; sourceTree = "<group>"; };
 		FD29D60618DD9A6900DD5675 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		FD29D60718DD9A6900DD5675 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		FD29D60918DEDAD500DD5675 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		FD29D60B18DEDAE500DD5675 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		FD29D60D18DEDAF200DD5675 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FD29D60F18DEDAFD00DD5675 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		FD2BA3FF18C06F95009AFC9F /* Les Sexperts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Les Sexperts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2BA40218C06F95009AFC9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD2BA40418C06F95009AFC9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -220,6 +228,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD29D61018DEDAFD00DD5675 /* StoreKit.framework in Frameworks */,
+				FD29D60E18DEDAF200DD5675 /* QuartzCore.framework in Frameworks */,
+				FD29D60C18DEDAE500DD5675 /* MessageUI.framework in Frameworks */,
+				FD29D60A18DEDAD500DD5675 /* EventKitUI.framework in Frameworks */,
 				FD8524E318CEF305005E6A3F /* libz.dylib in Frameworks */,
 				FD8524E118CEF2FB005E6A3F /* Social.framework in Frameworks */,
 				FD8524DF18CEF2EA005E6A3F /* MediaPlayer.framework in Frameworks */,
@@ -302,6 +314,10 @@
 		FD2BA40118C06F95009AFC9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD29D60F18DEDAFD00DD5675 /* StoreKit.framework */,
+				FD29D60D18DEDAF200DD5675 /* QuartzCore.framework */,
+				FD29D60B18DEDAE500DD5675 /* MessageUI.framework */,
+				FD29D60918DEDAD500DD5675 /* EventKitUI.framework */,
 				FD8524E218CEF305005E6A3F /* libz.dylib */,
 				FD8524E018CEF2FB005E6A3F /* Social.framework */,
 				FD8524DE18CEF2EA005E6A3F /* MediaPlayer.framework */,

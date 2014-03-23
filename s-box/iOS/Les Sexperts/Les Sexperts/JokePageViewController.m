@@ -190,16 +190,14 @@
             DLogError(error);
         }
         else {
-            NSParameterAssert([ContentLock tryLock]);
+            NSParameterAssert(![ContentLock tryLock]);
             [UIView transitionWithView: self.view
                               duration: 0.3
                                options: UIViewAnimationOptionCurveEaseInOut
                             animations: ^{
                                 [self.blockedMessageView removeFromSuperview];
                                 for(JokeViewController* jokeVC in self.viewControllers) {
-                                    if( [jokeVC.joke isEqual: _currentJoke] ) {
-                                        jokeVC.blocked = NO;
-                                    }
+                                    jokeVC.blocked = NO;
                                 }
                             } completion: NULL];
         }
@@ -360,7 +358,7 @@
     
     self.counterLabel.text = [NSString stringWithFormat: NSLocalizedString( @"%@/%@", @""), @(index+1), @(_jokes.count)];
     
-    jokeVC.blocked = index >= 10 && ![ContentLock tryLock];
+    jokeVC.blocked = index >= 10 && [ContentLock tryLock];
     
     if( jokeVC.blocked && !self.blockedMessageView ) {
         UIView* msgView = [self blockedView];
