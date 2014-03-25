@@ -26,10 +26,10 @@
 @implementation AppDelegate
 
 - (Question*) questionFromSource: (NSArray*) qsrc withAnswers: (NSArray*) answers inContext: (NSManagedObjectContext*) context {
-    NSParameterAssert([qsrc count] == 4);
+    NSParameterAssert([qsrc count] == 3);
     Question* question = [NSEntityDescription insertNewObjectForEntityForName: @"Question" inManagedObjectContext: context];
     question.text = qsrc[2];
-    question.explanation = qsrc[3];
+    //question.explanation = qsrc[3];
     
     for(NSArray* asrc in answers) {
         NSParameterAssert([asrc count] == 4);
@@ -47,11 +47,12 @@
 
 - (Advice*) adviceFromSource: (NSArray*) asrc inTheme: (NSArray*) tsrc inContent: (NSManagedObjectContext*) context {
     Advice* advice = [NSEntityDescription insertNewObjectForEntityForName: @"Advice" inManagedObjectContext: context];
-    advice.title = asrc[2];
-    advice.text = asrc[3];
-    advice.targetGender = @([asrc[5] integerValue]);
+    advice.title = asrc[1];
+    advice.text = asrc[2];
+    advice.free = @([asrc[3] integerValue]);
+    advice.targetGender = @([asrc[4] integerValue]);
     
-    id tid = tsrc[3];
+    id tid = tsrc[2];
     NSPredicate* predicate = [NSPredicate predicateWithFormat: @"name = %@", tid];
     NSFetchRequest* themeFetch = [NSFetchRequest fetchRequestWithEntityName: @"Theme"];
     [themeFetch setPredicate: predicate];
@@ -61,7 +62,7 @@
     }
     else if( results.count == 0) {
         Theme* theme = [NSEntityDescription insertNewObjectForEntityForName: @"Theme" inManagedObjectContext: context];
-        theme.name = tsrc[3];
+        theme.name = tsrc[2];
         advice.theme = theme;
     }
     
@@ -69,10 +70,11 @@
 }
 
 - (Joke*) jokeFromSource: (NSArray*) jsrc inContext: (NSManagedObjectContext*) context {
-    NSParameterAssert([jsrc count] == 1);
+    NSParameterAssert([jsrc count] >= 2);
     
     Joke* joke = [NSEntityDescription insertNewObjectForEntityForName: @"Joke" inManagedObjectContext: context];
-    joke.text = jsrc[0];
+    joke.text = jsrc[1];
+    joke.freeValue = @([jsrc[0] integerValue]);
     
     return joke;
 }
@@ -98,7 +100,7 @@
     answers = [answers subarrayWithRange: NSMakeRange(1, [answers count]-1)];
     
     for(NSArray* qsrc in questions) {
-        if( [qsrc count] != 4 )
+        if( [qsrc count] != 3 )
             continue;
         
         id qid = qsrc[0];
@@ -129,17 +131,14 @@
     advices = [advices subarrayWithRange: NSMakeRange(2, [advices count]-2)];
     
     for(NSArray* asrc in advices) {
-        if( [asrc count] != 6)
+        if( [asrc count] != 8)
             continue;
         
-        id tid = asrc[4];
+        id tid = asrc[3];
         NSArray* tsrc = [themes filteredArrayUsingPredicate: [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
             NSArray* theme = (NSArray*)evaluatedObject;
             
-            if( [theme count] != 4 )
-                return NO;
-            
-            id atid = theme[2];
+            id atid = theme[1];
             return [atid isEqual: tid];
         }]];
         NSParameterAssert([tsrc count] == 1);
@@ -151,6 +150,8 @@
     
     NSString* jokesFilePath = [[NSBundle mainBundle] pathForResource: @"blagues" ofType: @"csv"];
     NSArray* jokes = [NSArray arrayWithContentsOfCSVFile: jokesFilePath];
+    
+    jokes = [jokes subarrayWithRange: NSMakeRange(1, [jokes count]-1)];
     
     for(NSArray* jsrc in jokes) {
         [self jokeFromSource: jsrc inContext: context];

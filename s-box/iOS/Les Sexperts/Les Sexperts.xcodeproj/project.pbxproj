@@ -24,6 +24,76 @@
 		FD29D60C18DEDAE500DD5675 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29D60B18DEDAE500DD5675 /* MessageUI.framework */; };
 		FD29D60E18DEDAF200DD5675 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29D60D18DEDAF200DD5675 /* QuartzCore.framework */; };
 		FD29D61018DEDAFD00DD5675 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29D60F18DEDAFD00DD5675 /* StoreKit.framework */; };
+		FD29D67618E2052300DD5675 /* Joke.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4DD18C08885009AFC9F /* Joke.m */; };
+		FD29D67718E2052300DD5675 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA44518C082EC009AFC9F /* CoreDataStack.m */; };
+		FD29D67818E2052300DD5675 /* UnlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D861F18D3340D00F333A6 /* UnlockViewController.m */; };
+		FD29D67918E2052300DD5675 /* _Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4CE18C08879009AFC9F /* _Advice.m */; };
+		FD29D67A18E2052300DD5675 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = FD29D60718DD9A6900DD5675 /* UIImage+ImageEffects.m */; };
+		FD29D67B18E2052300DD5675 /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4E118C08885009AFC9F /* Theme.m */; };
+		FD29D67C18E2052300DD5675 /* UIImage+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D860D18D3325B00F333A6 /* UIImage+Additional.m */; };
+		FD29D67D18E2052300DD5675 /* FinishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132618C5B74E002F0B1D /* FinishedViewController.m */; };
+		FD29D67E18E2052300DD5675 /* ReceiptValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */; };
+		FD29D67F18E2052300DD5675 /* ResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91EE18C86CAF009CFC7F /* ResumeViewController.m */; };
+		FD29D68018E2052300DD5675 /* MZAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D861918D332BF00F333A6 /* MZAppearance.m */; };
+		FD29D68118E2052300DD5675 /* ThemeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50018C0A696009AFC9F /* ThemeCollectionViewController.m */; };
+		FD29D68218E2052300DD5675 /* _Joke.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4D018C08879009AFC9F /* _Joke.m */; };
+		FD29D68318E2052300DD5675 /* Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4D918C08885009AFC9F /* Advice.m */; };
+		FD29D68418E2052300DD5675 /* _Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4D118C08879009AFC9F /* _Question.m */; };
+		FD29D68518E2052300DD5675 /* MZFormSheetBackgroundWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D860318D3325B00F333A6 /* MZFormSheetBackgroundWindow.m */; };
+		FD29D68618E2052300DD5675 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91E218C72401009CFC7F /* QuestionViewController.m */; };
+		FD29D68718E2052300DD5675 /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132018C4D1CF002F0B1D /* QuizViewController.m */; };
+		FD29D68818E2052300DD5675 /* IBActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D862418D4308900F333A6 /* IBActionSheet.m */; };
+		FD29D68918E2052300DD5675 /* AdviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50618C0C316009AFC9F /* AdviceViewController.m */; };
+		FD29D68A18E2052300DD5675 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA41218C06F95009AFC9F /* AppDelegate.m */; };
+		FD29D68B18E2052300DD5675 /* ResultsCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91E818C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m */; };
+		FD29D68C18E2052300DD5675 /* ContentLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA44E18C085EA009AFC9F /* ContentLibrary.xcdatamodeld */; };
+		FD29D68D18E2052300DD5675 /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D860F18D3325B00F333A6 /* UIViewController+TargetViewController.m */; };
+		FD29D68E18E2052300DD5675 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132918C5B75B002F0B1D /* ResultsViewController.m */; };
+		FD29D68F18E2052300DD5675 /* ResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91EB18C7C893009CFC7F /* ResultCollectionViewCell.m */; };
+		FD29D69018E2052300DD5675 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4DB18C08885009AFC9F /* Answer.m */; };
+		FD29D69118E2052300DD5675 /* JokePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132F18C5BF4F002F0B1D /* JokePageViewController.m */; };
+		FD29D69218E2052300DD5675 /* AdvertisementNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF2111F18C8D44900C8621F /* AdvertisementNavigationController.m */; };
+		FD29D69318E2052300DD5675 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA40E18C06F95009AFC9F /* main.m */; };
+		FD29D69418E2052300DD5675 /* JokeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132C18C5BB67002F0B1D /* JokeViewController.m */; };
+		FD29D69518E2052300DD5675 /* MZFormSheetBackgroundWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D860518D3325B00F333A6 /* MZFormSheetBackgroundWindowViewController.m */; };
+		FD29D69618E2052300DD5675 /* MZFormSheetSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D860918D3325B00F333A6 /* MZFormSheetSegue.m */; };
+		FD29D69718E2052300DD5675 /* _Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4D218C08879009AFC9F /* _Theme.m */; };
+		FD29D69818E2052300DD5675 /* ThemeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50C18C0CA77009AFC9F /* ThemeCollectionViewCell.m */; };
+		FD29D69918E2052300DD5675 /* NSInvocation+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D861B18D332BF00F333A6 /* NSInvocation+Copy.m */; };
+		FD29D69A18E2052300DD5675 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4DF18C08885009AFC9F /* Question.m */; };
+		FD29D69B18E2052300DD5675 /* MZTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D860B18D3325B00F333A6 /* MZTransition.m */; };
+		FD29D69C18E2052300DD5675 /* _Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4CF18C08879009AFC9F /* _Answer.m */; };
+		FD29D69D18E2052300DD5675 /* MZFormSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D860718D3325B00F333A6 /* MZFormSheetController.m */; };
+		FD29D69E18E2052300DD5675 /* CountDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF131D18C4CE5D002F0B1D /* CountDownViewController.m */; };
+		FD29D69F18E2052300DD5675 /* AdviceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50318C0B994009AFC9F /* AdviceTableViewController.m */; };
+		FD29D6A018E2052300DD5675 /* ContentLock.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50918C0C3F2009AFC9F /* ContentLock.m */; };
+		FD29D6A118E2052300DD5675 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA43F18C0730F009AFC9F /* HomeViewController.m */; };
+		FD29D6A318E2052300DD5675 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29D60F18DEDAFD00DD5675 /* StoreKit.framework */; };
+		FD29D6A418E2052300DD5675 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29D60D18DEDAF200DD5675 /* QuartzCore.framework */; };
+		FD29D6A518E2052300DD5675 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29D60B18DEDAE500DD5675 /* MessageUI.framework */; };
+		FD29D6A618E2052300DD5675 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29D60918DEDAD500DD5675 /* EventKitUI.framework */; };
+		FD29D6A718E2052300DD5675 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524E218CEF305005E6A3F /* libz.dylib */; };
+		FD29D6A818E2052300DD5675 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524E018CEF2FB005E6A3F /* Social.framework */; };
+		FD29D6A918E2052300DD5675 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524DE18CEF2EA005E6A3F /* MediaPlayer.framework */; };
+		FD29D6AA18E2052300DD5675 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524DC18CEF2E1005E6A3F /* EventKit.framework */; };
+		FD29D6AB18E2052300DD5675 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524DA18CEF2D1005E6A3F /* CoreMedia.framework */; };
+		FD29D6AC18E2052300DD5675 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF2113018C8D8FE00C8621F /* SystemConfiguration.framework */; };
+		FD29D6AD18E2052300DD5675 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF2112A18C8D8C300C8621F /* CoreTelephony.framework */; };
+		FD29D6AE18E2052300DD5675 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF2112818C8D8B900C8621F /* AdSupport.framework */; };
+		FD29D6AF18E2052300DD5675 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF2112618C8D8AB00C8621F /* AudioToolbox.framework */; };
+		FD29D6B018E2052300DD5675 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF2112418C8D89E00C8621F /* AVFoundation.framework */; };
+		FD29D6B118E2052300DD5675 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8818C0DFFD0012695C /* libssl.a */; };
+		FD29D6B218E2052300DD5675 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40418C06F95009AFC9F /* CoreGraphics.framework */; };
+		FD29D6B318E2052300DD5675 /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524D818CEF056005E6A3F /* AdColony.framework */; };
+		FD29D6B418E2052300DD5675 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40618C06F95009AFC9F /* UIKit.framework */; };
+		FD29D6B518E2052300DD5675 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8718C0DFFD0012695C /* libcrypto.a */; };
+		FD29D6B618E2052300DD5675 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40218C06F95009AFC9F /* Foundation.framework */; };
+		FD29D6B718E2052300DD5675 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF2112218C8D74200C8621F /* libGoogleAdMobAds.a */; };
+		FD29D6B918E2052300DD5675 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA41D18C06F95009AFC9F /* Images.xcassets */; };
+		FD29D6BA18E2052300DD5675 /* american_typewriter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD1D86B018D8D3CE00F333A6 /* american_typewriter.ttf */; };
+		FD29D6BB18E2052300DD5675 /* ContentLibrary.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA4FD18C09CF1009AFC9F /* ContentLibrary.sqlite */; };
+		FD29D6BC18E2052300DD5675 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA40B18C06F95009AFC9F /* InfoPlist.strings */; };
+		FD29D6BD18E2052300DD5675 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA41418C06F95009AFC9F /* Main.storyboard */; };
 		FD2BA40318C06F95009AFC9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40218C06F95009AFC9F /* Foundation.framework */; };
 		FD2BA40518C06F95009AFC9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40418C06F95009AFC9F /* CoreGraphics.framework */; };
 		FD2BA40718C06F95009AFC9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40618C06F95009AFC9F /* UIKit.framework */; };
@@ -32,11 +102,6 @@
 		FD2BA41318C06F95009AFC9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA41218C06F95009AFC9F /* AppDelegate.m */; };
 		FD2BA41618C06F95009AFC9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA41418C06F95009AFC9F /* Main.storyboard */; };
 		FD2BA41E18C06F95009AFC9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA41D18C06F95009AFC9F /* Images.xcassets */; };
-		FD2BA42518C06F95009AFC9F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA42418C06F95009AFC9F /* XCTest.framework */; };
-		FD2BA42618C06F95009AFC9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40218C06F95009AFC9F /* Foundation.framework */; };
-		FD2BA42718C06F95009AFC9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40618C06F95009AFC9F /* UIKit.framework */; };
-		FD2BA42F18C06F95009AFC9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA42D18C06F95009AFC9F /* InfoPlist.strings */; };
-		FD2BA43118C06F95009AFC9F /* Les_SexpertsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA43018C06F95009AFC9F /* Les_SexpertsTests.m */; };
 		FD2BA44018C0730F009AFC9F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA43F18C0730F009AFC9F /* HomeViewController.m */; };
 		FD2BA44618C082EC009AFC9F /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA44518C082EC009AFC9F /* CoreDataStack.m */; };
 		FD2BA45018C085EA009AFC9F /* ContentLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA44E18C085EA009AFC9F /* ContentLibrary.xcdatamodeld */; };
@@ -84,16 +149,6 @@
 		FDF2113118C8D8FE00C8621F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF2113018C8D8FE00C8621F /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		FD2BA42818C06F95009AFC9F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FD2BA3F718C06F94009AFC9F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FD2BA3FE18C06F95009AFC9F;
-			remoteInfo = "Les Sexperts";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		FD1D860218D3325B00F333A6 /* MZFormSheetBackgroundWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MZFormSheetBackgroundWindow.h; path = MZFormSheetController/MZFormSheetBackgroundWindow.h; sourceTree = "<group>"; };
 		FD1D860318D3325B00F333A6 /* MZFormSheetBackgroundWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MZFormSheetBackgroundWindow.m; path = MZFormSheetController/MZFormSheetBackgroundWindow.m; sourceTree = "<group>"; };
@@ -124,6 +179,8 @@
 		FD29D60B18DEDAE500DD5675 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		FD29D60D18DEDAF200DD5675 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FD29D60F18DEDAFD00DD5675 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		FD29D6C118E2052300DD5675 /* Les Sexperts copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Les Sexperts copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD29D6C218E2052300DD5675 /* Sexbox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Sexbox-Info.plist"; path = "/Users/pauldelange/Documents/Freelance/faure/s-box/iOS/Les Sexperts/Sexbox-Info.plist"; sourceTree = "<absolute>"; };
 		FD2BA3FF18C06F95009AFC9F /* Les Sexperts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Les Sexperts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2BA40218C06F95009AFC9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD2BA40418C06F95009AFC9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,11 +193,7 @@
 		FD2BA41218C06F95009AFC9F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FD2BA41518C06F95009AFC9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD2BA41D18C06F95009AFC9F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Les Sexperts/Les Sexperts/Images.xcassets"; sourceTree = "<group>"; };
-		FD2BA42318C06F95009AFC9F /* Les SexpertsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Les SexpertsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2BA42418C06F95009AFC9F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		FD2BA42C18C06F95009AFC9F /* Les SexpertsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Les SexpertsTests-Info.plist"; sourceTree = "<group>"; };
-		FD2BA42E18C06F95009AFC9F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FD2BA43018C06F95009AFC9F /* Les_SexpertsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Les_SexpertsTests.m; sourceTree = "<group>"; };
 		FD2BA43E18C0730F009AFC9F /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		FD2BA43F18C0730F009AFC9F /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		FD2BA44418C082EC009AFC9F /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
@@ -224,6 +277,34 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FD29D6A218E2052300DD5675 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD29D6A318E2052300DD5675 /* StoreKit.framework in Frameworks */,
+				FD29D6A418E2052300DD5675 /* QuartzCore.framework in Frameworks */,
+				FD29D6A518E2052300DD5675 /* MessageUI.framework in Frameworks */,
+				FD29D6A618E2052300DD5675 /* EventKitUI.framework in Frameworks */,
+				FD29D6A718E2052300DD5675 /* libz.dylib in Frameworks */,
+				FD29D6A818E2052300DD5675 /* Social.framework in Frameworks */,
+				FD29D6A918E2052300DD5675 /* MediaPlayer.framework in Frameworks */,
+				FD29D6AA18E2052300DD5675 /* EventKit.framework in Frameworks */,
+				FD29D6AB18E2052300DD5675 /* CoreMedia.framework in Frameworks */,
+				FD29D6AC18E2052300DD5675 /* SystemConfiguration.framework in Frameworks */,
+				FD29D6AD18E2052300DD5675 /* CoreTelephony.framework in Frameworks */,
+				FD29D6AE18E2052300DD5675 /* AdSupport.framework in Frameworks */,
+				FD29D6AF18E2052300DD5675 /* AudioToolbox.framework in Frameworks */,
+				FD29D6B018E2052300DD5675 /* AVFoundation.framework in Frameworks */,
+				FD29D6B118E2052300DD5675 /* libssl.a in Frameworks */,
+				FD29D6B218E2052300DD5675 /* CoreGraphics.framework in Frameworks */,
+				FD29D6B318E2052300DD5675 /* AdColony.framework in Frameworks */,
+				FD29D6B418E2052300DD5675 /* UIKit.framework in Frameworks */,
+				FD29D6B518E2052300DD5675 /* libcrypto.a in Frameworks */,
+				FD29D6B618E2052300DD5675 /* Foundation.framework in Frameworks */,
+				FD29D6B718E2052300DD5675 /* libGoogleAdMobAds.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD2BA3FC18C06F95009AFC9F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -249,16 +330,6 @@
 				FD54AB8918C0DFFD0012695C /* libcrypto.a in Frameworks */,
 				FD2BA40318C06F95009AFC9F /* Foundation.framework in Frameworks */,
 				FDF2112318C8D74200C8621F /* libGoogleAdMobAds.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD2BA42018C06F95009AFC9F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD2BA42518C06F95009AFC9F /* XCTest.framework in Frameworks */,
-				FD2BA42718C06F95009AFC9F /* UIKit.framework in Frameworks */,
-				FD2BA42618C06F95009AFC9F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +367,6 @@
 				FD2BA45118C086E2009AFC9F /* Vendor */,
 				FD2BA40818C06F95009AFC9F /* Code */,
 				FD2BA43D18C06FC8009AFC9F /* Resources */,
-				FD2BA42A18C06F95009AFC9F /* Les SexpertsTests */,
 				FD2BA40118C06F95009AFC9F /* Frameworks */,
 				FD2BA40018C06F95009AFC9F /* Products */,
 			);
@@ -306,7 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				FD2BA3FF18C06F95009AFC9F /* Les Sexperts.app */,
-				FD2BA42318C06F95009AFC9F /* Les SexpertsTests.xctest */,
+				FD29D6C118E2052300DD5675 /* Les Sexperts copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -349,16 +419,6 @@
 			);
 			name = Code;
 			path = "Les Sexperts";
-			sourceTree = "<group>";
-		};
-		FD2BA42A18C06F95009AFC9F /* Les SexpertsTests */ = {
-			isa = PBXGroup;
-			children = (
-				FD2BA42C18C06F95009AFC9F /* Les SexpertsTests-Info.plist */,
-				FD2BA42D18C06F95009AFC9F /* InfoPlist.strings */,
-				FD2BA43018C06F95009AFC9F /* Les_SexpertsTests.m */,
-			);
-			path = "Les SexpertsTests";
 			sourceTree = "<group>";
 		};
 		FD2BA43A18C06F9F009AFC9F /* Controllers */ = {
@@ -418,6 +478,7 @@
 				FD2BA44E18C085EA009AFC9F /* ContentLibrary.xcdatamodeld */,
 				FD2BA40B18C06F95009AFC9F /* InfoPlist.strings */,
 				FD2BA40A18C06F95009AFC9F /* Les Sexperts-Info.plist */,
+				FD29D6C218E2052300DD5675 /* Sexbox-Info.plist */,
 				FD2BA41418C06F95009AFC9F /* Main.storyboard */,
 				FD2BA41D18C06F95009AFC9F /* Images.xcassets */,
 			);
@@ -538,6 +599,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FD29D67318E2052300DD5675 /* Sexbox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD29D6BE18E2052300DD5675 /* Build configuration list for PBXNativeTarget "Sexbox" */;
+			buildPhases = (
+				FD29D67418E2052300DD5675 /* ShellScript */,
+				FD29D67518E2052300DD5675 /* Sources */,
+				FD29D6A218E2052300DD5675 /* Frameworks */,
+				FD29D6B818E2052300DD5675 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sexbox;
+			productName = "Les Sexperts";
+			productReference = FD29D6C118E2052300DD5675 /* Les Sexperts copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 		FD2BA3FE18C06F95009AFC9F /* Les Sexperts */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD2BA43418C06F95009AFC9F /* Build configuration list for PBXNativeTarget "Les Sexperts" */;
@@ -556,24 +635,6 @@
 			productReference = FD2BA3FF18C06F95009AFC9F /* Les Sexperts.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FD2BA42218C06F95009AFC9F /* Les SexpertsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FD2BA43718C06F95009AFC9F /* Build configuration list for PBXNativeTarget "Les SexpertsTests" */;
-			buildPhases = (
-				FD2BA41F18C06F95009AFC9F /* Sources */,
-				FD2BA42018C06F95009AFC9F /* Frameworks */,
-				FD2BA42118C06F95009AFC9F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FD2BA42918C06F95009AFC9F /* PBXTargetDependency */,
-			);
-			name = "Les SexpertsTests";
-			productName = "Les SexpertsTests";
-			productReference = FD2BA42318C06F95009AFC9F /* Les SexpertsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -583,11 +644,11 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Gilmert Bentley";
 				TargetAttributes = {
-					FD2BA3FE18C06F95009AFC9F = {
+					FD29D67318E2052300DD5675 = {
 						DevelopmentTeam = SHLVY923BZ;
 					};
-					FD2BA42218C06F95009AFC9F = {
-						TestTargetID = FD2BA3FE18C06F95009AFC9F;
+					FD2BA3FE18C06F95009AFC9F = {
+						DevelopmentTeam = SHLVY923BZ;
 					};
 				};
 			};
@@ -605,12 +666,24 @@
 			projectRoot = "";
 			targets = (
 				FD2BA3FE18C06F95009AFC9F /* Les Sexperts */,
-				FD2BA42218C06F95009AFC9F /* Les SexpertsTests */,
+				FD29D67318E2052300DD5675 /* Sexbox */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FD29D6B818E2052300DD5675 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD29D6B918E2052300DD5675 /* Images.xcassets in Resources */,
+				FD29D6BA18E2052300DD5675 /* american_typewriter.ttf in Resources */,
+				FD29D6BB18E2052300DD5675 /* ContentLibrary.sqlite in Resources */,
+				FD29D6BC18E2052300DD5675 /* InfoPlist.strings in Resources */,
+				FD29D6BD18E2052300DD5675 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD2BA3FD18C06F95009AFC9F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -623,17 +696,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD2BA42118C06F95009AFC9F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD2BA42F18C06F95009AFC9F /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		FD29D67418E2052300DD5675 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mogenerator -m \"ContentLibrary.xcdatamodeld/ContentLibrary.xcdatamodel/\" --template-var arc=true --output-dir \"Les Sexperts\"    ";
+		};
 		FD2BA44718C084C8009AFC9F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -650,6 +728,57 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FD29D67518E2052300DD5675 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD29D67618E2052300DD5675 /* Joke.m in Sources */,
+				FD29D67718E2052300DD5675 /* CoreDataStack.m in Sources */,
+				FD29D67818E2052300DD5675 /* UnlockViewController.m in Sources */,
+				FD29D67918E2052300DD5675 /* _Advice.m in Sources */,
+				FD29D67A18E2052300DD5675 /* UIImage+ImageEffects.m in Sources */,
+				FD29D67B18E2052300DD5675 /* Theme.m in Sources */,
+				FD29D67C18E2052300DD5675 /* UIImage+Additional.m in Sources */,
+				FD29D67D18E2052300DD5675 /* FinishedViewController.m in Sources */,
+				FD29D67E18E2052300DD5675 /* ReceiptValidator.m in Sources */,
+				FD29D67F18E2052300DD5675 /* ResumeViewController.m in Sources */,
+				FD29D68018E2052300DD5675 /* MZAppearance.m in Sources */,
+				FD29D68118E2052300DD5675 /* ThemeCollectionViewController.m in Sources */,
+				FD29D68218E2052300DD5675 /* _Joke.m in Sources */,
+				FD29D68318E2052300DD5675 /* Advice.m in Sources */,
+				FD29D68418E2052300DD5675 /* _Question.m in Sources */,
+				FD29D68518E2052300DD5675 /* MZFormSheetBackgroundWindow.m in Sources */,
+				FD29D68618E2052300DD5675 /* QuestionViewController.m in Sources */,
+				FD29D68718E2052300DD5675 /* QuizViewController.m in Sources */,
+				FD29D68818E2052300DD5675 /* IBActionSheet.m in Sources */,
+				FD29D68918E2052300DD5675 /* AdviceViewController.m in Sources */,
+				FD29D68A18E2052300DD5675 /* AppDelegate.m in Sources */,
+				FD29D68B18E2052300DD5675 /* ResultsCollectionViewFlowLayout.m in Sources */,
+				FD29D68C18E2052300DD5675 /* ContentLibrary.xcdatamodeld in Sources */,
+				FD29D68D18E2052300DD5675 /* UIViewController+TargetViewController.m in Sources */,
+				FD29D68E18E2052300DD5675 /* ResultsViewController.m in Sources */,
+				FD29D68F18E2052300DD5675 /* ResultCollectionViewCell.m in Sources */,
+				FD29D69018E2052300DD5675 /* Answer.m in Sources */,
+				FD29D69118E2052300DD5675 /* JokePageViewController.m in Sources */,
+				FD29D69218E2052300DD5675 /* AdvertisementNavigationController.m in Sources */,
+				FD29D69318E2052300DD5675 /* main.m in Sources */,
+				FD29D69418E2052300DD5675 /* JokeViewController.m in Sources */,
+				FD29D69518E2052300DD5675 /* MZFormSheetBackgroundWindowViewController.m in Sources */,
+				FD29D69618E2052300DD5675 /* MZFormSheetSegue.m in Sources */,
+				FD29D69718E2052300DD5675 /* _Theme.m in Sources */,
+				FD29D69818E2052300DD5675 /* ThemeCollectionViewCell.m in Sources */,
+				FD29D69918E2052300DD5675 /* NSInvocation+Copy.m in Sources */,
+				FD29D69A18E2052300DD5675 /* Question.m in Sources */,
+				FD29D69B18E2052300DD5675 /* MZTransition.m in Sources */,
+				FD29D69C18E2052300DD5675 /* _Answer.m in Sources */,
+				FD29D69D18E2052300DD5675 /* MZFormSheetController.m in Sources */,
+				FD29D69E18E2052300DD5675 /* CountDownViewController.m in Sources */,
+				FD29D69F18E2052300DD5675 /* AdviceTableViewController.m in Sources */,
+				FD29D6A018E2052300DD5675 /* ContentLock.m in Sources */,
+				FD29D6A118E2052300DD5675 /* HomeViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD2BA3FB18C06F95009AFC9F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -701,23 +830,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD2BA41F18C06F95009AFC9F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD2BA43118C06F95009AFC9F /* Les_SexpertsTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FD2BA42918C06F95009AFC9F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FD2BA3FE18C06F95009AFC9F /* Les Sexperts */;
-			targetProxy = FD2BA42818C06F95009AFC9F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FD2BA40B18C06F95009AFC9F /* InfoPlist.strings */ = {
@@ -738,17 +851,80 @@
 			path = "Les Sexperts/Les Sexperts";
 			sourceTree = "<group>";
 		};
-		FD2BA42D18C06F95009AFC9F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FD2BA42E18C06F95009AFC9F /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FD29D6BF18E2052300DD5675 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					AdColony,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Les Sexperts/Les Sexperts-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"PAID_VERSION=1",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					OpenSSL,
+					Admob,
+				);
+				INFOPLIST_FILE = "Sexbox-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					OpenSSL,
+					Admob,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = Sexbox;
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FD29D6C018E2052300DD5675 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Gilmert Bentley (SHLVY923BZ)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					AdColony,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Les Sexperts/Les Sexperts-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "PAID_VERSION=1";
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					OpenSSL,
+					Admob,
+				);
+				INFOPLIST_FILE = "Sexbox-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					OpenSSL,
+					Admob,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = Sexbox;
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		FD2BA43218C06F95009AFC9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -883,49 +1059,18 @@
 			};
 			name = Release;
 		};
-		FD2BA43818C06F95009AFC9F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Les Sexperts.app/Les Sexperts";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Les Sexperts/Les Sexperts-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Les SexpertsTests/Les SexpertsTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		FD2BA43918C06F95009AFC9F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Les Sexperts.app/Les Sexperts";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Les Sexperts/Les Sexperts-Prefix.pch";
-				INFOPLIST_FILE = "Les SexpertsTests/Les SexpertsTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FD29D6BE18E2052300DD5675 /* Build configuration list for PBXNativeTarget "Sexbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD29D6BF18E2052300DD5675 /* Debug */,
+				FD29D6C018E2052300DD5675 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FD2BA3FA18C06F94009AFC9F /* Build configuration list for PBXProject "Les Sexperts" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -940,15 +1085,6 @@
 			buildConfigurations = (
 				FD2BA43518C06F95009AFC9F /* Debug */,
 				FD2BA43618C06F95009AFC9F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FD2BA43718C06F95009AFC9F /* Build configuration list for PBXNativeTarget "Les SexpertsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FD2BA43818C06F95009AFC9F /* Debug */,
-				FD2BA43918C06F95009AFC9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

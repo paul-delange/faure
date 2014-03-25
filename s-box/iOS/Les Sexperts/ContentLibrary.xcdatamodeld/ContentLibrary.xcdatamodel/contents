@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Advice" representedClassName="Advice" syncable="YES">
+        <attribute name="free" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="targetGender" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,6 +13,7 @@
         <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="answers" inverseEntity="Question" syncable="YES"/>
     </entity>
     <entity name="Joke" representedClassName="Joke" syncable="YES">
+        <attribute name="free" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Question" representedClassName="Question" syncable="YES">
@@ -25,10 +27,10 @@
         <relationship name="advices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Advice" inverseName="theme" inverseEntity="Advice" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Advice" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Answer" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Joke" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Question" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Theme" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Advice" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="Answer" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="Joke" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="Question" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="Theme" positionX="0" positionY="0" width="128" height="75"/>
     </elements>
 </model>

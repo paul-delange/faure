@@ -12,7 +12,6 @@
 
 @interface AdviceTableViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *genderSegmentedControl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) Theme* theme;

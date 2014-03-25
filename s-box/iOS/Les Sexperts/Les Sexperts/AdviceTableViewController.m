@@ -14,8 +14,6 @@
 
 #import "ContentLock.h"
 
-#define     kUserDefaultsGenderPreferenceKey        @"GenderPreference"
-
 @interface AdviceTableViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
 @property (strong) NSFetchedResultsController* resultsController;
@@ -25,14 +23,9 @@
 @implementation AdviceTableViewController
 
 - (NSPredicate*) currentPredicate {
-    kAdviceGenderType gender = [[NSUserDefaults standardUserDefaults] integerForKey: kUserDefaultsGenderPreferenceKey];
-    
-    NSPredicate* correctGenderPredicate = [NSPredicate predicateWithFormat: @"targetGender = %d", gender];
-    NSPredicate* bothGenderPredicate = [NSPredicate predicateWithFormat: @"targetGender = %d", kAdviceGenderTypeBoth];
     NSPredicate* themePredicate = [NSPredicate predicateWithFormat: @"theme = %@", self.theme];
     
-    NSPredicate* genderPredicate = [NSCompoundPredicate orPredicateWithSubpredicates: @[correctGenderPredicate, bothGenderPredicate]];
-    return [NSCompoundPredicate andPredicateWithSubpredicates: @[genderPredicate, themePredicate]];
+    return themePredicate;
 }
 
 - (void) setTheme:(Theme *)theme {
@@ -66,27 +59,6 @@
     }
 }
 
-#pragma mark - Actions
-- (IBAction)genderScopeValueChanged:(id)sender {
-    kAdviceGenderType type = self.genderSegmentedControl.selectedSegmentIndex == 0 ? kAdviceGenderTypeMale : kAdviceGenderTypeFemale;
-    [[NSUserDefaults standardUserDefaults] setInteger: type forKey: kUserDefaultsGenderPreferenceKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    NSFetchRequest* fetchRequest = self.resultsController.fetchRequest;
-    [fetchRequest setPredicate: [self currentPredicate]];
-    
-    NSError* error;
-    [self.resultsController performFetch: &error];
-    DLogError(error);
-    [self.tableView reloadData];
-}
-
-#pragma mark - NSObject
-+ (void) initialize {
-    [[NSUserDefaults standardUserDefaults] registerDefaults: @{kUserDefaultsGenderPreferenceKey : @(kAdviceGenderTypeMale)}];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder: aDecoder];
     if( self ) {
@@ -104,21 +76,6 @@
     [self.resultsController performFetch: &error];
     DLogError(error);
     [self.tableView reloadData];
-    
-    kAdviceGenderType gender = [[NSUserDefaults standardUserDefaults] integerForKey: kUserDefaultsGenderPreferenceKey];
-    switch (gender) {
-        case kAdviceGenderTypeMale:
-            [self.genderSegmentedControl setSelectedSegmentIndex: 0];
-            break;
-        case kAdviceGenderTypeFemale:
-            [self.genderSegmentedControl setSelectedSegmentIndex: 1];
-            break;
-        default:
-            break;
-    }
-    
-    [self.genderSegmentedControl setTitle: NSLocalizedString(@"Pour LUI", @"") forSegmentAtIndex: 0];
-    [self.genderSegmentedControl setTitle: NSLocalizedString(@"Pour ELLE", @"") forSegmentAtIndex: 1];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

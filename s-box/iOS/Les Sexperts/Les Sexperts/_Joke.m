@@ -4,6 +4,7 @@
 #import "_Joke.h"
 
 const struct JokeAttributes JokeAttributes = {
+	.free = @"free",
 	.text = @"text",
 };
 
@@ -39,9 +40,40 @@ const struct JokeFetchedProperties JokeFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"freeValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"free"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic free;
+
+
+
+- (BOOL)freeValue {
+	NSNumber *result = [self free];
+	return [result boolValue];
+}
+
+- (void)setFreeValue:(BOOL)value_ {
+	[self setFree:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveFreeValue {
+	NSNumber *result = [self primitiveFree];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveFreeValue:(BOOL)value_ {
+	[self setPrimitiveFree:[NSNumber numberWithBool:value_]];
+}
+
 
 
 

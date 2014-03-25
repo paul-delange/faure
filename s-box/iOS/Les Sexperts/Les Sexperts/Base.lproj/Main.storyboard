@@ -62,7 +62,7 @@
         <!--Advice Table View Controller-->
         <scene sceneID="3Yx-S0-7y6">
             <objects>
-                <viewController id="clo-3I-cqb" customClass="AdviceTableViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="clo-3I-cqb" customClass="AdviceTableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RPg-GA-Nf0"/>
                         <viewControllerLayoutGuide type="bottom" id="DG0-ji-BId"/>
@@ -71,20 +71,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="O30-lI-ldY">
-                                <rect key="frame" x="0.0" y="64" width="320" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="genderScopeValueChanged:" destination="clo-3I-cqb" eventType="valueChanged" id="Kyg-Sc-cPG"/>
-                                </connections>
-                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UUZ-lR-ya3">
-                                <rect key="frame" x="0.0" y="92" width="320" height="476"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -119,18 +107,14 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="O30-lI-ldY" secondAttribute="trailing" id="07I-uM-uzr"/>
-                            <constraint firstItem="O30-lI-ldY" firstAttribute="leading" secondItem="l82-AT-R5b" secondAttribute="leading" id="ArV-BE-WVG"/>
                             <constraint firstItem="UUZ-lR-ya3" firstAttribute="leading" secondItem="l82-AT-R5b" secondAttribute="leading" id="Auo-ZW-Ju9"/>
-                            <constraint firstItem="O30-lI-ldY" firstAttribute="top" secondItem="RPg-GA-Nf0" secondAttribute="bottom" id="IiL-7C-dw3"/>
-                            <constraint firstItem="UUZ-lR-ya3" firstAttribute="top" secondItem="O30-lI-ldY" secondAttribute="bottom" id="Jd6-gZ-f8C"/>
                             <constraint firstItem="DG0-ji-BId" firstAttribute="top" secondItem="UUZ-lR-ya3" secondAttribute="bottom" id="XNB-Wu-b0c"/>
+                            <constraint firstItem="UUZ-lR-ya3" firstAttribute="top" secondItem="RPg-GA-Nf0" secondAttribute="bottom" id="tMc-Jb-LOE"/>
                             <constraint firstAttribute="trailing" secondItem="UUZ-lR-ya3" secondAttribute="trailing" id="yRh-Og-E8W"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sTp-lj-GwE"/>
                     <connections>
-                        <outlet property="genderSegmentedControl" destination="O30-lI-ldY" id="gMg-ai-vr6"/>
                         <outlet property="tableView" destination="UUZ-lR-ya3" id="TYx-6Y-trz"/>
                     </connections>
                 </viewController>

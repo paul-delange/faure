@@ -46,10 +46,19 @@ NSString * const kContentUnlockProductIdentifier = @"sexpert_unlock";
 }
 
 + (BOOL) tryLock {
+#if PAID_VERSION
+#if TARGET_IPHONE_SIMULATOR
+    return NO;
+#else
+    NSURL* receiptURL = [[NSBundle mainBundle] appStoreReceiptURL]
+    return isValidReceipt(receiptURL);
+#endif
+#else
 #if TARGET_IPHONE_SIMULATOR
     return ![[NSUserDefaults standardUserDefaults] boolForKey: @"SimulatorContentLocked"];
 #else
     return !isUnlockSubscriptionPurchased();
+#endif
 #endif
 }
 

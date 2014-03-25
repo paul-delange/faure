@@ -11,6 +11,8 @@
 #import "CoreDataStack.h"
 #import "Question.h"
 
+#import <StoreKit/StoreKit.h>
+
 #import <AdColony/AdColony.h>
 
 #define kUserPreferenceHasShuffledQuestionsKey  @"questions_shuffled"
@@ -44,6 +46,14 @@
                          logging: NO];
 #endif
     
+#if PAID_VERSION
+#if !TARGET_IPHONE_SIMULATOR
+    SKReceiptRefreshRequest* refresh = [[SKReceiptRefreshRequest alloc] initWithReceiptProperties: nil];
+    refresh.delegate = (id<SKRequestDelegate>)self;
+    [refresh start];
+#endif
+#endif
+    
     return YES;
 }
 							
@@ -54,6 +64,10 @@
 
 - ( void ) onAdColonyV4VCReward:(BOOL)success currencyName:(NSString*)currencyName currencyAmount:(int)amount inZone:(NSString*)zoneID {
     
+}
+#pragma mark - SKRequestDelegate
+- (void)requestDidFinish:(SKRequest *)request {
+    NSLog(@"Receipt refreshed");
 }
 
 @end

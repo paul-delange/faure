@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD29D67018E2001E00DD5675 /* blagues.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD29D66D18E2001E00DD5675 /* blagues.csv */; };
+		FD29D67118E2001E00DD5675 /* conseils.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD29D66E18E2001E00DD5675 /* conseils.csv */; };
+		FD29D67218E2001E00DD5675 /* themes.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD29D66F18E2001E00DD5675 /* themes.csv */; };
 		FD2BA47A18C08780009AFC9F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA47918C08780009AFC9F /* Cocoa.framework */; };
 		FD2BA48418C08780009AFC9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA48218C08780009AFC9F /* InfoPlist.strings */; };
 		FD2BA48618C08780009AFC9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA48518C08780009AFC9F /* main.m */; };
@@ -33,9 +36,6 @@
 		FD2BA4E918C08A7A009AFC9F /* answers.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA4E718C08A7A009AFC9F /* answers.csv */; };
 		FD2BA4EA18C08A7A009AFC9F /* questions.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA4E818C08A7A009AFC9F /* questions.csv */; };
 		FD2BA4F618C08BA2009AFC9F /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4F518C08BA2009AFC9F /* CHCSVParser.m */; };
-		FD2BA4FA18C0970D009AFC9F /* conseils.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA4F718C0970D009AFC9F /* conseils.csv */; };
-		FD2BA4FB18C0970D009AFC9F /* blagues.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA4F818C0970D009AFC9F /* blagues.csv */; };
-		FD2BA4FC18C0970D009AFC9F /* themes.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA4F918C0970D009AFC9F /* themes.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD29D66D18E2001E00DD5675 /* blagues.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = blagues.csv; sourceTree = "<group>"; };
+		FD29D66E18E2001E00DD5675 /* conseils.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = conseils.csv; sourceTree = "<group>"; };
+		FD29D66F18E2001E00DD5675 /* themes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = themes.csv; sourceTree = "<group>"; };
 		FD2BA47618C08780009AFC9F /* Importer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Importer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2BA47918C08780009AFC9F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FD2BA47C18C08780009AFC9F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -90,9 +93,6 @@
 		FD2BA4E818C08A7A009AFC9F /* questions.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = questions.csv; sourceTree = "<group>"; };
 		FD2BA4F418C08BA2009AFC9F /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHCSVParser.h; path = CHCSVParser/CHCSVParser/CHCSVParser.h; sourceTree = SOURCE_ROOT; };
 		FD2BA4F518C08BA2009AFC9F /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHCSVParser.m; path = CHCSVParser/CHCSVParser/CHCSVParser.m; sourceTree = SOURCE_ROOT; };
-		FD2BA4F718C0970D009AFC9F /* conseils.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = conseils.csv; sourceTree = "<group>"; };
-		FD2BA4F818C0970D009AFC9F /* blagues.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = blagues.csv; sourceTree = "<group>"; };
-		FD2BA4F918C0970D009AFC9F /* themes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = themes.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,9 +175,9 @@
 		FD2BA48018C08780009AFC9F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FD2BA4F718C0970D009AFC9F /* conseils.csv */,
-				FD2BA4F818C0970D009AFC9F /* blagues.csv */,
-				FD2BA4F918C0970D009AFC9F /* themes.csv */,
+				FD29D66D18E2001E00DD5675 /* blagues.csv */,
+				FD29D66E18E2001E00DD5675 /* conseils.csv */,
+				FD29D66F18E2001E00DD5675 /* themes.csv */,
 				FD2BA4E718C08A7A009AFC9F /* answers.csv */,
 				FD2BA4E818C08A7A009AFC9F /* questions.csv */,
 				FD2BA4AE18C087E5009AFC9F /* ContentLibrary.xcdatamodeld */,
@@ -307,14 +307,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD2BA4FC18C0970D009AFC9F /* themes.csv in Resources */,
+				FD29D67218E2001E00DD5675 /* themes.csv in Resources */,
 				FD2BA4E918C08A7A009AFC9F /* answers.csv in Resources */,
 				FD2BA4EA18C08A7A009AFC9F /* questions.csv in Resources */,
 				FD2BA48418C08780009AFC9F /* InfoPlist.strings in Resources */,
 				FD2BA49218C08780009AFC9F /* Images.xcassets in Resources */,
 				FD2BA48A18C08780009AFC9F /* Credits.rtf in Resources */,
-				FD2BA4FA18C0970D009AFC9F /* conseils.csv in Resources */,
-				FD2BA4FB18C0970D009AFC9F /* blagues.csv in Resources */,
+				FD29D67018E2001E00DD5675 /* blagues.csv in Resources */,
+				FD29D67118E2001E00DD5675 /* conseils.csv in Resources */,
 				FD2BA49018C08780009AFC9F /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,6 +575,7 @@
 				FD2BA4A918C08780009AFC9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FD2BA4AA18C08780009AFC9F /* Build configuration list for PBXNativeTarget "ImporterTests" */ = {
 			isa = XCConfigurationList;
@@ -583,6 +584,7 @@
 				FD2BA4AC18C08780009AFC9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
