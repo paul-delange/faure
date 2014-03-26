@@ -369,10 +369,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="fLS-Hc-VIh">
-                                <rect key="frame" x="20" y="72" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="50" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="fLS-Hc-VIh">
+                                <rect key="frame" x="20" y="72" width="280" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -411,17 +412,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Benjamin" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="265" translatesAutoresizingMaskIntoConstraints="NO" id="krb-u9-b1g">
-                                <rect key="frame" x="28" y="260" width="265" height="48"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="MYv-BM-YN2">
+                                <rect key="frame" x="20" y="138" width="280" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="EGs-UF-ro7">
+                                <rect key="frame" x="20" y="384" width="280" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="krb-u9-b1g" secondAttribute="centerX" id="6Qp-7L-CpX"/>
-                            <constraint firstAttribute="centerY" secondItem="krb-u9-b1g" secondAttribute="centerY" id="brn-ob-Osa"/>
+                            <constraint firstAttribute="centerY" secondItem="MYv-BM-YN2" secondAttribute="centerY" placeholder="YES" id="95g-jF-MrY"/>
+                            <constraint firstItem="MYv-BM-YN2" firstAttribute="leading" secondItem="b0e-bv-ncx" secondAttribute="leading" constant="20" symbolic="YES" id="K5P-P2-lAC"/>
+                            <constraint firstAttribute="trailing" secondItem="MYv-BM-YN2" secondAttribute="trailing" constant="20" symbolic="YES" id="L9B-XM-gO3"/>
+                            <constraint firstAttribute="trailing" secondItem="EGs-UF-ro7" secondAttribute="trailing" constant="20" symbolic="YES" id="Tli-T0-Rmq"/>
+                            <constraint firstItem="EGs-UF-ro7" firstAttribute="top" secondItem="MYv-BM-YN2" secondAttribute="bottom" constant="8" symbolic="YES" placeholder="YES" id="W7Q-CC-vm8"/>
+                            <constraint firstItem="EGs-UF-ro7" firstAttribute="leading" secondItem="b0e-bv-ncx" secondAttribute="leading" constant="20" symbolic="YES" id="flK-Ts-KLT"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -434,6 +447,8 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="bottomLabel" destination="EGs-UF-ro7" id="hWA-Q3-A7h"/>
+                        <outlet property="topLabel" destination="MYv-BM-YN2" id="kWZ-ok-wzd"/>
                         <segue destination="tuX-V2-Npk" kind="modal" identifier="ResultsSegue" modalTransitionStyle="crossDissolve" id="zAl-fU-zdR"/>
                     </connections>
                 </viewController>

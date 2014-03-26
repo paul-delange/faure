@@ -53,16 +53,20 @@
         button.translatesAutoresizingMaskIntoConstraints = NO;
         [button addTarget: self action: @selector(answerPushed:) forControlEvents: UIControlEventTouchUpInside];
         button.titleLabel.numberOfLines = 0;
-        
+        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        button.titleLabel.textAlignment = NSTextAlignmentCenter;
+        button.titleLabel.font = [UIFont fontWithName: @"American Typewriter" size: 20];
+        button.contentEdgeInsets = UIEdgeInsetsMake(20, 20, 20, 20);
+        button.titleLabel.adjustsFontSizeToFitWidth = YES;
         [self.view addSubview: button];
         
-        [self.view addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"H:|[button]|"
+        [self.view addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"H:|-[button]-|"
                                                                            options: 0
                                                                            metrics: nil
                                                                              views: NSDictionaryOfVariableBindings(button)]];
          
          if( previousButton) {
-             [self.view addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"V:[previousButton]-[button]"
+             [self.view addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"V:[previousButton]-[button(==previousButton)]"
                                                                                 options: 0
                                                                                 metrics: nil
                                                                                   views: NSDictionaryOfVariableBindings(previousButton, button)]];
@@ -76,9 +80,17 @@
         
         previousButton = button;
         
-        button.backgroundColor = [UIColor redColor];
+        button.backgroundColor = [UIColor whiteColor];
+        button.layer.cornerRadius = 8.;
+        
+        [button setTitleColor: [UIColor blackColor] forState: UIControlStateNormal];
         [answerButtons addObject: button];
     }
+    
+    [self.view addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"V:[previousButton]-|"
+                                                                       options: 0
+                                                                       metrics: nil
+                                                                         views: NSDictionaryOfVariableBindings(previousButton)]];
     
     self.answerButtons = [answerButtons copy];
 }
