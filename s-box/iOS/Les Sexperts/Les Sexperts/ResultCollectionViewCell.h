@@ -13,4 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailTextLabel;
 
+@property (assign, nonatomic) BOOL isCorrect;
+
 @end

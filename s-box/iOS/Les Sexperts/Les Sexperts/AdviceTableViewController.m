@@ -86,9 +86,6 @@
         NSIndexPath* indexPath = [self.tableView indexPathForCell: sender];
         Advice* advice = [self.resultsController objectAtIndexPath: indexPath];
         adviceTV.advice = advice;
-        
-        if( indexPath.row && [ContentLock tryLock] )
-            adviceTV.blocked = YES;
     }
 }
 

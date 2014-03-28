@@ -19,25 +19,16 @@
 #define HTML_FORMAT @"<html><body bgcolor=\"#000000\" text=\"#FFFFFF\" face=\"American Typewriter\" size=\"5\">%@</body></html>"
 #define HTML_STRING_FROM_TEXT( text ) [NSString stringWithFormat: HTML_FORMAT, text]
 
-@interface AdviceViewController () <UIWebViewDelegate, AdColonyAdDelegate>
+@interface AdviceViewController () <AdColonyAdDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *maskImageView;
 
 @property (weak, nonatomic) IBOutlet UIView* blockedMessageView;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
 @implementation AdviceViewController
-
-- (void) setBlocked:(BOOL)blocked {
-    if( _blocked != blocked ) {
-        _blocked = blocked;
-        
-        if( !blocked ) {
-            self.maskImageView.hidden = YES;
-        }
-    }
-}
 
 - (void) setAdvice:(Advice *)advice {
     if( advice != _advice ) {
@@ -138,12 +129,7 @@
 - (void) reloadData {
     self.title = self.advice.theme.name;
     self.titleLabel.text = [NSString stringWithFormat: @"\n%@\n ", self.advice.title];
-    
-    NSString* htmlString = self.advice.text;
-    
-    [self.webView loadHTMLString: HTML_STRING_FROM_TEXT(htmlString) baseURL: nil];
-    
-    [self.activityIndicator startAnimating];
+    self.textView.text = self.advice.text;
 }
 
 #pragma mark - Actions
@@ -192,26 +178,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    if( self.advice )
-        [self reloadData];
+    [self reloadData];
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear: animated];
     
-    [self.activityIndicator stopAnimating];
-    
-    if( !self.blocked )
-        return;
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.02 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        UIGraphicsBeginImageContextWithOptions(self.maskImageView.bounds.size, NO, [UIScreen mainScreen].scale);
-        [self.view drawViewHierarchyInRect: CGRectMake(0, -CGRectGetMinY(self.titleLabel.frame), CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)) afterScreenUpdates:YES];
+    if( !self.advice.freeValue && [ContentLock tryLock] && !self.blockedMessageView) {
+        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
+        [self.view drawViewHierarchyInRect: self.view.frame afterScreenUpdates: YES];
         UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
-        self.maskImageView.image = [image applyBlurWithRadius: 2.5
+        self.maskImageView.image = [image applyBlurWithRadius: 3.0
                                                     tintColor: [UIColor clearColor]
                                         saturationDeltaFactor: 1.8
                                                     maskImage: nil];
@@ -226,11 +205,10 @@
                         } completion:^(BOOL finished) {
                             self.blockedMessageView = msgView;
                         }];
-    });
-}
-
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    DLogError(error);
+    }
+    else {
+        self.maskImageView.hidden = YES;
+    }
 }
 
 #pragma mark - AdColonyAdDelegate

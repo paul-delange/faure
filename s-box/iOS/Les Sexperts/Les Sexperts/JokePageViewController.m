@@ -23,6 +23,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem* backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem* nextButton;
+@property (weak) UIBarButtonItem* shareButton;
 @property (weak, nonatomic) IBOutlet UILabel* counterLabel;
 
 @property (weak, nonatomic) IBOutlet UIView* blockedMessageView;
@@ -260,6 +261,8 @@
     else
         self.navigationItem.rightBarButtonItems = @[shareButton];
     
+    self.shareButton = shareButton;
+    
     UIViewController* vc = [self pageViewController: self viewControllerAfterViewController: nil];
     [self setViewControllers: @[vc] direction: UIPageViewControllerNavigationDirectionForward animated: NO completion: NULL];
     _currentJoke = _jokes[0];
@@ -358,7 +361,9 @@
     
     self.counterLabel.text = [NSString stringWithFormat: NSLocalizedString( @"%@/%@", @""), @(index+1), @(_jokes.count)];
     
-    jokeVC.blocked = index >= 10 && [ContentLock tryLock];
+    jokeVC.blocked = !_currentJoke.freeValue && [ContentLock tryLock];
+    self.shareButton.enabled = !jokeVC.blocked;
+    NSLog(@"Blocked: %d", jokeVC.blocked);
     
     if( jokeVC.blocked && !self.blockedMessageView ) {
         UIView* msgView = [self blockedView];

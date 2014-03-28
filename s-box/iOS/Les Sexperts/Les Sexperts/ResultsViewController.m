@@ -42,12 +42,26 @@
     NSString* format = NSLocalizedString(@"Total %@", @"");
     self.totalScoreLabel.text = [NSString stringWithFormat: format, @([self totalCorrect])];
     
-    
     self.continueButton.enabled = NO;
     self.collectionView.scrollEnabled = NO;
     [self.continueButton setTitle: NSLocalizedString(@"Continue", @"") forState: UIControlStateNormal];
     
     [self.tableView reloadData];
+    
+    UIColor* topColor = [UIColor colorWithRed: 35/255. green: 40/255. blue: 43/255. alpha: 1.];
+    UIColor* centerColor = [UIColor colorWithRed: 39/255. green: 56/255. blue: 66/255. alpha: 1.];
+    UIColor* bottomColor = [UIColor colorWithRed: 23/255. green: 85/255. blue: 102/255. alpha: 1.];
+    
+    CAGradientLayer* gradient = [CAGradientLayer layer];
+    gradient.colors = @[(id)topColor.CGColor, (id)centerColor.CGColor, (id)bottomColor.CGColor];
+    gradient.startPoint = CGPointMake(0.5, 0.);
+    gradient.endPoint = CGPointMake(0.5, 1.);
+    gradient.locations = @[@(0.25), @(0.75)];
+    gradient.bounds = self.view.bounds;
+    gradient.anchorPoint = CGPointMake(CGRectGetMinX(gradient.bounds), 0);
+    
+    [self.view.layer insertSublayer: gradient atIndex: 0];
+
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -117,6 +131,7 @@
     cell.detailTextLabel.font = [UIFont preferredFontForTextStyle: UIFontTextStyleSubheadline];
     
     Answer* answer = self.answersArray[indexPath.row];
+    cell.isCorrect = answer.isCorrectValue;
     
     if( answer.isCorrectValue ) {
         cell.detailTextLabel.text = answer.text;
@@ -131,7 +146,7 @@
         NSRange wrongRange = [string rangeOfString: answer.text];
         
         NSDictionary* correctAttributes = @{ NSForegroundColorAttributeName : [UIColor greenColor]};
-        NSDictionary* wrongAttributes = @{ NSForegroundColorAttributeName : [UIColor redColor] };
+        NSDictionary* wrongAttributes = @{ NSForegroundColorAttributeName : [UIColor redColor], NSStrikethroughStyleAttributeName : @(NSUnderlinePatternSolid | NSUnderlineStyleThick) };
         
         [detailString addAttributes: correctAttributes range: correctRange];
         [detailString addAttributes: wrongAttributes range: wrongRange];
@@ -139,6 +154,7 @@
         cell.detailTextLabel.attributedText = detailString;
     }
     
+    [cell setNeedsDisplay];
     
     return cell;
 }

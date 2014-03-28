@@ -51,10 +51,10 @@
     Advice* advice = [NSEntityDescription insertNewObjectForEntityForName: @"Advice" inManagedObjectContext: context];
     advice.title = asrc[1];
     advice.text = asrc[2];
-    advice.free = @([asrc[3] integerValue]);
+    advice.free = @([asrc[4] integerValue]);
     //advice.targetGender = @([asrc[4] integerValue]);
     
-    id tid = tsrc[0];
+    id tid = tsrc[1];
     NSPredicate* predicate = [NSPredicate predicateWithFormat: @"name = %@", tid];
     NSFetchRequest* themeFetch = [NSFetchRequest fetchRequestWithEntityName: @"Theme"];
     [themeFetch setPredicate: predicate];
@@ -76,7 +76,7 @@
     
     Joke* joke = [NSEntityDescription insertNewObjectForEntityForName: @"Joke" inManagedObjectContext: context];
     joke.text = jsrc[1];
-    joke.freeValue = @([jsrc[0] integerValue]);
+    joke.free = @([jsrc[0] integerValue]);
     
     return joke;
 }

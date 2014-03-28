@@ -11,12 +11,15 @@
 #import "Joke.h"    
 #import "UIImage+ImageEffects.h"
 
+#import "ContentLock.h"
+
 #define HTML_FORMAT @"<html><body bgcolor=\"#000000\" text=\"#FFFFFF\" face=\"American Typewriter\" size=\"5\">%@</body></html>"
 #define HTML_STRING_FROM_TEXT( text ) [NSString stringWithFormat: HTML_FORMAT, text]
 
-@interface JokeViewController () <UIWebViewDelegate>
+@interface JokeViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView* maskImageView;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -26,7 +29,19 @@
     if( _blocked != blocked ) {
         _blocked = blocked;
         
-        if( !blocked ) {
+        if( blocked ) {
+            UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
+            [self.view drawViewHierarchyInRect: self.view.frame afterScreenUpdates: YES];
+            UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            
+            self.maskImageView.image = [image applyBlurWithRadius: 2.5
+                                                        tintColor: [UIColor clearColor]
+                                            saturationDeltaFactor: 1.8
+                                                        maskImage: nil];
+            self.maskImageView.hidden = NO;
+        }
+        else {
             self.maskImageView.hidden = YES;
         }
     }
@@ -38,34 +53,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self.webView loadHTMLString: HTML_STRING_FROM_TEXT(self.joke.text) baseURL: nil];
-    
-    //[self.webView loadHTMLString: self.joke.text baseURL: nil];
-}
-
-#pragma mark - UIWebViewDelegate
-- (void)webViewDidStartLoad:(UIWebView *)webView {
-    [self.activityView startAnimating];
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [self.activityView stopAnimating];
-    
-    if( !self.blocked )
-        return;
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.02 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        UIGraphicsBeginImageContextWithOptions(webView.bounds.size, NO, [UIScreen mainScreen].scale);
-        [webView drawViewHierarchyInRect: webView.bounds afterScreenUpdates:YES];
-        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        self.maskImageView.image = [image applyBlurWithRadius: 2.5
-                                                    tintColor: [UIColor clearColor]
-                                        saturationDeltaFactor: 1.8
-                                                    maskImage: nil];
-        self.maskImageView.hidden = NO;
-    });
+    self.textView.text = self.joke.text;
 }
 
 @end
