@@ -1,712 +1,711 @@
-"id","idQuestion","answer","correct"
-0,0,"Le préservatif (féminin ou masculin)","true"
-1,0,"La pilule","false"
-2,0,"Le stérilet.","false"
-3,1,"Sophie Marceau","false"
-4,1,"Sado Maso","true"
-5,1,"Sexe Masculin","false"
-6,2,"Clara Morgane","false"
-7,2,"Katsumi","false"
-8,2,"Anna Tommy","true"
-9,3,"Le goût pour les pubis épilés","true"
-10,3,"Avoir des relations sous l'emprise de l'alcool","false"
-11,3,"Utiliser des aliments à des fins sexuelles","false"
-12,4,"Les pieds","true"
-13,4,"Les seins","false"
-14,4,"Les fesses","false"
-15,5,"Olisbos","true"
-16,5,"Fozizi","false"
-17,5,"Plubesoindom","false"
-18,6,"Exobiophilie","false"
-19,6,"Onanisme","true"
-20,6,"Le célibat","false"
-21,7,"Le yohimbine","false"
-22,7,"La corne de rhinocéros blanc","true"
-23,7,"Le gingembre","false"
-24,8,"Selena Gomez","false"
-25,8,"Demi Lovato","false"
-26,8,"Lourdes Ciccone (la fille de Madonna)","true"
-27,9,"Le safe sex","false"
-28,9,"Le fake sex","true"
-29,9,"Le air sex","true"
-30,10,"French Letter","true"
-31,10,"Chinese Letter","false"
-32,10,"Spanish Condom","false"
-33,11,"Un sexologue en plus tendance","false"
-34,11,"Je vous aide à vous muscler grâce au sexe","false"
-35,11,"Je viens vous apprendre à améliorer votre libido","true"
-36,12,"Une parure de drap avec des hommes et des femmes nus","false"
-37,12,"Une parure de drap avec le Kamasutra","false"
-38,12,"Une parure de lit avec des huiles essentielles aphrodisiaques","true"
-39,13," Un homme qui exerce ses talents de cuisinier pour séduire","true"
-40,13,"Un homme qui a des érections grâce aux aliments","false"
-41,13,"Un homme qui se constipe après chaque rapport sexuel","false"
-42,14,"Un avion privé qui vous pouvez louer pour une vous faire plaisir...","true"
-43,14,"Un sextoy forme d'avion qui vibre comme au décollage","false"
-44,14,"Un avion pour faire des rencontres amoureuses","false"
-45,15,"Au réfrigérateur ","false"
-46,15,"Dans sa poche de jean","false"
-47,15,"Dans un endroit sec et frais","true"
-48,15,"Dans le tiroir de la commode","false"
-49,16,"6 mois","false"
-50,16,"3 ans ","true"
-51,16,"4 ans","false"
-52,16,"Il est à changer au bout de 4 partenaires","false"
-53,17,"3 mois","false"
-54,17,"2 ans","false"
-55,17,"5 ans ","true"
-56,17,"1 semaine, c'est suffisant","false"
-57,18,"En matière Sensoprène","false"
-58,18,"En Latex ","false"
-59,18,"En Silicone ","false"
-60,18,"En Polyuréthane","true"
-61,19,"Le placer en haut du pénis et le dérouler jusqu'à la base du sexe ","true"
-62,19,"L'enlever de l'emballage, le dérouler et le placer sur le sexe ","false"
-63,19,"L'enlever de l'emballage, souffler dedans et le placer sur le sexe ","false"
-64,20,VRAI,"false"
-65,20,FAUX,"true"
-66,21,VRAI,"false"
-67,21,FAUX,"true"
-68,22,VRAI,"true"
-69,22,FAUX,"false"
-70,23,VRAI,"false"
-71,23,FAUX,"true"
-72,24,VRAI,"false"
-73,24,FAUX,"true"
-74,25,VRAI,"false"
-75,25,FAUX,"true"
-76,26,VRAI,"true"
-77,26,FAUX,"false"
-78,27,VRAI,"false"
-79,27,FAUX,"true"
-80,28,VRAI,"false"
-81,28,FAUX,"true"
-82,29,"OUI","true"
-83,29,"NON","false"
-84,30,"OUI","true"
-85,30,"NON","false"
-86,31,"OUI","true"
-87,31,"NON","false"
-88,32,"OUI","false"
-89,32,"NON","true"
-90,33,"OUI","false"
-91,33,"NON","true"
-92,34,VRAI,"false"
-93,34,FAUX,"true"
-94,35,VRAI,"false"
-95,35,FAUX,"true"
-96,36,VRAI,"false"
-97,36,FAUX,"true"
-98,37,VRAI,"false"
-99,37,FAUX,"true"
-100,38,VRAI,"true"
-101,38,FAUX,"false"
-102,39,VRAI,"false"
-103,39,FAUX,"true"
-104,40,VRAI,"false"
-105,40,FAUX,"true"
-106,41,"OUI","true"
-107,41,"NON","false"
-108,42,VRAI,"true"
-109,42,FAUX,"false"
-110,43,VRAI,"true"
-111,43,FAUX,"false"
-112,44,"OUI","true"
-113,44,"NON","false"
-114,45,VRAI,"true"
-115,45,FAUX,"false"
-116,46,VRAI,"true"
-117,46,FAUX,"false"
-118,47,VRAI,"false"
-119,47,FAUX,"true"
-120,48,VRAI,"true"
-121,48,FAUX,"false"
-122,49,VRAI,"false"
-123,49,FAUX,"true"
-124,50,VRAI,"true"
-125,50,FAUX,"false"
-126,51,VRAI,"false"
-127,51,FAUX,"true"
-128,52,VRAI,"false"
-129,52,FAUX,"true"
-130,53,VRAI,"false"
-131,53,FAUX,"true"
-132,54,VRAI,"false"
-133,54,FAUX,"true"
-134,55,VRAI,"true"
-135,55,FAUX,"false"
-136,56,VRAI,"true"
-137,56,FAUX,"false"
-138,57,VRAI,"true"
-139,57,FAUX,"false"
-140,58,VRAI,"false"
-141,58,FAUX,"true"
-142,59,VRAI,"true"
-143,59,FAUX,"false"
-144,60,VRAI,"true"
-145,60,FAUX,"false"
-146,61,VRAI,"true"
-147,61,FAUX,"false"
-148,62,VRAI,"true"
-149,62,FAUX,"false"
-150,63,VRAI,"true"
-151,63,FAUX,"false"
-152,64,VRAI,"true"
-153,64,FAUX,"false"
-154,65,VRAI,"true"
-155,65,FAUX,"false"
-156,66,VRAI,"false"
-157,66,FAUX,"true"
-158,67,"Tibet","false"
-159,67,"Inde","true"
-160,67,"Turquie","false"
-161,68,"Recueil d'aphorismes sur l'amour charnel","true"
-162,68,"Manuel sur les bienfaits du karma","false"
-163,68,"Aucune signification particulière","true"
-164,69,VRAI,"false"
-165,69,FAUX,"true"
-166,70,"XIII ème siècle","false"
-167,70,"XV ème siècle","false"
-168,70,"XIX ème siècle","true"
-169,71,VRAI,"false"
-170,71,FAUX,"true"
-171,72,"La balance","false"
-172,72,"Le sphynx","false"
-173,72,"L'union du lotus","true"
-174,73,"La tigresse","false"
-175,73,"Les vignes enlacées","false"
-176,73,"L'angevine","true"
-177,74,"Les chimpanzés","false"
-178,74,"Le coquillage","false"
-179,74,"Le kangourou","true"
-180,75,"Mordre et griffer sa partenaire","true"
-181,75,"Utiliser divers objets","false"
-182,75,"Manger beaucoup de gingembre","false"
-183,76,VRAI,"false"
-184,76,FAUX,"true"
-185,77,"L'équerre","false"
-186,77,"La brouette","false"
-187,77,"L'andromaque","true"
-188,78,"La femme est accrochée au cou de l'homme par les pieds","true"
-189,78,"L'homme enlace la taille de la femme avec ses jambes","false"
-190,78,"Les partenaires sont allongés tête-bêche","false"
-191,79,"Victoria Beckham","false"
-192,79,"Madonna","true"
-193,79,"Britney Spears","false"
-194,80,"Rihanna","true"
-195,80,"Mila Kunis","false"
-196,80,"Jenifer","false"
-197,81,"Kristen Stewart","false"
-198,81,"Courteney Cox","false"
-199,81,"Lady Gaga","true"
-200,82,"Teri Hatcher","true"
-201,82,"Eva Longoria","false"
-202,82,"Sarah Jessica Parker","false"
-203,83,"Monica Belluci","true"
-204,83,"Isabelle Adjani","false"
-205,83,"Mathilde Seigner","false"
-206,84,"Penélope Cruz","false"
-207,84,"Jennifer Lopez","false"
-208,84,"Salma Hayek","true"
-209,85,"Lady Gaga","false"
-210,85,"Anne Hathaway","true"
-211,85,"Keysha","false"
-212,86,"Dita von Teese","false"
-213,86,"Marilyn Monroe","true"
-214,86,"Zahia","false"
-215,87,"Mariah Carey","false"
-216,87,"Kylie Minogue","false"
-217,87,"Scarlett Johansson","true"
-218,88,"Halle Berry","true"
-219,88,"Cameron Diaz","false"
-220,88,"Sharon Stone","false"
-221,89,VRAI,"false"
-222,89,FAUX,"true"
-223,90,VRAI,"false"
-224,90,FAUX,"true"
-225,91,VRAI,"false"
-226,91,FAUX,"true"
-227,92,VRAI,"false"
-228,92,FAUX,"true"
-229,93,VRAI,"false"
-230,93,FAUX,"true"
-231,94,"Le clitoris","false"
-232,94,"Le pubis","true"
-233,94,"Les fesses","false"
-234,95,VRAI,"false"
-235,95,FAUX,"true"
-236,96,"Les exercices de Kegel","true"
-237,96,"Les exercices de l'amour","false"
-238,96,"Les exercices de Marc","false"
-239,97,"En petite soufflée","false"
-240,97,"Par à-coups","true"
-241,97," Lentement et profondément","true"
-242,98,"Les cuillères","false"
-243,98,"Le missionnaire","false"
-244,98,"La levrette","true"
-245,99,VRAI,"true"
-246,99,FAUX,"false"
-247,100,"Un bon bain chaud avant le câlin","true"
-248,100,"Un repas gastronomique","false"
-249,100,"Une séance d'abdos","false"
-250,101,"Le jasmin","false"
-251,101,"L'ylang-ylang","true"
-252,101,"La lavande","false"
-253,102,"imprévisible","false"
-254,102,"maîtrisé","true"
-255,103,VRAI,"false"
-256,103,FAUX,"true"
-257,104,"44,00%","false"
-258,104,"72,00%","false"
-259,104,"89,00%","true"
-260,105,"Regarder son partenaire faire l'amour avec un(e) autre","true"
-261,105,"Faire l'amour uniquement dans des lieux sauvages","false"
-262,105,"Faire l'amour avec une poupée gonflable","false"
-263,106,"13,6","false"
-264,106,"14,9","false"
-265,106,"15,11","true"
-266,107,"Le pénis de l'homme caresse les aisselles de la femme","true"
-267,107,"La femme mord les oreilles de son partenaire jusqu'à l'orgasme","false"
-268,107,"Les partenaires arrivent à l'orgasme uniquement par la parole","false"
-269,108,"Des vidéos de pieds de femmes sur des accélérateurs","true"
-270,108,"Des vidéos de femmes avec des outils de jardinage","false"
-271,108,"Des vidéos de femmes se battant des les ordures","false"
-272,109,"16 ans","false"
-273,109,"17 ans","true"
-274,109,"18 ans","false"
-275,110,"Une érection prolongée et incontrôlable","true"
-276,110,"Une grave mycose sur le pénis","false"
-277,110,"Un trouble de l'érection","false"
-278,111,"Les sadomasochistes","true"
-279,111,"Les exhibitionnistes","false"
-280,111,"Les zoophiles","true"
-281,112,"Un canard","false"
-282,112,"Une chaussure","false"
-283,112,"Un lapin","true"
-284,113,"Au milieu du vagin, sur la face antérieure (côté ventre)","true"
-285,113,"Au bord des petites lèvres du vagin","false"
-286,113,"Ça dépend des femmes","false"
-287,114,"18,00%","false"
-288,114,"49,00%","false"
-289,114,"58,00%","true"
-290,115,VRAI,"true"
-291,115,FAUX,"false"
-292,116,VRAI,"true"
-293,116,FAUX,"false"
-294,117,"Obtenir une fellation","true"
-295,117,"Faire l'amour en public","false"
-296,117,"Faire l'amour avec une star du X","false"
-297,118,VRAI,"false"
-298,118,FAUX,"true"
-299,119,"16,00%","false"
-300,119,"37,00%","true"
-301,119,"53,00%","false"
-302,120,"L'anulingus","true"
-303,120,"L'analdigitus","false"
-304,120,"Le cunnilingus","false"
-305,121,"L'introduction de la main dans l'anus","true"
-306,121,"L'introduction d'une bouteille dans l'anus","false"
-307,121,"L'introduction de boules de geisha dans l'anus","false"
-308,122,VRAI,"false"
-309,122,FAUX,"true"
-310,123,VRAI,"false"
-311,123,FAUX,"true"
-312,124,"L'ocytocine","false"
-313,124,"L'oestrogène","false"
-314,124,"La testostérone","true"
-315,125,VRAI,"false"
-316,125,FAUX,"true"
-317,126,"Après ses règles","false"
-318,126,"Pendant l'ovulation mensuelle","true"
-319,126,"Après un bon bain bien chaud","false"
-320,127,"La vue","true"
-321,127,"L'ouïe","false"
-322,127,"L'odorat","false"
-323,128,VRAI,"true"
-324,128,FAUX,"false"
-325,129,"27 ans","false"
-326,129,"35 ans","true"
-327,129,"40 ans","false"
-328,130,"OUI","true"
-329,130,"NON","false"
-330,131,"Les aubergines","false"
-331,131,"Les patates douces","false"
-332,131,"Les huîtres","true"
-333,132,VRAI,"false"
-334,132,FAUX,"true"
-335,133,"La varicelle","false"
-336,133,"Le diabète","true"
-337,133,"Les migraines","false"
-338,134,"Les vierges","false"
-339,134,"Les asexuels","true"
-340,134,"Les asexualisés","false"
-341,135,VRAI,"false"
-342,135,FAUX,"true"
-343,136,"De 1 à 3 millimètres","false"
-344,136,"De 3 millimètres à un centimètre","true"
-345,136,"De un centimètre à 3 centimètres","false"
-346,137,"Le capuchon","false"
-347,137,"Le gland","false"
-348,137,"La vulve","true"
-349,138,"Le capuchon","false"
-350,138,"Le gland","true"
-351,138,"Les racines","false"
-352,139,80,"false"
-353,139,800,"true"
-354,139,8000,"false"
-355,140,"40,00%","false"
-356,140,"60,00%","false"
-357,140,"80,00%","true"
-358,141,"OUI","true"
-359,141,"NON","false"
-360,142,"Stupide","false"
-361,142,"Muet","true"
-362,142,"Aveugle","false"
-363,143,"La base du pénis","false"
-364,143,"Le gland","true"
-365,143,"Les testicules","false"
-366,144,VRAI,"false"
-367,144,FAUX,"true"
-368,145,VRAI,"false"
-369,145,FAUX,"true"
-370,146,"Autour de la verge","false"
-371,146,"Sur tout le corps","true"
-372,146," Il n'en a pas","false"
-373,147,"L'intérieur des cuisses","false"
-374,147,"La zone sous le nombril","true"
-375,147,"Les fesses","false"
-376,148,VRAI,"false"
-377,148,FAUX,"true"
-378,149,"Se retirer quelques secondes pendant l'acte","false"
-379,149,"Penser à quelque chose d'anti érotique (effet belle-mère)","false"
-380,149,"Exercer une pression sur le frein","true"
-381,150,"Bouillonner d'ardeur","true"
-382,150,"Exploser de plaisir","false"
-383,150,"Hurler d'extase","false"
-384,151,"La frigidité","false"
-385,151,"L'anorgasmie","true"
-386,151,"L'anaphrodisie","false"
-387,152,"Manger du chocolat avant l'acte","false"
-388,152,"Crier et gémir sans retenue","true"
-389,152,"Frapper son partenaire","false"
-390,153,"1 heure de bowling (env. 120 calories)","true"
-391,153,"1 heure de tennis (env. 400 calories)","false"
-392,153,"1 heure de marathon (env. 1000 calories)","false"
-393,154,"Il se retient","true"
-394,154,"Il a une grippe","false"
-395,154,"Il simule","false"
-396,155,"1 femme sur 2","true"
-397,155,"1 femme sur 5","false"
-398,155,"1 femme sur 10","false"
-399,156,"25% des femmes","false"
-400,156,"50% des femmes","false"
-401,156,"75% des femmes","true"
-402,157,"Ses fessiers","false"
-403,157,"Son périnée","true"
-404,157,"Ses abdos","false"
-405,158,"En regardant la télévision","false"
-406,158,"En dormant","true"
-407,158,"En mangeant du chocolat","false"
-408,159,"La naissance de leur premier enfant","false"
-409,159,"La ménopause","false"
-410,159,"La fin de leur vie","true"
-411,160,VRAI,"true"
-412,160,FAUX,"false"
-413,161,"Le Docteur Grafenberg","true"
-414,161,"Le Docteur Glécksman","false"
-415,161,"Le Docteur Gerstein","false"
-416,162,"10 cents","false"
-417,162,"1 euro","false"
-418,162,"2 euros","true"
-419,163,"Lisse","false"
-420,163,"Plissée","true"
-421,163,"Granuleuse","false"
-422,164,"Pendant les préliminaires, pour faire monter l'excitation","false"
-423,164,"Quand on est déjà bien excitée","true"
-424,164,"A tout moment","false"
-425,165,"Le missionnaire","false"
-426,165,"La levrette","true"
-427,165,"L'andromaque","false"
-428,166,VRAI,"false"
-429,166,FAUX,"true"
-430,167,VRAI,"true"
-431,167,FAUX,"false"
-432,168,"Cunillingus","false"
-433,168,"Cunnilingus","true"
-434,168,"Cunilingus","false"
-435,169,"Mabite","false"
-436,169,"Machatte","false"
-437,169,"Montcuq","true"
-438,170,"Un cunnilingus","false"
-439,170,"Une fellation","true"
-440,170,"Un orgasme","false"
-441,171,"De courir un 500 mètres","true"
-442,171,"De faire 5 km à vélo","false"
-443,171,"De nager 1 000 mètres","false"
-444,172,"Una capota","false"
-445,172,"Un preservativo","false"
-446,172,"Un condón","true"
-447,173,"L'attirance sexuelle pour les lavements","true"
-448,173,"L'attirance sexuelle pour les météorologues","false"
-449,173,"L'attirance sexuelle pour les cataclysmes","false"
-450,174,"La kleptophilie","false"
-451,174,"L'harpaxophilie","true"
-452,174,"L'icarophilie","false"
-453,175,"Les poupées, les ours en peluche et autres jouets","true"
-454,175,"Les pédiatres","false"
-455,175,"Les pieds","false"
-456,176,"Les livres","false"
-457,176,"Les arbres exotiques","false"
-458,176,"Les extraterrestres et leurs représentations","true"
-459,177,"Les cadumophiles","false"
-460,177,"Les maïeusophiles","true"
-461,177,"Les partumophiles","false"
-462,178,"L'acomoclitisme","true"
-463,178,"La chauvophilie","false"
-464,178,"La poilophilie","false"
-465,179,"Un accro au café","false"
-466,179,"un motard","false"
-467,179,"Une personne amputée","true"
-468,180,"Les maçons","false"
-469,180,"Les sculturophiles","false"
-470,180,"Les pygmalionistes","true"
-471,181,"La zlatanophilie","false"
-472,181,"L'onglophilie","false"
-473,181,"La podophilie","true"
-474,182,"Les poils et les cheveux","true"
-475,182,"Les tricheurs","false"
-476,182,"Les pulls","false"
-477,183,"Un godemichet vibrant en forme de balle de pistolet commandé à distance","true"
-478,183,"Un sextoys en forme de balle de tennis","false"
-479,183,"Un godemichet transparent","false"
-480,184,"Lui faire une fellation","false"
-481,184,"Devenir une prostituée","true"
-482,184,"S'attacher pour avoir des rapports","false"
-483,185,"L'attirance pour les homosexuels","false"
-484,185,"Le fait d'être excité par le fait d'avoir la vessie pleine","true"
-485,185,"Une position du Kamasutra","false"
-486,186,"Un embout vibrant au bout du doigt pour caresser madame","true"
-487,186,"Un sextoys en forme de pouce","false"
-488,186,"Le fait de pénétrer très rapidement sa partenaire avec un doigt","false"
-489,187,"10 ans de prison","true"
-490,187,"1 an de prison","false"
-491,187,"1000€ d'amende","false"
-492,188,"Sortir des mots vulgaires durant l'acte pour augmenter l'excitation","true"
-493,188,"Avoir un rapport sans que les corps se touchent","false"
-494,188,"L'attirance pour les rapports sur le lieu de travail","false"
-495,189,"d'en faire une prostituée","true"
-496,189,"d'avoir un rapport sexuel","false"
-497,189,"de l'épouser","false"
-498,190,"Aimer regarder son partenaire pendant l'acte avec d'autres personnes","true"
-499,190,"Le goût de regarder des couples sans se faire voir","false"
-500,190,"Aimer les rapports sexuels avec des inconnus","false"
-501,191,"Au Brésil","true"
-502,191,"En Chine","false"
-503,191,"En Norvège","false"
-504,192,"Aimer les sexes complètement épilés","true"
-505,192,"Aimer les sexes très poilus","false"
-506,192,"Aimer les sexes de personnes âgées","false"
-507,193,"Un lubrifiant reproduisant l'odeur du sperme","true"
-508,193,"Un lubrifiant biologique","false"
-509,193,"Un lubrifiant fluorescent","false"
-510,194,"Avec un étranger","false"
-511,194,"Avec plusieurs personnes en même temps","false"
-512,194,"Un dimanche","true"
-513,195,"L'omorashi","false"
-514,195,"La tératophilie","true"
-515,195,"Le caudaulisme","false"
-516,196,"Un autre homme","false"
-517,196,"Des cochons, poulets, chèvres ","true"
-518,196,"Son tracteur","false"
-519,197,"Une prostituée","true"
-520,197,"Une fellation","false"
-521,197,"Une position sexuelle","false"
-522,198,"20 secondes","false"
-523,198,"2 minutes","true"
-524,198,"8 à 10 minutes","false"
-525,199,"NON","false"
-526,199,"Oui elle fait brûler les calories","true"
-527,200,"Non, au contraire elle excite","false"
-528,200,"Oui, en chassant l’excitation du corps","true"
-529,200,"Aucun impact sur la qualité du sommeil","false"
-530,201,"Oui, il faut s’entretenir par la masturbation","true"
-531,201,"Non, c’est uniquement hormonal","false"
-532,201,"Non, uniquement liées à des blocages psychologiques","false"
-533,202,"De l’église dès le Moyen-âge.","false"
-534,202,"D’ un médecin du 18ème siècle","true"
-535,202,"On tirait les oreilles des jeunes surpris à l’époque","false"
-536,203,"OUI","true"
-537,203,"Non, ce sont les femmes","false"
-538,203,"C’est 50/50","false"
-539,204,"Non, elle n’agit pas sur une quelconque douleur","false"
-540,204,"Non, elle peut même avoir l’effet inverse","false"
-541,204,"Oui, le plaisir agit comme antidouleur","true"
-542,205,6000,"false"
-543,205,200,"false"
-544,205,16000,"true"
-545,206,"55,00%","false"
-546,206,"80,00%","true"
-547,206,"95,00%","false"
-548,207,"Une position assise","false"
-549,207,"Des saignements au milieu du cycle","true"
-550,207,"Un jeu sexuel","false"
-551,208,"En pensant à autre chose","false"
-552,208,"En caressant les seins de la femme","false"
-553,208,"En stimulant l'anus de la femme","true"
-554,209,"2 à 3 secondes","true"
-555,209,"20 à 30 secondes","false"
-556,209,"Environ 1 minute","false"
-557,210,"Une érection prolongée et incontrôlable","true"
-558,210,"Une fracture du pénis","false"
-559,210,"Une rupture du frein","false"
-560,211,"Au début d'un orgasme","true"
-561,211,"Après l'éjaculation","false"
-562,211,"A chaque érection","false"
-563,212,"22,00%","false"
-564,212,"42,00%","true"
-565,212,"62,00%","false"
-566,213,"2 verres","false"
-567,213,"Aucun","true"
-568,213,"5 verres","false"
-569,214,"Le tabac","true"
-570,214,"Le sport","false"
-571,214,"La télévision","false"
-572,215,"Les testicules","false"
-573,215,"Le gland","true"
-574,215,"Les tétons","false"
-575,216,"20km/h","false"
-576,216,"40km/h","true"
-577,216,"60km/h","false"
-578,217,"507,00 €","false"
-579,217,"2 304,00 €","true"
-580,217,"7 549,00 €","false"
-581,218,"Des jeux sexuels avec des aliments","true"
-582,218,"Le fait de frapper son partenaire","false"
-583,218,"Les rapports sexuels en étant déguisés","false"
-584,219,"Une fois toutes les 2 semaines","false"
-585,219,"2 fois par semaine","true"
-586,219,"1 fois par semaine","false"
-587,220,"51,00%","false"
-588,220,"68,00%","false"
-589,220,"89,00%","true"
-590,221,"120 calories","false"
-591,221,"190 calories","true"
-592,221,"260 calories","false"
-593,222,VRAI,"false"
-594,222,FAUX,"true"
-595,223,VRAI,"false"
-596,223,FAUX,"true"
-597,224,"OUI","false"
-598,224,"NON","true"
-599,225,"OUI","false"
-600,225,"NON","true"
-601,226,"60 secondes","false"
-602,226,"16 minutes ","true"
-603,226,"1 heure ","false"
-604,227,"Une demi heure ","false"
-605,227,"5 minutes ","false"
-606,227,"10 secondes ","true"
-607,228,"Entre 12 et 15 ","true"
-608,228,"Entre 30 et 40 ","false"
-609,228,"Entre 5 et 10 ","false"
-610,229,8000,"true"
-611,229,4000,"false"
-612,229,500,"false"
-613,230,"20 ans","false"
-614,230,"35 ans","true"
-615,230,"50 ans","false"
-616,231,"Un seul ","false"
-617,231,"Deux","false"
-618,231,"Une infinité ","true"
-619,232,VRAI,"true"
-620,232,FAUX,"false"
-621,233,VRAI,"true"
-622,233,FAUX,"false"
-623,234,VRAI,"false"
-624,234,FAUX,"true"
-625,235,VRAI,"true"
-626,235,FAUX,"false"
-627,236,VRAI,"true"
-628,236,FAUX,"false"
-629,237,VRAI,"false"
-630,237,FAUX,"true"
-631,238,VRAI,"false"
-632,238,FAUX,"true"
-633,239,VRAI,"false"
-634,239,FAUX,"true"
-635,240,VRAI,"true"
-636,240,FAUX,"false"
-637,241,VRAI,"true"
-638,241,FAUX,"false"
-639,242,"50 milliards de dollars","false"
-640,242,"97 milliards de dollars","true"
-641,242,"150 milliards de dollars","false"
-642,243,11000,"true"
-643,243,8000,"false"
-644,243,3000,"false"
-645,244,"25 milliards d'euros","false"
-646,244,"60 milliards d'euros","true"
-647,244,"100 milliards d'euros","false"
-648,245,"25,00%","false"
-649,245,"45,00%","false"
-650,245,"35,00%","true"
-651,246,"12 milliards de dollars","true"
-652,246,"6 milliards de dollars","false"
-653,246,"2 milliards de dollars","false"
-654,247,"10 millions","false"
-655,247,"50 millions","true"
-656,247,"100 millions","false"
-657,248,"130 millions d'euros","true"
-658,248,"200 millions d'euros","false"
-659,248,"500 millions d'euros","false"
-660,249,"jusqu’au bout","false"
-661,249,"jusqu’au prépuce ","false"
-662,249,"jusqu’à ce que cela vous convienne ","true"
-663,250,"des petits coups de langue sur le bout du gland","false"
-664,250,"de grands allers-retours rapides ","true"
-665,250,"jusqu’au prépuce ","false"
-666,251,"Oui","false"
-667,251,"Non","false"
-668,251,"Peut-être","true"
-669,252,"Oui","true"
-670,252,"Non","false"
-671,252,"Peut-être","false"
-672,253,"se servir de ses dents ","true"
-673,253,"le caresser ","false"
-674,253,"fermer les yeux ","false"
-675,254,"jusqu’à ce que votre partenaire jouisse ","false"
-676,254,"jusqu’à ce que vous ayez des crampes à la mâchoire","false"
-677,254,"jusqu’à ce que bon vous semble à vous et votre amant ","true"
-678,255,"Oui","true"
-679,255,"Non","false"
-680,255,"Peut-être","false"
-681,256,"Bite","true"
-682,256,"Fellation","false"
-683,256,"Langue","false"
-684,257,"Sucer","false"
-685,257,"Salope","true"
-686,257,"Lécher","false"
-687,258,"Mec","false"
-688,258,"Foutre","true"
-689,258,"Niquer","false"
-690,259,"Bandant","true"
-691,259,"Sensuel","false"
-692,259,"Dominant","false"
-693,260,"Prostituée","false"
-694,260,"Pipe","true"
-695,260,"Missionnaire","false"
-696,261,"Conseils sexuels","false"
-697,261,"Nichons","true"
-698,261,"Gland","false"
-699,262,"Couilles","true"
-700,262,"Tétons","false"
-701,262,"Boules de geisha","false"
-702,263,"« Chatte »","true"
-703,263,"Impuissant","false"
-704,263,"Cul","false"
-705,264,"Embrasser fougueusement","false"
-706,264,"Sucer","true"
-707,264,"Caresser","false"
-708,265,"Levrette","true"
-709,265,"Sodomie","false"
-710,265,"Être en manque","false"
+0,0,Le prÃ©servatif (fÃ©minin ou masculin),TRUE
+1,0,La pilule,FALSE
+2,0,Le stÃ©rilet.,FALSE
+3,1,Sophie Marceau,FALSE
+4,1,Sado Maso,TRUE
+5,1,Sexe Masculin,FALSE
+6,2,Clara Morgane,FALSE
+7,2,Katsumi,FALSE
+8,2,Anna Tommy,TRUE
+9,3,Le goÃ»t pour les pubis Ã©pilÃ©s,TRUE
+10,3,Avoir des relations sous l'emprise de l'alcool,FALSE
+11,3,Utiliser des aliments Ã  des fins sexuelles,FALSE
+12,4,Les pieds,TRUE
+13,4,Les seins,FALSE
+14,4,Les fesses,FALSE
+15,5,Olisbos,TRUE
+16,5,Fozizi,FALSE
+17,5,Plubesoindom,FALSE
+18,6,Exobiophilie,FALSE
+19,6,Onanisme,TRUE
+20,6,Le cÃ©libat,FALSE
+21,7,Le yohimbine,FALSE
+22,7,La corne de rhinocÃ©ros blanc,TRUE
+23,7,Le gingembre,FALSE
+24,8,Selena Gomez,FALSE
+25,8,Demi Lovato,FALSE
+26,8,Lourdes Ciccone (la fille de Madonna),TRUE
+27,9,Le safe sex,FALSE
+28,9,Le fake sex,TRUE
+29,9,Le air sex,TRUE
+30,10,French Letter,TRUE
+31,10,Chinese Letter,FALSE
+32,10,Spanish Condom,FALSE
+33,11,Un sexologue en plus tendance,FALSE
+34,11,Je vous aide Ã  vous muscler grÃ¢ce au sexe,FALSE
+35,11,Je viens vous apprendre Ã  amÃ©liorer votre libido,TRUE
+36,12,Une parure de drap avec des hommes et des femmes nus,FALSE
+37,12,Une parure de drap avec le Kamasutra,FALSE
+38,12,Une parure de lit avec des huiles essentielles aphrodisiaques,TRUE
+39,13, Un homme qui exerce ses talents de cuisinier pour sÃ©duire,TRUE
+40,13,Un homme qui a des Ã©rections grÃ¢ce aux aliments,FALSE
+41,13,Un homme qui se constipe aprÃ¨s chaque rapport sexuel,FALSE
+42,14,Un avion privÃ© qui vous pouvez louer pour une vous faire plaisir...,TRUE
+43,14,Un sextoy forme d'avion qui vibre comme au dÃ©collage,FALSE
+44,14,Un avion pour faire des rencontres amoureuses,FALSE
+45,15,Au rÃ©frigÃ©rateur ,FALSE
+46,15,Dans sa poche de jean,FALSE
+47,15,Dans un endroit sec et frais,TRUE
+48,15,Dans le tiroir de la commode,FALSE
+49,16,6 mois,FALSE
+50,16,3 ans ,TRUE
+51,16,4 ans,FALSE
+52,16,Il est Ã  changer au bout de 4 partenaires,FALSE
+53,17,3 mois,FALSE
+54,17,2 ans,FALSE
+55,17,5 ans ,TRUE
+56,17,"1 semaine, c'est suffisant",FALSE
+57,18,En matiÃ¨re SensoprÃ¨ne,FALSE
+58,18,En Latex ,FALSE
+59,18,En Silicone ,FALSE
+60,18,En PolyurÃ©thane,TRUE
+61,19,Le placer en haut du pÃ©nis et le dÃ©rouler jusqu'Ã  la base du sexe ,TRUE
+62,19,"L'enlever de l'emballage, le dÃ©rouler et le placer sur le sexe ",FALSE
+63,19,"L'enlever de l'emballage, souffler dedans et le placer sur le sexe ",FALSE
+64,20,VRAI,FALSE
+65,20,FAUX,TRUE
+66,21,VRAI,FALSE
+67,21,FAUX,TRUE
+68,22,VRAI,TRUE
+69,22,FAUX,FALSE
+70,23,VRAI,FALSE
+71,23,FAUX,TRUE
+72,24,VRAI,FALSE
+73,24,FAUX,TRUE
+74,25,VRAI,FALSE
+75,25,FAUX,TRUE
+76,26,VRAI,TRUE
+77,26,FAUX,FALSE
+78,27,VRAI,FALSE
+79,27,FAUX,TRUE
+80,28,VRAI,FALSE
+81,28,FAUX,TRUE
+82,29,OUI,TRUE
+83,29,NON,FALSE
+84,30,OUI,TRUE
+85,30,NON,FALSE
+86,31,OUI,TRUE
+87,31,NON,FALSE
+88,32,OUI,FALSE
+89,32,NON,TRUE
+90,33,OUI,FALSE
+91,33,NON,TRUE
+92,34,VRAI,FALSE
+93,34,FAUX,TRUE
+94,35,VRAI,FALSE
+95,35,FAUX,TRUE
+96,36,VRAI,FALSE
+97,36,FAUX,TRUE
+98,37,VRAI,FALSE
+99,37,FAUX,TRUE
+100,38,VRAI,TRUE
+101,38,FAUX,FALSE
+102,39,VRAI,FALSE
+103,39,FAUX,TRUE
+104,40,VRAI,FALSE
+105,40,FAUX,TRUE
+106,41,OUI,TRUE
+107,41,NON,FALSE
+108,42,VRAI,TRUE
+109,42,FAUX,FALSE
+110,43,VRAI,TRUE
+111,43,FAUX,FALSE
+112,44,OUI,TRUE
+113,44,NON,FALSE
+114,45,VRAI,TRUE
+115,45,FAUX,FALSE
+116,46,VRAI,TRUE
+117,46,FAUX,FALSE
+118,47,VRAI,FALSE
+119,47,FAUX,TRUE
+120,48,VRAI,TRUE
+121,48,FAUX,FALSE
+122,49,VRAI,FALSE
+123,49,FAUX,TRUE
+124,50,VRAI,TRUE
+125,50,FAUX,FALSE
+126,51,VRAI,FALSE
+127,51,FAUX,TRUE
+128,52,VRAI,FALSE
+129,52,FAUX,TRUE
+130,53,VRAI,FALSE
+131,53,FAUX,TRUE
+132,54,VRAI,FALSE
+133,54,FAUX,TRUE
+134,55,VRAI,TRUE
+135,55,FAUX,FALSE
+136,56,VRAI,TRUE
+137,56,FAUX,FALSE
+138,57,VRAI,TRUE
+139,57,FAUX,FALSE
+140,58,VRAI,FALSE
+141,58,FAUX,TRUE
+142,59,VRAI,TRUE
+143,59,FAUX,FALSE
+144,60,VRAI,TRUE
+145,60,FAUX,FALSE
+146,61,VRAI,TRUE
+147,61,FAUX,FALSE
+148,62,VRAI,TRUE
+149,62,FAUX,FALSE
+150,63,VRAI,TRUE
+151,63,FAUX,FALSE
+152,64,VRAI,TRUE
+153,64,FAUX,FALSE
+154,65,VRAI,TRUE
+155,65,FAUX,FALSE
+156,66,VRAI,FALSE
+157,66,FAUX,TRUE
+158,67,Tibet,FALSE
+159,67,Inde,TRUE
+160,67,Turquie,FALSE
+161,68,Recueil d'aphorismes sur l'amour charnel,TRUE
+162,68,Manuel sur les bienfaits du karma,FALSE
+163,68,Aucune signification particuliÃ¨re,TRUE
+164,69,VRAI,FALSE
+165,69,FAUX,TRUE
+166,70,XIII Ã¨me siÃ¨cle,FALSE
+167,70,XV Ã¨me siÃ¨cle,FALSE
+168,70,XIX Ã¨me siÃ¨cle,TRUE
+169,71,VRAI,FALSE
+170,71,FAUX,TRUE
+171,72,La balance,FALSE
+172,72,Le sphynx,FALSE
+173,72,L'union du lotus,TRUE
+174,73,La tigresse,FALSE
+175,73,Les vignes enlacÃ©es,FALSE
+176,73,L'angevine,TRUE
+177,74,Les chimpanzÃ©s,FALSE
+178,74,Le coquillage,FALSE
+179,74,Le kangourou,TRUE
+180,75,Mordre et griffer sa partenaire,TRUE
+181,75,Utiliser divers objets,FALSE
+182,75,Manger beaucoup de gingembre,FALSE
+183,76,VRAI,FALSE
+184,76,FAUX,TRUE
+185,77,L'Ã©querre,FALSE
+186,77,La brouette,FALSE
+187,77,L'andromaque,TRUE
+188,78,La femme est accrochÃ©e au cou de l'homme par les pieds,TRUE
+189,78,L'homme enlace la taille de la femme avec ses jambes,FALSE
+190,78,Les partenaires sont allongÃ©s tÃªte-bÃªche,FALSE
+191,79,Victoria Beckham,FALSE
+192,79,Madonna,TRUE
+193,79,Britney Spears,FALSE
+194,80,Rihanna,TRUE
+195,80,Mila Kunis,FALSE
+196,80,Jenifer,FALSE
+197,81,Kristen Stewart,FALSE
+198,81,Courteney Cox,FALSE
+199,81,Lady Gaga,TRUE
+200,82,Teri Hatcher,TRUE
+201,82,Eva Longoria,FALSE
+202,82,Sarah Jessica Parker,FALSE
+203,83,Monica Belluci,TRUE
+204,83,Isabelle Adjani,FALSE
+205,83,Mathilde Seigner,FALSE
+206,84,PenÃ©lope Cruz,FALSE
+207,84,Jennifer Lopez,FALSE
+208,84,Salma Hayek,TRUE
+209,85,Lady Gaga,FALSE
+210,85,Anne Hathaway,TRUE
+211,85,Keysha,FALSE
+212,86,Dita von Teese,FALSE
+213,86,Marilyn Monroe,TRUE
+214,86,Zahia,FALSE
+215,87,Mariah Carey,FALSE
+216,87,Kylie Minogue,FALSE
+217,87,Scarlett Johansson,TRUE
+218,88,Halle Berry,TRUE
+219,88,Cameron Diaz,FALSE
+220,88,Sharon Stone,FALSE
+221,89,VRAI,FALSE
+222,89,FAUX,TRUE
+223,90,VRAI,FALSE
+224,90,FAUX,TRUE
+225,91,VRAI,FALSE
+226,91,FAUX,TRUE
+227,92,VRAI,FALSE
+228,92,FAUX,TRUE
+229,93,VRAI,FALSE
+230,93,FAUX,TRUE
+231,94,Le clitoris,FALSE
+232,94,Le pubis,TRUE
+233,94,Les fesses,FALSE
+234,95,VRAI,FALSE
+235,95,FAUX,TRUE
+236,96,Les exercices de Kegel,TRUE
+237,96,Les exercices de l'amour,FALSE
+238,96,Les exercices de Marc,FALSE
+239,97,En petite soufflÃ©e,FALSE
+240,97,Par Ã -coups,TRUE
+241,97, Lentement et profondÃ©ment,TRUE
+242,98,Les cuillÃ¨res,FALSE
+243,98,Le missionnaire,FALSE
+244,98,La levrette,TRUE
+245,99,VRAI,TRUE
+246,99,FAUX,FALSE
+247,100,Un bon bain chaud avant le cÃ¢lin,TRUE
+248,100,Un repas gastronomique,FALSE
+249,100,Une sÃ©ance d'abdos,FALSE
+250,101,Le jasmin,FALSE
+251,101,L'ylang-ylang,TRUE
+252,101,La lavande,FALSE
+253,102,imprÃ©visible,FALSE
+254,102,maÃ®trisÃ©,TRUE
+255,103,VRAI,FALSE
+256,103,FAUX,TRUE
+257,104,"44,00%",FALSE
+258,104,"72,00%",FALSE
+259,104,"89,00%",TRUE
+260,105,Regarder son partenaire faire l'amour avec un(e) autre,TRUE
+261,105,Faire l'amour uniquement dans des lieux sauvages,FALSE
+262,105,Faire l'amour avec une poupÃ©e gonflable,FALSE
+263,106,"13,6",FALSE
+264,106,"14,9",FALSE
+265,106,"15,11",TRUE
+266,107,Le pÃ©nis de l'homme caresse les aisselles de la femme,TRUE
+267,107,La femme mord les oreilles de son partenaire jusqu'Ã  l'orgasme,FALSE
+268,107,Les partenaires arrivent Ã  l'orgasme uniquement par la parole,FALSE
+269,108,Des vidÃ©os de pieds de femmes sur des accÃ©lÃ©rateurs,TRUE
+270,108,Des vidÃ©os de femmes avec des outils de jardinage,FALSE
+271,108,Des vidÃ©os de femmes se battant des les ordures,FALSE
+272,109,16 ans,FALSE
+273,109,17 ans,TRUE
+274,109,18 ans,FALSE
+275,110,Une Ã©rection prolongÃ©e et incontrÃ´lable,TRUE
+276,110,Une grave mycose sur le pÃ©nis,FALSE
+277,110,Un trouble de l'Ã©rection,FALSE
+278,111,Les sadomasochistes,TRUE
+279,111,Les exhibitionnistes,FALSE
+280,111,Les zoophiles,TRUE
+281,112,Un canard,FALSE
+282,112,Une chaussure,FALSE
+283,112,Un lapin,TRUE
+284,113,"Au milieu du vagin, sur la face antÃ©rieure (cÃ´tÃ© ventre)",TRUE
+285,113,Au bord des petites lÃ¨vres du vagin,FALSE
+286,113,Ã‡a dÃ©pend des femmes,FALSE
+287,114,"18,00%",FALSE
+288,114,"49,00%",FALSE
+289,114,"58,00%",TRUE
+290,115,VRAI,TRUE
+291,115,FAUX,FALSE
+292,116,VRAI,TRUE
+293,116,FAUX,FALSE
+294,117,Obtenir une fellation,TRUE
+295,117,Faire l'amour en public,FALSE
+296,117,Faire l'amour avec une star du X,FALSE
+297,118,VRAI,FALSE
+298,118,FAUX,TRUE
+299,119,"16,00%",FALSE
+300,119,"37,00%",TRUE
+301,119,"53,00%",FALSE
+302,120,L'anulingus,TRUE
+303,120,L'analdigitus,FALSE
+304,120,Le cunnilingus,FALSE
+305,121,L'introduction de la main dans l'anus,TRUE
+306,121,L'introduction d'une bouteille dans l'anus,FALSE
+307,121,L'introduction de boules de geisha dans l'anus,FALSE
+308,122,VRAI,FALSE
+309,122,FAUX,TRUE
+310,123,VRAI,FALSE
+311,123,FAUX,TRUE
+312,124,L'ocytocine,FALSE
+313,124,L'oestrogÃ¨ne,FALSE
+314,124,La testostÃ©rone,TRUE
+315,125,VRAI,FALSE
+316,125,FAUX,TRUE
+317,126,AprÃ¨s ses rÃ¨gles,FALSE
+318,126,Pendant l'ovulation mensuelle,TRUE
+319,126,AprÃ¨s un bon bain bien chaud,FALSE
+320,127,La vue,TRUE
+321,127,L'ouÃ¯e,FALSE
+322,127,L'odorat,FALSE
+323,128,VRAI,TRUE
+324,128,FAUX,FALSE
+325,129,27 ans,FALSE
+326,129,35 ans,TRUE
+327,129,40 ans,FALSE
+328,130,OUI,TRUE
+329,130,NON,FALSE
+330,131,Les aubergines,FALSE
+331,131,Les patates douces,FALSE
+332,131,Les huÃ®tres,TRUE
+333,132,VRAI,FALSE
+334,132,FAUX,TRUE
+335,133,La varicelle,FALSE
+336,133,Le diabÃ¨te,TRUE
+337,133,Les migraines,FALSE
+338,134,Les vierges,FALSE
+339,134,Les asexuels,TRUE
+340,134,Les asexualisÃ©s,FALSE
+341,135,VRAI,FALSE
+342,135,FAUX,TRUE
+343,136,De 1 Ã  3 millimÃ¨tres,FALSE
+344,136,De 3 millimÃ¨tres Ã  un centimÃ¨tre,TRUE
+345,136,De un centimÃ¨tre Ã  3 centimÃ¨tres,FALSE
+346,137,Le capuchon,FALSE
+347,137,Le gland,FALSE
+348,137,La vulve,TRUE
+349,138,Le capuchon,FALSE
+350,138,Le gland,TRUE
+351,138,Les racines,FALSE
+352,139,80,FALSE
+353,139,800,TRUE
+354,139,8000,FALSE
+355,140,"40,00%",FALSE
+356,140,"60,00%",FALSE
+357,140,"80,00%",TRUE
+358,141,OUI,TRUE
+359,141,NON,FALSE
+360,142,Stupide,FALSE
+361,142,Muet,TRUE
+362,142,Aveugle,FALSE
+363,143,La base du pÃ©nis,FALSE
+364,143,Le gland,TRUE
+365,143,Les testicules,FALSE
+366,144,VRAI,FALSE
+367,144,FAUX,TRUE
+368,145,VRAI,FALSE
+369,145,FAUX,TRUE
+370,146,Autour de la verge,FALSE
+371,146,Sur tout le corps,TRUE
+372,146, Il n'en a pas,FALSE
+373,147,L'intÃ©rieur des cuisses,FALSE
+374,147,La zone sous le nombril,TRUE
+375,147,Les fesses,FALSE
+376,148,VRAI,FALSE
+377,148,FAUX,TRUE
+378,149,Se retirer quelques secondes pendant l'acte,FALSE
+379,149,Penser Ã  quelque chose d'anti Ã©rotique (effet belle-mÃ¨re),FALSE
+380,149,Exercer une pression sur le frein,TRUE
+381,150,Bouillonner d'ardeur,TRUE
+382,150,Exploser de plaisir,FALSE
+383,150,Hurler d'extase,FALSE
+384,151,La frigiditÃ©,FALSE
+385,151,L'anorgasmie,TRUE
+386,151,L'anaphrodisie,FALSE
+387,152,Manger du chocolat avant l'acte,FALSE
+388,152,Crier et gÃ©mir sans retenue,TRUE
+389,152,Frapper son partenaire,FALSE
+390,153,1 heure de bowling (env. 120 calories),TRUE
+391,153,1 heure de tennis (env. 400 calories),FALSE
+392,153,1 heure de marathon (env. 1000 calories),FALSE
+393,154,Il se retient,TRUE
+394,154,Il a une grippe,FALSE
+395,154,Il simule,FALSE
+396,155,1 femme sur 2,TRUE
+397,155,1 femme sur 5,FALSE
+398,155,1 femme sur 10,FALSE
+399,156,25% des femmes,FALSE
+400,156,50% des femmes,FALSE
+401,156,75% des femmes,TRUE
+402,157,Ses fessiers,FALSE
+403,157,Son pÃ©rinÃ©e,TRUE
+404,157,Ses abdos,FALSE
+405,158,En regardant la tÃ©lÃ©vision,FALSE
+406,158,En dormant,TRUE
+407,158,En mangeant du chocolat,FALSE
+408,159,La naissance de leur premier enfant,FALSE
+409,159,La mÃ©nopause,FALSE
+410,159,La fin de leur vie,TRUE
+411,160,VRAI,TRUE
+412,160,FAUX,FALSE
+413,161,Le Docteur Grafenberg,TRUE
+414,161,Le Docteur GlÃ©cksman,FALSE
+415,161,Le Docteur Gerstein,FALSE
+416,162,10 cents,FALSE
+417,162,1 euro,FALSE
+418,162,2 euros,TRUE
+419,163,Lisse,FALSE
+420,163,PlissÃ©e,TRUE
+421,163,Granuleuse,FALSE
+422,164,"Pendant les prÃ©liminaires, pour faire monter l'excitation",FALSE
+423,164,Quand on est dÃ©jÃ  bien excitÃ©e,TRUE
+424,164,A tout moment,FALSE
+425,165,Le missionnaire,FALSE
+426,165,La levrette,TRUE
+427,165,L'andromaque,FALSE
+428,166,VRAI,FALSE
+429,166,FAUX,TRUE
+430,167,VRAI,TRUE
+431,167,FAUX,FALSE
+432,168,Cunillingus,FALSE
+433,168,Cunnilingus,TRUE
+434,168,Cunilingus,FALSE
+435,169,Mabite,FALSE
+436,169,Machatte,FALSE
+437,169,Montcuq,TRUE
+438,170,Un cunnilingus,FALSE
+439,170,Une fellation,TRUE
+440,170,Un orgasme,FALSE
+441,171,De courir un 500 mÃ¨tres,TRUE
+442,171,De faire 5 km Ã  vÃ©lo,FALSE
+443,171,De nager 1 000 mÃ¨tres,FALSE
+444,172,Una capota,FALSE
+445,172,Un preservativo,FALSE
+446,172,Un condÃ³n,TRUE
+447,173,L'attirance sexuelle pour les lavements,TRUE
+448,173,L'attirance sexuelle pour les mÃ©tÃ©orologues,FALSE
+449,173,L'attirance sexuelle pour les cataclysmes,FALSE
+450,174,La kleptophilie,FALSE
+451,174,L'harpaxophilie,TRUE
+452,174,L'icarophilie,FALSE
+453,175,"Les poupÃ©es, les ours en peluche et autres jouets",TRUE
+454,175,Les pÃ©diatres,FALSE
+455,175,Les pieds,FALSE
+456,176,Les livres,FALSE
+457,176,Les arbres exotiques,FALSE
+458,176,Les extraterrestres et leurs reprÃ©sentations,TRUE
+459,177,Les cadumophiles,FALSE
+460,177,Les maÃ¯eusophiles,TRUE
+461,177,Les partumophiles,FALSE
+462,178,L'acomoclitisme,TRUE
+463,178,La chauvophilie,FALSE
+464,178,La poilophilie,FALSE
+465,179,Un accro au cafÃ©,FALSE
+466,179,un motard,FALSE
+467,179,Une personne amputÃ©e,TRUE
+468,180,Les maÃ§ons,FALSE
+469,180,Les sculturophiles,FALSE
+470,180,Les pygmalionistes,TRUE
+471,181,La zlatanophilie,FALSE
+472,181,L'onglophilie,FALSE
+473,181,La podophilie,TRUE
+474,182,Les poils et les cheveux,TRUE
+475,182,Les tricheurs,FALSE
+476,182,Les pulls,FALSE
+477,183,Un godemichet vibrant en forme de balle de pistolet commandÃ© Ã  distance,TRUE
+478,183,Un sextoys en forme de balle de tennis,FALSE
+479,183,Un godemichet transparent,FALSE
+480,184,Lui faire une fellation,FALSE
+481,184,Devenir une prostituÃ©e,TRUE
+482,184,S'attacher pour avoir des rapports,FALSE
+483,185,L'attirance pour les homosexuels,FALSE
+484,185,Le fait d'Ãªtre excitÃ© par le fait d'avoir la vessie pleine,TRUE
+485,185,Une position du Kamasutra,FALSE
+486,186,Un embout vibrant au bout du doigt pour caresser madame,TRUE
+487,186,Un sextoys en forme de pouce,FALSE
+488,186,Le fait de pÃ©nÃ©trer trÃ¨s rapidement sa partenaire avec un doigt,FALSE
+489,187,10 ans de prison,TRUE
+490,187,1 an de prison,FALSE
+491,187,1000Â€ d'amende,FALSE
+492,188,Sortir des mots vulgaires durant l'acte pour augmenter l'excitation,TRUE
+493,188,Avoir un rapport sans que les corps se touchent,FALSE
+494,188,L'attirance pour les rapports sur le lieu de travail,FALSE
+495,189,d'en faire une prostituÃ©e,TRUE
+496,189,d'avoir un rapport sexuel,FALSE
+497,189,de l'Ã©pouser,FALSE
+498,190,Aimer regarder son partenaire pendant l'acte avec d'autres personnes,TRUE
+499,190,Le goÃ»t de regarder des couples sans se faire voir,FALSE
+500,190,Aimer les rapports sexuels avec des inconnus,FALSE
+501,191,Au BrÃ©sil,TRUE
+502,191,En Chine,FALSE
+503,191,En NorvÃ¨ge,FALSE
+504,192,Aimer les sexes complÃ¨tement Ã©pilÃ©s,TRUE
+505,192,Aimer les sexes trÃ¨s poilus,FALSE
+506,192,Aimer les sexes de personnes Ã¢gÃ©es,FALSE
+507,193,Un lubrifiant reproduisant l'odeur du sperme,TRUE
+508,193,Un lubrifiant biologique,FALSE
+509,193,Un lubrifiant fluorescent,FALSE
+510,194,Avec un Ã©tranger,FALSE
+511,194,Avec plusieurs personnes en mÃªme temps,FALSE
+512,194,Un dimanche,TRUE
+513,195,L'omorashi,FALSE
+514,195,La tÃ©ratophilie,TRUE
+515,195,Le caudaulisme,FALSE
+516,196,Un autre homme,FALSE
+517,196,"Des cochons, poulets, chÃ¨vres ",TRUE
+518,196,Son tracteur,FALSE
+519,197,Une prostituÃ©e,TRUE
+520,197,Une fellation,FALSE
+521,197,Une position sexuelle,FALSE
+522,198,20 secondes,FALSE
+523,198,2 minutes,TRUE
+524,198,8 Ã  10 minutes,FALSE
+525,199,NON,FALSE
+526,199,Oui elle fait brÃ»ler les calories,TRUE
+527,200,"Non, au contraire elle excite",FALSE
+528,200,"Oui, en chassant lÂ’excitation du corps",TRUE
+529,200,Aucun impact sur la qualitÃ© du sommeil,FALSE
+530,201,"Oui, il faut sÂ’entretenir par la masturbation",TRUE
+531,201,"Non, cÂ’est uniquement hormonal",FALSE
+532,201,"Non, uniquement liÃ©es Ã  des blocages psychologiques",FALSE
+533,202,De lÂ’Ã©glise dÃ¨s le Moyen-Ã¢ge.,FALSE
+534,202,DÂ’ un mÃ©decin du 18Ã¨me siÃ¨cle,TRUE
+535,202,On tirait les oreilles des jeunes surpris Ã  lÂ’Ã©poque,FALSE
+536,203,OUI,TRUE
+537,203,"Non, ce sont les femmes",FALSE
+538,203,CÂ’est 50/50,FALSE
+539,204,"Non, elle nÂ’agit pas sur une quelconque douleur",FALSE
+540,204,"Non, elle peut mÃªme avoir lÂ’effet inverse",FALSE
+541,204,"Oui, le plaisir agit comme antidouleur",TRUE
+542,205,6000,FALSE
+543,205,200,FALSE
+544,205,16000,TRUE
+545,206,"55,00%",FALSE
+546,206,"80,00%",TRUE
+547,206,"95,00%",FALSE
+548,207,Une position assise,FALSE
+549,207,Des saignements au milieu du cycle,TRUE
+550,207,Un jeu sexuel,FALSE
+551,208,En pensant Ã  autre chose,FALSE
+552,208,En caressant les seins de la femme,FALSE
+553,208,En stimulant l'anus de la femme,TRUE
+554,209,2 Ã  3 secondes,TRUE
+555,209,20 Ã  30 secondes,FALSE
+556,209,Environ 1 minute,FALSE
+557,210,Une Ã©rection prolongÃ©e et incontrÃ´lable,TRUE
+558,210,Une fracture du pÃ©nis,FALSE
+559,210,Une rupture du frein,FALSE
+560,211,Au dÃ©but d'un orgasme,TRUE
+561,211,AprÃ¨s l'Ã©jaculation,FALSE
+562,211,A chaque Ã©rection,FALSE
+563,212,"22,00%",FALSE
+564,212,"42,00%",TRUE
+565,212,"62,00%",FALSE
+566,213,2 verres,FALSE
+567,213,Aucun,TRUE
+568,213,5 verres,FALSE
+569,214,Le tabac,TRUE
+570,214,Le sport,FALSE
+571,214,La tÃ©lÃ©vision,FALSE
+572,215,Les testicules,FALSE
+573,215,Le gland,TRUE
+574,215,Les tÃ©tons,FALSE
+575,216,20km/h,FALSE
+576,216,40km/h,TRUE
+577,216,60km/h,FALSE
+578,217,"507,00 Â€",FALSE
+579,217,"2Â 304,00 Â€",TRUE
+580,217,"7Â 549,00 Â€",FALSE
+581,218,Des jeux sexuels avec des aliments,TRUE
+582,218,Le fait de frapper son partenaire,FALSE
+583,218,Les rapports sexuels en Ã©tant dÃ©guisÃ©s,FALSE
+584,219,Une fois toutes les 2 semaines,FALSE
+585,219,2 fois par semaine,TRUE
+586,219,1 fois par semaine,FALSE
+587,220,"51,00%",FALSE
+588,220,"68,00%",FALSE
+589,220,"89,00%",TRUE
+590,221,120 calories,FALSE
+591,221,190 calories,TRUE
+592,221,260 calories,FALSE
+593,222,VRAI,FALSE
+594,222,FAUX,TRUE
+595,223,VRAI,FALSE
+596,223,FAUX,TRUE
+597,224,OUI,FALSE
+598,224,NON,TRUE
+599,225,OUI,FALSE
+600,225,NON,TRUE
+601,226,60 secondes,FALSE
+602,226,16 minutes ,TRUE
+603,226,1 heure ,FALSE
+604,227,Une demi heure ,FALSE
+605,227,5 minutes ,FALSE
+606,227,10 secondes ,TRUE
+607,228,Entre 12 et 15 ,TRUE
+608,228,Entre 30 et 40 ,FALSE
+609,228,Entre 5 et 10 ,FALSE
+610,229,8000,TRUE
+611,229,4000,FALSE
+612,229,500,FALSE
+613,230,20 ans,FALSE
+614,230,35 ans,TRUE
+615,230,50 ans,FALSE
+616,231,Un seul ,FALSE
+617,231,Deux,FALSE
+618,231,Une infinitÃ© ,TRUE
+619,232,VRAI,TRUE
+620,232,FAUX,FALSE
+621,233,VRAI,TRUE
+622,233,FAUX,FALSE
+623,234,VRAI,FALSE
+624,234,FAUX,TRUE
+625,235,VRAI,TRUE
+626,235,FAUX,FALSE
+627,236,VRAI,TRUE
+628,236,FAUX,FALSE
+629,237,VRAI,FALSE
+630,237,FAUX,TRUE
+631,238,VRAI,FALSE
+632,238,FAUX,TRUE
+633,239,VRAI,FALSE
+634,239,FAUX,TRUE
+635,240,VRAI,TRUE
+636,240,FAUX,FALSE
+637,241,VRAI,TRUE
+638,241,FAUX,FALSE
+639,242,50 milliards de dollars,FALSE
+640,242,97 milliards de dollars,TRUE
+641,242,150 milliards de dollars,FALSE
+642,243,11000,TRUE
+643,243,8000,FALSE
+644,243,3000,FALSE
+645,244,25 milliards d'euros,FALSE
+646,244,60 milliards d'euros,TRUE
+647,244,100 milliards d'euros,FALSE
+648,245,"25,00%",FALSE
+649,245,"45,00%",FALSE
+650,245,"35,00%",TRUE
+651,246,12 milliards de dollars,TRUE
+652,246,6 milliards de dollars,FALSE
+653,246,2 milliards de dollars,FALSE
+654,247,10 millions,FALSE
+655,247,50 millions,TRUE
+656,247,100 millions,FALSE
+657,248,130 millions d'euros,TRUE
+658,248,200 millions d'euros,FALSE
+659,248,500 millions d'euros,FALSE
+660,249,jusquÂ’au bout,FALSE
+661,249,jusquÂ’au prÃ©puce ,FALSE
+662,249,jusquÂ’Ã  ce que cela vous convienne ,TRUE
+663,250,des petits coups de langue sur le bout du gland,FALSE
+664,250,de grands allers-retours rapides ,TRUE
+665,250,jusquÂ’au prÃ©puce ,FALSE
+666,251,Oui,FALSE
+667,251,Non,FALSE
+668,251,Peut-Ãªtre,TRUE
+669,252,Oui,TRUE
+670,252,Non,FALSE
+671,252,Peut-Ãªtre,FALSE
+672,253,se servir de ses dents ,TRUE
+673,253,le caresser ,FALSE
+674,253,fermer les yeux ,FALSE
+675,254,jusquÂ’Ã  ce que votre partenaire jouisse ,FALSE
+676,254,jusquÂ’Ã  ce que vous ayez des crampes Ã  la mÃ¢choire,FALSE
+677,254,jusquÂ’Ã  ce que bon vous semble Ã  vous et votre amant ,TRUE
+678,255,Oui,TRUE
+679,255,Non,FALSE
+680,255,Peut-Ãªtre,FALSE
+681,256,Bite,TRUE
+682,256,Fellation,FALSE
+683,256,Langue,FALSE
+684,257,Sucer,FALSE
+685,257,Salope,TRUE
+686,257,LÃ©cher,FALSE
+687,258,Mec,FALSE
+688,258,Foutre,TRUE
+689,258,Niquer,FALSE
+690,259,Bandant,TRUE
+691,259,Sensuel,FALSE
+692,259,Dominant,FALSE
+693,260,ProstituÃ©e,FALSE
+694,260,Pipe,TRUE
+695,260,Missionnaire,FALSE
+696,261,Conseils sexuels,FALSE
+697,261,Nichons,TRUE
+698,261,Gland,FALSE
+699,262,Couilles,TRUE
+700,262,TÃ©tons,FALSE
+701,262,Boules de geisha,FALSE
+702,263,Â«Â ChatteÂ Â»,TRUE
+703,263,Impuissant,FALSE
+704,263,Cul,FALSE
+705,264,Embrasser fougueusement,FALSE
+706,264,Sucer,TRUE
+707,264,Caresser,FALSE
+708,265,Levrette,TRUE
+709,265,Sodomie,FALSE
+710,265,ÃŠtre en manque,FALSE

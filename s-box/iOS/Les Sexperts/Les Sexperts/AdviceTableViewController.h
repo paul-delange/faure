@@ -16,6 +16,4 @@
 
 @property (strong, nonatomic) Theme* theme;
 
-- (IBAction)genderScopeValueChanged:(id)sender;
-
 @end

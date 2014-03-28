@@ -24,7 +24,6 @@
     self.title = NSLocalizedString(@"Did you know?", @"");
     
     self.questionLabel.text = self.question.text;
-    self.explanationView.text = self.question.explanation;
     
 }
 

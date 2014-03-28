@@ -31,9 +31,11 @@
     question.text = qsrc[2];
     //question.explanation = qsrc[3];
     
+    NSLog(@"Q: %@", question.text);
+    
     for(NSArray* asrc in answers) {
         NSParameterAssert([asrc count] == 4);
-        id correct = [asrc[3] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString: @" \""]];
+        id correct = [[asrc[3] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString: @" \""]] lowercaseString];
         NSParameterAssert([correct isEqualToString: @"true"] || [correct isEqualToString: @"false"]);
         
         Answer* answer = [NSEntityDescription insertNewObjectForEntityForName: @"Answer" inManagedObjectContext: context];
@@ -50,9 +52,9 @@
     advice.title = asrc[1];
     advice.text = asrc[2];
     advice.free = @([asrc[3] integerValue]);
-    advice.targetGender = @([asrc[4] integerValue]);
+    //advice.targetGender = @([asrc[4] integerValue]);
     
-    id tid = tsrc[2];
+    id tid = tsrc[0];
     NSPredicate* predicate = [NSPredicate predicateWithFormat: @"name = %@", tid];
     NSFetchRequest* themeFetch = [NSFetchRequest fetchRequestWithEntityName: @"Theme"];
     [themeFetch setPredicate: predicate];
@@ -62,7 +64,7 @@
     }
     else if( results.count == 0) {
         Theme* theme = [NSEntityDescription insertNewObjectForEntityForName: @"Theme" inManagedObjectContext: context];
-        theme.name = tsrc[2];
+        theme.name = tsrc[1];
         advice.theme = theme;
     }
     
@@ -92,13 +94,7 @@
     NSArray* answers = [NSArray arrayWithContentsOfCSVFile: answersFilePath];
     
     NSManagedObjectContext* context = _dataStack.persistentStoreManagedObjectContext;
-    
-    //NSArray* questionKeys = [questions objectAtIndex: 0];
-    //NSArray* answerKeys = [answers objectAtIndex: 0];
-    
-    questions = [questions subarrayWithRange: NSMakeRange(1, [questions count]-1)];
-    answers = [answers subarrayWithRange: NSMakeRange(1, [answers count]-1)];
-    
+
     for(NSArray* qsrc in questions) {
         if( [qsrc count] != 3 )
             continue;
@@ -126,19 +122,16 @@
     
     NSString* adviceFilePath = [[NSBundle mainBundle] pathForResource: @"conseils" ofType: @"csv"];
     NSArray* advices = [NSArray arrayWithContentsOfCSVFile: adviceFilePath];
-    
-    themes = [themes subarrayWithRange: NSMakeRange(3, [themes count]-3)];
-    advices = [advices subarrayWithRange: NSMakeRange(2, [advices count]-2)];
-    
+
     for(NSArray* asrc in advices) {
-        if( [asrc count] != 8)
+        if( [asrc count] != 5)
             continue;
         
         id tid = asrc[3];
         NSArray* tsrc = [themes filteredArrayUsingPredicate: [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
             NSArray* theme = (NSArray*)evaluatedObject;
             
-            id atid = theme[1];
+            id atid = theme[0];
             return [atid isEqual: tid];
         }]];
         NSParameterAssert([tsrc count] == 1);

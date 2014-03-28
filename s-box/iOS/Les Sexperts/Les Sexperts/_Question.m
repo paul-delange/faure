@@ -4,7 +4,6 @@
 #import "_Question.h"
 
 const struct QuestionAttributes QuestionAttributes = {
-	.explanation = @"explanation",
 	.lastDisplayedTime = @"lastDisplayedTime",
 	.text = @"text",
 };
@@ -45,13 +44,6 @@ const struct QuestionFetchedProperties QuestionFetchedProperties = {
 
 	return keyPaths;
 }
-
-
-
-
-@dynamic explanation;
-
-
 
 
 
