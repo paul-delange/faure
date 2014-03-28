@@ -7,7 +7,6 @@
 //
 
 #import "ResultsViewController.h"
-#import "QuestionViewController.h"
 #import "ResumeViewController.h"
 #import "MZFormSheetController.h"
 
@@ -102,17 +101,6 @@
     }
     
     return YES;
-}
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if( [segue.identifier isEqualToString: @"QuestionPushSegue"] ) {
-        UITableViewCell* cell = (UITableViewCell*)sender;
-        NSIndexPath* path = [self.tableView indexPathForCell: cell];
-        Question* question = self.questionsArray[path.row];
-        
-        QuestionViewController* vc = segue.destinationViewController;
-        vc.question = question;
-    }
 }
 
 #pragma mark - UICollectionViewDataSource

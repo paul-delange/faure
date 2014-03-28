@@ -40,7 +40,6 @@
 		FD29D68318E2052300DD5675 /* Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4D918C08885009AFC9F /* Advice.m */; };
 		FD29D68418E2052300DD5675 /* _Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4D118C08879009AFC9F /* _Question.m */; };
 		FD29D68518E2052300DD5675 /* MZFormSheetBackgroundWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D860318D3325B00F333A6 /* MZFormSheetBackgroundWindow.m */; };
-		FD29D68618E2052300DD5675 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91E218C72401009CFC7F /* QuestionViewController.m */; };
 		FD29D68718E2052300DD5675 /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132018C4D1CF002F0B1D /* QuizViewController.m */; };
 		FD29D68818E2052300DD5675 /* IBActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D862418D4308900F333A6 /* IBActionSheet.m */; };
 		FD29D68918E2052300DD5675 /* AdviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50618C0C316009AFC9F /* AdviceViewController.m */; };
@@ -130,7 +129,6 @@
 		FD8524DF18CEF2EA005E6A3F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524DE18CEF2EA005E6A3F /* MediaPlayer.framework */; };
 		FD8524E118CEF2FB005E6A3F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524E018CEF2FB005E6A3F /* Social.framework */; };
 		FD8524E318CEF305005E6A3F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524E218CEF305005E6A3F /* libz.dylib */; };
-		FDAD91E318C72401009CFC7F /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91E218C72401009CFC7F /* QuestionViewController.m */; };
 		FDAD91E918C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91E818C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m */; };
 		FDAD91EC18C7C893009CFC7F /* ResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91EB18C7C893009CFC7F /* ResultCollectionViewCell.m */; };
 		FDAD91EF18C86CAF009CFC7F /* ResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91EE18C86CAF009CFC7F /* ResumeViewController.m */; };
@@ -179,7 +177,7 @@
 		FD29D60B18DEDAE500DD5675 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		FD29D60D18DEDAF200DD5675 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FD29D60F18DEDAFD00DD5675 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		FD29D6C118E2052300DD5675 /* Les Sexperts copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Les Sexperts copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD29D6C118E2052300DD5675 /* Les Sexperts copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Les Sexperts copy.app"; path = Sexbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD29D6C218E2052300DD5675 /* Sexbox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Sexbox-Info.plist"; path = "/Users/pauldelange/Documents/Freelance/faure/s-box/iOS/Les Sexperts/Sexbox-Info.plist"; sourceTree = "<absolute>"; };
 		FD2BA3FF18C06F95009AFC9F /* Les Sexperts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Les Sexperts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2BA40218C06F95009AFC9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -235,8 +233,6 @@
 		FD8524DE18CEF2EA005E6A3F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		FD8524E018CEF2FB005E6A3F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		FD8524E218CEF305005E6A3F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		FDAD91E118C72401009CFC7F /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
-		FDAD91E218C72401009CFC7F /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		FDAD91E718C7C093009CFC7F /* ResultsCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		FDAD91E818C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		FDAD91EA18C7C893009CFC7F /* ResultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultCollectionViewCell.h; sourceTree = "<group>"; };
@@ -431,8 +427,6 @@
 				FD2BA41218C06F95009AFC9F /* AppDelegate.m */,
 				FD2BA43E18C0730F009AFC9F /* HomeViewController.h */,
 				FD2BA43F18C0730F009AFC9F /* HomeViewController.m */,
-				FDAD91E118C72401009CFC7F /* QuestionViewController.h */,
-				FDAD91E218C72401009CFC7F /* QuestionViewController.m */,
 				FDAD91ED18C86CAF009CFC7F /* ResumeViewController.h */,
 				FDAD91EE18C86CAF009CFC7F /* ResumeViewController.m */,
 				FDF2111E18C8D44900C8621F /* AdvertisementNavigationController.h */,
@@ -748,7 +742,6 @@
 				FD29D68318E2052300DD5675 /* Advice.m in Sources */,
 				FD29D68418E2052300DD5675 /* _Question.m in Sources */,
 				FD29D68518E2052300DD5675 /* MZFormSheetBackgroundWindow.m in Sources */,
-				FD29D68618E2052300DD5675 /* QuestionViewController.m in Sources */,
 				FD29D68718E2052300DD5675 /* QuizViewController.m in Sources */,
 				FD29D68818E2052300DD5675 /* IBActionSheet.m in Sources */,
 				FD29D68918E2052300DD5675 /* AdviceViewController.m in Sources */,
@@ -799,7 +792,6 @@
 				FD2BA4E218C08885009AFC9F /* Advice.m in Sources */,
 				FD2BA4D618C08879009AFC9F /* _Question.m in Sources */,
 				FD1D861018D3325B00F333A6 /* MZFormSheetBackgroundWindow.m in Sources */,
-				FDAD91E318C72401009CFC7F /* QuestionViewController.m in Sources */,
 				FDCF132118C4D1CF002F0B1D /* QuizViewController.m in Sources */,
 				FD1D862518D4308900F333A6 /* IBActionSheet.m in Sources */,
 				FD2BA50718C0C316009AFC9F /* AdviceViewController.m in Sources */,
