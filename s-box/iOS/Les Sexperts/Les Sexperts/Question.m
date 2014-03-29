@@ -57,7 +57,7 @@
         Answer* ans = (Answer*)evaluatedObject;
         return ans.isCorrectValue;
     }]];
-    NSAssert([correct count] == 1, @"%@ has %zu correct answers", self, [correct count]);
+    //NSAssert([correct count] == 1, @"%@ has %zu correct answers", self, [correct count]);
     
     return correct.lastObject;
 }

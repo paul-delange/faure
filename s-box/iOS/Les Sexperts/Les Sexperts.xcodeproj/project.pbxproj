@@ -91,15 +91,12 @@
 		FD29D6B918E2052300DD5675 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA41D18C06F95009AFC9F /* Images.xcassets */; };
 		FD29D6BA18E2052300DD5675 /* american_typewriter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD1D86B018D8D3CE00F333A6 /* american_typewriter.ttf */; };
 		FD29D6BB18E2052300DD5675 /* ContentLibrary.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA4FD18C09CF1009AFC9F /* ContentLibrary.sqlite */; };
-		FD29D6BC18E2052300DD5675 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA40B18C06F95009AFC9F /* InfoPlist.strings */; };
-		FD29D6BD18E2052300DD5675 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA41418C06F95009AFC9F /* Main.storyboard */; };
 		FD2BA40318C06F95009AFC9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40218C06F95009AFC9F /* Foundation.framework */; };
 		FD2BA40518C06F95009AFC9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40418C06F95009AFC9F /* CoreGraphics.framework */; };
 		FD2BA40718C06F95009AFC9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40618C06F95009AFC9F /* UIKit.framework */; };
 		FD2BA40D18C06F95009AFC9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA40B18C06F95009AFC9F /* InfoPlist.strings */; };
 		FD2BA40F18C06F95009AFC9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA40E18C06F95009AFC9F /* main.m */; };
 		FD2BA41318C06F95009AFC9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA41218C06F95009AFC9F /* AppDelegate.m */; };
-		FD2BA41618C06F95009AFC9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA41418C06F95009AFC9F /* Main.storyboard */; };
 		FD2BA41E18C06F95009AFC9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA41D18C06F95009AFC9F /* Images.xcassets */; };
 		FD2BA44018C0730F009AFC9F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA43F18C0730F009AFC9F /* HomeViewController.m */; };
 		FD2BA44618C082EC009AFC9F /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA44518C082EC009AFC9F /* CoreDataStack.m */; };
@@ -122,6 +119,8 @@
 		FD2BA50D18C0CA77009AFC9F /* ThemeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50C18C0CA77009AFC9F /* ThemeCollectionViewCell.m */; };
 		FD51091118E74AE3003D58C7 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD51091018E74AE3003D58C7 /* TimerView.m */; };
 		FD51091218E74AE3003D58C7 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD51091018E74AE3003D58C7 /* TimerView.m */; };
+		FD51091518E755BE003D58C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD51091318E755BE003D58C7 /* Localizable.strings */; };
+		FD51091618E755BE003D58C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD51091318E755BE003D58C7 /* Localizable.strings */; };
 		FD54AB8918C0DFFD0012695C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8718C0DFFD0012695C /* libcrypto.a */; };
 		FD54AB8A18C0DFFD0012695C /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8818C0DFFD0012695C /* libssl.a */; };
 		FD54AB8E18C0E07D0012695C /* ReceiptValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */; };
@@ -191,7 +190,6 @@
 		FD2BA41018C06F95009AFC9F /* Les Sexperts-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Les Sexperts-Prefix.pch"; sourceTree = "<group>"; };
 		FD2BA41118C06F95009AFC9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FD2BA41218C06F95009AFC9F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FD2BA41518C06F95009AFC9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD2BA41D18C06F95009AFC9F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Les Sexperts/Les Sexperts/Images.xcassets"; sourceTree = "<group>"; };
 		FD2BA42418C06F95009AFC9F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FD2BA43E18C0730F009AFC9F /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -227,6 +225,9 @@
 		FD2BA50C18C0CA77009AFC9F /* ThemeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeCollectionViewCell.m; sourceTree = "<group>"; };
 		FD51090F18E74AE3003D58C7 /* TimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerView.h; sourceTree = "<group>"; };
 		FD51091018E74AE3003D58C7 /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerView.m; sourceTree = "<group>"; };
+		FD51091418E755BE003D58C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "Les Sexperts/Les Sexperts/en.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		FD51091718E755E2003D58C7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FD51091818E755E2003D58C7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FD54AB8718C0DFFD0012695C /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = OpenSSL/libcrypto.a; sourceTree = "<group>"; };
 		FD54AB8818C0DFFD0012695C /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = OpenSSL/libssl.a; sourceTree = "<group>"; };
 		FD54AB8C18C0E07D0012695C /* ReceiptValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptValidator.h; sourceTree = "<group>"; };
@@ -473,13 +474,13 @@
 		FD2BA43D18C06FC8009AFC9F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FD51091318E755BE003D58C7 /* Localizable.strings */,
 				FD1D86B018D8D3CE00F333A6 /* american_typewriter.ttf */,
 				FD2BA4FD18C09CF1009AFC9F /* ContentLibrary.sqlite */,
 				FD2BA44E18C085EA009AFC9F /* ContentLibrary.xcdatamodeld */,
 				FD2BA40B18C06F95009AFC9F /* InfoPlist.strings */,
 				FD2BA40A18C06F95009AFC9F /* Les Sexperts-Info.plist */,
 				FD29D6C218E2052300DD5675 /* Sexbox-Info.plist */,
-				FD2BA41418C06F95009AFC9F /* Main.storyboard */,
 				FD2BA41D18C06F95009AFC9F /* Images.xcassets */,
 			);
 			name = Resources;
@@ -659,6 +660,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = FD2BA3F618C06F94009AFC9F;
 			productRefGroup = FD2BA40018C06F95009AFC9F /* Products */;
@@ -677,10 +679,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD29D6B918E2052300DD5675 /* Images.xcassets in Resources */,
+				FD51091618E755BE003D58C7 /* Localizable.strings in Resources */,
 				FD29D6BA18E2052300DD5675 /* american_typewriter.ttf in Resources */,
 				FD29D6BB18E2052300DD5675 /* ContentLibrary.sqlite in Resources */,
-				FD29D6BC18E2052300DD5675 /* InfoPlist.strings in Resources */,
-				FD29D6BD18E2052300DD5675 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,10 +690,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD2BA41E18C06F95009AFC9F /* Images.xcassets in Resources */,
+				FD51091518E755BE003D58C7 /* Localizable.strings in Resources */,
 				FD1D86B118D8D3CE00F333A6 /* american_typewriter.ttf in Resources */,
 				FD2BA4FE18C09CF1009AFC9F /* ContentLibrary.sqlite in Resources */,
 				FD2BA40D18C06F95009AFC9F /* InfoPlist.strings in Resources */,
-				FD2BA41618C06F95009AFC9F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,18 +838,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				FD2BA40C18C06F95009AFC9F /* en */,
+				FD51091818E755E2003D58C7 /* fr */,
 			);
 			name = InfoPlist.strings;
 			path = "Les Sexperts/Les Sexperts";
 			sourceTree = "<group>";
 		};
-		FD2BA41418C06F95009AFC9F /* Main.storyboard */ = {
+		FD51091318E755BE003D58C7 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FD2BA41518C06F95009AFC9F /* Base */,
+				FD51091418E755BE003D58C7 /* en */,
+				FD51091718E755E2003D58C7 /* fr */,
 			);
-			name = Main.storyboard;
-			path = "Les Sexperts/Les Sexperts";
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -43,13 +43,15 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    GADBannerView* banner = [[GADBannerView alloc] initWithAdSize: kGADAdSizeBanner];
-    banner.delegate = self;
-    banner.adUnitID = @"ca-app-pub-1332160865070772/2668997243";
-    banner.rootViewController = self;
-    banner.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview: banner];
-    self.bannerView = banner;
+    if( [ContentLock tryLock] ) {
+        GADBannerView* banner = [[GADBannerView alloc] initWithAdSize: kGADAdSizeBanner];
+        banner.delegate = self;
+        banner.adUnitID = @"ca-app-pub-1332160865070772/2668997243";
+        banner.rootViewController = self;
+        banner.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view addSubview: banner];
+        self.bannerView = banner;
+    }
     
     UIColor* topColor = [UIColor colorWithRed: 35/255. green: 40/255. blue: 43/255. alpha: 1.];
     UIColor* centerColor = [UIColor colorWithRed: 39/255. green: 56/255. blue: 66/255. alpha: 1.];
@@ -74,13 +76,13 @@
     request.testDevices = @[ GAD_SIMULATOR_ID,
                              @"5847239deac1f26ea408b154815af621"            //Paul iPhone4
                              ];
-    
+    self.bannerView.delegate = self;
     [self.bannerView loadRequest: request];
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear: animated];
-    
+    self.bannerView.delegate = nil;
     [self.bannerView loadRequest: nil];
     [self hideAdView];
 }
@@ -110,7 +112,12 @@
 
 #pragma mark - GADBannerViewDelegate
 - (void)adViewDidReceiveAd:(GADBannerView *)view {
-    [self showAdView];
+    if( ![ContentLock tryLock] ) {
+        [self hideAdView];
+    }
+    else {
+        [self showAdView];
+    }
 }
 
 - (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error {

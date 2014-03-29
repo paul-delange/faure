@@ -44,25 +44,28 @@
                         delegate: self
 #if DEBUG
                          logging: YES];
-#else 
+#else
                          logging: NO];
 #endif
     
 #if PAID_VERSION
 #if !TARGET_IPHONE_SIMULATOR
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"Not Verified"
-                                                    message: @"This version of the app was not downloaded from the app store. Please push OK to verify the app with your Apple account."
-                                                   delegate: self
-                                          cancelButtonTitle: NSLocalizedString(@"OK", @"")
-                                          otherButtonTitles:  nil];
-    alert.tag = kAlertViewTagMustGetReceipt;
-    [alert show];
+    NSURL* receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
+    if( ![[NSFileManager defaultManager] fileExistsAtPath: [receiptURL absoluteString]] ) {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"Not Verified"
+                                                        message: @"This version of the app was not downloaded from the app store. Please push OK to verify the app with your Apple account."
+                                                       delegate: self
+                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                              otherButtonTitles:  nil];
+        alert.tag = kAlertViewTagMustGetReceipt;
+        [alert show];
+    }
 #endif
 #endif
     
     return YES;
 }
-							
+
 #pragma mark - AdColonyDelegate
 - ( void ) onAdColonyAdAvailabilityChange:(BOOL)available inZone:(NSString*) zoneID {
     
