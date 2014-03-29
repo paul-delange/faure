@@ -22,6 +22,9 @@
     NSInteger       _currentAnimatedCell;
 }
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *totalBarButtonItem;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *continueBarButtonItem;
+
 @end
 
 @implementation ResultsViewController
@@ -40,13 +43,10 @@
     self.title = NSLocalizedString(@"Results", @"");
     
     NSString* format = NSLocalizedString(@"Total %@", @"");
-    self.totalScoreLabel.text = [NSString stringWithFormat: format, @([self totalCorrect])];
+    self.totalBarButtonItem.title = [NSString stringWithFormat: format, @([self totalCorrect])];
     
-    self.continueButton.enabled = NO;
+    self.continueBarButtonItem.enabled = NO;
     self.collectionView.scrollEnabled = NO;
-    [self.continueButton setTitle: NSLocalizedString(@"Continue", @"") forState: UIControlStateNormal];
-    
-    [self.tableView reloadData];
     
     UIColor* topColor = [UIColor colorWithRed: 35/255. green: 40/255. blue: 43/255. alpha: 1.];
     UIColor* centerColor = [UIColor colorWithRed: 39/255. green: 56/255. blue: 66/255. alpha: 1.];
@@ -82,10 +82,11 @@
             _currentAnimatedCell++;
         }
         else {
-            self.continueButton.enabled = YES;
-            self.tableView.scrollEnabled = YES;
+            self.continueBarButtonItem.enabled = YES;
+            self.collectionView.scrollEnabled = YES;
             dispatch_source_cancel(sourceTimer);
             
+#if !PAID_VERSION
             NSUInteger score = [self totalCorrect];
             BOOL needsResume = ![ResumeViewController hasDisplayedForScore: score];
             
@@ -103,18 +104,11 @@
                                            animated: YES
                                   completionHandler: NULL];
             }
+#endif
         }
     });
     
     dispatch_resume(sourceTimer);
-}
-
-- (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    if( [identifier isEqualToString: @"QuestionPushSegue"] ) {
-        return [ContentLock tryLock];
-    }
-    
-    return YES;
 }
 
 #pragma mark - UICollectionViewDataSource

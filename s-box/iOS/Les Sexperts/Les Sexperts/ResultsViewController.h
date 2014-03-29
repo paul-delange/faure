@@ -11,9 +11,6 @@
 @interface ResultsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UILabel *totalScoreLabel;
-@property (weak, nonatomic) IBOutlet UIButton *continueButton;
 
 @property (copy) NSArray* questionsArray;
 @property (copy) NSArray* answersArray;

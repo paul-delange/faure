@@ -120,6 +120,8 @@
 		FD2BA50718C0C316009AFC9F /* AdviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50618C0C316009AFC9F /* AdviceViewController.m */; };
 		FD2BA50A18C0C3F2009AFC9F /* ContentLock.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50918C0C3F2009AFC9F /* ContentLock.m */; };
 		FD2BA50D18C0CA77009AFC9F /* ThemeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50C18C0CA77009AFC9F /* ThemeCollectionViewCell.m */; };
+		FD51091118E74AE3003D58C7 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD51091018E74AE3003D58C7 /* TimerView.m */; };
+		FD51091218E74AE3003D58C7 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD51091018E74AE3003D58C7 /* TimerView.m */; };
 		FD54AB8918C0DFFD0012695C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8718C0DFFD0012695C /* libcrypto.a */; };
 		FD54AB8A18C0DFFD0012695C /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8818C0DFFD0012695C /* libssl.a */; };
 		FD54AB8E18C0E07D0012695C /* ReceiptValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */; };
@@ -177,7 +179,7 @@
 		FD29D60B18DEDAE500DD5675 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		FD29D60D18DEDAF200DD5675 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FD29D60F18DEDAFD00DD5675 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		FD29D6C118E2052300DD5675 /* Les Sexperts copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Les Sexperts copy.app"; path = Sexbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD29D6C118E2052300DD5675 /* Sexbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sexbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD29D6C218E2052300DD5675 /* Sexbox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Sexbox-Info.plist"; path = "/Users/pauldelange/Documents/Freelance/faure/s-box/iOS/Les Sexperts/Sexbox-Info.plist"; sourceTree = "<absolute>"; };
 		FD2BA3FF18C06F95009AFC9F /* Les Sexperts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Les Sexperts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2BA40218C06F95009AFC9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -223,6 +225,8 @@
 		FD2BA50918C0C3F2009AFC9F /* ContentLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentLock.m; sourceTree = "<group>"; };
 		FD2BA50B18C0CA77009AFC9F /* ThemeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeCollectionViewCell.h; sourceTree = "<group>"; };
 		FD2BA50C18C0CA77009AFC9F /* ThemeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeCollectionViewCell.m; sourceTree = "<group>"; };
+		FD51090F18E74AE3003D58C7 /* TimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerView.h; sourceTree = "<group>"; };
+		FD51091018E74AE3003D58C7 /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerView.m; sourceTree = "<group>"; };
 		FD54AB8718C0DFFD0012695C /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = OpenSSL/libcrypto.a; sourceTree = "<group>"; };
 		FD54AB8818C0DFFD0012695C /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = OpenSSL/libssl.a; sourceTree = "<group>"; };
 		FD54AB8C18C0E07D0012695C /* ReceiptValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptValidator.h; sourceTree = "<group>"; };
@@ -372,7 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				FD2BA3FF18C06F95009AFC9F /* Les Sexperts.app */,
-				FD29D6C118E2052300DD5675 /* Les Sexperts copy.app */,
+				FD29D6C118E2052300DD5675 /* Sexbox.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -444,6 +448,8 @@
 				FD2BA50C18C0CA77009AFC9F /* ThemeCollectionViewCell.m */,
 				FDAD91EA18C7C893009CFC7F /* ResultCollectionViewCell.h */,
 				FDAD91EB18C7C893009CFC7F /* ResultCollectionViewCell.m */,
+				FD51090F18E74AE3003D58C7 /* TimerView.h */,
+				FD51091018E74AE3003D58C7 /* TimerView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -608,7 +614,7 @@
 			);
 			name = Sexbox;
 			productName = "Les Sexperts";
-			productReference = FD29D6C118E2052300DD5675 /* Les Sexperts copy.app */;
+			productReference = FD29D6C118E2052300DD5675 /* Sexbox.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FD2BA3FE18C06F95009AFC9F /* Les Sexperts */ = {
@@ -764,6 +770,7 @@
 				FD29D69A18E2052300DD5675 /* Question.m in Sources */,
 				FD29D69B18E2052300DD5675 /* MZTransition.m in Sources */,
 				FD29D69C18E2052300DD5675 /* _Answer.m in Sources */,
+				FD51091218E74AE3003D58C7 /* TimerView.m in Sources */,
 				FD29D69D18E2052300DD5675 /* MZFormSheetController.m in Sources */,
 				FD29D69E18E2052300DD5675 /* CountDownViewController.m in Sources */,
 				FD29D69F18E2052300DD5675 /* AdviceTableViewController.m in Sources */,
@@ -814,6 +821,7 @@
 				FD2BA4E518C08885009AFC9F /* Question.m in Sources */,
 				FD1D861418D3325B00F333A6 /* MZTransition.m in Sources */,
 				FD2BA4D418C08879009AFC9F /* _Answer.m in Sources */,
+				FD51091118E74AE3003D58C7 /* TimerView.m in Sources */,
 				FD1D861218D3325B00F333A6 /* MZFormSheetController.m in Sources */,
 				FDCF131E18C4CE5D002F0B1D /* CountDownViewController.m in Sources */,
 				FD2BA50418C0B994009AFC9F /* AdviceTableViewController.m in Sources */,
@@ -889,7 +897,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Gilmert Bentley (SHLVY923BZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					AdColony,

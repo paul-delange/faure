@@ -50,8 +50,8 @@ NSString * const kContentUnlockProductIdentifier = @"sexpert_unlock";
 #if TARGET_IPHONE_SIMULATOR
     return NO;
 #else
-    NSURL* receiptURL = [[NSBundle mainBundle] appStoreReceiptURL]
-    return isValidReceipt(receiptURL);
+    NSURL* receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
+    return !isValidReceipt(receiptURL);
 #endif
 #else
 #if TARGET_IPHONE_SIMULATOR

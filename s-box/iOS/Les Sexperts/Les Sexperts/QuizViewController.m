@@ -15,6 +15,8 @@
 #import "AppDelegate.h"
 #import "CoreDataStack.h"
 
+#import "TimerView.h"
+
 @interface QuizViewController () {
     NSTimeInterval          _timeRemaining;
     dispatch_source_t       _timerSource;
@@ -26,6 +28,7 @@
 @property (strong) NSMutableArray* answers;
 
 @property (weak) IBOutlet UILabel* timerLabel;
+@property (weak, nonatomic) IBOutlet TimerView *timerView;
 
 @end
 
@@ -110,6 +113,7 @@
 }
 
 - (void) timeUp {
+    self.timerView.timeRemaining = 0.;
     self.timerLabel.text = @"00.00s";
     [self performSegueWithIdentifier: @"FinishSegue" sender: nil];
 }
@@ -125,7 +129,8 @@
         
         if( _timeRemaining < 10.f ) {
             self.timerLabel.textColor = [UIColor redColor];
-        
+            //self.timerView.tintColor = [UIColor redColor];
+            
             if( ceil(_timeRemaining) != lastSecond) {
                 
                 [UIView animateWithDuration: 0.1
@@ -159,9 +164,11 @@
         }
         
         self.timerLabel.text = [NSString stringWithFormat: @"%0.2fs", _timeRemaining];
+        self.timerView.timeRemaining = _timeRemaining;
     });
     
     self.timerLabel.text = [NSString stringWithFormat: @"%0.2fs", _timeRemaining];
+    self.timerView.timeRemaining = _timeRemaining;
     dispatch_resume(_timerSource);
 }
 
@@ -169,7 +176,7 @@
 - (id) initWithCoder:(NSCoder *)aDecoder {
     self =[super initWithCoder: aDecoder];
     if( self ) {
-        _timeRemaining = 11.;
+        _timeRemaining = 69.;
     }
     return self;
 }
@@ -200,6 +207,9 @@
     UIBarButtonItem* timerBarButton = [[UIBarButtonItem alloc] initWithCustomView: timerLabel];
     self.navigationItem.rightBarButtonItem = timerBarButton;
     self.timerLabel = timerLabel;
+    
+    self.timerView.totalTime = _timeRemaining;
+    self.timerView.timeRemaining = _timeRemaining;
     
     UIColor* topColor = [UIColor colorWithRed: 35/255. green: 40/255. blue: 43/255. alpha: 1.];
     UIColor* centerColor = [UIColor colorWithRed: 39/255. green: 56/255. blue: 66/255. alpha: 1.];

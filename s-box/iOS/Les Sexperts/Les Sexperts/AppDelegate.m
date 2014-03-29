@@ -17,7 +17,9 @@
 
 #define kUserPreferenceHasShuffledQuestionsKey  @"questions_shuffled"
 
-@interface AppDelegate () <AdColonyDelegate>
+#define kAlertViewTagMustGetReceipt 444
+
+@interface AppDelegate () <AdColonyDelegate, UIAlertViewDelegate>
 
 @end
 
@@ -48,9 +50,13 @@
     
 #if PAID_VERSION
 #if !TARGET_IPHONE_SIMULATOR
-    SKReceiptRefreshRequest* refresh = [[SKReceiptRefreshRequest alloc] initWithReceiptProperties: nil];
-    refresh.delegate = (id<SKRequestDelegate>)self;
-    [refresh start];
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"Not Verified"
+                                                    message: @"This version of the app was not downloaded from the app store. Please push OK to verify the app with your Apple account."
+                                                   delegate: self
+                                          cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                          otherButtonTitles:  nil];
+    alert.tag = kAlertViewTagMustGetReceipt;
+    [alert show];
 #endif
 #endif
     
@@ -67,7 +73,21 @@
 }
 #pragma mark - SKRequestDelegate
 - (void)requestDidFinish:(SKRequest *)request {
-    NSLog(@"Receipt refreshed");
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"All Done"
+                                                    message: @"Great! Now you can continue. Restart the app to enable all features."
+                                                   delegate: nil
+                                          cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                          otherButtonTitles: nil];
+    [alert show];
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if( alertView.tag == kAlertViewTagMustGetReceipt ) {
+        SKReceiptRefreshRequest* refresh = [[SKReceiptRefreshRequest alloc] initWithReceiptProperties: nil];
+        refresh.delegate = (id<SKRequestDelegate>)self;
+        [refresh start];
+    }
 }
 
 @end
