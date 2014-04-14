@@ -109,6 +109,12 @@
     [self.jokeButton setTitle: NSLocalizedString(@"Jokes", @"") forState: UIControlStateNormal];
     [self.upgradeButton setTitle: NSLocalizedString(@"Become a Sexpert", @"Devenir un(e) Sexpert(e)") forState: UIControlStateNormal];
     
+    self.playButton.layer.cornerRadius = 10.;
+    self.adviceButton.layer.cornerRadius = 10.;
+    self.jokeButton.layer.cornerRadius = 10.;
+    self.upgradeButton.layer.cornerRadius = 10.;
+    
+    
     self.titleLabel.text = kAppName();
 }
 

@@ -47,7 +47,7 @@ NSString * const kContentUnlockProductIdentifier = @"sexpert_unlock";
 
 + (BOOL) tryLock {
 #if PAID_VERSION
-#if TARGET_IPHONE_SIMULATOR
+#if DEBUG
     return NO;
 #else
     NSURL* receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];

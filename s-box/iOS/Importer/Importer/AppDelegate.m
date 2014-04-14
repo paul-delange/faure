@@ -31,7 +31,7 @@
     question.text = qsrc[2];
     //question.explanation = qsrc[3];
     
-    NSLog(@"Q: %@", question.text);
+    //NSLog(@"Q: %@", question.text);
     
     for(NSArray* asrc in answers) {
         NSParameterAssert([asrc count] == 4);
@@ -42,6 +42,13 @@
         answer.text =  asrc[2];
         answer.isCorrect = ([correct isEqualToString: @"true"]) ? @YES : @NO;
         [question.answersSet addObject: answer];
+    }
+    
+    
+    NSOrderedSet* correctAnswers = [question.answers filteredOrderedSetUsingPredicate: [NSPredicate predicateWithFormat: @"isCorrect = YES"]];
+    if( correctAnswers.count > 1 ) {
+        DLog(@"Deleting %@ because it has true answers %@", question.text, [correctAnswers.array valueForKeyPath: @"@unionOfObjects.text"]);
+        [context deleteObject: question];
     }
     
     return question;
@@ -73,6 +80,10 @@
 
 - (Joke*) jokeFromSource: (NSArray*) jsrc inContext: (NSManagedObjectContext*) context {
     NSParameterAssert([jsrc count] >= 2);
+    
+    NSString* text = jsrc[1];
+    if( [text length] <= 0 )
+        return nil;
     
     Joke* joke = [NSEntityDescription insertNewObjectForEntityForName: @"Joke" inManagedObjectContext: context];
     joke.text = jsrc[1];

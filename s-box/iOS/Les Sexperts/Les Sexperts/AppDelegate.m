@@ -39,17 +39,8 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
-    [AdColony configureWithAppID: @"app62e13e977a034655a5"
-                         zoneIDs: @[@"vzd5640bc5e87746d083", @"vz51c5cf827bd54c548a"]
-                        delegate: self
-#if DEBUG
-                         logging: YES];
-#else
-                         logging: NO];
-#endif
-    
 #if PAID_VERSION
-#if !TARGET_IPHONE_SIMULATOR
+#if !DEBUG
     NSURL* receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
     if( ![[NSFileManager defaultManager] fileExistsAtPath: [receiptURL absoluteString]] ) {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"Not Verified"
@@ -60,6 +51,15 @@
         alert.tag = kAlertViewTagMustGetReceipt;
         [alert show];
     }
+#endif
+#else
+    [AdColony configureWithAppID: @"app62e13e977a034655a5"
+                         zoneIDs: @[@"vzd5640bc5e87746d083", @"vz51c5cf827bd54c548a"]
+                        delegate: self
+#if DEBUG
+                         logging: YES];
+#else
+logging: NO];
 #endif
 #endif
     

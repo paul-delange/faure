@@ -61,6 +61,7 @@
         button.titleLabel.font = [UIFont fontWithName: @"American Typewriter" size: 20];
         button.contentEdgeInsets = UIEdgeInsetsMake(20, 20, 20, 20);
         button.titleLabel.adjustsFontSizeToFitWidth = YES;
+        button.titleLabel.minimumFontSize = 5;
         [self.view addSubview: button];
         
         [self.view addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"H:|-[button]-|"

@@ -130,6 +130,8 @@
 		FD8524DF18CEF2EA005E6A3F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524DE18CEF2EA005E6A3F /* MediaPlayer.framework */; };
 		FD8524E118CEF2FB005E6A3F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524E018CEF2FB005E6A3F /* Social.framework */; };
 		FD8524E318CEF305005E6A3F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524E218CEF305005E6A3F /* libz.dylib */; };
+		FDA6FE8718F2ACF700C72C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDA6FE8618F2ACF700C72C5D /* Main.storyboard */; };
+		FDA6FE8818F2ACF700C72C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDA6FE8618F2ACF700C72C5D /* Main.storyboard */; };
 		FDAD91E918C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91E818C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m */; };
 		FDAD91EC18C7C893009CFC7F /* ResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91EB18C7C893009CFC7F /* ResultCollectionViewCell.m */; };
 		FDAD91EF18C86CAF009CFC7F /* ResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91EE18C86CAF009CFC7F /* ResumeViewController.m */; };
@@ -178,14 +180,13 @@
 		FD29D60B18DEDAE500DD5675 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		FD29D60D18DEDAF200DD5675 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FD29D60F18DEDAFD00DD5675 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		FD29D6C118E2052300DD5675 /* Sexbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sexbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD29D6C118E2052300DD5675 /* Les Sexperts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Les Sexperts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD29D6C218E2052300DD5675 /* Sexbox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Sexbox-Info.plist"; path = "/Users/pauldelange/Documents/Freelance/faure/s-box/iOS/Les Sexperts/Sexbox-Info.plist"; sourceTree = "<absolute>"; };
 		FD2BA3FF18C06F95009AFC9F /* Les Sexperts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Les Sexperts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2BA40218C06F95009AFC9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD2BA40418C06F95009AFC9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FD2BA40618C06F95009AFC9F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FD2BA40A18C06F95009AFC9F /* Les Sexperts-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Les Sexperts-Info.plist"; path = "Les Sexperts/Les Sexperts/Les Sexperts-Info.plist"; sourceTree = "<group>"; };
-		FD2BA40C18C06F95009AFC9F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FD2BA40E18C06F95009AFC9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FD2BA41018C06F95009AFC9F /* Les Sexperts-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Les Sexperts-Prefix.pch"; sourceTree = "<group>"; };
 		FD2BA41118C06F95009AFC9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -225,9 +226,8 @@
 		FD2BA50C18C0CA77009AFC9F /* ThemeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeCollectionViewCell.m; sourceTree = "<group>"; };
 		FD51090F18E74AE3003D58C7 /* TimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerView.h; sourceTree = "<group>"; };
 		FD51091018E74AE3003D58C7 /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerView.m; sourceTree = "<group>"; };
-		FD51091418E755BE003D58C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "Les Sexperts/Les Sexperts/en.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		FD51091718E755E2003D58C7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FD51091818E755E2003D58C7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FD51091918E75AAB003D58C7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "Les Sexperts/Les Sexperts/fr.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		FD54AB8718C0DFFD0012695C /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = OpenSSL/libcrypto.a; sourceTree = "<group>"; };
 		FD54AB8818C0DFFD0012695C /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = OpenSSL/libssl.a; sourceTree = "<group>"; };
 		FD54AB8C18C0E07D0012695C /* ReceiptValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptValidator.h; sourceTree = "<group>"; };
@@ -238,6 +238,7 @@
 		FD8524DE18CEF2EA005E6A3F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		FD8524E018CEF2FB005E6A3F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		FD8524E218CEF305005E6A3F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		FDA6FE8618F2ACF700C72C5D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "Les Sexperts/Les Sexperts/Main.storyboard"; sourceTree = "<group>"; };
 		FDAD91E718C7C093009CFC7F /* ResultsCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		FDAD91E818C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		FDAD91EA18C7C893009CFC7F /* ResultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultCollectionViewCell.h; sourceTree = "<group>"; };
@@ -377,7 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				FD2BA3FF18C06F95009AFC9F /* Les Sexperts.app */,
-				FD29D6C118E2052300DD5675 /* Sexbox.app */,
+				FD29D6C118E2052300DD5675 /* Les Sexperts.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -474,6 +475,7 @@
 		FD2BA43D18C06FC8009AFC9F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FDA6FE8618F2ACF700C72C5D /* Main.storyboard */,
 				FD51091318E755BE003D58C7 /* Localizable.strings */,
 				FD1D86B018D8D3CE00F333A6 /* american_typewriter.ttf */,
 				FD2BA4FD18C09CF1009AFC9F /* ContentLibrary.sqlite */,
@@ -615,7 +617,7 @@
 			);
 			name = Sexbox;
 			productName = "Les Sexperts";
-			productReference = FD29D6C118E2052300DD5675 /* Sexbox.app */;
+			productReference = FD29D6C118E2052300DD5675 /* Les Sexperts.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FD2BA3FE18C06F95009AFC9F /* Les Sexperts */ = {
@@ -679,6 +681,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD29D6B918E2052300DD5675 /* Images.xcassets in Resources */,
+				FDA6FE8818F2ACF700C72C5D /* Main.storyboard in Resources */,
 				FD51091618E755BE003D58C7 /* Localizable.strings in Resources */,
 				FD29D6BA18E2052300DD5675 /* american_typewriter.ttf in Resources */,
 				FD29D6BB18E2052300DD5675 /* ContentLibrary.sqlite in Resources */,
@@ -692,6 +695,7 @@
 				FD2BA41E18C06F95009AFC9F /* Images.xcassets in Resources */,
 				FD51091518E755BE003D58C7 /* Localizable.strings in Resources */,
 				FD1D86B118D8D3CE00F333A6 /* american_typewriter.ttf in Resources */,
+				FDA6FE8718F2ACF700C72C5D /* Main.storyboard in Resources */,
 				FD2BA4FE18C09CF1009AFC9F /* ContentLibrary.sqlite in Resources */,
 				FD2BA40D18C06F95009AFC9F /* InfoPlist.strings in Resources */,
 			);
@@ -837,7 +841,6 @@
 		FD2BA40B18C06F95009AFC9F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FD2BA40C18C06F95009AFC9F /* en */,
 				FD51091818E755E2003D58C7 /* fr */,
 			);
 			name = InfoPlist.strings;
@@ -847,8 +850,7 @@
 		FD51091318E755BE003D58C7 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FD51091418E755BE003D58C7 /* en */,
-				FD51091718E755E2003D58C7 /* fr */,
+				FD51091918E75AAB003D58C7 /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -887,7 +889,7 @@
 					Admob,
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = Sexbox;
+				PRODUCT_NAME = "Les Sexperts";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -921,7 +923,7 @@
 					Admob,
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = Sexbox;
+				PRODUCT_NAME = "Les Sexperts";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};

@@ -283,7 +283,7 @@
     countLabel.textColor = [UIColor whiteColor];
     countLabel.font = [UIFont fontWithName: @"American Typewriter" size: 15.];
     countLabel.textAlignment = NSTextAlignmentCenter;
-    countLabel.text = [NSString stringWithFormat: NSLocalizedString( @"%@/%@", @""), @(1), @(_jokes.count)];
+    countLabel.text = @"";//[NSString stringWithFormat: NSLocalizedString( @"%@/%@", @""), @(1), @(_jokes.count)];
     
     [toolbar setItems: @[ backButton,
                           [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace target: nil action: nil],
@@ -294,7 +294,7 @@
     
     backButton.enabled = NO;
     
-    self.counterLabel = countLabel;
+    //self.counterLabel = countLabel;
     self.nextButton = nextButton;
     self.backButton = backButton;
     
