@@ -114,7 +114,8 @@
     self.jokeButton.layer.cornerRadius = 10.;
     self.upgradeButton.layer.cornerRadius = 10.;
     
-    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.titleLabel.text = kAppName();
 }
 

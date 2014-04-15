@@ -24,10 +24,10 @@
     
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     
-    CGContextSetFillColorWithColor(ctx, [[[UIColor darkTextColor] colorWithAlphaComponent: 0.5] CGColor]);
-    CGContextFillRect(ctx, CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(titleRect)));
+    //CGContextSetFillColorWithColor(ctx, [[[UIColor darkTextColor] colorWithAlphaComponent: 0.5] CGColor]);
+    //CGContextFillRect(ctx, CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(titleRect)));
     
-    CGContextSetFillColorWithColor(ctx, [[self.isCorrect ? [UIColor greenColor] : [UIColor redColor] colorWithAlphaComponent: 0.25] CGColor]);
+    CGContextSetFillColorWithColor(ctx, [[UIColor whiteColor] CGColor]);
     CGContextFillRect(ctx, CGRectMake(0, CGRectGetMinY(answerRect), CGRectGetWidth(self.frame), CGRectGetHeight(answerRect)));
     
     

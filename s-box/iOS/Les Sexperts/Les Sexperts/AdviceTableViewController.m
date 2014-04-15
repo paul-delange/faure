@@ -76,6 +76,7 @@
     [self.resultsController performFetch: &error];
     DLogError(error);
     [self.tableView reloadData];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

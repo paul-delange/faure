@@ -13,7 +13,7 @@
 
 #import "ThemeCollectionViewCell.h"
 
-@interface ThemeCollectionViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate>
+@interface ThemeCollectionViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
 @property (strong) NSFetchedResultsController* resultsController;
 
@@ -37,7 +37,7 @@
 	// Do any additional setup after loading the view.
     
     NSFetchRequest* fetchRequest = [NSFetchRequest fetchRequestWithEntityName: @"Theme"];
-    [fetchRequest setSortDescriptors: @[[NSSortDescriptor sortDescriptorWithKey: @"name" ascending:@""]]];
+    [fetchRequest setSortDescriptors: @[[NSSortDescriptor sortDescriptorWithKey: @"name" ascending: YES]]];
     
     self.resultsController = [[NSFetchedResultsController alloc] initWithFetchRequest: fetchRequest
                                                                  managedObjectContext: kMainManagedObjectContext()
@@ -48,7 +48,9 @@
     [self.resultsController performFetch: &error];
     DLogError(error);
     
-    [self.collectionView reloadData];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    [self.tableView reloadData];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -60,23 +62,23 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if( [segue.identifier isEqualToString: @"AdvicePushSegue"] ) {
         NSParameterAssert([segue.destinationViewController isKindOfClass: [AdviceTableViewController class]]);
-        NSParameterAssert([sender isKindOfClass: [UICollectionViewCell class]]);
+        NSParameterAssert([sender isKindOfClass: [UITableViewCell class]]);
         AdviceTableViewController* adviceTVC = (AdviceTableViewController*)segue.destinationViewController;
-        NSIndexPath* indexPath = [self.collectionView indexPathForCell: sender];
+        NSIndexPath* indexPath = [self.tableView indexPathForCell: sender];
         Theme* theme = [self.resultsController objectAtIndexPath: indexPath];
         adviceTVC.theme = theme;
     }
 }
 
-#pragma mark - UICollectionViewDataSource 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     id<NSFetchedResultsSectionInfo> sectionInfo = [self.resultsController.sections objectAtIndex: section];
     return [sectionInfo numberOfObjects];
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    ThemeCollectionViewCell* cell = (ThemeCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier: @"AdviceCellIdentifier" forIndexPath: indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ThemeCollectionViewCell* cell = (ThemeCollectionViewCell*)[tableView dequeueReusableCellWithIdentifier: @"AdviceCellIdentifier" forIndexPath: indexPath];
     NSParameterAssert(cell);
     
     Theme* theme = [self.resultsController objectAtIndexPath: indexPath];
@@ -85,9 +87,9 @@
     return cell;
 }
 
-#pragma mark - UICollectionViewDelegateFlowLayout
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(CGRectGetWidth(collectionView.bounds), 60);
+#pragma mark - UITableViewDelegate
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60.;
 }
 
 @end

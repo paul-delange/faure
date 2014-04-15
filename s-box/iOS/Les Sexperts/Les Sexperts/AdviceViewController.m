@@ -179,6 +179,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self reloadData];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+#if PAID_VERSION
+    self.navigationItem.rightBarButtonItem = nil;
+#endif
 }
 
 - (void) viewDidAppear:(BOOL)animated {

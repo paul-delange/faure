@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ThemeCollectionViewCell : UICollectionViewCell
-
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@interface ThemeCollectionViewCell : UITableViewCell
 
 @end

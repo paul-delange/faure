@@ -43,7 +43,7 @@
     self.title = NSLocalizedString(@"Results", @"");
     
     NSString* format = NSLocalizedString(@"Total %@", @"");
-    self.totalBarButtonItem.title = @"";//[NSString stringWithFormat: format, @([self totalCorrect])];
+    self.totalBarButtonItem.title = [NSString stringWithFormat: format, @"??"];
     //self.totalBarButtonItem.
     self.continueBarButtonItem.enabled = NO;
     self.collectionView.scrollEnabled = NO;
