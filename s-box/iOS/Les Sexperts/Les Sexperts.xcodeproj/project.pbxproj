@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD194ABB18FE7208009165C8 /* ContentLock.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50918C0C3F2009AFC9F /* ContentLock.m */; };
 		FD1D861018D3325B00F333A6 /* MZFormSheetBackgroundWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D860318D3325B00F333A6 /* MZFormSheetBackgroundWindow.m */; };
 		FD1D861118D3325B00F333A6 /* MZFormSheetBackgroundWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D860518D3325B00F333A6 /* MZFormSheetBackgroundWindowViewController.m */; };
 		FD1D861218D3325B00F333A6 /* MZFormSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D860718D3325B00F333A6 /* MZFormSheetController.m */; };
@@ -32,7 +33,6 @@
 		FD29D67B18E2052300DD5675 /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4E118C08885009AFC9F /* Theme.m */; };
 		FD29D67C18E2052300DD5675 /* UIImage+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D860D18D3325B00F333A6 /* UIImage+Additional.m */; };
 		FD29D67D18E2052300DD5675 /* FinishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132618C5B74E002F0B1D /* FinishedViewController.m */; };
-		FD29D67E18E2052300DD5675 /* ReceiptValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */; };
 		FD29D67F18E2052300DD5675 /* ResumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91EE18C86CAF009CFC7F /* ResumeViewController.m */; };
 		FD29D68018E2052300DD5675 /* MZAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D861918D332BF00F333A6 /* MZAppearance.m */; };
 		FD29D68118E2052300DD5675 /* ThemeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50018C0A696009AFC9F /* ThemeCollectionViewController.m */; };
@@ -65,7 +65,6 @@
 		FD29D69D18E2052300DD5675 /* MZFormSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1D860718D3325B00F333A6 /* MZFormSheetController.m */; };
 		FD29D69E18E2052300DD5675 /* CountDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF131D18C4CE5D002F0B1D /* CountDownViewController.m */; };
 		FD29D69F18E2052300DD5675 /* AdviceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50318C0B994009AFC9F /* AdviceTableViewController.m */; };
-		FD29D6A018E2052300DD5675 /* ContentLock.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA50918C0C3F2009AFC9F /* ContentLock.m */; };
 		FD29D6A118E2052300DD5675 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA43F18C0730F009AFC9F /* HomeViewController.m */; };
 		FD29D6A318E2052300DD5675 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29D60F18DEDAFD00DD5675 /* StoreKit.framework */; };
 		FD29D6A418E2052300DD5675 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD29D60D18DEDAF200DD5675 /* QuartzCore.framework */; };
@@ -745,7 +744,6 @@
 				FD29D67B18E2052300DD5675 /* Theme.m in Sources */,
 				FD29D67C18E2052300DD5675 /* UIImage+Additional.m in Sources */,
 				FD29D67D18E2052300DD5675 /* FinishedViewController.m in Sources */,
-				FD29D67E18E2052300DD5675 /* ReceiptValidator.m in Sources */,
 				FD29D67F18E2052300DD5675 /* ResumeViewController.m in Sources */,
 				FD29D68018E2052300DD5675 /* MZAppearance.m in Sources */,
 				FD29D68118E2052300DD5675 /* ThemeCollectionViewController.m in Sources */,
@@ -768,6 +766,7 @@
 				FD29D69318E2052300DD5675 /* main.m in Sources */,
 				FD29D69418E2052300DD5675 /* JokeViewController.m in Sources */,
 				FD29D69518E2052300DD5675 /* MZFormSheetBackgroundWindowViewController.m in Sources */,
+				FD194ABB18FE7208009165C8 /* ContentLock.m in Sources */,
 				FD29D69618E2052300DD5675 /* MZFormSheetSegue.m in Sources */,
 				FD29D69718E2052300DD5675 /* _Theme.m in Sources */,
 				FD29D69818E2052300DD5675 /* ThemeCollectionViewCell.m in Sources */,
@@ -779,7 +778,6 @@
 				FD29D69D18E2052300DD5675 /* MZFormSheetController.m in Sources */,
 				FD29D69E18E2052300DD5675 /* CountDownViewController.m in Sources */,
 				FD29D69F18E2052300DD5675 /* AdviceTableViewController.m in Sources */,
-				FD29D6A018E2052300DD5675 /* ContentLock.m in Sources */,
 				FD29D6A118E2052300DD5675 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -901,7 +899,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					AdColony,

@@ -47,12 +47,7 @@ NSString * const kContentUnlockProductIdentifier = @"sexpert_unlock";
 
 + (BOOL) tryLock {
 #if PAID_VERSION
-#if DEBUG
     return NO;
-#else
-    NSURL* receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
-    return !isValidReceipt(receiptURL);
-#endif
 #else
 #if TARGET_IPHONE_SIMULATOR
     return ![[NSUserDefaults standardUserDefaults] boolForKey: @"SimulatorContentLocked"];
@@ -106,6 +101,7 @@ NSString * const kContentUnlockProductIdentifier = @"sexpert_unlock";
 
 #pragma mark - SKPaymentTransactionObserver
 + (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
+#if !PAID_VERSION
     for(SKPaymentTransaction* transaction in transactions) {
         switch (transaction.transactionState) {
             case SKPaymentTransactionStateFailed:
@@ -151,6 +147,7 @@ NSString * const kContentUnlockProductIdentifier = @"sexpert_unlock";
                 break;
         }
     }
+#endif
 }
 
 @end
