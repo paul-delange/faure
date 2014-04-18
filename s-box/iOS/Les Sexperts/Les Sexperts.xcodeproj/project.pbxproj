@@ -181,7 +181,7 @@
 		FD29D60F18DEDAFD00DD5675 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		FD29D6C118E2052300DD5675 /* Les Sexperts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Les Sexperts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD29D6C218E2052300DD5675 /* Sexbox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Sexbox-Info.plist"; path = "/Users/pauldelange/Documents/Freelance/faure/s-box/iOS/Les Sexperts/Sexbox-Info.plist"; sourceTree = "<absolute>"; };
-		FD2BA3FF18C06F95009AFC9F /* Les Sexperts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Les Sexperts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD2BA3FF18C06F95009AFC9F /* Sexperts Free.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sexperts Free.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2BA40218C06F95009AFC9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD2BA40418C06F95009AFC9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FD2BA40618C06F95009AFC9F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -376,7 +376,7 @@
 		FD2BA40018C06F95009AFC9F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FD2BA3FF18C06F95009AFC9F /* Les Sexperts.app */,
+				FD2BA3FF18C06F95009AFC9F /* Sexperts Free.app */,
 				FD29D6C118E2052300DD5675 /* Les Sexperts.app */,
 			);
 			name = Products;
@@ -634,7 +634,7 @@
 			);
 			name = "Les Sexperts";
 			productName = "Les Sexperts";
-			productReference = FD2BA3FF18C06F95009AFC9F /* Les Sexperts.app */;
+			productReference = FD2BA3FF18C06F95009AFC9F /* Sexperts Free.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -898,8 +898,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Gilmert Bentley (SHLVY923BZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Gilmert Bentley (SHLVY923BZ)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					AdColony,
@@ -1023,7 +1023,7 @@
 					Admob,
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Sexperts Free";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1055,7 +1055,7 @@
 					Admob,
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Sexperts Free";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};

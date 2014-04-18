@@ -10,6 +10,8 @@
 
 typedef void (^kContentLockRemovedHandler)(NSError* error);
 
+extern NSString * ContentLockWasRemovedNotification;
+
 @interface ContentLock : NSObject
 
 + (BOOL) unlockWithCompletion: (kContentLockRemovedHandler) completionHandler;

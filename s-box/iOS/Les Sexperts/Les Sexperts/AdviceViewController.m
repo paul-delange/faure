@@ -180,9 +180,24 @@
 	// Do any additional setup after loading the view.
     [self reloadData];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-#if PAID_VERSION
+
+    //TODO: Add this later
     self.navigationItem.rightBarButtonItem = nil;
-#endif
+    
+    UIColor* topColor = [UIColor colorWithRed: 35/255. green: 40/255. blue: 43/255. alpha: 1.];
+    UIColor* centerColor = [UIColor colorWithRed: 39/255. green: 56/255. blue: 66/255. alpha: 1.];
+    UIColor* bottomColor = [UIColor colorWithRed: 23/255. green: 85/255. blue: 102/255. alpha: 1.];
+    
+    CAGradientLayer* gradient = [CAGradientLayer layer];
+    gradient.colors = @[(id)topColor.CGColor, (id)centerColor.CGColor, (id)bottomColor.CGColor];
+    gradient.startPoint = CGPointMake(0.5, 0.);
+    gradient.endPoint = CGPointMake(0.5, 1.);
+    gradient.locations = @[@(0.25), @(0.75)];
+    gradient.bounds = self.view.bounds;
+    gradient.anchorPoint = CGPointMake(CGRectGetMinX(gradient.bounds), 0);
+    
+    [self.view.layer insertSublayer: gradient atIndex: 0];
+
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -194,7 +209,7 @@
         UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
-        self.maskImageView.image = [image applyBlurWithRadius: 3.0
+        self.maskImageView.image = [image applyBlurWithRadius: 3.5
                                                     tintColor: [UIColor clearColor]
                                         saturationDeltaFactor: 1.8
                                                     maskImage: nil];

@@ -89,7 +89,7 @@
             NSString* format = NSLocalizedString(@"Total %@", @"");
             self.totalBarButtonItem.title = [NSString stringWithFormat: format, @([self totalCorrect])];
             
-#if !PAID_VERSION
+#if 0   //TODO: Add the resume views
             NSUInteger score = [self totalCorrect];
             BOOL needsResume = ![ResumeViewController hasDisplayedForScore: score];
             

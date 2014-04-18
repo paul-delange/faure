@@ -44,7 +44,7 @@
 }
 
 #pragma mark - Notififications
-- (void) purchaseWasMade: (id) sender {
+- (void) contentWasUnlocked: (id) sender {
     self.bannerView.delegate = nil;
     [self.bannerView removeFromSuperview];
     
@@ -52,7 +52,19 @@
 }
 
 #pragma mark - NSObject
+- (instancetype) initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder: aDecoder];
+    if( self ) {
+        [[NSNotificationCenter defaultCenter] addObserver: self
+                                                 selector: @selector(contentWasUnlocked:)
+                                                     name: ContentLockWasRemovedNotification
+                                                   object: nil];
+    }
+    return self;
+}
+
 - (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
     self.bannerView.delegate = nil;
 }
 
@@ -66,10 +78,6 @@
     UIView* contentView = self.view;
     contentView.translatesAutoresizingMaskIntoConstraints = NO;
     self.view = [[UIView alloc] initWithFrame: contentView.frame];
-    contentView.backgroundColor = [UIColor redColor];
-    
-    
-
     
     GADBannerView* banner = [[GADBannerView alloc] initWithAdSize: kBannerSize];
     banner.delegate = self;

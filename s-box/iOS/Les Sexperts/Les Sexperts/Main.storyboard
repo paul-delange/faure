@@ -237,7 +237,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCY-JC-K7i">
-                                <rect key="frame" x="20" y="378" width="280" height="37"/>
+                                <rect key="frame" x="20" y="400" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="20"/>
@@ -253,14 +253,13 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="4f5-9Y-L5Y" secondAttribute="trailing" constant="20" symbolic="YES" id="4rf-C7-JHa"/>
                             <constraint firstAttribute="trailing" secondItem="UBf-vV-Nuw" secondAttribute="trailing" constant="20" symbolic="YES" id="7py-vs-brg"/>
-                            <constraint firstItem="lCY-JC-K7i" firstAttribute="top" secondItem="UBf-vV-Nuw" secondAttribute="bottom" constant="8" symbolic="YES" id="AXL-WQ-gKJ"/>
+                            <constraint firstItem="lCY-JC-K7i" firstAttribute="top" secondItem="UBf-vV-Nuw" secondAttribute="bottom" constant="30" id="AXL-WQ-gKJ"/>
                             <constraint firstItem="4f5-9Y-L5Y" firstAttribute="leading" secondItem="Is8-Ag-tOU" secondAttribute="leading" constant="20" symbolic="YES" id="Bl9-Mf-YjD"/>
                             <constraint firstItem="4f5-9Y-L5Y" firstAttribute="height" secondItem="lCY-JC-K7i" secondAttribute="height" id="EtO-gk-c4z"/>
                             <constraint firstItem="4f5-9Y-L5Y" firstAttribute="top" secondItem="9Eu-rm-rmG" secondAttribute="bottom" constant="30" id="JJR-sf-53I"/>
                             <constraint firstItem="bDA-5V-j59" firstAttribute="leading" secondItem="Is8-Ag-tOU" secondAttribute="leading" constant="20" symbolic="YES" id="OD7-Uz-bGU"/>
                             <constraint firstAttribute="trailing" secondItem="lCY-JC-K7i" secondAttribute="trailing" constant="20" symbolic="YES" id="SlO-6M-UZa"/>
                             <constraint firstItem="UBf-vV-Nuw" firstAttribute="top" secondItem="4f5-9Y-L5Y" secondAttribute="bottom" constant="30" id="TCW-Jx-eVU"/>
-                            <constraint firstItem="lCY-JC-K7i" firstAttribute="top" secondItem="UBf-vV-Nuw" secondAttribute="bottom" constant="8" symbolic="YES" id="U0r-h7-Mhp"/>
                             <constraint firstItem="4f5-9Y-L5Y" firstAttribute="height" secondItem="UBf-vV-Nuw" secondAttribute="height" id="X3f-BJ-kfS"/>
                             <constraint firstAttribute="trailing" secondItem="9Eu-rm-rmG" secondAttribute="trailing" constant="20" symbolic="YES" id="XNH-eV-g6b"/>
                             <constraint firstItem="UBf-vV-Nuw" firstAttribute="leading" secondItem="Is8-Ag-tOU" secondAttribute="leading" constant="20" symbolic="YES" id="d5M-zl-iqf"/>

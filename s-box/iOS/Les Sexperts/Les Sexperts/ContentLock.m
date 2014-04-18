@@ -15,6 +15,7 @@
 static const void* kCompletionHandlerAssocationKey = "PurchaseCompletionHandler";
 
 NSString * const kContentUnlockProductIdentifier = @"sexpert_unlock";
+NSString * ContentLockWasRemovedNotification = @"ContentLockRemoved";
 
 @import StoreKit;
 
@@ -24,6 +25,8 @@ NSString * const kContentUnlockProductIdentifier = @"sexpert_unlock";
 #if TARGET_IPHONE_SIMULATOR
     [[NSUserDefaults standardUserDefaults] setBool: YES forKey: @"SimulatorContentLocked"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
     completionHandler(NULL);
     return YES;
 #else
@@ -124,6 +127,8 @@ NSString * const kContentUnlockProductIdentifier = @"sexpert_unlock";
                 NSURL* appReceiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
                 if( isValidReceipt(appReceiptURL) ) {
                     NSParameterAssert(isUnlockSubscriptionPurchased());
+                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
                     
                     if( handler )
                         handler(nil);
