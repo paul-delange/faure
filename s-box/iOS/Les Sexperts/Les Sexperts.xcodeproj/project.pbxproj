@@ -93,7 +93,6 @@
 		FD2BA40318C06F95009AFC9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40218C06F95009AFC9F /* Foundation.framework */; };
 		FD2BA40518C06F95009AFC9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40418C06F95009AFC9F /* CoreGraphics.framework */; };
 		FD2BA40718C06F95009AFC9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA40618C06F95009AFC9F /* UIKit.framework */; };
-		FD2BA40D18C06F95009AFC9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA40B18C06F95009AFC9F /* InfoPlist.strings */; };
 		FD2BA40F18C06F95009AFC9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA40E18C06F95009AFC9F /* main.m */; };
 		FD2BA41318C06F95009AFC9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA41218C06F95009AFC9F /* AppDelegate.m */; };
 		FD2BA41E18C06F95009AFC9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA41D18C06F95009AFC9F /* Images.xcassets */; };
@@ -696,7 +695,6 @@
 				FD1D86B118D8D3CE00F333A6 /* american_typewriter.ttf in Resources */,
 				FDA6FE8718F2ACF700C72C5D /* Main.storyboard in Resources */,
 				FD2BA4FE18C09CF1009AFC9F /* ContentLibrary.sqlite in Resources */,
-				FD2BA40D18C06F95009AFC9F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

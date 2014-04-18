@@ -14,13 +14,17 @@
 
 #import "IBActionSheet.h"
 
+#import "GADInterstitial.h"
+
 @import Accounts;
 @import Social;
 @import MessageUI;
 
 #define HAS_CONFIGURED_FACEBOOK     0
 
-@interface HomeViewController () <IBActionSheetDelegate, MFMailComposeViewControllerDelegate>
+@interface HomeViewController () <IBActionSheetDelegate, MFMailComposeViewControllerDelegate, GADInterstitialDelegate, UINavigationControllerDelegate> {
+    GADInterstitial *_interstitial;
+}
 
 @property (strong) ACAccountStore* accountStore;
 
@@ -81,7 +85,19 @@
 }
 
 - (IBAction)unwindGame:(UIStoryboardSegue*)sender {
-    
+#if !PAID_VERSION
+    if( [ContentLock tryLock] ) {
+        GADRequest* request = [GADRequest request];
+        request.testDevices = @[ GAD_SIMULATOR_ID,
+                                 @"5847239deac1f26ea408b154815af621"            //Paul iPhone4
+                                 ];
+        
+        _interstitial = [[GADInterstitial alloc] init];
+        _interstitial.adUnitID = @"ca-app-pub-1332160865070772/5237453245";
+        _interstitial.delegate = self;
+        [_interstitial loadRequest:[GADRequest request]];
+    }
+#endif
 }
 
 #pragma mark - NSObject
@@ -96,6 +112,7 @@
     if (self) {
         // Custom initialization
         _accountStore = [ACAccountStore new];
+        self.navigationController.delegate = self;
     }
     return self;
 }
@@ -153,7 +170,7 @@
                                               ACFacebookAudienceKey : ACFacebookAudienceEveryone
 #endif
                                               };
-  
+            
             
             [self.accountStore requestAccessToAccountsWithType:facebookAccountType
                                                        options: FacebookOptions
@@ -245,31 +262,31 @@
                                                             
                                                             //  Step 3:  Execute the request
                                                             [request performRequestWithHandler: ^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-                                                                 
-                                                                 if (responseData) {
-                                                                     if (urlResponse.statusCode >= 200 &&
-                                                                         urlResponse.statusCode < 300) {
-                                                                         
-                                                                         NSError *jsonError;
-                                                                         NSDictionary *timelineData =
-                                                                         [NSJSONSerialization
-                                                                          JSONObjectWithData:responseData
-                                                                          options:NSJSONReadingAllowFragments error:&jsonError];
-                                                                         if (timelineData) {
-                                                                             NSLog(@"Follow Response: %@\n", timelineData);
-                                                                         }
-                                                                         else {
-                                                                             // Our JSON deserialization went awry
-                                                                             NSLog(@"JSON Error: %@", [jsonError localizedDescription]);
-                                                                         }
-                                                                     }
-                                                                     else {
-                                                                         // The server did not respond ... were we rate-limited?
-                                                                         NSLog(@"The response status code is %ld",
-                                                                               (long)urlResponse.statusCode);
-                                                                     }
-                                                                 }
-                                                             }];
+                                                                
+                                                                if (responseData) {
+                                                                    if (urlResponse.statusCode >= 200 &&
+                                                                        urlResponse.statusCode < 300) {
+                                                                        
+                                                                        NSError *jsonError;
+                                                                        NSDictionary *timelineData =
+                                                                        [NSJSONSerialization
+                                                                         JSONObjectWithData:responseData
+                                                                         options:NSJSONReadingAllowFragments error:&jsonError];
+                                                                        if (timelineData) {
+                                                                            NSLog(@"Follow Response: %@\n", timelineData);
+                                                                        }
+                                                                        else {
+                                                                            // Our JSON deserialization went awry
+                                                                            NSLog(@"JSON Error: %@", [jsonError localizedDescription]);
+                                                                        }
+                                                                    }
+                                                                    else {
+                                                                        // The server did not respond ... were we rate-limited?
+                                                                        NSLog(@"The response status code is %ld",
+                                                                              (long)urlResponse.statusCode);
+                                                                    }
+                                                                }
+                                                            }];
                                                         }
                                                         else {
                                                             // Access was not granted, or an error occurred
@@ -306,5 +323,36 @@
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     [self dismissViewControllerAnimated: YES completion: NULL];
 }
+
+#pragma mark - GADInterstitialDelegate
+- (void) interstitialDidReceiveAd:(GADInterstitial *)ad {
+    [_interstitial presentFromRootViewController: self];
+    _interstitial.delegate = nil;
+    _interstitial = nil;
+}
+
+- (void) interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error {
+    DLogError(error);
+}
+
+#if !PAID_VERSION
+#pragma mark - UINavigationControllerDelegate
+- (void) navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+
+    if( viewController == self ) {
+        if( [ContentLock tryLock] ) {
+            GADRequest* request = [GADRequest request];
+            request.testDevices = @[ GAD_SIMULATOR_ID,
+                                     @"5847239deac1f26ea408b154815af621"            //Paul iPhone4
+                                     ];
+            
+            _interstitial = [[GADInterstitial alloc] init];
+            _interstitial.adUnitID = @"ca-app-pub-1332160865070772/5237453245";
+            _interstitial.delegate = self;
+            [_interstitial loadRequest:[GADRequest request]];
+        }
+    }
+}
+#endif
 
 @end

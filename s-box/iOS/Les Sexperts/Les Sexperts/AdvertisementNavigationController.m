@@ -81,7 +81,7 @@
     
     GADBannerView* banner = [[GADBannerView alloc] initWithAdSize: kBannerSize];
     banner.delegate = self;
-    banner.adUnitID = @"ca-app-pub-1332160865070772/2668997243";
+    banner.adUnitID = @"ca-app-pub-1332160865070772/3760720045";
     banner.rootViewController = self;
     banner.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview: banner];
