@@ -24,6 +24,7 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
 @property (weak, nonatomic) IBOutlet UIImageView *titleImage;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *buyButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -32,6 +33,8 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
 #pragma mark - Action
 - (IBAction)buyPushed:(id)sender {
     BOOL tryingToUnlock = [ContentLock unlockWithCompletion: ^(NSError *error) {
+        self.buyButton.hidden = NO;
+        [self.activityIndicator stopAnimating];
         if( error ) {
             DLogError(error);
         }
@@ -41,7 +44,11 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
         }
     }];
     
-    if( !tryingToUnlock ) {
+    if( tryingToUnlock ) {
+        self.buyButton.hidden = YES;
+        [self.activityIndicator startAnimating];
+    }
+    else {
         NSString* title = NSLocalizedString(@"Purchases disabled", @"");
         NSString* msg = NSLocalizedString(@"You must enable In-App Purchases in your device Settings app (General>Restrictions>In-App Purchases)", @"");
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
@@ -58,8 +65,12 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.titleLabel.text = NSLocalizedString(@"Become The Sexpert!", @"Devenez un(e) véritable Sexpert(e)");
-    [self.buyButton setTitle: NSLocalizedString(@"Become a Sexpert", @"Devenir un(e) Sexpert(e)") forState: UIControlStateNormal];
+    self.titleLabel.text = NSLocalizedString(@"Version Complete", @"Version complète");
+    [self.buyButton setTitle: NSLocalizedString(@"Become a Sexpert - 1,79€", @"Devenir un(e) Sexpert(e)") forState: UIControlStateNormal];
+    
+    self.buyButton.layer.borderColor = [UIColor blackColor].CGColor;
+    self.buyButton.layer.borderWidth = 1.;
+    self.buyButton.layer.cornerRadius = 10.;
 }
 
 #pragma mark - UITableViewDataSource
@@ -73,7 +84,7 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
     
     switch (indexPath.item) {
         case kUnlockFeatureTypeConseils:
-            cell.imageView.image = [UIImage imageNamed: @"conseil"];
+            //cell.imageView.image = [UIImage imageNamed: @"conseil"];
             cell.textLabel.text = NSLocalizedString(@"Unlimited Advice", @"");
             cell.detailTextLabel.text = NSLocalizedString(@"Get all the advice you need to get on top. Or bottom...", @"");
             break;
@@ -90,6 +101,8 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
         default:
             break;
     }
+    
+    cell.textLabel.font = [UIFont boldSystemFontOfSize: cell.textLabel.font.pointSize];
     
     return cell;
 }

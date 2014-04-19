@@ -11,6 +11,8 @@
 #import "CoreDataStack.h"
 #import "Question.h"
 
+#import "ReceiptValidator.h"
+
 #import <StoreKit/StoreKit.h>
 
 #import <AdColony/AdColony.h>
@@ -39,20 +41,19 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
-#if PAID_VERSION
-/*#if !DEBUG
+    
+#if !PAID_VERSION
     NSURL* receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
-    if( ![[NSFileManager defaultManager] fileExistsAtPath: [receiptURL absoluteString]] ) {
+    if( !isValidReceipt(receiptURL) ) {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"Not Verified"
-                                                        message: @"This version of the app was not downloaded from the app store. Please push OK to verify the app with your Apple account."
+                                                        message: @"This version of the app was not downloaded from the app store. Please push OK to verify the app with your Apple account. Make sure it is a Sandbox account!"
                                                        delegate: self
                                               cancelButtonTitle: NSLocalizedString(@"OK", @"")
                                               otherButtonTitles:  nil];
         alert.tag = kAlertViewTagMustGetReceipt;
         [alert show];
     }
-#endif*/
-#else
+    
     [AdColony configureWithAppID: @"app62e13e977a034655a5"
                          zoneIDs: @[@"vzd5640bc5e87746d083", @"vz51c5cf827bd54c548a"]
                         delegate: self
@@ -77,7 +78,7 @@
 #pragma mark - SKRequestDelegate
 - (void)requestDidFinish:(SKRequest *)request {
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"All Done"
-                                                    message: @"Great! Now you can continue. Restart the app to enable all features."
+                                                    message: @"Great! Now you can continue."
                                                    delegate: nil
                                           cancelButtonTitle: NSLocalizedString(@"OK", @"")
                                           otherButtonTitles: nil];

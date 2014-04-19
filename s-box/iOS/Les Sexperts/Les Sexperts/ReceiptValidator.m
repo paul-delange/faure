@@ -382,9 +382,6 @@ bool isUnlockSubscriptionPurchased(void) {
     //This next line to me is a huge danger. Hackers can change the receipt that is available there...
     NSURL* receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
     
-    if( ![[NSFileManager defaultManager] fileExistsAtPath: [receiptURL absoluteString]] )
-        return false;
-    
     ERR_load_PKCS7_strings();
     OpenSSL_add_all_digests();
     

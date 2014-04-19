@@ -18,5 +18,5 @@ int main(int argc, char * argv[])
 }
 
 NSString * const kAppName() {
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey: (id)kCFBundleNameKey];
+    return @"Les Sexperts";
 }

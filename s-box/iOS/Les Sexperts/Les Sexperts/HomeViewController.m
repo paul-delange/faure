@@ -100,9 +100,18 @@
 #endif
 }
 
+#pragma mark - Notifications
+- (void) appWasUnlocked: (NSNotification*) notification {
+    self.upgradeButton.hidden = YES;
+}
+
 #pragma mark - NSObject
 + (void) initialize {
     [super initialize];
+}
+
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
 }
 
 #pragma mark - UIViewController
@@ -113,6 +122,11 @@
         // Custom initialization
         _accountStore = [ACAccountStore new];
         self.navigationController.delegate = self;
+        
+        [[NSNotificationCenter defaultCenter] addObserver: self
+                                                 selector: @selector(appWasUnlocked:)
+                                                     name: ContentLockWasRemovedNotification
+                                                   object: nil];
     }
     return self;
 }
@@ -338,8 +352,8 @@
 #if !PAID_VERSION
 #pragma mark - UINavigationControllerDelegate
 - (void) navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-
-    if( viewController == self ) {
+    
+    if( viewController == self && animated ) {
         if( [ContentLock tryLock] ) {
             GADRequest* request = [GADRequest request];
             request.testDevices = @[ GAD_SIMULATOR_ID,
