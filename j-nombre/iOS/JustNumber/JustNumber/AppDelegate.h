@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class FBSession;
+@class CoreDataStack;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) CoreDataStack* dataStore;
+
+@property (strong, nonatomic) FBSession* facebookSession;
 
 @end
