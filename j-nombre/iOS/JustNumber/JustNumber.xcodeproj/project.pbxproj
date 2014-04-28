@@ -39,6 +39,12 @@
 		FDA0DF931906773E009F5541 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDA0DF921906773E009F5541 /* Images.xcassets */; };
 		FDCAEEC2190CF86800F6A640 /* GameViewController+Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEEC1190CF86800F6A640 /* GameViewController+Keyboard.m */; };
 		FDCAEEC8190CFDAB00F6A640 /* UINumberField.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEEC7190CFDAB00F6A640 /* UINumberField.m */; };
+		FDCAEF43190D765500F6A640 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF41190D765500F6A640 /* Data.xcdatamodeld */; };
+		FDCAEF59190E17FC00F6A640 /* Data.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = FDCAEF58190E17FC00F6A640 /* Data.sqlite */; };
+		FDCAEF5E190E18C700F6A640 /* _Level.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF5C190E18C700F6A640 /* _Level.m */; };
+		FDCAEF5F190E18C700F6A640 /* _Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF5D190E18C700F6A640 /* _Question.m */; };
+		FDCAEF65190E18E500F6A640 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF62190E18E500F6A640 /* Level.m */; };
+		FDCAEF66190E18E500F6A640 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF64190E18E500F6A640 /* Question.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +108,14 @@
 		FDCAEEC1190CF86800F6A640 /* GameViewController+Keyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GameViewController+Keyboard.m"; sourceTree = "<group>"; };
 		FDCAEEC6190CFDAB00F6A640 /* UINumberField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINumberField.h; sourceTree = "<group>"; };
 		FDCAEEC7190CFDAB00F6A640 /* UINumberField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINumberField.m; sourceTree = "<group>"; };
+		FDCAEF42190D765500F6A640 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
+		FDCAEF58190E17FC00F6A640 /* Data.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Data.sqlite; path = JustNumber/Data.sqlite; sourceTree = "<group>"; };
+		FDCAEF5C190E18C700F6A640 /* _Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Level.m; path = JustNumber/_Level.m; sourceTree = "<group>"; };
+		FDCAEF5D190E18C700F6A640 /* _Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Question.m; path = JustNumber/_Question.m; sourceTree = "<group>"; };
+		FDCAEF61190E18E500F6A640 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
+		FDCAEF62190E18E500F6A640 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
+		FDCAEF63190E18E500F6A640 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		FDCAEF64190E18E500F6A640 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +147,7 @@
 		FD3BB68F190CDAE5008D8798 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FDCAEF5B190E18BC00F6A640 /* mogenerator */,
 				FD3BB6AF190CEE5C008D8798 /* Admob */,
 				FD3BB690190CDB18008D8798 /* JASidePanels */,
 			);
@@ -265,11 +280,13 @@
 		FDA0DFAF19067777009F5541 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FDCAEF58190E17FC00F6A640 /* Data.sqlite */,
 				FD3BB6A2190CE22F008D8798 /* JustNumber.entitlements */,
 				FDA0DF881906773E009F5541 /* JustNumber-Info.plist */,
 				FDA0DF891906773E009F5541 /* InfoPlist.strings */,
 				FDA0DF921906773E009F5541 /* Images.xcassets */,
 				FD3BB6A0190CDB8C008D8798 /* Storyboard.storyboard */,
+				FDCAEF41190D765500F6A640 /* Data.xcdatamodeld */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -299,6 +316,7 @@
 		FDA0DFB219067786009F5541 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FDCAEF60190E18D500F6A640 /* Entities */,
 				FD3BB6BE190CEE9F008D8798 /* CoreDataStack.h */,
 				FD3BB6BF190CEE9F008D8798 /* CoreDataStack.m */,
 				FD3BB6C0190CEE9F008D8798 /* ReceiptValidator.h */,
@@ -309,6 +327,26 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		FDCAEF5B190E18BC00F6A640 /* mogenerator */ = {
+			isa = PBXGroup;
+			children = (
+				FDCAEF5C190E18C700F6A640 /* _Level.m */,
+				FDCAEF5D190E18C700F6A640 /* _Question.m */,
+			);
+			name = mogenerator;
+			sourceTree = "<group>";
+		};
+		FDCAEF60190E18D500F6A640 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FDCAEF61190E18E500F6A640 /* Level.h */,
+				FDCAEF62190E18E500F6A640 /* Level.m */,
+				FDCAEF63190E18E500F6A640 /* Question.h */,
+				FDCAEF64190E18E500F6A640 /* Question.m */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -317,6 +355,7 @@
 			buildConfigurationList = FDA0DFA91906773E009F5541 /* Build configuration list for PBXNativeTarget "JustNumber" */;
 			buildPhases = (
 				FDA0DF791906773E009F5541 /* Sources */,
+				FDCAEF5A190E184B00F6A640 /* ShellScript */,
 				FDA0DF7A1906773E009F5541 /* Frameworks */,
 				FDA0DF7B1906773E009F5541 /* Resources */,
 			);
@@ -374,12 +413,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDA0DF8B1906773E009F5541 /* InfoPlist.strings in Resources */,
+				FDCAEF59190E17FC00F6A640 /* Data.sqlite in Resources */,
 				FDA0DF931906773E009F5541 /* Images.xcassets in Resources */,
 				FD3BB6A1190CDB8C008D8798 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FDCAEF5A190E184B00F6A640 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "pwd\nmogenerator -m \"JustNumber/Data.xcdatamodeld/Data.xcdatamodel/\" --template-var arc=true --output-dir \"JustNumber\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FDA0DF791906773E009F5541 /* Sources */ = {
@@ -393,8 +449,13 @@
 				FD3BB6AA190CEDEA008D8798 /* AdvertisementNavigationController.m in Sources */,
 				FD3BB6C2190CEE9F008D8798 /* CoreDataStack.m in Sources */,
 				FDCAEEC2190CF86800F6A640 /* GameViewController+Keyboard.m in Sources */,
+				FDCAEF66190E18E500F6A640 /* Question.m in Sources */,
+				FDCAEF43190D765500F6A640 /* Data.xcdatamodeld in Sources */,
 				FD3BB696190CDB18008D8798 /* UIViewController+JASidePanel.m in Sources */,
 				FD3BB6C3190CEE9F008D8798 /* ReceiptValidator.m in Sources */,
+				FDCAEF5F190E18C700F6A640 /* _Question.m in Sources */,
+				FDCAEF5E190E18C700F6A640 /* _Level.m in Sources */,
+				FDCAEF65190E18E500F6A640 /* Level.m in Sources */,
 				FDA0DF8D1906773E009F5541 /* main.m in Sources */,
 				FD3BB69F190CDB77008D8798 /* HomeViewController.m in Sources */,
 				FD3BB6BD190CEE94008D8798 /* ContentLock.m in Sources */,
@@ -568,6 +629,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FDCAEF41190D765500F6A640 /* Data.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FDCAEF42190D765500F6A640 /* Data.xcdatamodel */,
+			);
+			currentVersion = FDCAEF42190D765500F6A640 /* Data.xcdatamodel */;
+			name = Data.xcdatamodeld;
+			path = JustNumber/Data.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FDA0DF751906773E009F5541 /* Project object */;
 }
