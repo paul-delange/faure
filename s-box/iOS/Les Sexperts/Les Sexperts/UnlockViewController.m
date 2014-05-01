@@ -10,6 +10,9 @@
 #import "MZFormSheetController.h"
 
 #import "ContentLock.h"
+#import "ReceiptValidator.h"
+
+@import StoreKit;
 
 typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
     kUnlockFeatureTypeConseils = 0,
@@ -18,19 +21,24 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
     kUnlockFeatureTypeCount
 };
 
-@interface UnlockViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface UnlockViewController () <UITableViewDataSource, UITableViewDelegate, SKPaymentTransactionObserver>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *titleImage;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *buyButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIButton *restoreButton;
 
 @end
 
 @implementation UnlockViewController
 
 #pragma mark - Action
+- (IBAction)restorePushed:(id)sender {
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+}
+
 - (IBAction)buyPushed:(id)sender {
     BOOL tryingToUnlock = [ContentLock unlockWithCompletion: ^(NSError *error) {
         self.buyButton.hidden = NO;
@@ -60,6 +68,19 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
     }
 }
 
+#pragma mark - NSObject
+- (instancetype) initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder: aDecoder];
+    if( self ) {
+        [[SKPaymentQueue defaultQueue] addTransactionObserver: self];
+    }
+    return self;
+}
+
+- (void) dealloc {
+    [[SKPaymentQueue defaultQueue] removeTransactionObserver: self];
+}
+
 #pragma mark - UIViewController
 - (void)viewDidLoad
 {
@@ -71,6 +92,12 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
     self.buyButton.layer.borderColor = [UIColor blackColor].CGColor;
     self.buyButton.layer.borderWidth = 1.;
     self.buyButton.layer.cornerRadius = 10.;
+    
+    self.restoreButton.layer.borderColor = [UIColor blackColor].CGColor;
+    self.restoreButton.layer.borderWidth = 1.;
+    self.restoreButton.layer.cornerRadius = 10.;
+    
+    [self.restoreButton setTitle: NSLocalizedString(@"Restore", @"") forState: UIControlStateNormal];
 }
 
 #pragma mark - UITableViewDataSource
@@ -110,6 +137,47 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
 #pragma mark - UITableViewDelegate
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return CGRectGetHeight(tableView.bounds) / kUnlockFeatureTypeCount;
+}
+
+#pragma mark - SKTransactionObserverDelegate
+- (void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error  {
+    NSString* title = NSLocalizedString(@"Purchases disabled", @"");
+    NSString* msg = NSLocalizedString(@"You must enable In-App Purchases in your device Settings app (General > Restrictions > In-App Purchases)", @"");
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
+                                                    message: msg
+                                                   delegate: nil
+                                          cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                          otherButtonTitles: nil];
+    [alert show];
+
+    DLogError(error);
+}
+
+- (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {
+    NSURL* appReceiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
+    if( isValidReceipt(appReceiptURL) ) {
+        NSParameterAssert(isUnlockSubscriptionPurchased());
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
+        
+        [self dismissViewControllerAnimated: YES completion: NULL];
+    }
+    else {
+        NSError* error = [NSError errorWithDomain: @"In-App"
+                                             code: -666     //You are the devil
+                                         userInfo: nil];
+        DLogError(error);
+        
+        NSString* title = NSLocalizedString(@"Purchases disabled", @"");
+        NSString* msg = NSLocalizedString(@"You must enable In-App Purchases in your device Settings app (General > Restrictions > In-App Purchases)", @"");
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
+                                                        message: msg
+                                                       delegate: nil
+                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                              otherButtonTitles: nil];
+        [alert show];
+
+    }
 }
 
 @end

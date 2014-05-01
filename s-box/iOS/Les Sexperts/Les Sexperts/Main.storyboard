@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="JbK-Ly-2qu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="JbK-Ly-2qu">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -674,8 +674,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="222" translatesAutoresizingMaskIntoConstraints="NO" id="UWY-ny-MQZ">
-                                <rect key="frame" x="78" y="28" width="222" height="50"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="114" translatesAutoresizingMaskIntoConstraints="NO" id="UWY-ny-MQZ">
+                                <rect key="frame" x="78" y="28" width="114" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -739,9 +739,23 @@
                                 <rect key="frame" x="150" y="535" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12F-Kl-IYd">
+                                <rect key="frame" x="200" y="28" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="1mB-1u-4fc"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="restorePushed:" destination="soy-30-8TR" eventType="touchUpInside" id="NgJ-Wv-avQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="12F-Kl-IYd" firstAttribute="leading" secondItem="UWY-ny-MQZ" secondAttribute="trailing" constant="8" symbolic="YES" id="2v5-rb-wuq"/>
                             <constraint firstItem="6qV-i1-XQq" firstAttribute="leading" secondItem="ri8-Xu-soQ" secondAttribute="leading" constant="20" symbolic="YES" id="6lj-Qv-cCb"/>
                             <constraint firstItem="6qV-i1-XQq" firstAttribute="centerX" secondItem="hWb-EE-3rO" secondAttribute="centerX" id="LCa-1I-AVq"/>
                             <constraint firstItem="uCe-na-ft8" firstAttribute="top" secondItem="LFC-KP-kPY" secondAttribute="bottom" constant="8" symbolic="YES" id="Mzc-VB-KmT"/>
@@ -750,8 +764,9 @@
                             <constraint firstItem="LFC-KP-kPY" firstAttribute="bottom" secondItem="UWY-ny-MQZ" secondAttribute="bottom" id="S0W-Gb-Bez"/>
                             <constraint firstItem="6qV-i1-XQq" firstAttribute="top" secondItem="uCe-na-ft8" secondAttribute="bottom" constant="8" symbolic="YES" id="YDe-80-fFY"/>
                             <constraint firstAttribute="trailing" secondItem="6qV-i1-XQq" secondAttribute="trailing" constant="20" symbolic="YES" id="awB-zd-S8O"/>
+                            <constraint firstAttribute="trailing" secondItem="12F-Kl-IYd" secondAttribute="trailing" constant="20" symbolic="YES" id="b6s-jM-8ff"/>
+                            <constraint firstItem="12F-Kl-IYd" firstAttribute="top" secondItem="xNJ-Ha-PqY" secondAttribute="bottom" constant="20" symbolic="YES" id="bEj-qP-u82"/>
                             <constraint firstItem="6qV-i1-XQq" firstAttribute="centerY" secondItem="hWb-EE-3rO" secondAttribute="centerY" id="gSM-UB-Efu"/>
-                            <constraint firstAttribute="trailing" secondItem="UWY-ny-MQZ" secondAttribute="trailing" constant="20" symbolic="YES" id="jwA-KB-ufh"/>
                             <constraint firstAttribute="trailing" secondItem="uCe-na-ft8" secondAttribute="trailing" constant="20" symbolic="YES" id="l3c-G6-VNm"/>
                             <constraint firstItem="LFC-KP-kPY" firstAttribute="leading" secondItem="ri8-Xu-soQ" secondAttribute="leading" constant="20" symbolic="YES" id="p6K-sE-Scl"/>
                             <constraint firstItem="v2u-EW-67r" firstAttribute="top" secondItem="6qV-i1-XQq" secondAttribute="bottom" constant="20" symbolic="YES" id="sJQ-0u-kEf"/>
@@ -762,6 +777,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="hWb-EE-3rO" id="Dfv-QJ-Vl7"/>
                         <outlet property="buyButton" destination="6qV-i1-XQq" id="INW-Ha-idt"/>
+                        <outlet property="restoreButton" destination="12F-Kl-IYd" id="2JT-SO-LNa"/>
                         <outlet property="tableView" destination="uCe-na-ft8" id="FM5-it-E17"/>
                         <outlet property="titleImage" destination="LFC-KP-kPY" id="2Fr-pV-xwu"/>
                         <outlet property="titleLabel" destination="UWY-ny-MQZ" id="RgD-Ix-n62"/>
