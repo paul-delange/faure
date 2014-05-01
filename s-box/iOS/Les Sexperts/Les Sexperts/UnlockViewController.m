@@ -149,18 +149,28 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
                                           cancelButtonTitle: NSLocalizedString(@"OK", @"")
                                           otherButtonTitles: nil];
     [alert show];
-
+    
     DLogError(error);
 }
 
 - (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {
     NSURL* appReceiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
     if( isValidReceipt(appReceiptURL) ) {
-        NSParameterAssert(isUnlockSubscriptionPurchased());
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
-        
-        [self dismissViewControllerAnimated: YES completion: NULL];
+        if( isUnlockSubscriptionPurchased() ) {
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
+            
+            [self mz_dismissFormSheetControllerAnimated: YES completionHandler: NULL];
+        }
+        else {
+            NSString* msg = NSLocalizedString(@"No purchases found. Please use the Buy button below.", @"");
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle: nil
+                                                            message: msg
+                                                           delegate: nil
+                                                  cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                                  otherButtonTitles: nil];
+            [alert show];
+        }
     }
     else {
         NSError* error = [NSError errorWithDomain: @"In-App"
@@ -176,7 +186,7 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
                                               cancelButtonTitle: NSLocalizedString(@"OK", @"")
                                               otherButtonTitles: nil];
         [alert show];
-
+        
     }
 }
 
