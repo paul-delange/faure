@@ -18,6 +18,10 @@
 
 @interface UINumberField : UITextField
 
+@property (assign, nonatomic) BOOL automaticallyFormatsInput;
+
 - (NSInteger) integerValue;
+
+- (void) appendInteger: (NSInteger) integer;
 
 @end

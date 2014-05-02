@@ -9,8 +9,11 @@
 #import "HomeViewController.h"
 #import "JASidePanelController.h"
 #import "UIViewController+JASidePanel.h"
+#import "GameViewController.h"
 
 #import "ContentLock.h"
+
+#import "Level.h"
 
 @interface HomeViewController ()
 
@@ -87,6 +90,13 @@
     [self.navigationController setNavigationBarHidden: YES animated: YES];
     
     self.buyViewGroup.hidden = ![ContentLock tryLock];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if( [segue.identifier isEqualToString: @"GamePushSegue"] ) {
+        GameViewController* gameVC = segue.destinationViewController;
+        gameVC.level = [Level currentLevel];
+    }
 }
 
 @end

@@ -25,7 +25,7 @@
     self = [super init];
     if( self ) {
         _spreadsheet = spreadsheet;
-        _stack = [CoreDataStack stackWithStoreFilename: @"Data.sqlite"];
+        _stack = [CoreDataStack initAppDomain: nil userDomain: @"Data"];
     }
     
     return self;
@@ -51,6 +51,11 @@
             NSString* val = obj[@"$t"];
             
             switch ([col integerValue]) {
+                case 1:
+                {
+                    rowDict[@"id"] = val;
+                    break;
+                }
                 case 2:
                 {
                     rowDict[@"text"] = val;
@@ -71,6 +76,11 @@
                     rowDict[@"unit"] = val;
                     break;
                 }
+                case 6:
+                {
+                    rowDict[@"format"] = val;
+                    break;
+                }
                 default:
                     break;
             }
@@ -85,6 +95,8 @@
         question.text = row[@"text"];
         question.answer = @([row[@"value"] integerValue]);
         question.unit = row[@"unit"];
+        question.identifier = @([row[@"id"] integerValue]);
+        question.formats = @([row[@"format"] integerValue]);
         
         NSFetchRequest* lvlRequest = [NSFetchRequest fetchRequestWithEntityName: @"Level"];
         [lvlRequest setPredicate: [NSPredicate predicateWithFormat: @"identifier = %@", row[@"lvl"]]];
@@ -94,9 +106,11 @@
         if( !lvl ) {
             lvl = [Level insertInManagedObjectContext: context];
             lvl.identifier = @([row[@"lvl"] integerValue]);
+            NSLog(@"Create lvl %@", lvl.identifier);
         }
         
         question.level = lvl;
+        [_stack save];
     }
     
     [_stack save];

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Level;
+
 @interface GameViewController : UIViewController
+
+@property (strong, nonatomic) Level* level;
 
 @end

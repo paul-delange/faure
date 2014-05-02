@@ -22,6 +22,8 @@
 		FDCAEF55190D7A0B00F6A640 /* _Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF4F190D7A0B00F6A640 /* _Question.m */; };
 		FDCAEF56190D7A0B00F6A640 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF51190D7A0B00F6A640 /* Level.m */; };
 		FDCAEF57190D7A0B00F6A640 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF53190D7A0B00F6A640 /* Question.m */; };
+		FDEB6273191385B800BCA8D3 /* NSBundle+Seeding.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEB6270191385B800BCA8D3 /* NSBundle+Seeding.m */; };
+		FDEB6274191385B800BCA8D3 /* NSLocale+ContentLanguages.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEB6272191385B800BCA8D3 /* NSLocale+ContentLanguages.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,10 @@
 		FDCAEF51190D7A0B00F6A640 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
 		FDCAEF52190D7A0B00F6A640 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		FDCAEF53190D7A0B00F6A640 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		FDEB626F191385B800BCA8D3 /* NSBundle+Seeding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBundle+Seeding.h"; path = "../../JustNumber/JustNumber/NSBundle+Seeding.h"; sourceTree = "<group>"; };
+		FDEB6270191385B800BCA8D3 /* NSBundle+Seeding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+Seeding.m"; path = "../../JustNumber/JustNumber/NSBundle+Seeding.m"; sourceTree = "<group>"; };
+		FDEB6271191385B800BCA8D3 /* NSLocale+ContentLanguages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSLocale+ContentLanguages.h"; path = "../../JustNumber/JustNumber/NSLocale+ContentLanguages.h"; sourceTree = "<group>"; };
+		FDEB6272191385B800BCA8D3 /* NSLocale+ContentLanguages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSLocale+ContentLanguages.m"; path = "../../JustNumber/JustNumber/NSLocale+ContentLanguages.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +152,10 @@
 		FDCAEEDB190D690500F6A640 /* Importer */ = {
 			isa = PBXGroup;
 			children = (
+				FDEB626F191385B800BCA8D3 /* NSBundle+Seeding.h */,
+				FDEB6270191385B800BCA8D3 /* NSBundle+Seeding.m */,
+				FDEB6271191385B800BCA8D3 /* NSLocale+ContentLanguages.h */,
+				FDEB6272191385B800BCA8D3 /* NSLocale+ContentLanguages.m */,
 				FDCAEF4E190D7A0B00F6A640 /* _Level.m */,
 				FDCAEF4F190D7A0B00F6A640 /* _Question.m */,
 				FDCAEF50190D7A0B00F6A640 /* Level.h */,
@@ -197,8 +207,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDCAEF03190D690500F6A640 /* Build configuration list for PBXNativeTarget "Importer" */;
 			buildPhases = (
-				FDCAEECE190D690500F6A640 /* Sources */,
 				FDCAEF4D190D79BD00F6A640 /* ShellScript */,
+				FDCAEECE190D690500F6A640 /* Sources */,
 				FDCAEECF190D690500F6A640 /* Frameworks */,
 				FDCAEED0190D690500F6A640 /* Resources */,
 			);
@@ -317,10 +327,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDEB6274191385B800BCA8D3 /* NSLocale+ContentLanguages.m in Sources */,
 				FDCAEF54190D7A0B00F6A640 /* _Level.m in Sources */,
 				FDCAEEE9190D690500F6A640 /* AppDelegate.m in Sources */,
 				FDCAEF56190D7A0B00F6A640 /* Level.m in Sources */,
 				FDCAEF46190D774400F6A640 /* Data.xcdatamodeld in Sources */,
+				FDEB6273191385B800BCA8D3 /* NSBundle+Seeding.m in Sources */,
 				FDCAEEE2190D690500F6A640 /* main.m in Sources */,
 				FDCAEF4C190D777100F6A640 /* JSONParser.m in Sources */,
 				FDCAEF57190D7A0B00F6A640 /* Question.m in Sources */,
@@ -474,6 +486,7 @@
 				FDCAEF05190D690500F6A640 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

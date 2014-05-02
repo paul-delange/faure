@@ -6,12 +6,33 @@
     </entity>
     <entity name="Question" representedClassName="Question" syncable="YES">
         <attribute name="answer" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="formats" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="identifier" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="text" attributeType="String" minValueString="1" syncable="YES"/>
         <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="level" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Level" inverseName="questions" inverseEntity="Level" syncable="YES"/>
     </entity>
+    <entity name="Score" representedClassName="Score" syncable="YES">
+        <attribute name="question_id" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timestamp" attributeType="Date" syncable="YES"/>
+        <relationship name="sheet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ScoreSheet" inverseName="scores" inverseEntity="ScoreSheet" syncable="YES"/>
+    </entity>
+    <entity name="ScoreSheet" representedClassName="ScoreSheet" syncable="YES">
+        <attribute name="localeIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="scores" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Score" inverseName="sheet" inverseEntity="Score" syncable="YES"/>
+    </entity>
+    <configuration name="Data">
+        <memberEntity name="Question"/>
+        <memberEntity name="Level"/>
+    </configuration>
+    <configuration name="User">
+        <memberEntity name="Score"/>
+        <memberEntity name="ScoreSheet"/>
+    </configuration>
     <elements>
-        <element name="Question" positionX="-63" positionY="-18" width="128" height="103"/>
-        <element name="Level" positionX="-54" positionY="18" width="128" height="73"/>
+        <element name="Level" positionX="-270" positionY="9" width="128" height="73"/>
+        <element name="Question" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="ScoreSheet" positionX="-189" positionY="158" width="128" height="73"/>
+        <element name="Score" positionX="7" positionY="144" width="128" height="88"/>
     </elements>
 </model>

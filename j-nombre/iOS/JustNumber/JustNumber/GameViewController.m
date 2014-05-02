@@ -7,39 +7,97 @@
 //
 
 #import "GameViewController.h"
-#import "GameViewController+Keyboard.h"
 
 #import "UINumberField.h"
+
+#import "Level.h"
+#import "Question.h"
+#import "ScoreSheet.h"
 
 @interface GameViewController () <UINumberFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UINumberField *inputView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *inputViewBottomLayoutConstraint;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *numberButtons;
+@property (weak, nonatomic) IBOutlet UIButton *okButton;
+@property (weak, nonatomic) IBOutlet UILabel *questionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *unitLabel;
 
 @end
 
 @implementation GameViewController
 
-#pragma mark - NSObject
-- (instancetype) initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder: aDecoder];
+- (void) updateWithQuestion: (Question*) question {
+    self.questionLabel.text = question.text;
+    self.unitLabel.text = question.unit;
+    self.inputView.automaticallyFormatsInput = question.formatsValue;
     
-    if( self ) {
-        [self addKeyboardObserver: self
-                          options: NSKeyValueObservingOptionNew // | NSKeyValueObservingOptionOld
-                          context: nil];
-    }
-    
-    return self;
+    DLog(@"Ans: %@", question.answer);
 }
 
-- (void) dealloc {
-    [self removeKeyboardObserver: self context: nil];
+#pragma mark - Actions
+- (IBAction)numberPushed:(UIButton *)sender {
+    NSInteger index = [self.numberButtons indexOfObject: sender];
+    [self.inputView appendInteger: index];
+}
+
+- (IBAction)okPushed:(UIButton *)sender {
+    Question* question = [self.level nextQuestion];
+    
+    NSUInteger answer = self.inputView.integerValue;
+    
+    NSComparisonResult result = [question.answer compare: @(answer)];
+    
+    switch (result) {
+        case NSOrderedAscending:
+        {
+            NSLog(@"Less");
+            break;
+        }
+        case NSOrderedDescending:
+        {
+            NSLog(@"More");
+            break;
+        }
+        case NSOrderedSame:
+        {
+            ScoreSheet* sheet = [ScoreSheet currentScoreSheet];
+            BOOL success = [sheet crossOfQuestion: question];
+            NSParameterAssert(success);
+            
+            question = [self.level nextQuestion];
+            
+            if( question ) {
+                [self updateWithQuestion: question];
+            }
+            else {
+                NSLog(@"Level up!");
+                self.level = [self.level nextLevel];
+                
+                if( self.level ) {
+                    question = [self.level nextQuestion];
+                    NSAssert(question, @"No questions for level %@", self.level);
+                    [self updateWithQuestion: question];
+                }
+                else {
+                    NSLog(@"Game over!");
+                }
+            }
+            
+            self.inputView.text = @"";
+            break;
+        }
+    }
 }
 
 #pragma mark - UIViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
+    
+    NSParameterAssert(self.level);
+    
+    Question* question = [self.level nextQuestion];
+    [self updateWithQuestion: question];
 }
 
 - (void) viewWillAppear:(BOOL)animated {

@@ -18,17 +18,31 @@
 
 @implementation UINumberField
 
+- (void) setAutomaticallyFormatsInput:(BOOL)automaticallyFormatsInput {
+    _automaticallyFormatsInput = automaticallyFormatsInput;
+    self.text = self.text;
+}
+
 - (NSInteger) integerValue {
     NSCharacterSet* nonNumberSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
     NSString *numberString = [[self.text componentsSeparatedByCharactersInSet: nonNumberSet] componentsJoinedByString:@""];
     return [numberString integerValue];
 }
 
+- (void) appendInteger: (NSInteger) integer {
+    self.text = [self.text stringByAppendingFormat: @"%d", (int)integer];
+}
+
 - (NSString*) formattedTextFromString: (NSString*) string {
-    NSCharacterSet* nonNumberSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
-    NSString *numberString = [[string componentsSeparatedByCharactersInSet: nonNumberSet] componentsJoinedByString:@""];
-    NSNumber* number = [self.numberFormatter numberFromString: numberString];
-    return [self.numberFormatter stringFromNumber: number];
+    if( self.automaticallyFormatsInput ) {
+        NSCharacterSet* nonNumberSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+        NSString *numberString = [[string componentsSeparatedByCharactersInSet: nonNumberSet] componentsJoinedByString:@""];
+        NSNumber* number = [self.numberFormatter numberFromString: numberString];
+        return [self.numberFormatter stringFromNumber: number];
+    }
+    else {
+        return string;
+    }
 }
 
 - (void) textDidChange: (NSNotification*) notification {
@@ -41,6 +55,8 @@
 }
 
 - (void) commonInit {
+    self.automaticallyFormatsInput = YES;
+    
     NSLocale* locale = [NSLocale currentLocale];
     NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -50,6 +66,9 @@
     self.numberFormatter = numberFormatter;
     
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(textDidChange:) name: UITextFieldTextDidChangeNotification object: nil];
+    
+    UIView* dummy = [[UIView alloc] initWithFrame: CGRectZero];
+    self.inputView = dummy;
 }
 
 #pragma mark - NSObject
@@ -75,6 +94,12 @@
     return self;
 }
 
+- (CGSize) intrinsicContentSize {
+    CGSize size = [super intrinsicContentSize];
+    size.height = 48;
+    return size;
+}
+
 #pragma mark - UITextField
 - (void) setText:(NSString *)text {
     NSString* formatted = [self formattedTextFromString: text];
@@ -84,5 +109,6 @@
     if( [del respondsToSelector: @selector(numberField:didChangeToValue:)] )
         [del numberField: self didChangeToValue: [self integerValue]];
 }
+
 
 @end
