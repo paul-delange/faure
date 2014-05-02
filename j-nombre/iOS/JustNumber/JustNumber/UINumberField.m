@@ -131,8 +131,6 @@
 }
 
 - (void) layoutSubviews {
-    [super layoutSubviews];
-    
     CGSize clearSize = [self.clearButton intrinsicContentSize];
     CGSize unitSize = [self.unitLabel intrinsicContentSize];
     
@@ -140,6 +138,8 @@
     
     self.unitLabel.frame = CGRectMake(0, (selfSize.height-unitSize.height)/2., unitSize.width, unitSize.height);
     self.clearButton.frame = CGRectMake(CGRectGetMaxX(self.unitLabel.frame), (selfSize.height-clearSize.height)/2., clearSize.width, clearSize.height);
+    
+    [super layoutSubviews];
 }
 
 #pragma mark - UITextField
@@ -157,6 +157,12 @@
     CGSize unitSize = [self.unitLabel intrinsicContentSize];
 
     return CGRectMake(CGRectGetWidth(bounds) - clearSize.width - unitSize.width, 0, clearSize.width + unitSize.width, CGRectGetHeight(bounds));
+}
+
+- (CGRect) textRectForBounds:(CGRect)bounds {
+    CGRect rect = [super textRectForBounds: bounds];
+    rect.size.width += [self.unitLabel intrinsicContentSize].width;
+    return rect;
 }
 
 @end

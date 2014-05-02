@@ -26,9 +26,17 @@
 
 @implementation GameViewController
 
-- (void) updateWithQuestion: (Question*) question {
+- (void) updateWithQuestion: (Question*) question animated: (BOOL) animated {
     
+    CATransition *animation = [CATransition animation];
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animation.type = kCATransitionFade;
+    animation.duration = 0.3;
+    [self.questionLabel.layer addAnimation:animation forKey:@"kCATransitionFade"];
+    
+
     self.questionLabel.text = question.text;
+
     self.inputView.unitString = question.unit;
     self.inputView.automaticallyFormatsInput = question.formatsValue;
     
@@ -68,7 +76,7 @@
             question = [self.level nextQuestion];
             
             if( question ) {
-                [self updateWithQuestion: question];
+                [self updateWithQuestion: question animated: YES];
             }
             else {
                 NSLog(@"Level up!");
@@ -77,14 +85,21 @@
                 if( self.level ) {
                     question = [self.level nextQuestion];
                     NSAssert(question, @"No questions for level %@", self.level);
-                    [self updateWithQuestion: question];
+                    [self updateWithQuestion: question animated: YES];
                 }
                 else {
                     NSLog(@"Game over!");
                 }
             }
             
+            CATransition *animation = [CATransition animation];
+            animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            animation.type = kCATransitionFade;
+            animation.duration = 0.3;
+            [self.inputView.layer addAnimation:animation forKey:@"kCATransitionFade"];
+            
             self.inputView.text = @"";
+            
             break;
         }
     }
@@ -97,7 +112,7 @@
     NSParameterAssert(self.level);
     
     Question* question = [self.level nextQuestion];
-    [self updateWithQuestion: question];
+    [self updateWithQuestion: question animated: NO];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
