@@ -21,15 +21,15 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *numberButtons;
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *unitLabel;
 
 @end
 
 @implementation GameViewController
 
 - (void) updateWithQuestion: (Question*) question {
+    
     self.questionLabel.text = question.text;
-    self.unitLabel.text = question.unit;
+    self.inputView.unitString = question.unit;
     self.inputView.automaticallyFormatsInput = question.formatsValue;
     
     DLog(@"Ans: %@", question.answer);

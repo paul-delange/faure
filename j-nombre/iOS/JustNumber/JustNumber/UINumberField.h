@@ -18,6 +18,7 @@
 
 @interface UINumberField : UITextField
 
+@property (copy, nonatomic) NSString* unitString;
 @property (assign, nonatomic) BOOL automaticallyFormatsInput;
 
 - (NSInteger) integerValue;

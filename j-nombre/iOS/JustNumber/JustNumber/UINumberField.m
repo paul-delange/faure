@@ -13,10 +13,19 @@
 @interface UINumberField ()
 
 @property (strong) NSNumberFormatter* numberFormatter;
+@property (weak) UILabel* unitLabel;
+@property (weak) UIButton* clearButton;
 
 @end
 
 @implementation UINumberField
+
+- (void) setUnitString:(NSString *)unitString {
+    _unitString = unitString;
+    self.unitLabel.text = unitString;
+    
+    [self setNeedsLayout];
+}
 
 - (void) setAutomaticallyFormatsInput:(BOOL)automaticallyFormatsInput {
     _automaticallyFormatsInput = automaticallyFormatsInput;
@@ -54,6 +63,10 @@
         [del numberField: self didChangeToValue: [self integerValue]];
 }
 
+- (void) clearPushed: (UIButton*) sender {
+    self.text = @"";
+}
+
 - (void) commonInit {
     self.automaticallyFormatsInput = YES;
     
@@ -69,6 +82,29 @@
     
     UIView* dummy = [[UIView alloc] initWithFrame: CGRectZero];
     self.inputView = dummy;
+    
+    UILabel* unitLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, 0, 32)];
+    unitLabel.backgroundColor = [UIColor clearColor];
+    unitLabel.text = @"";
+    unitLabel.textAlignment = NSTextAlignmentRight;
+    unitLabel.font = [UIFont preferredFontForTextStyle: UIFontTextStyleFootnote];
+    unitLabel.textColor = [UIColor lightGrayColor];
+    
+    UIButton* clearButton = [UIButton buttonWithType: UIButtonTypeCustom];
+    [clearButton setTitle: @"X" forState: UIControlStateNormal];
+    clearButton.frame = CGRectMake(100, 0, 32, 32);
+    [clearButton addTarget: self action: @selector(clearPushed:) forControlEvents: UIControlEventTouchUpInside];
+    
+    UIView* right = [[UIView alloc] initWithFrame: CGRectZero];
+    right.backgroundColor = [UIColor clearColor];
+    
+    [right addSubview: unitLabel];
+    [right addSubview: clearButton];
+    self.unitLabel = unitLabel;
+    self.clearButton = clearButton;
+    
+    self.rightView = right;
+    self.rightViewMode = UITextFieldViewModeAlways;
 }
 
 #pragma mark - NSObject
@@ -94,10 +130,16 @@
     return self;
 }
 
-- (CGSize) intrinsicContentSize {
-    CGSize size = [super intrinsicContentSize];
-    size.height = 48;
-    return size;
+- (void) layoutSubviews {
+    [super layoutSubviews];
+    
+    CGSize clearSize = [self.clearButton intrinsicContentSize];
+    CGSize unitSize = [self.unitLabel intrinsicContentSize];
+    
+    CGSize selfSize = self.frame.size;
+    
+    self.unitLabel.frame = CGRectMake(0, (selfSize.height-unitSize.height)/2., unitSize.width, unitSize.height);
+    self.clearButton.frame = CGRectMake(CGRectGetMaxX(self.unitLabel.frame), (selfSize.height-clearSize.height)/2., clearSize.width, clearSize.height);
 }
 
 #pragma mark - UITextField
@@ -110,5 +152,11 @@
         [del numberField: self didChangeToValue: [self integerValue]];
 }
 
+- (CGRect) rightViewRectForBounds:(CGRect)bounds {
+    CGSize clearSize = [self.clearButton intrinsicContentSize];
+    CGSize unitSize = [self.unitLabel intrinsicContentSize];
+
+    return CGRectMake(CGRectGetWidth(bounds) - clearSize.width - unitSize.width, 0, clearSize.width + unitSize.width, CGRectGetHeight(bounds));
+}
 
 @end
