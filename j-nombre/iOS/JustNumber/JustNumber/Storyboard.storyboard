@@ -335,6 +335,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tsn-D8-xQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="W20-nD-DXx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1885" y="-685"/>
         </scene>
@@ -371,14 +372,44 @@
                                 <rect key="frame" x="150" y="274" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vT-gE-RlK">
+                                <rect key="frame" x="141" y="307" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Video">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="videoPushed:" destination="CDG-C9-g38" eventType="touchUpInside" id="MEw-yx-bk5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSw-BC-h0f">
+                                <rect key="frame" x="128" y="345" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Unlimited">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="unlockPushed:" destination="CDG-C9-g38" eventType="touchUpInside" id="d7m-Ld-5pd"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wAk-1B-5I1">
+                                <rect key="frame" x="150" y="350" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8vT-gE-RlK" firstAttribute="top" secondItem="gyV-GB-MuB" secondAttribute="bottom" constant="8" symbolic="YES" id="8IJ-MH-Mhv"/>
+                            <constraint firstItem="mSw-BC-h0f" firstAttribute="top" secondItem="8vT-gE-RlK" secondAttribute="bottom" constant="8" symbolic="YES" id="DyC-YG-gJV"/>
                             <constraint firstItem="gyV-GB-MuB" firstAttribute="centerX" secondItem="R30-yB-7jx" secondAttribute="centerX" id="F4M-xr-rjr"/>
                             <constraint firstAttribute="centerX" secondItem="gyV-GB-MuB" secondAttribute="centerX" id="Il5-2M-SdY"/>
+                            <constraint firstItem="wAk-1B-5I1" firstAttribute="centerY" secondItem="mSw-BC-h0f" secondAttribute="centerY" id="KuH-Ep-Sxm"/>
+                            <constraint firstAttribute="centerX" secondItem="mSw-BC-h0f" secondAttribute="centerX" id="Mrc-fE-P0i"/>
                             <constraint firstAttribute="centerY" secondItem="gyV-GB-MuB" secondAttribute="centerY" id="Ni7-Kh-mdG"/>
                             <constraint firstAttribute="trailing" secondItem="Owp-Ff-bbu" secondAttribute="trailing" constant="20" symbolic="YES" id="TZG-Ng-07K"/>
                             <constraint firstItem="Owp-Ff-bbu" firstAttribute="leading" secondItem="xA2-h0-OKj" secondAttribute="leading" constant="20" symbolic="YES" id="WrD-AR-OhL"/>
+                            <constraint firstAttribute="centerX" secondItem="8vT-gE-RlK" secondAttribute="centerX" id="ade-5h-0SH"/>
+                            <constraint firstItem="wAk-1B-5I1" firstAttribute="centerX" secondItem="mSw-BC-h0f" secondAttribute="centerX" id="bX2-vh-Srv"/>
                             <constraint firstItem="Owp-Ff-bbu" firstAttribute="top" secondItem="sKo-gX-dNT" secondAttribute="bottom" constant="20" symbolic="YES" id="kTi-Kv-z5t"/>
                             <constraint firstItem="gyV-GB-MuB" firstAttribute="centerY" secondItem="R30-yB-7jx" secondAttribute="centerY" id="pVf-px-y4Q"/>
                         </constraints>
@@ -388,6 +419,10 @@
                         <outlet property="buyButton" destination="gyV-GB-MuB" id="mbr-tQ-WSu"/>
                         <outlet property="buyTransactionWaiting" destination="R30-yB-7jx" id="9bx-UP-GMM"/>
                         <outlet property="titleLabel" destination="Owp-Ff-bbu" id="zbP-hO-aCi"/>
+                        <outlet property="unlockButton" destination="mSw-BC-h0f" id="8V1-91-Qcx"/>
+                        <outlet property="unlockWaiting" destination="wAk-1B-5I1" id="PrH-Gl-xHr"/>
+                        <outlet property="videoButton" destination="8vT-gE-RlK" id="NQq-tD-d4a"/>
+                        <segue destination="W20-nD-DXx" kind="unwind" identifier="UnwindToGame" unwindAction="unwindToGame:" id="69r-vC-KDS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZTe-cK-clH" userLabel="First Responder" sceneMemberID="firstResponder"/>

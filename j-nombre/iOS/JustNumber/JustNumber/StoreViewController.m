@@ -9,27 +9,92 @@
 #import "StoreViewController.h"
 
 #import "LifeBank.h"
+#import "ContentLock.h"
 
 #import "Level.h"
 
 #import "LifeCountView.h"
 
+#import <AdColony/AdColony.h>
+
 @import StoreKit;
 
-@interface StoreViewController () <SKPaymentTransactionObserver, SKProductsRequestDelegate> {
+//zone id:  vz153675589c3349788c
+//v4vc: v4vccb2bd400a3924698bf
+
+@interface StoreViewController () <SKPaymentTransactionObserver, SKProductsRequestDelegate, AdColonyAdDelegate> {
     SKProduct* _product;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *buyButton;
+@property (weak, nonatomic) IBOutlet UIButton *videoButton;
+@property (weak, nonatomic) IBOutlet UIButton *unlockButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *buyTransactionWaiting;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *unlockWaiting;
 @property (weak, nonatomic) IBOutlet LifeCountView *lifeCountView;
 
 @end
 
 @implementation StoreViewController
 
+#pragma mark - Notifications
+- (void) lifeCountChanged: (NSNotification*) notification {
+    self.lifeCountView.count = [LifeBank count];
+}
+
 #pragma mark - Actions
+- (IBAction)unlockPushed:(id)sender {
+    self.unlockButton.hidden = YES;
+    [self.unlockWaiting startAnimating];
+    
+    if( ![ContentLock unlockWithCompletion: ^(NSError *error) {
+        
+        if( !error ) {
+            [self performSegueWithIdentifier: @"UnwindToGame" sender: sender];
+        }
+        
+        DLogError(error);
+        
+        self.unlockButton.hidden = NO;
+        [self.unlockWaiting stopAnimating];
+        
+    }]) {
+        NSString* title = NSLocalizedString(@"Store not available", @"");
+        NSString* msg = NSLocalizedString(@"Your device settings are blocking the store. Please enable In-App Purchases and try again.", @"");
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
+                                                        message: msg
+                                                       delegate: nil
+                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                              otherButtonTitles: nil];
+        [alert show];
+        
+        self.unlockButton.hidden = NO;
+        [self.unlockWaiting stopAnimating];
+    }
+}
+
+
+- (IBAction)videoPushed:(id)sender {
+    if( [AdColony isVirtualCurrencyRewardAvailableForZone: @"vz153675589c3349788c"] ) {
+    [AdColony playVideoAdForZone: @"vz153675589c3349788c"
+                    withDelegate: self
+                withV4VCPrePopup: YES
+                andV4VCPostPopup: NO];
+    }
+    else {
+        NSString* title = NSLocalizedString(@"Not yet!", @"");
+        NSString* msg = NSLocalizedString(@"There is no video available. Check your internet connection and remember only ten videos per day!", @"");
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
+                                                        message: msg
+                                                       delegate: nil
+                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                              otherButtonTitles: nil];
+        [alert show];
+    }
+}
+
+
 - (IBAction)buyPushed:(id)sender {
 #if !TARGET_IPHONE_SIMULATOR
     NSParameterAssert(_product);
@@ -40,7 +105,6 @@
     [self.buyTransactionWaiting startAnimating];
 #else
     [LifeBank addLives: 200];
-    self.lifeCountView.count += 200;
 #endif
 }
 
@@ -56,11 +120,17 @@
         productsRequest.delegate = self;
         [productsRequest start];
 #endif
+        
+        [[NSNotificationCenter defaultCenter] addObserver: self
+                                                 selector: @selector(lifeCountChanged:)
+                                                     name: kCoinPurseValueDidChangeNotification
+                                                   object: nil];
     }
     return self;
 }
 
 - (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
     [[SKPaymentQueue defaultQueue] removeTransactionObserver: self];
 }
 
@@ -91,7 +161,6 @@
                 //TODO: Check receipt
                 
                 [LifeBank addLives: 200];
-                self.lifeCountView.count += 200;
                 
                 self.buyButton.hidden = NO;
                 [self.buyTransactionWaiting stopAnimating];
@@ -128,5 +197,15 @@
     if( _product )
         self.buyButton.enabled = YES;
 }
+
+#pragma mark - AdColonyAdDelegate
+- ( void ) onAdColonyAdStartedInZone:( NSString * )zoneID {
+    
+}
+
+- ( void ) onAdColonyAdAttemptFinished:(BOOL)shown inZone:( NSString * )zoneID {
+    
+}
+
 
 @end

@@ -30,7 +30,6 @@
 		FD3BB6D3190CEF5D008D8798 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BB6D2190CEF5D008D8798 /* MobileCoreServices.framework */; };
 		FD3BB6D5190CEF67008D8798 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BB6D4190CEF67008D8798 /* CFNetwork.framework */; };
 		FD3BB6D7190CEF8D008D8798 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BB6D6190CEF8D008D8798 /* SystemConfiguration.framework */; };
-		FD9B21DA1913828500D6129A /* UIApplication+Versioning.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9B21D91913828500D6129A /* UIApplication+Versioning.m */; };
 		FDA0DF811906773E009F5541 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA0DF801906773E009F5541 /* Foundation.framework */; };
 		FDA0DF831906773E009F5541 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA0DF821906773E009F5541 /* CoreGraphics.framework */; };
 		FDA0DF851906773E009F5541 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA0DF841906773E009F5541 /* UIKit.framework */; };
@@ -55,6 +54,12 @@
 		FDEB62871913ABA100BCA8D3 /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEB62861913ABA100BCA8D3 /* StoreViewController.m */; };
 		FDEB628A1913AC8700BCA8D3 /* SKProduct+LocalizedPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEB62891913AC8700BCA8D3 /* SKProduct+LocalizedPrice.m */; };
 		FDEB628E1913C52400BCA8D3 /* LifeCountView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEB628D1913C52400BCA8D3 /* LifeCountView.m */; };
+		FDEB62911913D94F00BCA8D3 /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEB62901913D94F00BCA8D3 /* AdColony.framework */; };
+		FDEB62931913DB7500BCA8D3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEB62921913DB7500BCA8D3 /* CoreMedia.framework */; };
+		FDEB62951913DB7B00BCA8D3 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEB62941913DB7B00BCA8D3 /* EventKit.framework */; };
+		FDEB62971913DB8400BCA8D3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEB62961913DB8400BCA8D3 /* Social.framework */; };
+		FDEB62991913DB8D00BCA8D3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEB62981913DB8D00BCA8D3 /* libz.dylib */; };
+		FDEB629B1913DB9700BCA8D3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEB629A1913DB9700BCA8D3 /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +149,12 @@
 		FDEB62891913AC8700BCA8D3 /* SKProduct+LocalizedPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKProduct+LocalizedPrice.m"; sourceTree = "<group>"; };
 		FDEB628C1913C52400BCA8D3 /* LifeCountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeCountView.h; sourceTree = "<group>"; };
 		FDEB628D1913C52400BCA8D3 /* LifeCountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeCountView.m; sourceTree = "<group>"; };
+		FDEB62901913D94F00BCA8D3 /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdColony.framework; path = AdColony/AdColony.framework; sourceTree = "<group>"; };
+		FDEB62921913DB7500BCA8D3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		FDEB62941913DB7B00BCA8D3 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		FDEB62961913DB8400BCA8D3 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		FDEB62981913DB8D00BCA8D3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		FDEB629A1913DB9700BCA8D3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +162,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDEB629B1913DB9700BCA8D3 /* MediaPlayer.framework in Frameworks */,
+				FDEB62991913DB8D00BCA8D3 /* libz.dylib in Frameworks */,
+				FDEB62971913DB8400BCA8D3 /* Social.framework in Frameworks */,
+				FDEB62951913DB7B00BCA8D3 /* EventKit.framework in Frameworks */,
+				FDEB62931913DB7500BCA8D3 /* CoreMedia.framework in Frameworks */,
 				FD3BB6D7190CEF8D008D8798 /* SystemConfiguration.framework in Frameworks */,
 				FD3BB6D5190CEF67008D8798 /* CFNetwork.framework in Frameworks */,
 				FD3BB6D3190CEF5D008D8798 /* MobileCoreServices.framework in Frameworks */,
@@ -158,6 +174,7 @@
 				FD3BB6CF190CEF4A008D8798 /* CoreTelephony.framework in Frameworks */,
 				FD3BB6CD190CEF42008D8798 /* AdSupport.framework in Frameworks */,
 				FD3BB6CB190CEF37008D8798 /* AudioToolbox.framework in Frameworks */,
+				FDEB62911913D94F00BCA8D3 /* AdColony.framework in Frameworks */,
 				FD3BB6C9190CEF2E008D8798 /* AVFoundation.framework in Frameworks */,
 				FD3BB6C6190CEED5008D8798 /* libcrypto.a in Frameworks */,
 				FD3BB6C7190CEED5008D8798 /* libssl.a in Frameworks */,
@@ -274,6 +291,12 @@
 		FDA0DF7F1906773E009F5541 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDEB629A1913DB9700BCA8D3 /* MediaPlayer.framework */,
+				FDEB62981913DB8D00BCA8D3 /* libz.dylib */,
+				FDEB62961913DB8400BCA8D3 /* Social.framework */,
+				FDEB62941913DB7B00BCA8D3 /* EventKit.framework */,
+				FDEB62921913DB7500BCA8D3 /* CoreMedia.framework */,
+				FDEB62901913D94F00BCA8D3 /* AdColony.framework */,
 				FD3BB6D6190CEF8D008D8798 /* SystemConfiguration.framework */,
 				FD3BB6D4190CEF67008D8798 /* CFNetwork.framework */,
 				FD3BB6D2190CEF5D008D8798 /* MobileCoreServices.framework */,
@@ -523,7 +546,6 @@
 				FD3BB69F190CDB77008D8798 /* HomeViewController.m in Sources */,
 				FD3BB6BD190CEE94008D8798 /* ContentLock.m in Sources */,
 				FD3BB695190CDB18008D8798 /* JASidePanelController.m in Sources */,
-				FD9B21DA1913828500D6129A /* UIApplication+Versioning.m in Sources */,
 				FDCAEEC8190CFDAB00F6A640 /* UINumberField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,6 +645,10 @@
 				CODE_SIGN_ENTITLEMENTS = JustNumber/JustNumber.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AdColony",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JustNumber/JustNumber-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -652,6 +678,10 @@
 				CODE_SIGN_ENTITLEMENTS = JustNumber/JustNumber.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AdColony",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JustNumber/JustNumber-Prefix.pch";
 				HEADER_SEARCH_PATHS = (

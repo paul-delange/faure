@@ -9,8 +9,11 @@
 #import "LifeCountView.h"
 
 #import "LifeBank.h"
+#import "ContentLock.h"
 
-@interface LifeCountView ()
+@interface LifeCountView () {
+    NSUInteger _count;
+}
 
 @property (weak) IBOutlet UIImageView* imageView;
 @property (weak) IBOutlet UILabel* textLabel;
@@ -20,7 +23,7 @@
 @implementation LifeCountView
 
 - (NSInteger) count {
-    return [self.textLabel.text integerValue];
+    return _count;
 }
 
 - (void) setCount:(NSInteger)count {
@@ -66,10 +69,19 @@
         [self.layer addAnimation:anim2 forKey:@"shadowOpacity"];
     }
     
-    self.textLabel.text = [@(count) stringValue];
+    _count = count;
+    
+    if( [ContentLock tryLock] ) {
+        self.textLabel.text = [@(count) stringValue];
+    }
+    else {
+        self.textLabel.text = NSLocalizedString(@"∞", @"");
+    }
 }
 
 - (void) commonInit {
+    _count = [LifeBank count];
+    
     UIImageView* imageView =[[UIImageView alloc] initWithImage: [UIImage imageNamed: @"lives"]];
     imageView.translatesAutoresizingMaskIntoConstraints = NO;
     imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -78,7 +90,13 @@
     label.translatesAutoresizingMaskIntoConstraints = NO;
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor blackColor];
-    label.text = [@([LifeBank count]) stringValue];
+    if( [ContentLock tryLock] ) {
+        label.text = [@(_count) stringValue];
+    }
+    else {
+        label.text = NSLocalizedString(@"∞", @"");
+    }
+    
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont preferredFontForTextStyle: UIFontTextStyleFootnote];
     
@@ -117,6 +135,22 @@
     self.layer.shadowColor = [[UIColor redColor] CGColor];
     self.layer.shadowRadius = 5.;
     self.layer.shadowOpacity = 0.;
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(contentUnlocked:)
+                                                 name: ContentLockWasRemovedNotification
+                                               object: nil];
+}
+
+#pragma mark - Notifications
+- (void) contentUnlocked: (NSNotification*) notification {
+    if( [ContentLock tryLock] ) {
+        self.textLabel.text = [@(_count) stringValue];
+    }
+    else {
+        self.textLabel.text = NSLocalizedString(@"∞", @"");
+    }
+    
 }
 
 #pragma mark - NSObject
@@ -126,6 +160,10 @@
         [self commonInit];
     }
     return self;
+}
+
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
 }
 
 #pragma mark - UIView

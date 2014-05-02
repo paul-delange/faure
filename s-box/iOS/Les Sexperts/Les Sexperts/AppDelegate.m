@@ -75,6 +75,7 @@
 - ( void ) onAdColonyV4VCReward:(BOOL)success currencyName:(NSString*)currencyName currencyAmount:(int)amount inZone:(NSString*)zoneID {
     
 }
+
 #pragma mark - SKRequestDelegate
 - (void)requestDidFinish:(SKRequest *)request {
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"All Done"
