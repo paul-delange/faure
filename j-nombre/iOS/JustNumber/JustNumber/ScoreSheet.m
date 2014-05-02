@@ -47,7 +47,8 @@
 }
 
 - (NSSet*) completedQuestionIdentifiers {
-    NSArray* scores = self.scores.allObjects;
+    NSPredicate* completedPredicate = [NSPredicate predicateWithFormat: @"timestamp != NULL"];
+    NSArray* scores = [self.scores.allObjects filteredArrayUsingPredicate: completedPredicate];
     NSString* word_ids_keypath = [NSString stringWithFormat: @"@%@.%@", NSUnionOfObjectsKeyValueOperator, @"question_id"];
     NSArray* question_ids = [scores valueForKeyPath: word_ids_keypath];
     return [NSSet setWithArray: question_ids];
@@ -56,10 +57,39 @@
 - (BOOL) crossOfQuestion:(Question *)question {
     NSManagedObjectContext* ctx = NSManagedObjectContextGetMain();
     
-    Score* score = [Score insertInManagedObjectContext: ctx];
-    score.question_id = question.identifier;
+    Score* score = [Score scoreForQuestion: question];
+    
+    if( !score) {
+        [Score insertInManagedObjectContext: ctx];
+        score.question_id = question.identifier;
+        score.sheet = self;
+    }
+    
     score.timestamp = [NSDate date];
-    score.sheet = self;
+    NSError* error;
+    
+    [ctx threadSafeSave: &error];
+    
+    if( error ) {
+        DLogError(error);
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (BOOL) failedAtQuestion: (Question*) question {
+    NSManagedObjectContext* ctx = NSManagedObjectContextGetMain();
+    
+    Score* score = [Score scoreForQuestion: question];
+    
+    if( !score) {
+        [Score insertInManagedObjectContext: ctx];
+        score.question_id = question.identifier;
+        score.sheet = self;
+    }
+    
+    score.numberOfTriesValue++;
     
     NSError* error;
     
@@ -71,6 +101,29 @@
     }
     
     return YES;
+}
+
+- (NSUInteger) triesForQuestion: (Question*) question {
+    
+    
+    Score* score = [Score scoreForQuestion: question];
+    
+    if( !score) {
+        NSManagedObjectContext* ctx = NSManagedObjectContextGetMain();
+        
+        score = [Score insertInManagedObjectContext: ctx];
+        score.question_id = question.identifier;
+        score.sheet = self;
+        
+        NSError* error;
+        [ctx threadSafeSave: &error];
+        DLogError(error);
+    }
+    
+
+
+    
+    return score.numberOfTriesValue;
 }
 
 @end

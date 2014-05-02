@@ -331,11 +331,68 @@
                         <outletCollection property="numberButtons" destination="F9H-f7-ssp" id="p6R-Mk-4M5"/>
                         <outletCollection property="numberButtons" destination="7cn-nC-CxT" id="vca-R9-5JE"/>
                         <outletCollection property="numberButtons" destination="rlo-PN-Ov9" id="Qpy-ab-dKk"/>
+                        <segue destination="CDG-C9-g38" kind="push" identifier="StorePushSegue" id="Xrt-dd-t8B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tsn-D8-xQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1885" y="-685"/>
+        </scene>
+        <!--Store View Controller-->
+        <scene sceneID="XOD-xg-KtQ">
+            <objects>
+                <viewController id="CDG-C9-g38" customClass="StoreViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sKo-gX-dNT"/>
+                        <viewControllerLayoutGuide type="bottom" id="b8O-ia-U3i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xA2-h0-OKj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Owp-Ff-bbu">
+                                <rect key="frame" x="20" y="72" width="280" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyV-GB-MuB">
+                                <rect key="frame" x="125" y="269" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="+200 lives">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buyPushed:" destination="CDG-C9-g38" eventType="touchUpInside" id="Mhz-Bv-3n9"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="R30-yB-7jx">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gyV-GB-MuB" firstAttribute="centerX" secondItem="R30-yB-7jx" secondAttribute="centerX" id="F4M-xr-rjr"/>
+                            <constraint firstAttribute="centerX" secondItem="gyV-GB-MuB" secondAttribute="centerX" id="Il5-2M-SdY"/>
+                            <constraint firstAttribute="centerY" secondItem="gyV-GB-MuB" secondAttribute="centerY" id="Ni7-Kh-mdG"/>
+                            <constraint firstAttribute="trailing" secondItem="Owp-Ff-bbu" secondAttribute="trailing" constant="20" symbolic="YES" id="TZG-Ng-07K"/>
+                            <constraint firstItem="Owp-Ff-bbu" firstAttribute="leading" secondItem="xA2-h0-OKj" secondAttribute="leading" constant="20" symbolic="YES" id="WrD-AR-OhL"/>
+                            <constraint firstItem="Owp-Ff-bbu" firstAttribute="top" secondItem="sKo-gX-dNT" secondAttribute="bottom" constant="20" symbolic="YES" id="kTi-Kv-z5t"/>
+                            <constraint firstItem="gyV-GB-MuB" firstAttribute="centerY" secondItem="R30-yB-7jx" secondAttribute="centerY" id="pVf-px-y4Q"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bVA-st-mmX"/>
+                    <connections>
+                        <outlet property="buyButton" destination="gyV-GB-MuB" id="mbr-tQ-WSu"/>
+                        <outlet property="buyTransactionWaiting" destination="R30-yB-7jx" id="9bx-UP-GMM"/>
+                        <outlet property="titleLabel" destination="Owp-Ff-bbu" id="zbP-hO-aCi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZTe-cK-clH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2449" y="-273"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="5wI-DS-8SE">

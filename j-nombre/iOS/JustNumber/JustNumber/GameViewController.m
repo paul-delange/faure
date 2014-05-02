@@ -14,6 +14,11 @@
 #import "Question.h"
 #import "ScoreSheet.h"
 
+#import "LifeBank.h"
+#import "ContentLock.h"
+
+#import "LifeCountView.h"
+
 @interface GameViewController () <UINumberFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UINumberField *inputView;
@@ -21,6 +26,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *numberButtons;
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
+@property (weak) IBOutlet LifeCountView* lifeCountView;
 
 @end
 
@@ -40,6 +46,10 @@
     self.inputView.unitString = question.unit;
     self.inputView.automaticallyFormatsInput = question.formatsValue;
     
+    
+    self.okButton.enabled = NO;
+    self.title = [NSString localizedStringWithFormat: NSLocalizedString(@"Level %@", @""), self.level.identifier];
+    
     DLog(@"Ans: %@", question.answer);
 }
 
@@ -50,7 +60,27 @@
 }
 
 - (IBAction)okPushed:(UIButton *)sender {
+    
+    ScoreSheet* sheet = [ScoreSheet currentScoreSheet];
     Question* question = [self.level nextQuestion];
+    
+    NSUInteger tries = [sheet triesForQuestion: question];
+    BOOL isFreeTry = !(tries > 0 && tries < 6);
+    
+    if( ![ContentLock tryLock] ) {
+        isFreeTry = YES;
+    }
+    
+    NSLog(@"%d tries for %@", tries, question.identifier);
+    
+    if( !isFreeTry ) {
+        //This needs lives if you make a mistake!!
+        if( [LifeBank count] < COST_OF_BAD_RESPONSE ) {
+            //Can not attempt -> show popup that we need to buy before continuing...
+            [self performSegueWithIdentifier: @"StorePushSegue" sender: sender];
+            return;
+        }
+    }
     
     NSUInteger answer = self.inputView.integerValue;
     
@@ -60,16 +90,29 @@
         case NSOrderedAscending:
         {
             NSLog(@"Less");
+            
+            [sheet failedAtQuestion: question];
+            
+            if( !isFreeTry ) {
+                [LifeBank subtractLives: COST_OF_BAD_RESPONSE];
+                self.lifeCountView.count -= COST_OF_BAD_RESPONSE;
+            }
             break;
         }
         case NSOrderedDescending:
         {
             NSLog(@"More");
+            [sheet failedAtQuestion: question];
+            
+            if( !isFreeTry ) {
+                [LifeBank subtractLives: COST_OF_BAD_RESPONSE];
+                self.lifeCountView.count -= COST_OF_BAD_RESPONSE;
+            }
             break;
         }
         case NSOrderedSame:
         {
-            ScoreSheet* sheet = [ScoreSheet currentScoreSheet];
+            
             BOOL success = [sheet crossOfQuestion: question];
             NSParameterAssert(success);
             
@@ -97,12 +140,11 @@
             animation.type = kCATransitionFade;
             animation.duration = 0.3;
             [self.inputView.layer addAnimation:animation forKey:@"kCATransitionFade"];
-            
-            self.inputView.text = @"";
-            
             break;
         }
     }
+    
+    self.inputView.text = @"";
 }
 
 #pragma mark - UIViewController
@@ -113,11 +155,18 @@
     
     Question* question = [self.level nextQuestion];
     [self updateWithQuestion: question animated: NO];
+    
+    LifeCountView* countView = [[LifeCountView alloc] initWithFrame: CGRectMake(0, 0, 40, 40)];
+    UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithCustomView: countView];
+    self.navigationItem.rightBarButtonItems = @[self.navigationItem.rightBarButtonItem, item];
+    self.lifeCountView = countView;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
     [self.navigationController setNavigationBarHidden: NO animated: YES];
+    
+    self.lifeCountView.count = [LifeBank count];
     
     [self.inputView becomeFirstResponder];
 }
@@ -135,7 +184,7 @@
 
 #pragma mark - UINumberFieldDelegate
 - (void) numberField:(UINumberField *)numberField didChangeToValue:(NSInteger)integerValue {
-    
+    self.okButton.enabled = integerValue > 0;
 }
 
 @end

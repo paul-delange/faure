@@ -7,6 +7,10 @@
 + (instancetype) currentScoreSheet;
 
 - (NSSet*) completedQuestionIdentifiers;
+
 - (BOOL) crossOfQuestion: (Question*) question;
+- (BOOL) failedAtQuestion: (Question*) question;
+
+- (NSUInteger) triesForQuestion: (Question*) question;
 
 @end

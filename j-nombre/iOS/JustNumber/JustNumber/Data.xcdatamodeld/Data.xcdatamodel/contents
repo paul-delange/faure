@@ -13,8 +13,9 @@
         <relationship name="level" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Level" inverseName="questions" inverseEntity="Level" syncable="YES"/>
     </entity>
     <entity name="Score" representedClassName="Score" syncable="YES">
+        <attribute name="numberOfTries" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="question_id" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="timestamp" attributeType="Date" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="sheet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ScoreSheet" inverseName="scores" inverseEntity="ScoreSheet" syncable="YES"/>
     </entity>
     <entity name="ScoreSheet" representedClassName="ScoreSheet" syncable="YES">
@@ -32,7 +33,7 @@
     <elements>
         <element name="Level" positionX="-270" positionY="9" width="128" height="73"/>
         <element name="Question" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="Score" positionX="-18" positionY="164" width="128" height="103"/>
         <element name="ScoreSheet" positionX="-189" positionY="158" width="128" height="73"/>
-        <element name="Score" positionX="7" positionY="144" width="128" height="88"/>
     </elements>
 </model>

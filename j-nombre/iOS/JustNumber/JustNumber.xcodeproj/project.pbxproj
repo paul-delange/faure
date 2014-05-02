@@ -51,6 +51,10 @@
 		FDEB627C191386D900BCA8D3 /* ScoreSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEB627A191386D900BCA8D3 /* ScoreSheet.m */; };
 		FDEB627F191386E200BCA8D3 /* _Score.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEB627D191386E200BCA8D3 /* _Score.m */; };
 		FDEB6280191386E200BCA8D3 /* _ScoreSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEB627E191386E200BCA8D3 /* _ScoreSheet.m */; };
+		FDEB62841913A5EE00BCA8D3 /* LifeBank.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEB62831913A5EE00BCA8D3 /* LifeBank.m */; };
+		FDEB62871913ABA100BCA8D3 /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEB62861913ABA100BCA8D3 /* StoreViewController.m */; };
+		FDEB628A1913AC8700BCA8D3 /* SKProduct+LocalizedPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEB62891913AC8700BCA8D3 /* SKProduct+LocalizedPrice.m */; };
+		FDEB628E1913C52400BCA8D3 /* LifeCountView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEB628D1913C52400BCA8D3 /* LifeCountView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +136,14 @@
 		FDEB627A191386D900BCA8D3 /* ScoreSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSheet.m; sourceTree = "<group>"; };
 		FDEB627D191386E200BCA8D3 /* _Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Score.m; path = JustNumber/_Score.m; sourceTree = "<group>"; };
 		FDEB627E191386E200BCA8D3 /* _ScoreSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _ScoreSheet.m; path = JustNumber/_ScoreSheet.m; sourceTree = "<group>"; };
+		FDEB62821913A5EE00BCA8D3 /* LifeBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeBank.h; sourceTree = "<group>"; };
+		FDEB62831913A5EE00BCA8D3 /* LifeBank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeBank.m; sourceTree = "<group>"; };
+		FDEB62851913ABA100BCA8D3 /* StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreViewController.h; sourceTree = "<group>"; };
+		FDEB62861913ABA100BCA8D3 /* StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreViewController.m; sourceTree = "<group>"; };
+		FDEB62881913AC8700BCA8D3 /* SKProduct+LocalizedPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKProduct+LocalizedPrice.h"; sourceTree = "<group>"; };
+		FDEB62891913AC8700BCA8D3 /* SKProduct+LocalizedPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKProduct+LocalizedPrice.m"; sourceTree = "<group>"; };
+		FDEB628C1913C52400BCA8D3 /* LifeCountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeCountView.h; sourceTree = "<group>"; };
+		FDEB628D1913C52400BCA8D3 /* LifeCountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeCountView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +175,7 @@
 		FD3BB68F190CDAE5008D8798 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FDEB628B1913AC8A00BCA8D3 /* SKProduct+LocalizedPrice */,
 				FDCAEF5B190E18BC00F6A640 /* mogenerator */,
 				FD3BB6AF190CEE5C008D8798 /* Admob */,
 				FD3BB690190CDB18008D8798 /* JASidePanels */,
@@ -206,6 +219,8 @@
 		FD3BB6AD190CEE14008D8798 /* In-Game */ = {
 			isa = PBXGroup;
 			children = (
+				FDEB62851913ABA100BCA8D3 /* StoreViewController.h */,
+				FDEB62861913ABA100BCA8D3 /* StoreViewController.m */,
 				FD3BB6A5190CEC07008D8798 /* GameViewController.h */,
 				FD3BB6A6190CEC07008D8798 /* GameViewController.m */,
 			);
@@ -323,6 +338,8 @@
 			children = (
 				FDCAEEC6190CFDAB00F6A640 /* UINumberField.h */,
 				FDCAEEC7190CFDAB00F6A640 /* UINumberField.m */,
+				FDEB628C1913C52400BCA8D3 /* LifeCountView.h */,
+				FDEB628D1913C52400BCA8D3 /* LifeCountView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -330,6 +347,8 @@
 		FDA0DFB219067786009F5541 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FDEB62821913A5EE00BCA8D3 /* LifeBank.h */,
+				FDEB62831913A5EE00BCA8D3 /* LifeBank.m */,
 				FDEB62691913851F00BCA8D3 /* NSLocale+ContentLanguages.h */,
 				FDEB626A1913851F00BCA8D3 /* NSLocale+ContentLanguages.m */,
 				FDEB626B1913851F00BCA8D3 /* NSBundle+Seeding.h */,
@@ -371,6 +390,15 @@
 				FDCAEF64190E18E500F6A640 /* Question.m */,
 			);
 			name = Entities;
+			sourceTree = "<group>";
+		};
+		FDEB628B1913AC8A00BCA8D3 /* SKProduct+LocalizedPrice */ = {
+			isa = PBXGroup;
+			children = (
+				FDEB62881913AC8700BCA8D3 /* SKProduct+LocalizedPrice.h */,
+				FDEB62891913AC8700BCA8D3 /* SKProduct+LocalizedPrice.m */,
+			);
+			name = "SKProduct+LocalizedPrice";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,10 +496,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDEB628E1913C52400BCA8D3 /* LifeCountView.m in Sources */,
 				FDEB626E1913851F00BCA8D3 /* NSBundle+Seeding.m in Sources */,
 				FD3BB6A7190CEC07008D8798 /* GameViewController.m in Sources */,
 				FDEB627F191386E200BCA8D3 /* _Score.m in Sources */,
 				FD3BB699190CDB33008D8798 /* AppViewController.m in Sources */,
+				FDEB62841913A5EE00BCA8D3 /* LifeBank.m in Sources */,
+				FDEB62871913ABA100BCA8D3 /* StoreViewController.m in Sources */,
 				FD3BB69C190CDB6D008D8798 /* MenuViewController.m in Sources */,
 				FDEB627C191386D900BCA8D3 /* ScoreSheet.m in Sources */,
 				FDA0DF911906773E009F5541 /* AppDelegate.m in Sources */,
@@ -483,6 +514,7 @@
 				FD3BB6C3190CEE9F008D8798 /* ReceiptValidator.m in Sources */,
 				FDCAEF5F190E18C700F6A640 /* _Question.m in Sources */,
 				FDEB626D1913851F00BCA8D3 /* NSLocale+ContentLanguages.m in Sources */,
+				FDEB628A1913AC8700BCA8D3 /* SKProduct+LocalizedPrice.m in Sources */,
 				FDCAEF5E190E18C700F6A640 /* _Level.m in Sources */,
 				FDEB627B191386D900BCA8D3 /* Score.m in Sources */,
 				FDEB6280191386E200BCA8D3 /* _ScoreSheet.m in Sources */,
@@ -599,6 +631,7 @@
 					OpenSSL,
 				);
 				INFOPLIST_FILE = "JustNumber/JustNumber-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Admob",
@@ -627,6 +660,7 @@
 					OpenSSL,
 				);
 				INFOPLIST_FILE = "JustNumber/JustNumber-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Admob",
