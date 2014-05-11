@@ -10,6 +10,7 @@
 
 #import "JASidePanelController.h"
 #import "UIViewController+JASidePanel.h"
+#import "GameViewController+SocialMedia.h"
 
 #import "AppDelegate.h"
 
@@ -179,25 +180,15 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
 }
 
 - (void) likePushed: (id) sender {
-    /*[[self facebookSession] closeAndClearTokenInformation];
-    AppDelegate* delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    delegate.facebookSession = nil;
-    
-    NSManagedObjectContext* ctx = NSManagedObjectContextGetMain();
-    NSFetchRequest* fr = [NSFetchRequest fetchRequestWithEntityName: @"Friend"];
-    NSError* error;
-    NSArray* allFriends = [ctx executeFetchRequest: fr error: &error];
-    DLogError(error);
-    for(NSManagedObject* obj in allFriends) {
-        [ctx deleteObject: obj];
-    }
-    
-    [ctx threadSafeSave: &error];
-    DLogError(error); */
+    [self followUsOn: SLServiceTypeFacebook completion: ^(NSError *error) {
+        
+    }];
 }
 
 - (void) followPushed: (id) sender {
-    
+    [self followUsOn: SLServiceTypeTwitter completion: ^(NSError *error) {
+        
+    }];
 }
 
 - (IBAction) recommendPushed:(id)sender {

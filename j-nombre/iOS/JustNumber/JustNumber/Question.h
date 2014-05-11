@@ -2,4 +2,7 @@
 
 @interface Question : _Question {}
 // Custom logic goes here.
+
+- (NSString*) formattedAnswerString;
+
 @end

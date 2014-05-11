@@ -257,6 +257,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Usp-43-xMp" customClass="GuessView">
+                                <rect key="frame" x="20" y="100" width="280" height="220"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -274,6 +279,7 @@
                             <constraint firstItem="BhW-Zt-w02" firstAttribute="top" secondItem="wgQ-2n-bs1" secondAttribute="bottom" constant="16" id="Dmg-Am-kqv"/>
                             <constraint firstItem="0H4-5W-hxm" firstAttribute="height" secondItem="F9H-f7-ssp" secondAttribute="height" id="EOe-To-zhc"/>
                             <constraint firstItem="0H4-5W-hxm" firstAttribute="width" secondItem="1HI-S8-axZ" secondAttribute="width" id="EbX-9m-kjj"/>
+                            <constraint firstItem="Usp-43-xMp" firstAttribute="top" secondItem="mqr-Fp-Im1" secondAttribute="bottom" constant="8" symbolic="YES" id="HkS-oF-Jr1"/>
                             <constraint firstAttribute="trailing" secondItem="mSi-uN-qid" secondAttribute="trailing" constant="16" id="I3R-Ff-UXT"/>
                             <constraint firstItem="UoH-Vb-qWp" firstAttribute="top" secondItem="7cn-nC-CxT" secondAttribute="bottom" constant="16" id="InH-v7-Ipg"/>
                             <constraint firstItem="0H4-5W-hxm" firstAttribute="height" secondItem="7cn-nC-CxT" secondAttribute="height" id="Iwy-I6-vlu"/>
@@ -286,6 +292,7 @@
                             <constraint firstItem="wgQ-2n-bs1" firstAttribute="leading" secondItem="1HI-S8-axZ" secondAttribute="trailing" constant="16" id="PfU-0n-jyL"/>
                             <constraint firstItem="vWe-se-ZPv" firstAttribute="top" secondItem="UoH-Vb-qWp" secondAttribute="bottom" constant="16" id="QGW-yz-MJf"/>
                             <constraint firstItem="F9H-f7-ssp" firstAttribute="leading" secondItem="wgQ-2n-bs1" secondAttribute="trailing" constant="16" id="SW1-rt-6qR"/>
+                            <constraint firstAttribute="trailing" secondItem="Usp-43-xMp" secondAttribute="trailing" constant="20" symbolic="YES" id="Thl-G2-IHH"/>
                             <constraint firstItem="0H4-5W-hxm" firstAttribute="leading" secondItem="wz4-16-Abt" secondAttribute="leading" constant="16" id="U6U-gU-L2K"/>
                             <constraint firstItem="BhW-Zt-w02" firstAttribute="leading" secondItem="rlo-PN-Ov9" secondAttribute="trailing" constant="16" id="Ubh-L7-mem"/>
                             <constraint firstItem="0H4-5W-hxm" firstAttribute="width" secondItem="wgQ-2n-bs1" secondAttribute="width" id="Uvy-D6-eK8"/>
@@ -300,11 +307,13 @@
                             <constraint firstItem="UoH-Vb-qWp" firstAttribute="height" secondItem="0H4-5W-hxm" secondAttribute="height" id="mBx-oA-BgQ"/>
                             <constraint firstItem="mqr-Fp-Im1" firstAttribute="leading" secondItem="wz4-16-Abt" secondAttribute="leading" constant="20" symbolic="YES" id="mlD-GS-kCm"/>
                             <constraint firstItem="UoH-Vb-qWp" firstAttribute="leading" secondItem="BhW-Zt-w02" secondAttribute="trailing" constant="16" id="o1q-PT-twB"/>
+                            <constraint firstItem="mSi-uN-qid" firstAttribute="top" secondItem="Usp-43-xMp" secondAttribute="bottom" constant="8" symbolic="YES" id="o8h-CC-oCp"/>
                             <constraint firstItem="5l8-ya-QJy" firstAttribute="top" secondItem="mSi-uN-qid" secondAttribute="bottom" constant="16" id="oKJ-qF-SaJ"/>
                             <constraint firstItem="L7k-ta-PK2" firstAttribute="top" secondItem="mSi-uN-qid" secondAttribute="bottom" constant="16" id="otZ-K4-ZTr"/>
                             <constraint firstItem="0H4-5W-hxm" firstAttribute="width" secondItem="F9H-f7-ssp" secondAttribute="width" id="pYi-rr-hwi"/>
                             <constraint firstItem="0H4-5W-hxm" firstAttribute="top" secondItem="mSi-uN-qid" secondAttribute="bottom" constant="16" id="qLm-iQ-5Kf"/>
                             <constraint firstItem="mSi-uN-qid" firstAttribute="leading" secondItem="wz4-16-Abt" secondAttribute="leading" constant="16" id="rrV-Nm-P4G"/>
+                            <constraint firstItem="Usp-43-xMp" firstAttribute="leading" secondItem="wz4-16-Abt" secondAttribute="leading" constant="20" symbolic="YES" id="s3p-O3-MYg"/>
                             <constraint firstItem="7cn-nC-CxT" firstAttribute="top" secondItem="dvz-j2-Z71" secondAttribute="bottom" constant="16" id="tfx-8y-lpP"/>
                             <constraint firstItem="F9H-f7-ssp" firstAttribute="top" secondItem="5l8-ya-QJy" secondAttribute="bottom" constant="16" id="vRj-mj-htE"/>
                             <constraint firstItem="UoH-Vb-qWp" firstAttribute="top" secondItem="F9H-f7-ssp" secondAttribute="bottom" constant="16" id="wgK-DG-5HU"/>
@@ -315,9 +324,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EcJ-01-Ej1">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="3FU-94-D2p"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="3FU-94-D2p">
+                            <connections>
+                                <action selector="helpPushed:" destination="K9U-4j-SuW" id="Rok-cP-nV4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="guessView" destination="Usp-43-xMp" id="63w-11-fNL"/>
                         <outlet property="inputView" destination="mSi-uN-qid" id="Be8-8t-2KO"/>
                         <outlet property="okButton" destination="UoH-Vb-qWp" id="Zg2-08-pc9"/>
                         <outlet property="questionLabel" destination="mqr-Fp-Im1" id="m6m-hJ-8Ze"/>
@@ -337,7 +351,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tsn-D8-xQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="W20-nD-DXx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1885" y="-685"/>
+            <point key="canvasLocation" x="1937" y="-513"/>
         </scene>
         <!--Store View Controller-->
         <scene sceneID="XOD-xg-KtQ">
@@ -427,7 +441,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZTe-cK-clH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2449" y="-273"/>
+            <point key="canvasLocation" x="2561" y="-513"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="5wI-DS-8SE">

@@ -10,12 +10,15 @@
 #import "JASidePanelController.h"
 #import "UIViewController+JASidePanel.h"
 #import "GameViewController.h"
+#import "GameViewController+SocialMedia.h"
 
 #import "ContentLock.h"
 
 #import "Level.h"
 
-@interface HomeViewController ()
+#define kAlertViewEndGameTag    916
+
+@interface HomeViewController () <UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *buyViewGroup;
 @property (weak, nonatomic) IBOutlet UILabel *adsLabel;
@@ -96,6 +99,55 @@
     if( [segue.identifier isEqualToString: @"GamePushSegue"] ) {
         GameViewController* gameVC = segue.destinationViewController;
         gameVC.level = [Level currentLevel];
+    }
+}
+
+- (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if( [identifier isEqualToString: @"GamePushSegue"] ) {
+        if( [Level currentLevel] ) {
+            return YES;
+        }
+        else {
+            NSString* title = NSLocalizedString(@"No more levels!", @"");
+            NSString* msg = NSLocalizedString(@"New levels are coming soon, follow us on Facebook or Twitter to find out more!", @"");
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
+                                                            message: msg
+                                                           delegate: self
+                                                  cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                                  otherButtonTitles: NSLocalizedString(@"Facebook", @""), NSLocalizedString(@"Twitter", @""), nil];
+            alert.tag = kAlertViewEndGameTag;
+            [alert show];
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (alertView.tag) {
+        case kAlertViewEndGameTag:
+        {
+            if( buttonIndex != alertView.cancelButtonIndex ) {
+                NSString* serviceType = SLServiceTypeFacebook;
+                
+                switch (buttonIndex) {
+                    case 1:
+                        serviceType = SLServiceTypeTwitter;
+                        break;
+                    default:
+                        break;
+                }
+                
+                [self followUsOn: serviceType completion: ^(NSError *error) {
+                    
+                }];
+            }
+            break;
+        }
+        default:
+            break;
     }
 }
 

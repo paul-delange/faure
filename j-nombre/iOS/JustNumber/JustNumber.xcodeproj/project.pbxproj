@@ -37,6 +37,7 @@
 		FDA0DF8D1906773E009F5541 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA0DF8C1906773E009F5541 /* main.m */; };
 		FDA0DF911906773E009F5541 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA0DF901906773E009F5541 /* AppDelegate.m */; };
 		FDA0DF931906773E009F5541 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDA0DF921906773E009F5541 /* Images.xcassets */; };
+		FDA3F208191DEDCB007D07A8 /* GameViewController+SocialMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA3F207191DEDCB007D07A8 /* GameViewController+SocialMedia.m */; };
 		FDCAEEC8190CFDAB00F6A640 /* UINumberField.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEEC7190CFDAB00F6A640 /* UINumberField.m */; };
 		FDCAEF43190D765500F6A640 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF41190D765500F6A640 /* Data.xcdatamodeld */; };
 		FDCAEF5E190E18C700F6A640 /* _Level.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF5C190E18C700F6A640 /* _Level.m */; };
@@ -60,6 +61,7 @@
 		FDEB62971913DB8400BCA8D3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEB62961913DB8400BCA8D3 /* Social.framework */; };
 		FDEB62991913DB8D00BCA8D3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEB62981913DB8D00BCA8D3 /* libz.dylib */; };
 		FDEB629B1913DB9700BCA8D3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEB629A1913DB9700BCA8D3 /* MediaPlayer.framework */; };
+		FDFF1E8C191921470099665A /* GuessView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFF1E8B191921470099665A /* GuessView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +123,8 @@
 		FDA0DF921906773E009F5541 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = JustNumber/Images.xcassets; sourceTree = "<group>"; };
 		FDA0DF991906773E009F5541 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FDA0DFCD1906B7DA009F5541 /* sb_juste_nombre.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = sb_juste_nombre.pdf; path = ../../sb_juste_nombre.pdf; sourceTree = "<group>"; };
+		FDA3F206191DEDCB007D07A8 /* GameViewController+SocialMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GameViewController+SocialMedia.h"; sourceTree = "<group>"; };
+		FDA3F207191DEDCB007D07A8 /* GameViewController+SocialMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GameViewController+SocialMedia.m"; sourceTree = "<group>"; };
 		FDCAEEC6190CFDAB00F6A640 /* UINumberField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINumberField.h; sourceTree = "<group>"; };
 		FDCAEEC7190CFDAB00F6A640 /* UINumberField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINumberField.m; sourceTree = "<group>"; };
 		FDCAEF42190D765500F6A640 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 		FDEB62961913DB8400BCA8D3 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		FDEB62981913DB8D00BCA8D3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		FDEB629A1913DB9700BCA8D3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		FDFF1E8A191921470099665A /* GuessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuessView.h; sourceTree = "<group>"; };
+		FDFF1E8B191921470099665A /* GuessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuessView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +246,8 @@
 				FDEB62861913ABA100BCA8D3 /* StoreViewController.m */,
 				FD3BB6A5190CEC07008D8798 /* GameViewController.h */,
 				FD3BB6A6190CEC07008D8798 /* GameViewController.m */,
+				FDA3F206191DEDCB007D07A8 /* GameViewController+SocialMedia.h */,
+				FDA3F207191DEDCB007D07A8 /* GameViewController+SocialMedia.m */,
 			);
 			name = "In-Game";
 			sourceTree = "<group>";
@@ -363,6 +371,8 @@
 				FDCAEEC7190CFDAB00F6A640 /* UINumberField.m */,
 				FDEB628C1913C52400BCA8D3 /* LifeCountView.h */,
 				FDEB628D1913C52400BCA8D3 /* LifeCountView.m */,
+				FDFF1E8A191921470099665A /* GuessView.h */,
+				FDFF1E8B191921470099665A /* GuessView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -527,6 +537,7 @@
 				FDEB62841913A5EE00BCA8D3 /* LifeBank.m in Sources */,
 				FDEB62871913ABA100BCA8D3 /* StoreViewController.m in Sources */,
 				FD3BB69C190CDB6D008D8798 /* MenuViewController.m in Sources */,
+				FDFF1E8C191921470099665A /* GuessView.m in Sources */,
 				FDEB627C191386D900BCA8D3 /* ScoreSheet.m in Sources */,
 				FDA0DF911906773E009F5541 /* AppDelegate.m in Sources */,
 				FD3BB6AA190CEDEA008D8798 /* AdvertisementNavigationController.m in Sources */,
@@ -543,6 +554,7 @@
 				FDEB6280191386E200BCA8D3 /* _ScoreSheet.m in Sources */,
 				FDCAEF65190E18E500F6A640 /* Level.m in Sources */,
 				FDA0DF8D1906773E009F5541 /* main.m in Sources */,
+				FDA3F208191DEDCB007D07A8 /* GameViewController+SocialMedia.m in Sources */,
 				FD3BB69F190CDB77008D8798 /* HomeViewController.m in Sources */,
 				FD3BB6BD190CEE94008D8798 /* ContentLock.m in Sources */,
 				FD3BB695190CDB18008D8798 /* JASidePanelController.m in Sources */,
@@ -666,6 +678,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -699,6 +712,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

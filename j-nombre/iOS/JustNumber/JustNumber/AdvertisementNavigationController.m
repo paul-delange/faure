@@ -15,8 +15,6 @@
 
 #define kBannerSize ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kGADAdSizeBanner : kGADAdSizeLeaderboard)
 
-//Interstital value: ca-app-pub-8919869601211958/5036350053
-
 @interface AdvertisementNavigationController () <GADBannerViewDelegate> {
     __weak UIView* _contentView;
 }
@@ -91,7 +89,7 @@
     
     GADBannerView* banner = [[GADBannerView alloc] initWithAdSize: kBannerSize];
     banner.delegate = self;
-    banner.adUnitID = @"ca-app-pub-8919869601211958/7989816459";
+    banner.adUnitID = @"ca-app-pub-1332160865070772/9575947645";
     banner.rootViewController = self;
     banner.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview: banner];
@@ -133,9 +131,7 @@
     [super viewWillAppear: animated];
     
     GADRequest* request = [GADRequest request];
-    request.testDevices = @[ GAD_SIMULATOR_ID,
-                             @"5847239deac1f26ea408b154815af621"            //Paul iPhone4
-                             ];
+    request.testDevices = @[ GAD_SIMULATOR_ID ];
     
     self.bannerView.delegate = self;
     
