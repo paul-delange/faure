@@ -38,6 +38,7 @@
 		FDA0DF911906773E009F5541 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA0DF901906773E009F5541 /* AppDelegate.m */; };
 		FDA0DF931906773E009F5541 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDA0DF921906773E009F5541 /* Images.xcassets */; };
 		FDA3F208191DEDCB007D07A8 /* GameViewController+SocialMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA3F207191DEDCB007D07A8 /* GameViewController+SocialMedia.m */; };
+		FDA3F20C19202834007D07A8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA3F20B19202834007D07A8 /* FacebookSDK.framework */; };
 		FDCAEEC8190CFDAB00F6A640 /* UINumberField.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEEC7190CFDAB00F6A640 /* UINumberField.m */; };
 		FDCAEF43190D765500F6A640 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF41190D765500F6A640 /* Data.xcdatamodeld */; };
 		FDCAEF5E190E18C700F6A640 /* _Level.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF5C190E18C700F6A640 /* _Level.m */; };
@@ -125,6 +126,7 @@
 		FDA0DFCD1906B7DA009F5541 /* sb_juste_nombre.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = sb_juste_nombre.pdf; path = ../../sb_juste_nombre.pdf; sourceTree = "<group>"; };
 		FDA3F206191DEDCB007D07A8 /* GameViewController+SocialMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GameViewController+SocialMedia.h"; sourceTree = "<group>"; };
 		FDA3F207191DEDCB007D07A8 /* GameViewController+SocialMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GameViewController+SocialMedia.m"; sourceTree = "<group>"; };
+		FDA3F20B19202834007D07A8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		FDCAEEC6190CFDAB00F6A640 /* UINumberField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINumberField.h; sourceTree = "<group>"; };
 		FDCAEEC7190CFDAB00F6A640 /* UINumberField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINumberField.m; sourceTree = "<group>"; };
 		FDCAEF42190D765500F6A640 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				FDA0DF831906773E009F5541 /* CoreGraphics.framework in Frameworks */,
 				FDA0DF851906773E009F5541 /* UIKit.framework in Frameworks */,
 				FDA0DF811906773E009F5541 /* Foundation.framework in Frameworks */,
+				FDA3F20C19202834007D07A8 /* FacebookSDK.framework in Frameworks */,
 				FD3BB6A4190CE23D008D8798 /* StoreKit.framework in Frameworks */,
 				FD3BB6BA190CEE5C008D8798 /* libGoogleAdMobAds.a in Frameworks */,
 			);
@@ -299,6 +302,7 @@
 		FDA0DF7F1906773E009F5541 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDA3F20B19202834007D07A8 /* FacebookSDK.framework */,
 				FDEB629A1913DB9700BCA8D3 /* MediaPlayer.framework */,
 				FDEB62981913DB8D00BCA8D3 /* libz.dylib */,
 				FDEB62961913DB8400BCA8D3 /* Social.framework */,
@@ -660,6 +664,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AdColony",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JustNumber/JustNumber-Prefix.pch";
@@ -694,6 +699,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AdColony",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JustNumber/JustNumber-Prefix.pch";

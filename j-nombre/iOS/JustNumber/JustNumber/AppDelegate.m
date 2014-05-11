@@ -14,6 +14,7 @@
 #import "ContentLock.h"
 
 #import <AdColony/AdColony.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
     AppDelegate* del = (AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -57,6 +58,12 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
     if( !previousVersion ) {
         //First install
     }
+}
+
+- (BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [FBAppCall handleOpenURL: url sourceApplication: sourceApplication fallbackHandler:^(FBAppCall *call) {
+        DLog(@"Unhandled deep link: %@", url);
+    }];
 }
 
 #pragma mark - AdColonyDelegate

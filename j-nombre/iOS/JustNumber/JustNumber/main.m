@@ -14,6 +14,10 @@ NSString * const kAppName() {
     return [[[NSBundle mainBundle] infoDictionary] objectForKey: (id)kCFBundleNameKey];
 }
 
+NSString * const kAppStoreURL(void) {
+    return @"http://appstore.com/justenombre";
+}
+
 int main(int argc, char * argv[])
 {
     @autoreleasepool {

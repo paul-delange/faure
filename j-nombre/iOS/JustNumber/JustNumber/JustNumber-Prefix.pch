@@ -16,6 +16,7 @@
     #import <CoreData/CoreData.h>
 
     extern NSString * const kAppName(void);
+    extern NSString * const kAppStoreURL(void);
     extern NSString * const kContentUnlockProductIdentifier;
     extern NSManagedObjectContext * const NSManagedObjectContextGetMain(void);
 
