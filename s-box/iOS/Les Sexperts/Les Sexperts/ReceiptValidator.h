@@ -25,7 +25,6 @@
  */
 FOUNDATION_EXPORT bool isValidReceipt(NSURL* receiptURL);
 
-
 FOUNDATION_EXPORT bool isUnlockSubscriptionPurchased(void);
 
 #endif

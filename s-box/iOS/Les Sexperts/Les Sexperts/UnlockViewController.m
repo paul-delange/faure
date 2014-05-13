@@ -41,7 +41,7 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
     _canWatchVideo = canWatchVideo;
 
     if( [self isViewLoaded] && !_canWatchVideo )
-        self.videoButton.hidden = YES;
+        self.videoButton.enabled = NO;
 }
 
 #pragma mark - Action
@@ -54,6 +54,9 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
                     withDelegate: self
                 withV4VCPrePopup: YES
                 andV4VCPostPopup: NO];
+    
+    [self.videoButton setHidden: YES];
+    [self.activityIndicator startAnimating];
 }
 
 - (IBAction)buyPushed:(id)sender {
@@ -121,9 +124,10 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
     self.videoButton.layer.cornerRadius = 10.;
     
     [self.videoButton setTitle: NSLocalizedString(@"or watch a free video...", @"") forState: UIControlStateNormal];
+    [self.videoButton setTitle: NSLocalizedString(@"...try again later", @"") forState: UIControlStateDisabled];
     
     if( !self.canWatchVideo )
-        self.videoButton.hidden = YES;
+        self.videoButton.enabled = NO;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -142,17 +146,17 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
     
     switch (indexPath.item) {
         case kUnlockFeatureTypeConseils:
-            //cell.imageView.image = [UIImage imageNamed: @"conseil"];
+            cell.imageView.image = [UIImage imageNamed: @"ic_advices"];
             cell.textLabel.text = NSLocalizedString(@"Unlimited Advice", @"");
             cell.detailTextLabel.text = NSLocalizedString(@"Get all the advice you need to get on top. Or bottom...", @"");
             break;
         case kUnlockFeatureTypeBlagues:
-            cell.imageView.image = nil;
+            cell.imageView.image = [UIImage imageNamed: @"ic_smyle"];
             cell.textLabel.text = NSLocalizedString(@"Unlimited Jokes", @"");
             cell.detailTextLabel.text = NSLocalizedString(@"In a recent survey, 77% of women found humor attractive", @"");
             break;
         case kUnlockFeatureTypeNoAdvertisement:
-            cell.imageView.image = nil;
+            cell.imageView.image = [UIImage imageNamed: @"ic_ads"];
             cell.textLabel.text = NSLocalizedString(@"No Advertising", @"");
             cell.detailTextLabel.text = NSLocalizedString(@"Let nothing get in the way of you becoming a Sexpert!", @"");
             break;
@@ -171,6 +175,18 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
 }
 
 #pragma mark - SKTransactionObserverDelegate
+- (void) paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
+    for(SKPaymentTransaction* transactioin in transactions) {
+        switch (transactioin.transactionState) {
+            case SKPaymentTransactionStateRestored:
+                [queue finishTransaction: transactioin];
+                break;
+            default:
+                break;
+        }
+    }
+}
+
 - (void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error  {
     NSString* title = NSLocalizedString(@"Purchases disabled", @"");
     NSString* msg = NSLocalizedString(@"You must enable In-App Purchases in your device Settings app (General > Restrictions > In-App Purchases)", @"");
@@ -236,6 +252,9 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
         [self mz_dismissFormSheetControllerAnimated: YES
                                   completionHandler: NULL];
     }
+    
+    [self.videoButton setHidden: NO];
+    [self.activityIndicator stopAnimating];
 }
 
 

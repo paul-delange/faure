@@ -378,6 +378,7 @@ NSSet *parseInAppPurchasesProductIdentifiers(NSData *inappData) {
 	return productIdentifiers;
 }
 
+#if !PAID_VERSION
 bool isUnlockSubscriptionPurchased(void) {
     //This next line to me is a huge danger. Hackers can change the receipt that is available there...
     NSURL* receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
@@ -467,3 +468,4 @@ bool isUnlockSubscriptionPurchased(void) {
     
     return false;
 }
+#endif

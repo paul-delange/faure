@@ -190,58 +190,61 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" image="logo_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="bDA-5V-j59">
-                                <rect key="frame" x="20" y="50" width="128" height="119"/>
+                                <rect key="frame" x="20" y="50" width="128" height="114"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="144" translatesAutoresizingMaskIntoConstraints="NO" id="eDe-Is-IPj">
-                                <rect key="frame" x="156" y="91" width="144" height="37"/>
+                                <rect key="frame" x="156" y="89" width="144" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="32"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Eu-rm-rmG">
-                                <rect key="frame" x="20" y="199" width="280" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Eu-rm-rmG">
+                                <rect key="frame" x="20" y="194" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="20"/>
-                                <state key="normal" title="Play">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gPR-So-vhG"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="175" maxY="0.0"/>
+                                <state key="normal" title="Play" image="ic_handcuffs">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="dmD-5M-sGo" kind="modal" modalTransitionStyle="crossDissolve" id="Gna-Rj-uWy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4f5-9Y-L5Y">
-                                <rect key="frame" x="20" y="266" width="280" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4f5-9Y-L5Y">
+                                <rect key="frame" x="20" y="264" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="20"/>
-                                <state key="normal" title="Advice">
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="170" maxY="0.0"/>
+                                <state key="normal" title="Advice" image="ic_advices">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="Mxh-YX-Ile" kind="push" id="h9P-KV-8mv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBf-vV-Nuw">
-                                <rect key="frame" x="20" y="333" width="280" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBf-vV-Nuw">
+                                <rect key="frame" x="20" y="334" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="20"/>
-                                <state key="normal" title="Jokes">
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="170" maxY="0.0"/>
+                                <state key="normal" title="Jokes" image="ic_smyle">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="EXc-gB-JnB" kind="push" id="qVT-y8-It1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCY-JC-K7i">
-                                <rect key="frame" x="20" y="400" width="280" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCY-JC-K7i">
+                                <rect key="frame" x="20" y="404" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="20"/>
-                                <state key="normal" title="Upgrade">
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
+                                <state key="normal" title="Upgrade" image="ic_sexperts">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -253,6 +256,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="4f5-9Y-L5Y" secondAttribute="trailing" constant="20" symbolic="YES" id="4rf-C7-JHa"/>
                             <constraint firstAttribute="trailing" secondItem="UBf-vV-Nuw" secondAttribute="trailing" constant="20" symbolic="YES" id="7py-vs-brg"/>
+                            <constraint firstItem="9Eu-rm-rmG" firstAttribute="height" secondItem="4f5-9Y-L5Y" secondAttribute="height" id="A3k-cp-CeU"/>
                             <constraint firstItem="lCY-JC-K7i" firstAttribute="top" secondItem="UBf-vV-Nuw" secondAttribute="bottom" constant="30" id="AXL-WQ-gKJ"/>
                             <constraint firstItem="4f5-9Y-L5Y" firstAttribute="leading" secondItem="Is8-Ag-tOU" secondAttribute="leading" constant="20" symbolic="YES" id="Bl9-Mf-YjD"/>
                             <constraint firstItem="4f5-9Y-L5Y" firstAttribute="height" secondItem="lCY-JC-K7i" secondAttribute="height" id="EtO-gk-c4z"/>
@@ -264,9 +268,11 @@
                             <constraint firstAttribute="trailing" secondItem="9Eu-rm-rmG" secondAttribute="trailing" constant="20" symbolic="YES" id="XNH-eV-g6b"/>
                             <constraint firstItem="UBf-vV-Nuw" firstAttribute="leading" secondItem="Is8-Ag-tOU" secondAttribute="leading" constant="20" symbolic="YES" id="d5M-zl-iqf"/>
                             <constraint firstItem="9Eu-rm-rmG" firstAttribute="top" secondItem="bDA-5V-j59" secondAttribute="bottom" constant="30" id="h9r-rr-baj"/>
+                            <constraint firstItem="9Eu-rm-rmG" firstAttribute="height" secondItem="lCY-JC-K7i" secondAttribute="height" id="jyQ-ic-Rg6"/>
                             <constraint firstItem="4f5-9Y-L5Y" firstAttribute="height" secondItem="9Eu-rm-rmG" secondAttribute="height" id="k5f-00-3eM"/>
                             <constraint firstAttribute="centerY" secondItem="4f5-9Y-L5Y" secondAttribute="centerY" id="ltZ-1N-jHq"/>
                             <constraint firstItem="eDe-Is-IPj" firstAttribute="centerY" secondItem="bDA-5V-j59" secondAttribute="centerY" id="qux-yA-xSG"/>
+                            <constraint firstItem="9Eu-rm-rmG" firstAttribute="height" secondItem="UBf-vV-Nuw" secondAttribute="height" id="spr-1I-t3a"/>
                             <constraint firstItem="eDe-Is-IPj" firstAttribute="leading" secondItem="bDA-5V-j59" secondAttribute="trailing" constant="8" symbolic="YES" id="wXj-Vn-O3s"/>
                             <constraint firstItem="lCY-JC-K7i" firstAttribute="leading" secondItem="Is8-Ag-tOU" secondAttribute="leading" constant="20" symbolic="YES" id="x2n-RZ-4V6"/>
                             <constraint firstAttribute="trailing" secondItem="eDe-Is-IPj" secondAttribute="trailing" constant="20" symbolic="YES" id="xU8-3Q-ZHl"/>
@@ -915,6 +921,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_advices" width="34" height="23"/>
+        <image name="ic_handcuffs" width="34" height="26"/>
+        <image name="ic_sexperts" width="17" height="20"/>
+        <image name="ic_smyle" width="26" height="26"/>
         <image name="logo_transparent" width="128" height="128"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
