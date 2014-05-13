@@ -47,6 +47,26 @@
     }
 }
 
+- (void) contentWasUnlocked: (NSNotification*) notification  {
+    self.blocked = NO;
+}
+
+#pragma mark - NSObject
+- (instancetype) initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder: aDecoder];
+    if( self ) {
+        [[NSNotificationCenter defaultCenter] addObserver: self
+                                                 selector: @selector(contentWasUnlocked:)
+                                                     name: ContentLockWasRemovedNotification
+                                                   object: nil];
+    }
+    return self;
+}
+
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
+}
+
 #pragma mark - UIViewController
 - (void)viewDidLoad
 {

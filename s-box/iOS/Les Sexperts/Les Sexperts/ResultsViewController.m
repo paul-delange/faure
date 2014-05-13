@@ -18,6 +18,8 @@
 
 #import "ResultsCollectionViewFlowLayout.h"
 
+#define GREEN_COLOR     [UIColor colorWithRed: 0 green: 0.5 blue: 0 alpha: 1.0]
+
 @interface ResultsViewController () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource> {
     NSInteger       _currentAnimatedCell;
 }
@@ -43,7 +45,7 @@
     self.title = NSLocalizedString(@"Results", @"");
     
     NSString* format = NSLocalizedString(@"Total %@", @"");
-    self.totalBarButtonItem.title = [NSString stringWithFormat: format, @"??"];
+    self.totalBarButtonItem.title = [NSString stringWithFormat: format, @"..."];
     //self.totalBarButtonItem.
     self.continueBarButtonItem.enabled = NO;
     self.collectionView.scrollEnabled = NO;
@@ -132,7 +134,7 @@
     
     if( answer.isCorrectValue ) {
         cell.detailTextLabel.text = answer.text;
-        cell.detailTextLabel.textColor = [UIColor greenColor];
+        cell.detailTextLabel.textColor = GREEN_COLOR;
     }
     else {
         Answer* correctAnswer = [question correctAnswer];
@@ -142,7 +144,7 @@
         NSRange correctRange = [string rangeOfString: correctAnswer.text];
         NSRange wrongRange = [string rangeOfString: answer.text];
         
-        NSDictionary* correctAttributes = @{ NSForegroundColorAttributeName : [UIColor greenColor]};
+        NSDictionary* correctAttributes = @{ NSForegroundColorAttributeName : GREEN_COLOR};
         NSDictionary* wrongAttributes = @{ NSForegroundColorAttributeName : [UIColor redColor], NSStrikethroughStyleAttributeName : @(NSUnderlinePatternSolid | NSUnderlineStyleThick) };
         
         [detailString addAttributes: correctAttributes range: correctRange];

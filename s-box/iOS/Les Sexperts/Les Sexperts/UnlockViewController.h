@@ -10,4 +10,6 @@
 
 @interface UnlockViewController : UIViewController
 
+@property (nonatomic, assign) BOOL canWatchVideo;
+
 @end

@@ -12,6 +12,8 @@
 #import "ContentLock.h"
 #import "ReceiptValidator.h"
 
+#import <AdColony/AdColony.h>
+
 @import StoreKit;
 
 typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
@@ -21,7 +23,7 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
     kUnlockFeatureTypeCount
 };
 
-@interface UnlockViewController () <UITableViewDataSource, UITableViewDelegate, SKPaymentTransactionObserver>
+@interface UnlockViewController () <UITableViewDataSource, UITableViewDelegate, SKPaymentTransactionObserver, AdColonyAdDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *titleImage;
@@ -29,14 +31,29 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
 @property (weak, nonatomic) IBOutlet UIButton *buyButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *restoreButton;
+@property (weak, nonatomic) IBOutlet UIButton *videoButton;
 
 @end
 
 @implementation UnlockViewController
 
+- (void) setCanWatchVideo:(BOOL)canWatchVideo {
+    _canWatchVideo = canWatchVideo;
+
+    if( [self isViewLoaded] && !_canWatchVideo )
+        self.videoButton.hidden = YES;
+}
+
 #pragma mark - Action
 - (IBAction)restorePushed:(id)sender {
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+}
+
+- (IBAction)videoPushed:(id)sender {
+    [AdColony playVideoAdForZone: @"vzd5640bc5e87746d083"
+                    withDelegate: self
+                withV4VCPrePopup: YES
+                andV4VCPostPopup: NO];
 }
 
 - (IBAction)buyPushed:(id)sender {
@@ -98,6 +115,20 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
     self.restoreButton.layer.cornerRadius = 10.;
     
     [self.restoreButton setTitle: NSLocalizedString(@"Restore", @"") forState: UIControlStateNormal];
+    
+    self.videoButton.layer.borderColor = [UIColor blackColor].CGColor;
+    self.videoButton.layer.borderWidth = 1.;
+    self.videoButton.layer.cornerRadius = 10.;
+    
+    [self.videoButton setTitle: NSLocalizedString(@"or watch a free video...", @"") forState: UIControlStateNormal];
+    
+    if( !self.canWatchVideo )
+        self.videoButton.hidden = YES;
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear: animated];
+    self.canWatchVideo = [AdColony isVirtualCurrencyRewardAvailableForZone: @"vzd5640bc5e87746d083"];
 }
 
 #pragma mark - UITableViewDataSource
@@ -189,5 +220,23 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
         
     }
 }
+
+#pragma mark - AdColonyAdDelegate
+- ( void ) onAdColonyAdStartedInZone:( NSString * )zoneID {
+    
+}
+
+- ( void ) onAdColonyAdAttemptFinished:(BOOL)shown inZone:( NSString * )zoneID {
+    if( shown ) {
+        NSUInteger count = [[NSUserDefaults standardUserDefaults] integerForKey: NSUserDefaultsAdviceAvailableCount];
+        count++;
+        [[NSUserDefaults standardUserDefaults] setInteger: count forKey: NSUserDefaultsAdviceAvailableCount];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [self mz_dismissFormSheetControllerAnimated: YES
+                                  completionHandler: NULL];
+    }
+}
+
 
 @end

@@ -12,11 +12,12 @@
 #import "Joke.h"
 #import "ContentLock.h"
 
-#import <AdColony/AdColony.h>
+#import "UnlockViewController.h"
+#import "MZFormSheetController.h"
 
 @import MessageUI;
 
-@interface JokePageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, MFMailComposeViewControllerDelegate, AdColonyAdDelegate> {
+@interface JokePageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, MFMailComposeViewControllerDelegate> {
     NSArray* _jokes;
     Joke*    _currentJoke;
 }
@@ -26,98 +27,9 @@
 @property (weak) UIBarButtonItem* shareButton;
 @property (weak, nonatomic) IBOutlet UILabel* counterLabel;
 
-@property (weak, nonatomic) IBOutlet UIView* blockedMessageView;
-
 @end
 
 @implementation JokePageViewController
-
-- (UIView*) blockedView {
-    
-    UIView* blockedBackground = [[UIView alloc] initWithFrame: CGRectMake(0, 0, 300, 180)];
-    blockedBackground.center = CGPointMake(160, CGRectGetMidY(self.view.bounds));
-    blockedBackground.backgroundColor = [UIColor blackColor];
-    blockedBackground.layer.borderColor = [[UIColor whiteColor] CGColor];
-    blockedBackground.layer.borderWidth = 2.;
-    blockedBackground.layer.cornerRadius = 10.;
-    
-    UIImageView* imageView = [[UIImageView alloc] initWithImage: [UIImage imageNamed: @"lock_icon"]];
-    imageView.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    UILabel* textLabel = [[UILabel alloc] initWithFrame: CGRectZero];
-    textLabel.backgroundColor = [UIColor clearColor];
-    textLabel.textColor = [UIColor whiteColor];
-    textLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    textLabel.text = NSLocalizedString(@"Blocked! To see this joke, you can:", @"");
-    textLabel.numberOfLines = 0;
-    textLabel.font = [UIFont fontWithName: @"American Typewriter" size: 20.];
-    
-    UIButton* videoButton = [UIButton buttonWithType: UIButtonTypeCustom];
-    [videoButton setTitle: NSLocalizedString(@"i. Watch a free video...", @"") forState: UIControlStateNormal];
-    [videoButton setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
-    [videoButton setTitleColor: [UIColor lightGrayColor] forState: UIControlStateHighlighted];
-    [videoButton addTarget: self action: @selector(videoPushed:) forControlEvents: UIControlEventTouchUpInside];
-    videoButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    videoButton.translatesAutoresizingMaskIntoConstraints = NO;
-    videoButton.titleLabel.adjustsFontSizeToFitWidth = YES;
-    [videoButton.titleLabel setFont: [UIFont fontWithName: @"American Typewriter" size: 15.]];
-    
-    UIButton* unlockButton = [UIButton buttonWithType: UIButtonTypeCustom];
-    [unlockButton setTitle: NSLocalizedString(@"ii. Unlock the app...", @"") forState: UIControlStateNormal];
-    [unlockButton setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
-    [unlockButton setTitleColor: [UIColor lightGrayColor] forState: UIControlStateHighlighted];
-    [unlockButton addTarget: self action: @selector(unlockPushed:) forControlEvents: UIControlEventTouchUpInside];
-    unlockButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [unlockButton.titleLabel setFont: [UIFont fontWithName: @"American Typewriter" size: 15.]];
-    unlockButton.translatesAutoresizingMaskIntoConstraints = NO;
-    unlockButton.titleLabel.adjustsFontSizeToFitWidth = YES;
-    
-    [blockedBackground addSubview: imageView];
-    [blockedBackground addSubview: textLabel];
-    [blockedBackground addSubview: videoButton];
-    [blockedBackground addSubview: unlockButton];
-    
-    [blockedBackground addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"H:|-[imageView]-[textLabel]-|"
-                                                                               options: 0
-                                                                               metrics: nil
-                                                                                 views: NSDictionaryOfVariableBindings(imageView, textLabel)]];
-    [blockedBackground addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"V:|-[imageView]"
-                                                                               options: 0
-                                                                               metrics: nil
-                                                                                 views: NSDictionaryOfVariableBindings(imageView)]];
-    [blockedBackground addConstraint: [NSLayoutConstraint constraintWithItem: textLabel
-                                                                    attribute: NSLayoutAttributeCenterY
-                                                                   relatedBy: NSLayoutRelationEqual
-                                                                      toItem: imageView
-                                                                   attribute: NSLayoutAttributeCenterY
-                                                                  multiplier: 1.
-                                                                    constant: 0.]];
-    [blockedBackground addConstraint: [NSLayoutConstraint constraintWithItem: imageView
-                                                                   attribute: NSLayoutAttributeHeight
-                                                                   relatedBy: NSLayoutRelationEqual
-                                                                      toItem: imageView
-                                                                   attribute: NSLayoutAttributeWidth
-                                                                  multiplier: 1.0
-                                                                    constant: 0.0]];
-    [blockedBackground addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"H:|-[videoButton]-|"
-                                                                               options: 0
-                                                                               metrics: nil
-                                                                                 views: NSDictionaryOfVariableBindings(videoButton)]];
-    [blockedBackground addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"V:[imageView]-[videoButton]"
-                                                                               options: 0
-                                                                               metrics: nil
-                                                                                 views: NSDictionaryOfVariableBindings(imageView, videoButton)]];
-    [blockedBackground addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"H:|-[unlockButton]-|"
-                                                                               options: 0
-                                                                               metrics: nil
-                                                                                 views: NSDictionaryOfVariableBindings(unlockButton)]];
-    [blockedBackground addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"V:[videoButton]-[unlockButton]"
-                                                                               options: 0
-                                                                               metrics: nil
-                                                                                 views: NSDictionaryOfVariableBindings(unlockButton, videoButton)]];
-    
-    return blockedBackground;
-}
 
 #pragma mark - Actions
 - (IBAction) addPushed:(id)sender {
@@ -176,45 +88,6 @@
         [self setViewControllers: @[previousVC] direction: UIPageViewControllerNavigationDirectionReverse animated: YES completion: NULL];
         [self pageViewController: self willTransitionToViewControllers: @[previousVC]];
     }
-}
-
-- (IBAction) videoPushed:(id)sender {
-    [AdColony playVideoAdForZone: @"vz51c5cf827bd54c548a"
-                    withDelegate: self
-                withV4VCPrePopup: YES
-                andV4VCPostPopup: YES];
-}
-
-- (IBAction) unlockPushed:(id)sender {
-    BOOL tryingToUnlock = [ContentLock unlockWithCompletion: ^(NSError *error) {
-        if( error ) {
-            DLogError(error);
-        }
-        else {
-            NSParameterAssert(![ContentLock tryLock]);
-            [UIView transitionWithView: self.view
-                              duration: 0.3
-                               options: UIViewAnimationOptionCurveEaseInOut
-                            animations: ^{
-                                [self.blockedMessageView removeFromSuperview];
-                                for(JokeViewController* jokeVC in self.viewControllers) {
-                                    jokeVC.blocked = NO;
-                                }
-                            } completion: NULL];
-        }
-    }];
-    
-    if( !tryingToUnlock ) {
-        NSString* title = NSLocalizedString(@"Purchases disabled", @"");
-        NSString* msg = NSLocalizedString(@"You must enable In-App Purchases in your device Settings app (General > Restrictions > In-App Purchases)", @"");
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
-                                                        message: msg
-                                                       delegate: nil
-                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
-                                              otherButtonTitles: nil];
-        [alert show];
-    }
-
 }
 
 #pragma mark - NSObject
@@ -365,26 +238,21 @@
     self.shareButton.enabled = !jokeVC.blocked;
     NSLog(@"Blocked: %d", jokeVC.blocked);
     
-    if( jokeVC.blocked && !self.blockedMessageView ) {
-        UIView* msgView = [self blockedView];
-        [UIView transitionWithView: self.view
-                          duration: 0.3
-                           options: UIViewAnimationOptionCurveEaseIn
-                        animations: ^{
-                            [self.view addSubview: msgView];
-                        } completion:^(BOOL finished) {
-                            self.blockedMessageView = msgView;
-                        }];
-    }
-    else if( !jokeVC.blocked ) {
-        [UIView transitionWithView: self.view
-                          duration: 0.3
-                           options: UIViewAnimationOptionCurveEaseOut
-                        animations: ^{
-                            [self.blockedMessageView removeFromSuperview];
-                        } completion:^(BOOL finished) {
-                            self.blockedMessageView = nil;
-                        }];
+    if( jokeVC.blocked && !self.formSheetController ) {
+        UnlockViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier: @"UnlockViewController"];
+        
+        
+        MZFormSheetController* formSheet = [[MZFormSheetController alloc] initWithViewController: vc];
+        formSheet.transitionStyle = MZFormSheetTransitionStyleFade;
+        formSheet.presentedFormSheetSize = CGSizeMake(300., 360.);
+        formSheet.didTapOnBackgroundViewCompletionHandler = ^(CGPoint location) {
+            [self mz_dismissFormSheetControllerAnimated: YES completionHandler: NULL];
+        };
+        [self mz_presentFormSheetController: formSheet
+                                   animated: YES
+                          completionHandler: ^(MZFormSheetController* controller) {
+                              vc.canWatchVideo = NO;
+                          }];
     }
     
     if( [_currentJoke isEqual: [_jokes lastObject]] ) {
@@ -402,29 +270,6 @@
 #pragma mark - MFMailComposeViewControllerDelegate
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     [self dismissViewControllerAnimated: YES completion: NULL];
-}
-
-#pragma mark - AdColonyAdDelegate
-- ( void ) onAdColonyAdStartedInZone:( NSString * )zoneID {
-    
-}
-
-- ( void ) onAdColonyAdAttemptFinished:(BOOL)shown inZone:( NSString * )zoneID {
-    if( shown ) {
-        [UIView transitionWithView: self.view
-                          duration: 0.3
-                           options: UIViewAnimationOptionCurveEaseOut
-                        animations: ^{
-                            [self.blockedMessageView removeFromSuperview];
-                            
-                            for(JokeViewController* jokeVC in self.viewControllers) {
-                                if( [jokeVC.joke isEqual: _currentJoke] ) {
-                                    jokeVC.blocked = NO;
-                                }
-                            }
-                            
-                        } completion: NULL];
-    }
 }
 
 @end

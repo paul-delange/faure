@@ -144,7 +144,63 @@
         }
     }
     else if( [serviceType isEqualToString: SLServiceTypeFacebook] ) {
+        NSString* format = @"%@";
+        NSString* msg;
         
+        if( question.unit ) {
+            format = NSLocalizedString(@"%@ (%@)", @"775 (Km)");
+            msg = [NSString localizedStringWithFormat: format, [question formattedAnswerString], question.unit];
+        }
+        else {
+            msg = [NSString localizedStringWithFormat: format, [question formattedAnswerString]];
+        }
+        
+        FBLinkShareParams *params = [[FBLinkShareParams alloc] init];
+        params.link = [NSURL URLWithString:@"https://developers.facebook.com/docs/ios/share/"];
+        params.name = kAppName();
+        params.caption = question.text;
+        params.description = msg;
+        
+        // If the Facebook app is installed and we can present the share dialog
+        if ([FBDialogs canPresentShareDialogWithParams:params]) {
+            [FBDialogs presentShareDialogWithLink:params.link
+                                          handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                                              if(error) {
+                                                  // An error occurred, we need to handle the error
+                                                  // See: https://developers.facebook.com/docs/ios/errors
+                                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                                      completion(error);
+                                                  });
+                                                  DLogError(error);
+                                              } else {
+                                                  // Success
+                                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                                      completion(nil);
+                                                  });
+                                              }
+                                          }];
+        } else {
+            NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                         params.name, @"name",
+                                         params.caption, @"caption",
+                                         params.description, @"description",
+                                         [params.link absoluteString], @"link",
+                                         nil];
+            
+            // Show the feed dialog
+            [FBWebDialogs presentFeedDialogModallyWithSession:nil
+                                                   parameters: dict
+                                                      handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
+                                                          
+                                                          // If an error occurred, we need to handle the error
+                                                          // See: https://developers.facebook.com/docs/ios/errors
+                                                          dispatch_async(dispatch_get_main_queue(), ^{
+                                                              completion(error);
+                                                          });
+                                                          DLogError(error);
+                                                          
+                                                      }];
+        }
     }
 }
 
@@ -226,13 +282,20 @@
     else if( [serviceType isEqualToString: SLServiceTypeFacebook] ) {
         //https://developers.facebook.com/docs/reference/opengraph/action-type/og.follows
         
-        /*NSDictionary* params = @{ @"profile" : @"pageURL" };
-         [FBRequestConnection startWithGraphPath:@"/me/og.follows"
-         parameters:params
-         HTTPMethod:@"POST"
-         completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-         
-         }]; */
+        NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                                @"http://samples.ogp.me/390580850990722", @"profile",
+                                nil
+                                ];
+        /* make the API call */
+        [FBRequestConnection startWithGraphPath:@"/me/og.follows"
+                                     parameters:params
+                                     HTTPMethod:@"POST"
+                              completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                      completion(error);
+                                  });
+                                  DLogError(error);
+                              }];
     }
 }
 

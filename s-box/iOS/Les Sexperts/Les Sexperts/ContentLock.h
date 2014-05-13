@@ -11,6 +11,7 @@
 typedef void (^kContentLockRemovedHandler)(NSError* error);
 
 extern NSString * ContentLockWasRemovedNotification;
+extern NSString * const NSUserDefaultsAdviceAvailableCount;
 
 @interface ContentLock : NSObject
 

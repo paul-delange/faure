@@ -55,7 +55,7 @@
     }
     
     [AdColony configureWithAppID: @"app62e13e977a034655a5"
-                         zoneIDs: @[@"vzd5640bc5e87746d083", @"vz51c5cf827bd54c548a"]
+                         zoneIDs: @[@"vzd5640bc5e87746d083"]
                         delegate: self
 #if DEBUG
                          logging: YES];

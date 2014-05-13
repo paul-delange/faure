@@ -690,7 +690,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qV-i1-XQq">
-                                <rect key="frame" x="20" y="530" width="280" height="30"/>
+                                <rect key="frame" x="20" y="468" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button">
@@ -700,8 +700,19 @@
                                     <action selector="buyPushed:" destination="soy-30-8TR" eventType="touchUpInside" id="zo1-it-kKr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggk-jQ-Lxx">
+                                <rect key="frame" x="20" y="518" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="videoPushed:" destination="soy-30-8TR" eventType="touchUpInside" id="3hh-1s-kPD"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uCe-na-ft8">
-                                <rect key="frame" x="20" y="86" width="280" height="436"/>
+                                <rect key="frame" x="20" y="86" width="280" height="374"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -736,7 +747,7 @@
                                 </connections>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hWb-EE-3rO">
-                                <rect key="frame" x="150" y="535" width="20" height="20"/>
+                                <rect key="frame" x="150" y="473" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12F-Kl-IYd">
@@ -757,6 +768,7 @@
                         <constraints>
                             <constraint firstItem="12F-Kl-IYd" firstAttribute="leading" secondItem="UWY-ny-MQZ" secondAttribute="trailing" constant="8" symbolic="YES" id="2v5-rb-wuq"/>
                             <constraint firstItem="6qV-i1-XQq" firstAttribute="leading" secondItem="ri8-Xu-soQ" secondAttribute="leading" constant="20" symbolic="YES" id="6lj-Qv-cCb"/>
+                            <constraint firstItem="ggk-jQ-Lxx" firstAttribute="top" secondItem="6qV-i1-XQq" secondAttribute="bottom" constant="20" id="Hhw-Ub-ay6"/>
                             <constraint firstItem="6qV-i1-XQq" firstAttribute="centerX" secondItem="hWb-EE-3rO" secondAttribute="centerX" id="LCa-1I-AVq"/>
                             <constraint firstItem="uCe-na-ft8" firstAttribute="top" secondItem="LFC-KP-kPY" secondAttribute="bottom" constant="8" symbolic="YES" id="Mzc-VB-KmT"/>
                             <constraint firstItem="UWY-ny-MQZ" firstAttribute="leading" secondItem="LFC-KP-kPY" secondAttribute="trailing" constant="8" symbolic="YES" id="NLQ-Oz-hQB"/>
@@ -769,8 +781,10 @@
                             <constraint firstItem="6qV-i1-XQq" firstAttribute="centerY" secondItem="hWb-EE-3rO" secondAttribute="centerY" id="gSM-UB-Efu"/>
                             <constraint firstAttribute="trailing" secondItem="uCe-na-ft8" secondAttribute="trailing" constant="20" symbolic="YES" id="l3c-G6-VNm"/>
                             <constraint firstItem="LFC-KP-kPY" firstAttribute="leading" secondItem="ri8-Xu-soQ" secondAttribute="leading" constant="20" symbolic="YES" id="p6K-sE-Scl"/>
-                            <constraint firstItem="v2u-EW-67r" firstAttribute="top" secondItem="6qV-i1-XQq" secondAttribute="bottom" constant="20" symbolic="YES" id="sJQ-0u-kEf"/>
                             <constraint firstItem="LFC-KP-kPY" firstAttribute="top" secondItem="xNJ-Ha-PqY" secondAttribute="bottom" constant="20" symbolic="YES" id="sep-iV-Rg9"/>
+                            <constraint firstItem="ggk-jQ-Lxx" firstAttribute="leading" secondItem="ri8-Xu-soQ" secondAttribute="leading" constant="20" id="trq-lr-fsP"/>
+                            <constraint firstItem="v2u-EW-67r" firstAttribute="top" secondItem="ggk-jQ-Lxx" secondAttribute="bottom" constant="20" id="vow-fL-ugf"/>
+                            <constraint firstAttribute="trailing" secondItem="ggk-jQ-Lxx" secondAttribute="trailing" constant="20" id="w5w-pl-bfz"/>
                             <constraint firstItem="LFC-KP-kPY" firstAttribute="top" secondItem="UWY-ny-MQZ" secondAttribute="top" id="wiz-O9-6va"/>
                         </constraints>
                     </view>
@@ -781,6 +795,7 @@
                         <outlet property="tableView" destination="uCe-na-ft8" id="FM5-it-E17"/>
                         <outlet property="titleImage" destination="LFC-KP-kPY" id="2Fr-pV-xwu"/>
                         <outlet property="titleLabel" destination="UWY-ny-MQZ" id="RgD-Ix-n62"/>
+                        <outlet property="videoButton" destination="ggk-jQ-Lxx" id="SOO-Pw-lP4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvd-wG-WCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
