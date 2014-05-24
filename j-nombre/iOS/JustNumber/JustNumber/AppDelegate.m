@@ -12,9 +12,14 @@
 
 #import "LifeBank.h"
 #import "ContentLock.h"
+#import "ReceiptValidator.h"
 
 #import <AdColony/AdColony.h>
 #import <FacebookSDK/FacebookSDK.h>
+
+@import StoreKit;
+
+#define kAlertViewTagMustGetReceipt 444
 
 NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
     AppDelegate* del = (AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -22,7 +27,7 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
     return stack.mainQueueManagedObjectContext;
 }
 
-@interface AppDelegate () <AdColonyDelegate>
+@interface AppDelegate () <AdColonyDelegate, UIAlertViewDelegate>
 
 @end
 
@@ -51,6 +56,17 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
 #endif
     }
     
+    NSURL* receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
+    if( !isValidReceipt(receiptURL) ) {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"Not Verified"
+                                                        message: @"This version of the app was not downloaded from the app store. Please push OK to verify the app with your Apple account. Make sure it is a Sandbox account!"
+                                                       delegate: self
+                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                              otherButtonTitles:  nil];
+        alert.tag = kAlertViewTagMustGetReceipt;
+        [alert show];
+    }
+    
     return YES;
 }
 
@@ -73,6 +89,25 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
 
 - ( void ) onAdColonyV4VCReward:(BOOL)success currencyName:(NSString*)currencyName currencyAmount:(int)amount inZone:(NSString*)zoneID {
     [LifeBank addLives: amount];
+}
+
+#pragma mark - SKRequestDelegate
+- (void)requestDidFinish:(SKRequest *)request {
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"All Done"
+                                                    message: @"Great! Now you can continue."
+                                                   delegate: nil
+                                          cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                          otherButtonTitles: nil];
+    [alert show];
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if( alertView.tag == kAlertViewTagMustGetReceipt ) {
+        SKReceiptRefreshRequest* refresh = [[SKReceiptRefreshRequest alloc] initWithReceiptProperties: nil];
+        refresh.delegate = (id<SKRequestDelegate>)self;
+        [refresh start];
+    }
 }
 
 @end

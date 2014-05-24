@@ -48,7 +48,7 @@
         case NSOrderedAscending:
         {
             if( [self.unitString length] )
-                guessLabel.text = [NSString localizedStringWithFormat: NSLocalizedString(@"It's more than %@%@", @""), formattedNumber, self.unitString];
+                guessLabel.text = [NSString localizedStringWithFormat: NSLocalizedString(@"It's more than %@ %@", @""), formattedNumber, self.unitString];
             else
                 guessLabel.text = [NSString localizedStringWithFormat: NSLocalizedString(@"It's more than %@", @""), formattedNumber];
             break;
@@ -56,7 +56,7 @@
         case NSOrderedDescending:
         {
             if( [self.unitString length] )
-                guessLabel.text = [NSString localizedStringWithFormat: NSLocalizedString(@"It's less than %@%@", @""), formattedNumber, self.unitString];
+                guessLabel.text = [NSString localizedStringWithFormat: NSLocalizedString(@"It's less than %@ %@", @""), formattedNumber, self.unitString];
             else
                 guessLabel.text = [NSString localizedStringWithFormat: NSLocalizedString(@"It's less than %@", @""), formattedNumber];
             break;

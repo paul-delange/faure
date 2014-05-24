@@ -17,6 +17,9 @@
 
 #import <AdColony/AdColony.h>
 
+#import "UIImage+ImageEffects.h"
+#import "SKProduct+LocalizedPrice.h"
+
 @import StoreKit;
 
 //zone id:  vz153675589c3349788c
@@ -30,9 +33,15 @@
 @property (weak, nonatomic) IBOutlet UIButton *buyButton;
 @property (weak, nonatomic) IBOutlet UIButton *videoButton;
 @property (weak, nonatomic) IBOutlet UIButton *unlockButton;
+@property (weak, nonatomic) IBOutlet UIButton *restorePushed;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *buyTransactionWaiting;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *unlockWaiting;
 @property (weak, nonatomic) IBOutlet LifeCountView *lifeCountView;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UILabel *premiumBenefitLabel;
+@property (weak, nonatomic) IBOutlet UILabel *becomePremiumLabel;
+@property (weak, nonatomic) IBOutlet UIView *premiumBoxView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *unlockActivityIndicator;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *restoreActivityIndicator;
 
 @end
 
@@ -44,9 +53,16 @@
 }
 
 #pragma mark - Actions
+- (IBAction)restorePushed:(UIButton *)sender {
+    self.restorePushed.hidden = YES;
+    [self.restoreActivityIndicator startAnimating];
+    
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+}
+
 - (IBAction)unlockPushed:(id)sender {
     self.unlockButton.hidden = YES;
-    [self.unlockWaiting startAnimating];
+    [self.unlockActivityIndicator startAnimating];
     
     if( ![ContentLock unlockWithCompletion: ^(NSError *error) {
         
@@ -57,7 +73,7 @@
         DLogError(error);
         
         self.unlockButton.hidden = NO;
-        [self.unlockWaiting stopAnimating];
+        [self.unlockActivityIndicator stopAnimating];
         
     }]) {
         NSString* title = NSLocalizedString(@"Store not available", @"");
@@ -70,28 +86,16 @@
         [alert show];
         
         self.unlockButton.hidden = NO;
-        [self.unlockWaiting stopAnimating];
+        [self.unlockActivityIndicator stopAnimating];
     }
 }
 
 
 - (IBAction)videoPushed:(id)sender {
-    if( [AdColony isVirtualCurrencyRewardAvailableForZone: @"vz153675589c3349788c"] ) {
     [AdColony playVideoAdForZone: @"vz153675589c3349788c"
                     withDelegate: self
                 withV4VCPrePopup: YES
                 andV4VCPostPopup: NO];
-    }
-    else {
-        NSString* title = NSLocalizedString(@"Not yet!", @"");
-        NSString* msg = NSLocalizedString(@"There is no video available. Check your internet connection and remember only ten videos per day!", @"");
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
-                                                        message: msg
-                                                       delegate: nil
-                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
-                                              otherButtonTitles: nil];
-        [alert show];
-    }
 }
 
 
@@ -112,10 +116,11 @@
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder: aDecoder];
     if( self) {
+        
 #if !TARGET_IPHONE_SIMULATOR
         [[SKPaymentQueue defaultQueue] addTransactionObserver: self];
         
-        NSSet* productIdentifiers = [NSSet setWithObject: @"extra_lives"];
+        NSSet* productIdentifiers = [NSSet setWithObjects: @"extra_lives", kContentUnlockProductIdentifier, nil];
         SKProductsRequest* productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers: productIdentifiers];
         productsRequest.delegate = self;
         [productsRequest start];
@@ -136,6 +141,10 @@
 
 #pragma mark - UIViewController
 - (void) viewDidLoad {
+    UIImage* blurred = [self.backgroundImageView.image applyDarkEffect];
+    UIImage* template = [blurred imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate];
+    self.backgroundImageView.image = template;
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: nil style: UIBarButtonItemStylePlain target: nil action: nil];
     
     self.title = [NSString localizedStringWithFormat: NSLocalizedString(@"Level %@", @""), [Level currentLevel].identifier];
@@ -150,6 +159,25 @@
     UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithCustomView: countView];
     self.navigationItem.rightBarButtonItem = item;
     self.lifeCountView = countView;
+    
+    self.becomePremiumLabel.text = NSLocalizedString(@"or become a Premium member", @"");
+    self.premiumBenefitLabel.text = NSLocalizedString(@"✓ UNLIMITED lives\n✓ NO advertisements", @"");
+    [self.unlockButton setTitle: NSLocalizedString(@"Go Premium!", @"") forState: UIControlStateNormal];
+    self.premiumBoxView.layer.cornerRadius = 5.;
+    
+    NSArray* buttons = @[self.buyButton, self.videoButton, self.unlockButton, self.restorePushed];
+    for(UIButton* button in buttons) {
+        button.backgroundColor = [UIColor whiteColor];
+        button.layer.cornerRadius = 5.f;
+        button.layer.borderColor = [[UIColor blackColor] CGColor];
+        button.layer.borderWidth = 1.;
+    }
+    
+    [self.videoButton setTitle: NSLocalizedString(@"...try again later", @"") forState: UIControlStateDisabled];
+    [self.videoButton setTitle: NSLocalizedString(@"Get 10 free lives", @"") forState: UIControlStateNormal];
+    [self.restorePushed setTitle: NSLocalizedString(@"Resore previous Purchase", @"") forState: UIControlStateNormal];
+    
+    self.videoButton.enabled = [AdColony isVirtualCurrencyRewardAvailableForZone: @"vz153675589c3349788c"];
 }
 
 #pragma mark - SKPaymentTransactionObserver
@@ -164,6 +192,14 @@
                 
                 self.buyButton.hidden = NO;
                 [self.buyTransactionWaiting stopAnimating];
+                [queue finishTransaction: transaction];
+                break;
+            }
+            case SKPaymentTransactionStateRestored:
+            {
+                [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
+                
+                [self.navigationController popViewControllerAnimated: YES];
                 [queue finishTransaction: transaction];
                 break;
             }
@@ -190,12 +226,61 @@
     }
 }
 
+- (void) paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {
+    if( [ContentLock tryLock] ) {
+        self.restorePushed.hidden = NO;
+        [self.restoreActivityIndicator stopAnimating];
+        
+        NSString* msg = NSLocalizedString(@"No purchases found. Please use the Premium button above.", @"");
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: nil
+                                                        message: msg
+                                                       delegate: nil
+                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                              otherButtonTitles: nil];
+        [alert show];
+    }
+    else {
+        [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
+        [self performSegueWithIdentifier: @"UnwindToGame" sender: nil];
+        [self.restoreActivityIndicator stopAnimating];
+    }
+}
+
+- (void) paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error {
+    NSString* title = NSLocalizedString(@"Restore failed", @"");
+    NSString* message = [error localizedDescription];
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
+                                                    message: message
+                                                   delegate: nil
+                                          cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                          otherButtonTitles: nil];
+    [alert show];
+    
+    self.restorePushed.hidden = NO;
+    [self.restoreActivityIndicator stopAnimating];
+}
+
 #pragma mark - SKProductsRequestDelegate
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
-    _product = response.products.lastObject;
     
-    if( _product )
+    for(SKProduct* product in response.products) {
+        if( [product.productIdentifier isEqualToString: kContentUnlockProductIdentifier] ) {
+            NSString* price = [product localizedPrice];
+            NSString* title = [NSString localizedStringWithFormat: NSLocalizedString(@"Go Premium! (%@)", @""), price];
+            [self.unlockButton setTitle: title forState: UIControlStateNormal];
+        }
+        else if([product.productIdentifier isEqualToString: @"extra_lives"] ) {
+            _product = product;
+        }
+    }
+    
+    if( _product ) {
         self.buyButton.enabled = YES;
+        
+        NSString* price = [_product localizedPrice];
+        NSString* title = [NSString localizedStringWithFormat: NSLocalizedString(@"+200 lives (%@)", @""), price];
+        [self.buyButton setTitle: title forState: UIControlStateNormal];
+    }
 }
 
 #pragma mark - AdColonyAdDelegate

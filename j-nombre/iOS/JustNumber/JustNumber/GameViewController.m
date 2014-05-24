@@ -196,7 +196,7 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
             NSString* msg;
             
             if( question.unit ) {
-                format = NSLocalizedString(@"%@...\n%@ (%@)", @"The distance between Paris & Marseille...\n775 (Km)");
+                format = NSLocalizedString(@"%@...\n%@ %@", @"The distance between Paris & Marseille...\n775 (Km)");
                 msg = [NSString localizedStringWithFormat: format, question.text, [question formattedAnswerString], question.unit];
             }
             else {

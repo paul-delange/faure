@@ -58,8 +58,10 @@ NSString * ContentLockWasRemovedNotification = @"ContentLockRemoved";
 }
 
 #pragma mark - NSObject
-+ (void) initialize {
-    [[SKPaymentQueue defaultQueue] addTransactionObserver: (id<SKPaymentTransactionObserver>)self];
++ (void) load {
+    @autoreleasepool {
+        [[SKPaymentQueue defaultQueue] addTransactionObserver: (id<SKPaymentTransactionObserver>)self];
+    }
 }
 
 #pragma mark - SKProductsRequestDelegate
