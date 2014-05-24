@@ -218,6 +218,8 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
 #pragma mark - UIViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
 }
 
 - (void) viewWillAppear:(BOOL)animated {

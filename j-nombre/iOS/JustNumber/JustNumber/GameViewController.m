@@ -21,6 +21,8 @@
 #import "LifeCountView.h"
 #import "GuessView.h"
 
+#import "UIImage+ImageEffects.h"
+
 #define kAlertViewCorrectTag    914
 #define kAlertViewHelpTag       915
 #define kAlertViewHelpExpTag    918
@@ -38,6 +40,7 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak) IBOutlet LifeCountView* lifeCountView;
 @property (weak, nonatomic) IBOutlet GuessView *guessView;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @end
 
@@ -57,12 +60,12 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
     self.inputView.unitString = question.unit;
     self.inputView.automaticallyFormatsInput = question.formatsValue;
     
-    
     self.okButton.enabled = NO;
     self.title = [NSString localizedStringWithFormat: NSLocalizedString(@"Level %@", @""), self.level.identifier];
     
     self.guessView.actualValue = question.answer;
     self.guessView.automaticallyFormatsInput = question.formatsValue;
+    self.guessView.unitString = question.unit;
     
     DLog(@"Ans: %@", question.answer);
 }
@@ -243,6 +246,10 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
     
     NSParameterAssert(self.level);
     
+    UIImage* blurred = [self.backgroundImageView.image applyDarkEffect];
+    UIImage* template = [blurred imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate];
+    self.backgroundImageView.image = template;
+    
     Question* question = [self.level nextQuestion];
     [self updateWithQuestion: question animated: NO];
     
@@ -250,6 +257,11 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
     UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithCustomView: countView];
     self.navigationItem.rightBarButtonItems = @[self.navigationItem.rightBarButtonItem, item];
     self.lifeCountView = countView;
+    
+    for(UIView* v in self.numberButtons) {
+        v.layer.cornerRadius = 5.;
+    }
+    self.okButton.layer.cornerRadius = 5.;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -263,11 +275,12 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear: animated];
-    
-    //For some reason becomeFirstResponder fails sometimes on viewWillAppear:
-    // It looks better there, but catch here if things failed
-    if( ![self.inputView isFirstResponder] )
-        [self.inputView becomeFirstResponder];
+    [self.inputView becomeFirstResponder];
+}
+
+- (void) viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    [self.inputView becomeFirstResponder];
 }
 
 #pragma mark - UITextFieldDelegate

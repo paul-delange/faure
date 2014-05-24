@@ -29,7 +29,7 @@
 - (void) setCount:(NSInteger)count {
     
     if( count < self.count ) {
-        CABasicAnimation* rotationAnimation;
+        /*CABasicAnimation* rotationAnimation;
         rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
         rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI_4 ];
         rotationAnimation.duration = 0.15;
@@ -37,6 +37,7 @@
         rotationAnimation.cumulative = YES;
         
         [self.imageView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+        */
         
         CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"shadowOpacity"];
         anim.fromValue = [NSNumber numberWithFloat:0.0];
@@ -82,14 +83,17 @@
 - (void) commonInit {
     _count = [LifeBank count];
     
-    UIImageView* imageView =[[UIImageView alloc] initWithImage: [UIImage imageNamed: @"lives"]];
+    UIImage* lifeImage = [UIImage imageNamed: @"lives"];
+    
+    UIImageView* imageView =[[UIImageView alloc] initWithImage: [lifeImage imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate]];
     imageView.translatesAutoresizingMaskIntoConstraints = NO;
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     UILabel* label = [[UILabel alloc] initWithFrame: CGRectZero];
     label.translatesAutoresizingMaskIntoConstraints = NO;
     label.backgroundColor = [UIColor clearColor];
-    label.textColor = [UIColor blackColor];
+    label.textColor = [UIColor whiteColor];
+    
     if( [ContentLock tryLock] ) {
         label.text = [@(_count) stringValue];
     }

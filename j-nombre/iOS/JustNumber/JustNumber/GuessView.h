@@ -12,6 +12,7 @@
 
 @property (assign, nonatomic) BOOL automaticallyFormatsInput;
 @property (strong, nonatomic) NSNumber* actualValue;
+@property (copy, nonatomic) NSString * unitString;
 
 - (void) addGuess: (NSNumber*) guessValue animated: (BOOL) animated;
 

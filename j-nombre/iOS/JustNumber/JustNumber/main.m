@@ -11,7 +11,9 @@
 #import "AppDelegate.h"
 
 NSString * const kAppName() {
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey: (id)kCFBundleNameKey];
+    
+    NSDictionary* info = [[NSBundle mainBundle] localizedInfoDictionary];
+    return [info objectForKey: (id)kCFBundleNameKey];
 }
 
 NSString * const kAppStoreURL(void) {

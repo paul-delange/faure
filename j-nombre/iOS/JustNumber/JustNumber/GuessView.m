@@ -32,10 +32,13 @@
     [_guesses addObject: guessValue];
     
     UILabel* guessLabel = [[UILabel alloc] initWithFrame: CGRectZero];
-    guessLabel.font = [UIFont preferredFontForTextStyle: UIFontTextStyleBody];
+    guessLabel.font = [UIFont systemFontOfSize: 15];
     guessLabel.textAlignment = NSTextAlignmentCenter;
     guessLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     guessLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    guessLabel.textColor = [UIColor whiteColor];
+    guessLabel.shadowColor = self.tintColor;
+    guessLabel.shadowOffset = CGSizeMake(1, 1);
     
     NSString* formattedNumber = self.automaticallyFormatsInput ?
     [self.numberFormatter stringFromNumber: guessValue] :
@@ -44,12 +47,18 @@
     switch ([guessValue compare: self.actualValue]) {
         case NSOrderedAscending:
         {
-            guessLabel.text = [NSString localizedStringWithFormat: NSLocalizedString(@"It's more than %@", @""), formattedNumber];
+            if( [self.unitString length] )
+                guessLabel.text = [NSString localizedStringWithFormat: NSLocalizedString(@"It's more than %@%@", @""), formattedNumber, self.unitString];
+            else
+                guessLabel.text = [NSString localizedStringWithFormat: NSLocalizedString(@"It's more than %@", @""), formattedNumber];
             break;
         }
         case NSOrderedDescending:
         {
-            guessLabel.text = [NSString localizedStringWithFormat: NSLocalizedString(@"It's less than %@", @""), formattedNumber];
+            if( [self.unitString length] )
+                guessLabel.text = [NSString localizedStringWithFormat: NSLocalizedString(@"It's less than %@%@", @""), formattedNumber, self.unitString];
+            else
+                guessLabel.text = [NSString localizedStringWithFormat: NSLocalizedString(@"It's less than %@", @""), formattedNumber];
             break;
         }
         default:
@@ -93,11 +102,10 @@
         lastGuessView = guessView;
         
         NSUInteger i = totalGuesses - idx;
-        CGFloat scale = 1. - .05*i;
-        CGFloat color = 0. + .1*i;
+        CGFloat scale = 1. - .1*i;
         
         guessView.transform = CGAffineTransformMakeScale(scale, scale);
-        guessView.textColor = [UIColor colorWithWhite: color alpha: 1. - 0.1*i];
+        guessView.textColor = [UIColor colorWithWhite: 1 alpha: 1. - 0.25*i];
     }];
     
     NSLayoutConstraint* finalConstant = [NSLayoutConstraint constraintWithItem: lastGuessView

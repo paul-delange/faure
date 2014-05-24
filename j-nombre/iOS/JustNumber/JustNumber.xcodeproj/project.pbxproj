@@ -30,6 +30,7 @@
 		FD3BB6D3190CEF5D008D8798 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BB6D2190CEF5D008D8798 /* MobileCoreServices.framework */; };
 		FD3BB6D5190CEF67008D8798 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BB6D4190CEF67008D8798 /* CFNetwork.framework */; };
 		FD3BB6D7190CEF8D008D8798 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BB6D6190CEF8D008D8798 /* SystemConfiguration.framework */; };
+		FD5F2F8F19300D7200266546 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F2F8E19300D7200266546 /* UIImage+ImageEffects.m */; };
 		FDA0DF811906773E009F5541 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA0DF801906773E009F5541 /* Foundation.framework */; };
 		FDA0DF831906773E009F5541 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA0DF821906773E009F5541 /* CoreGraphics.framework */; };
 		FDA0DF851906773E009F5541 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA0DF841906773E009F5541 /* UIKit.framework */; };
@@ -109,6 +110,8 @@
 		FD3BB6D2190CEF5D008D8798 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		FD3BB6D4190CEF67008D8798 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		FD3BB6D6190CEF8D008D8798 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FD5F2F8D19300D7200266546 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "JustNumber/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		FD5F2F8E19300D7200266546 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "JustNumber/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		FD9B21D81913828500D6129A /* UIApplication+Versioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Versioning.h"; sourceTree = "<group>"; };
 		FD9B21D91913828500D6129A /* UIApplication+Versioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Versioning.m"; sourceTree = "<group>"; };
 		FDA0DF7D1906773E009F5541 /* JustNumber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustNumber.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +208,8 @@
 				FDCAEF5B190E18BC00F6A640 /* mogenerator */,
 				FD3BB6AF190CEE5C008D8798 /* Admob */,
 				FD3BB690190CDB18008D8798 /* JASidePanels */,
+				FD5F2F8D19300D7200266546 /* UIImage+ImageEffects.h */,
+				FD5F2F8E19300D7200266546 /* UIImage+ImageEffects.m */,
 			);
 			name = Vendor;
 			sourceTree = "<group>";
@@ -560,6 +565,7 @@
 				FDA0DF8D1906773E009F5541 /* main.m in Sources */,
 				FDA3F208191DEDCB007D07A8 /* GameViewController+SocialMedia.m in Sources */,
 				FD3BB69F190CDB77008D8798 /* HomeViewController.m in Sources */,
+				FD5F2F8F19300D7200266546 /* UIImage+ImageEffects.m in Sources */,
 				FD3BB6BD190CEE94008D8798 /* ContentLock.m in Sources */,
 				FD3BB695190CDB18008D8798 /* JASidePanelController.m in Sources */,
 				FDCAEEC8190CFDAB00F6A640 /* UINumberField.m in Sources */,

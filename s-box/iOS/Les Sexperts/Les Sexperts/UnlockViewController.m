@@ -40,8 +40,8 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
 - (void) setCanWatchVideo:(BOOL)canWatchVideo {
     _canWatchVideo = canWatchVideo;
 
-    if( [self isViewLoaded] && !_canWatchVideo )
-        self.videoButton.enabled = NO;
+    if( [self isViewLoaded] )
+        self.videoButton.enabled = _canWatchVideo;
 }
 
 #pragma mark - Action

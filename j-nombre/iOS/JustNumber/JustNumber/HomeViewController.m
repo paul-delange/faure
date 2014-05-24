@@ -16,6 +16,8 @@
 
 #import "Level.h"
 
+#import "UIImage+ImageEffects.h"
+
 #define kAlertViewEndGameTag    916
 
 @interface HomeViewController () <UIAlertViewDelegate>
@@ -23,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet UIView *buyViewGroup;
 @property (weak, nonatomic) IBOutlet UILabel *adsLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *adsSwitch;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 @end
 
@@ -83,7 +88,12 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
+    UIImage* blurred = [self.backgroundImageView.image applyDarkEffect];
+    UIImage* template = [blurred imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate];
+    self.backgroundImageView.image = template;
+    
     self.adsLabel.text = NSLocalizedString(@"Advertising", @"");
+    self.titleLabel.text = kAppName();
     
     self.navigationController.navigationBar.topItem.title = @"";
 }

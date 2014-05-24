@@ -88,11 +88,12 @@
     unitLabel.text = @"";
     unitLabel.textAlignment = NSTextAlignmentRight;
     unitLabel.font = [UIFont preferredFontForTextStyle: UIFontTextStyleFootnote];
-    unitLabel.textColor = [UIColor lightGrayColor];
+    unitLabel.textColor = [self tintColor];
     
     UIButton* clearButton = [UIButton buttonWithType: UIButtonTypeCustom];
-    [clearButton setTitle: @"X" forState: UIControlStateNormal];
-    clearButton.frame = CGRectMake(100, 0, 32, 32);
+    UIImage * clearImage = [UIImage imageNamed: @"clear"];
+    [clearButton setImage: [clearImage imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate] forState: UIControlStateNormal];
+    //[clearButton setTitle: @"X" forState: UIControlStateNormal];
     [clearButton addTarget: self action: @selector(clearPushed:) forControlEvents: UIControlEventTouchUpInside];
     
     UIView* right = [[UIView alloc] initWithFrame: CGRectZero];
@@ -105,6 +106,12 @@
     
     self.rightView = right;
     self.rightViewMode = UITextFieldViewModeAlways;
+    
+    self.textColor = self.tintColor;
+    
+    self.layer.cornerRadius = 5.;
+    self.layer.borderColor = [self.tintColor CGColor];
+    self.layer.borderWidth = 1.;
 }
 
 #pragma mark - NSObject
@@ -142,6 +149,7 @@
     [super layoutSubviews];
 }
 
+
 #pragma mark - UITextField
 - (void) setText:(NSString *)text {
     NSString* formatted = [self formattedTextFromString: text];
@@ -155,13 +163,7 @@
 - (CGRect) rightViewRectForBounds:(CGRect)bounds {
     CGSize clearSize = [self.clearButton intrinsicContentSize];
     CGSize unitSize = [self.unitLabel intrinsicContentSize];
-
-    return CGRectMake(CGRectGetWidth(bounds) - clearSize.width - unitSize.width, 0, clearSize.width + unitSize.width, CGRectGetHeight(bounds));
-}
-
-- (CGRect) textRectForBounds:(CGRect)bounds {
-    CGRect rect = [super textRectForBounds: bounds];
-    rect.size.width += [self.unitLabel intrinsicContentSize].width;
+    CGRect rect =  CGRectMake(CGRectGetWidth(self.frame) - clearSize.width - unitSize.width, 0, clearSize.width + unitSize.width, CGRectGetHeight(bounds));
     return rect;
 }
 
