@@ -1,6 +1,6 @@
 0,0,Le préservatif (féminin ou masculin),TRUE
 1,0,La pilule,FALSE
-2,0,Le stérilet.,FALSE
+2,0,Le stérilet,FALSE
 3,1,Sophie Marceau,FALSE
 4,1,Sado Maso,TRUE
 5,1,Sexe Masculin,FALSE
@@ -8,7 +8,7 @@
 7,2,Katsumi,FALSE
 8,2,Anna Tommy,TRUE
 9,3,Le goût pour les pubis épilés,TRUE
-10,3,Avoir des relations sous l'emprise de l'alcool,FALSE
+10,3,Avoir des relations sous alcool,FALSE
 11,3,Utiliser des aliments à des fins sexuelles,FALSE
 12,4,Les pieds,TRUE
 13,4,Les seins,FALSE
@@ -24,7 +24,7 @@
 23,7,Le gingembre,FALSE
 24,8,Selena Gomez,FALSE
 25,8,Demi Lovato,FALSE
-26,8,Lourdes Ciccone (la fille de Madonna),TRUE
+26,8,La fille de Madonna,TRUE
 27,9,Le safe sex,FALSE
 28,9,Le fake sex,TRUE
 29,9,Le air sex,TRUE
@@ -32,16 +32,16 @@
 31,10,Chinese Letter,FALSE
 32,10,Spanish Condom,FALSE
 33,11,Un sexologue en plus tendance,FALSE
-34,11,Je vous aide à vous muscler grâce au sexe,FALSE
-35,11,Je viens vous apprendre à améliorer votre libido,TRUE
-36,12,Une parure de drap avec des hommes et des femmes nus,FALSE
-37,12,Une parure de drap avec le Kamasutra,FALSE
-38,12,Une parure de lit avec des huiles essentielles aphrodisiaques,TRUE
-39,13, Un homme qui exerce ses talents de cuisinier pour séduire,TRUE
+34,11,Coach pour se muscler grâce au sexe,FALSE
+35,11,Coach pour améliorer votre libido,TRUE
+36,12,Parure de drap avec des personnes nues,FALSE
+37,12,Parure de drap avec le Kamasutra,FALSE
+38,12,Parure de lit avec des huiles aphrodisiaques,TRUE
+39,13,Un homme qui cuisine pour séduire,TRUE
 40,13,Un homme qui a des érections grâce aux aliments,FALSE
-41,13,Un homme qui se constipe après chaque rapport sexuel,FALSE
-42,14,Un avion privé qui vous pouvez louer pour une vous faire plaisir...,TRUE
-43,14,Un sextoy forme d'avion qui vibre comme au décollage,FALSE
+41,13,Un homme constipé après chaque rapport,FALSE
+42,14,Un avion privé louable pour se faire plaisir...,TRUE
+43,14,Un sextoy avion qui vibre comme au décollage,FALSE
 44,14,Un avion pour faire des rencontres amoureuses,FALSE
 45,15,Au réfrigérateur ,FALSE
 46,15,Dans sa poche de jean,FALSE
@@ -59,9 +59,9 @@
 58,18,En Latex ,FALSE
 59,18,En Silicone ,FALSE
 60,18,En Polyuréthane,TRUE
-61,19,Le placer en haut du pénis et le dérouler jusqu'à la base du sexe ,TRUE
-62,19,"L'enlever de l'emballage, le dérouler et le placer sur le sexe ",FALSE
-63,19,"L'enlever de l'emballage, souffler dedans et le placer sur le sexe ",FALSE
+61,19,Le placer en haut et le dérouler jusqu'à la base,TRUE
+62,19,Le dérouler et le placer sur le sexe ,FALSE
+63,19,Souffler dedans et le placer sur le sexe ,FALSE
 64,20,VRAI,FALSE
 65,20,FAUX,TRUE
 66,21,VRAI,FALSE
@@ -186,8 +186,8 @@
 185,77,L'équerre,FALSE
 186,77,La brouette,FALSE
 187,77,L'andromaque,TRUE
-188,78,La femme est accrochée au cou de l'homme par les pieds,TRUE
-189,78,L'homme enlace la taille de la femme avec ses jambes,FALSE
+188,78,La femme est accrochée à son cou par les pieds,TRUE
+189,78,L'homme enlace sa taille avec ses jambes,FALSE
 190,78,Les partenaires sont allongés tête-bêche,FALSE
 191,79,Victoria Beckham,FALSE
 192,79,Madonna,TRUE
@@ -239,7 +239,7 @@
 238,96,Les exercices de Marc,FALSE
 239,97,En petite soufflée,FALSE
 240,97,Par à-coups,TRUE
-241,97, Lentement et profondément,TRUE
+241,97,Lentement et profondément,TRUE
 242,98,Les cuillères,FALSE
 243,98,Le missionnaire,FALSE
 244,98,La levrette,TRUE
@@ -255,9 +255,9 @@
 254,102,maîtrisé,TRUE
 255,103,VRAI,FALSE
 256,103,FAUX,TRUE
-257,104,"44,00%",FALSE
-258,104,"72,00%",FALSE
-259,104,"89,00%",TRUE
+257,104,44 Pourcents,FALSE
+258,104,72 Pourcents,FALSE
+259,104,89 Pourcents,TRUE
 260,105,Regarder son partenaire faire l'amour avec un(e) autre,TRUE
 261,105,Faire l'amour uniquement dans des lieux sauvages,FALSE
 262,105,Faire l'amour avec une poupée gonflable,FALSE
@@ -265,11 +265,11 @@
 264,106,"14,9",FALSE
 265,106,"15,11",TRUE
 266,107,Le pénis de l'homme caresse les aisselles de la femme,TRUE
-267,107,La femme mord les oreilles de son partenaire jusqu'à l'orgasme,FALSE
+267,107,La femme mord ses oreilles jusqu'à l'orgasme,FALSE
 268,107,Les partenaires arrivent à l'orgasme uniquement par la parole,FALSE
 269,108,Des vidéos de pieds de femmes sur des accélérateurs,TRUE
 270,108,Des vidéos de femmes avec des outils de jardinage,FALSE
-271,108,Des vidéos de femmes se battant des les ordures,FALSE
+271,108,Des vidéos de femmes se battant,FALSE
 272,109,16 ans,FALSE
 273,109,17 ans,TRUE
 274,109,18 ans,FALSE
@@ -285,9 +285,9 @@
 284,113,"Au milieu du vagin, sur la face antérieure (côté ventre)",TRUE
 285,113,Au bord des petites lèvres du vagin,FALSE
 286,113,Ça dépend des femmes,FALSE
-287,114,"18,00%",FALSE
-288,114,"49,00%",FALSE
-289,114,"58,00%",TRUE
+287,114,18 Pourcents,FALSE
+288,114,49 Pourcents,FALSE
+289,114,58 Pourcents,TRUE
 290,115,VRAI,TRUE
 291,115,FAUX,FALSE
 292,116,VRAI,TRUE
@@ -297,9 +297,9 @@
 296,117,Faire l'amour avec une star du X,FALSE
 297,118,VRAI,FALSE
 298,118,FAUX,TRUE
-299,119,"16,00%",FALSE
-300,119,"37,00%",TRUE
-301,119,"53,00%",FALSE
+299,119,16 pourcents,FALSE
+300,119,37 pourcents,TRUE
+301,119,53 Pourcents,FALSE
 302,120,L'anulingus,TRUE
 303,120,L'analdigitus,FALSE
 304,120,Le cunnilingus,FALSE
@@ -341,9 +341,9 @@
 340,134,Les asexualisés,FALSE
 341,135,VRAI,FALSE
 342,135,FAUX,TRUE
-343,136,De 1 à 3 millimètres,FALSE
-344,136,De 3 millimètres à un centimètre,TRUE
-345,136,De un centimètre à 3 centimètres,FALSE
+343,136,De 1 à 3mm,FALSE
+344,136,De 3mm à 1cm,TRUE
+345,136,De 1cm à 3cm,FALSE
 346,137,Le capuchon,FALSE
 347,137,Le gland,FALSE
 348,137,La vulve,TRUE
@@ -353,9 +353,9 @@
 352,139,80,FALSE
 353,139,800,TRUE
 354,139,8000,FALSE
-355,140,"40,00%",FALSE
-356,140,"60,00%",FALSE
-357,140,"80,00%",TRUE
+355,140,40 Pourcents,FALSE
+356,140,60 Pourcents,FALSE
+357,140,80 Pourcents,TRUE
 358,141,OUI,TRUE
 359,141,NON,FALSE
 360,142,Stupide,FALSE
@@ -370,14 +370,14 @@
 369,145,FAUX,TRUE
 370,146,Autour de la verge,FALSE
 371,146,Sur tout le corps,TRUE
-372,146, Il n'en a pas,FALSE
+372,146,Il n'en a pas,FALSE
 373,147,L'intérieur des cuisses,FALSE
 374,147,La zone sous le nombril,TRUE
 375,147,Les fesses,FALSE
 376,148,VRAI,FALSE
 377,148,FAUX,TRUE
 378,149,Se retirer quelques secondes pendant l'acte,FALSE
-379,149,Penser à quelque chose d'anti érotique (effet belle-mère),FALSE
+379,149,Penser à quelque chose d'anti érotique,FALSE
 380,149,Exercer une pression sur le frein,TRUE
 381,150,Bouillonner d'ardeur,TRUE
 382,150,Exploser de plaisir,FALSE
@@ -397,9 +397,9 @@
 396,155,1 femme sur 2,TRUE
 397,155,1 femme sur 5,FALSE
 398,155,1 femme sur 10,FALSE
-399,156,25% des femmes,FALSE
-400,156,50% des femmes,FALSE
-401,156,75% des femmes,TRUE
+399,156,25 Pourcents des femmes,FALSE
+400,156,50 Pourcents des femmes,FALSE
+401,156,75 Pourcents des femmes,TRUE
 402,157,Ses fessiers,FALSE
 403,157,Son périnée,TRUE
 404,157,Ses abdos,FALSE
@@ -420,7 +420,7 @@
 419,163,Lisse,FALSE
 420,163,Plissée,TRUE
 421,163,Granuleuse,FALSE
-422,164,"Pendant les préliminaires, pour faire monter l'excitation",FALSE
+422,164,"Pendant les préliminaires, pour monter l'excitation",FALSE
 423,164,Quand on est déjà bien excitée,TRUE
 424,164,A tout moment,FALSE
 425,165,Le missionnaire,FALSE
@@ -475,7 +475,7 @@
 474,182,Les poils et les cheveux,TRUE
 475,182,Les tricheurs,FALSE
 476,182,Les pulls,FALSE
-477,183,Un godemichet vibrant en forme de balle de pistolet commandé à distance,TRUE
+477,183,Un godemichet vibrant en forme de balle de pistolet,TRUE
 478,183,Un sextoys en forme de balle de tennis,FALSE
 479,183,Un godemichet transparent,FALSE
 480,184,Lui faire une fellation,FALSE
@@ -484,20 +484,20 @@
 483,185,L'attirance pour les homosexuels,FALSE
 484,185,Le fait d'être excité par le fait d'avoir la vessie pleine,TRUE
 485,185,Une position du Kamasutra,FALSE
-486,186,Un embout vibrant au bout du doigt pour caresser madame,TRUE
+486,186,Un embout vibrant au bout du doigt pour la caresser,TRUE
 487,186,Un sextoys en forme de pouce,FALSE
-488,186,Le fait de pénétrer très rapidement sa partenaire avec un doigt,FALSE
+488,186,Pénétrer rapidement sa partenaire avec un doigt,FALSE
 489,187,10 ans de prison,TRUE
 490,187,1 an de prison,FALSE
 491,187,1000 d'amende,FALSE
-492,188,Sortir des mots vulgaires durant l'acte pour augmenter l'excitation,TRUE
+492,188,Sortir des mots vulgaires pour augmenter l'excitation,TRUE
 493,188,Avoir un rapport sans que les corps se touchent,FALSE
 494,188,L'attirance pour les rapports sur le lieu de travail,FALSE
-495,189,d'en faire une prostituée,TRUE
-496,189,d'avoir un rapport sexuel,FALSE
-497,189,de l'épouser,FALSE
-498,190,Aimer regarder son partenaire pendant l'acte avec d'autres personnes,TRUE
-499,190,Le goût de regarder des couples sans se faire voir,FALSE
+495,189,D'en faire une prostituée,TRUE
+496,189,D'avoir un rapport sexuel,FALSE
+497,189,De l'épouser,FALSE
+498,190,Aimer regarder son partenaire avec d'autres personnes,TRUE
+499,190,Regarder des couples sans se faire voir,FALSE
 500,190,Aimer les rapports sexuels avec des inconnus,FALSE
 501,191,Au Brésil,TRUE
 502,191,En Chine,FALSE
@@ -543,9 +543,9 @@
 542,205,6000,FALSE
 543,205,200,FALSE
 544,205,16000,TRUE
-545,206,"55,00%",FALSE
-546,206,"80,00%",TRUE
-547,206,"95,00%",FALSE
+545,206,55 Pourcents,FALSE
+546,206,80 Pourcents,TRUE
+547,206,95 Pourcents,FALSE
 548,207,Une position assise,FALSE
 549,207,Des saignements au milieu du cycle,TRUE
 550,207,Un jeu sexuel,FALSE
@@ -561,9 +561,9 @@
 560,211,Au début d'un orgasme,TRUE
 561,211,Après l'éjaculation,FALSE
 562,211,A chaque érection,FALSE
-563,212,"22,00%",FALSE
-564,212,"42,00%",TRUE
-565,212,"62,00%",FALSE
+563,212,22 Pourcents,FALSE
+564,212,42 Pourcents,TRUE
+565,212,62 Pourcents,FALSE
 566,213,2 verres,FALSE
 567,213,Aucun,TRUE
 568,213,5 verres,FALSE
@@ -576,18 +576,18 @@
 575,216,20km/h,FALSE
 576,216,40km/h,TRUE
 577,216,60km/h,FALSE
-578,217,"507,00 ",FALSE
-579,217,"2 304,00 ",TRUE
-580,217,"7 549,00 ",FALSE
+578,217,507 euros,FALSE
+579,217,2304 euros,TRUE
+580,217,7 549 euros,FALSE
 581,218,Des jeux sexuels avec des aliments,TRUE
 582,218,Le fait de frapper son partenaire,FALSE
 583,218,Les rapports sexuels en étant déguisés,FALSE
 584,219,Une fois toutes les 2 semaines,FALSE
 585,219,2 fois par semaine,TRUE
 586,219,1 fois par semaine,FALSE
-587,220,"51,00%",FALSE
-588,220,"68,00%",FALSE
-589,220,"89,00%",TRUE
+587,220,51 Pourcents,FALSE
+588,220,68 Pourcents,FALSE
+589,220,89 Pourcents,TRUE
 590,221,120 calories,FALSE
 591,221,190 calories,TRUE
 592,221,260 calories,FALSE
@@ -646,9 +646,9 @@
 645,244,25 milliards d'euros,FALSE
 646,244,60 milliards d'euros,TRUE
 647,244,100 milliards d'euros,FALSE
-648,245,"25,00%",FALSE
-649,245,"45,00%",FALSE
-650,245,"35,00%",TRUE
+648,245,25 Pourcents,FALSE
+649,245,45 Pourcents,FALSE
+650,245,35 Pourcents,TRUE
 651,246,12 milliards de dollars,TRUE
 652,246,6 milliards de dollars,FALSE
 653,246,2 milliards de dollars,FALSE
@@ -658,24 +658,24 @@
 657,248,130 millions d'euros,TRUE
 658,248,200 millions d'euros,FALSE
 659,248,500 millions d'euros,FALSE
-660,249,jusquau bout,FALSE
-661,249,jusquau prépuce ,FALSE
-662,249,jusquà ce que cela vous convienne ,TRUE
-663,250,des petits coups de langue sur le bout du gland,FALSE
-664,250,de grands allers-retours rapides ,TRUE
-665,250,jusquau prépuce ,FALSE
+660,249,Jusquau bout,FALSE
+661,249,Jusqu'au prépuce,FALSE
+662,249,Jusquà ce que cela vous convienne ,TRUE
+663,250,Des petits coups de langue sur le bout du gland,FALSE
+664,250,De grands allers-retours rapides ,TRUE
+665,250,Jusqu'au prépuce,FALSE
 666,251,Oui,FALSE
 667,251,Non,FALSE
 668,251,Peut-être,TRUE
 669,252,Oui,TRUE
 670,252,Non,FALSE
 671,252,Peut-être,FALSE
-672,253,se servir de ses dents ,TRUE
-673,253,le caresser ,FALSE
-674,253,fermer les yeux ,FALSE
-675,254,jusquà ce que votre partenaire jouisse ,FALSE
-676,254,jusquà ce que vous ayez des crampes à la mâchoire,FALSE
-677,254,jusquà ce que bon vous semble à vous et votre amant ,TRUE
+672,253,Se servir de ses dents ,TRUE
+673,253,Le caresser ,FALSE
+674,253,Fermer les yeux ,FALSE
+675,254,Jusquà ce que votre partenaire jouisse ,FALSE
+676,254,Jusquà ce que vous ayez des crampes à la mâchoire,FALSE
+677,254,Jusquà ce que bon vous semble à vous et votre amant ,TRUE
 678,255,Oui,TRUE
 679,255,Non,FALSE
 680,255,Peut-être,FALSE

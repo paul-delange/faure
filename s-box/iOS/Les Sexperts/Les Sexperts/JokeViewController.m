@@ -35,7 +35,7 @@
             UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
             
-            self.maskImageView.image = [image applyBlurWithRadius: 3.5
+            self.maskImageView.image = [image applyBlurWithRadius: 5.0
                                                         tintColor: [UIColor clearColor]
                                             saturationDeltaFactor: 1.8
                                                         maskImage: nil];

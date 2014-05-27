@@ -136,9 +136,14 @@
     
     self.shareButton = shareButton;
     
-    UIViewController* vc = [self pageViewController: self viewControllerAfterViewController: nil];
+    JokeViewController* vc = (JokeViewController*)[self pageViewController: self viewControllerAfterViewController: nil];
+    
     [self setViewControllers: @[vc] direction: UIPageViewControllerNavigationDirectionForward animated: NO completion: NULL];
     _currentJoke = _jokes[0];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self pageViewController: self willTransitionToViewControllers: @[vc]];
+    });
     
     UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0, CGRectGetHeight(self.view.frame)-44., CGRectGetWidth(self.view.frame), 44.)];
     toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
