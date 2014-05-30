@@ -178,7 +178,11 @@
     self =[super initWithCoder: aDecoder];
     if( self ) {
         self.screenName = @"Quiz";
+#if DEBUG
+        _timeRemaining = 5.;
+#else
         _timeRemaining = 69.;
+#endif
     }
     return self;
 }

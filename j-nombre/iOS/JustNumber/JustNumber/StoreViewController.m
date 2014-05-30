@@ -18,7 +18,6 @@
 #import <AdColony/AdColony.h>
 
 #import "UIImage+ImageEffects.h"
-#import "SKProduct+LocalizedPrice.h"
 
 @import StoreKit;
 
@@ -141,8 +140,7 @@
 
 #pragma mark - UIViewController
 - (void) viewDidLoad {
-    UIImage* blurred = [self.backgroundImageView.image applyDarkEffect];
-    UIImage* template = [blurred imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate];
+    UIImage* template = [self.backgroundImageView.image imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate];
     self.backgroundImageView.image = template;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: nil style: UIBarButtonItemStylePlain target: nil action: nil];
@@ -265,7 +263,7 @@
     
     for(SKProduct* product in response.products) {
         if( [product.productIdentifier isEqualToString: kContentUnlockProductIdentifier] ) {
-            NSString* price = [product localizedPrice];
+            NSString* price = [NSNumberFormatter localizedStringFromNumber: product.price numberStyle: NSNumberFormatterCurrencyStyle];
             NSString* title = [NSString localizedStringWithFormat: NSLocalizedString(@"Go Premium! (%@)", @""), price];
             [self.unlockButton setTitle: title forState: UIControlStateNormal];
         }
@@ -277,7 +275,7 @@
     if( _product ) {
         self.buyButton.enabled = YES;
         
-        NSString* price = [_product localizedPrice];
+        NSString* price = [NSNumberFormatter localizedStringFromNumber: _product.price numberStyle: NSNumberFormatterCurrencyStyle];
         NSString* title = [NSString localizedStringWithFormat: NSLocalizedString(@"+200 lives (%@)", @""), price];
         [self.buyButton setTitle: title forState: UIControlStateNormal];
     }

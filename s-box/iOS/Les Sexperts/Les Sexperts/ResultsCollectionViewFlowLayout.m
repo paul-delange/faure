@@ -21,8 +21,6 @@
     [mutable replaceObjectAtIndex: indexPath.row withObject: @(position)];
     self.positionsArray = mutable;
     
-   /// NSLog(@"Set %lu for index: %ld", position, (long)indexPath.item);
-    
     if( animated ) {
         self.collectionView.viewForBaselineLayout.layer.speed = 0.5;
         

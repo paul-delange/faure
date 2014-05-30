@@ -246,8 +246,7 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
     
     NSParameterAssert(self.level);
     
-    UIImage* blurred = [self.backgroundImageView.image applyDarkEffect];
-    UIImage* template = [blurred imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate];
+    UIImage* template = [self.backgroundImageView.image imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate];
     self.backgroundImageView.image = template;
     
     Question* question = [self.level nextQuestion];

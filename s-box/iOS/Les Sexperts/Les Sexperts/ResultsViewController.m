@@ -20,7 +20,8 @@
 #define GREEN_COLOR     [UIColor colorWithRed: 0 green: 0.5 blue: 0 alpha: 1.0]
 
 @interface ResultsViewController () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource> {
-    NSInteger       _currentAnimatedCell;
+    NSInteger           _currentAnimatedCell;
+    dispatch_source_t   _animationTimer;
 }
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *totalBarButtonItem;
@@ -63,57 +64,40 @@
     gradient.anchorPoint = CGPointMake(CGRectGetMinX(gradient.bounds), 0);
     
     [self.view.layer insertSublayer: gradient atIndex: 0];
-
+    
 }
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear: animated];
     
-    dispatch_source_t sourceTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-    dispatch_source_set_timer(sourceTimer, dispatch_time(DISPATCH_TIME_NOW, 0), 1 * NSEC_PER_SEC, 0);
-    dispatch_source_set_event_handler(sourceTimer, ^{
-        
-        if( _currentAnimatedCell < [self collectionView: nil numberOfItemsInSection: 0] ) {
-            NSIndexPath* indexPath = [NSIndexPath indexPathForRow: _currentAnimatedCell inSection: 0];
-            ResultsCollectionViewFlowLayout* layout = (ResultsCollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
+    if( !_animationTimer ) {
+        dispatch_source_t sourceTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+        dispatch_source_set_timer(sourceTimer, dispatch_time(DISPATCH_TIME_NOW, 0), 3 * NSEC_PER_SEC, 0);
+        dispatch_source_set_event_handler(sourceTimer, ^{
             
-            [layout setPosition: kResultCollectionViewCellPositionCenter atIndexPath: indexPath animated: YES];
-            
-            [self.collectionView scrollToItemAtIndexPath: indexPath atScrollPosition: UICollectionViewScrollPositionCenteredVertically animated: YES];
-            
-            _currentAnimatedCell++;
-        }
-        else {
-            self.continueBarButtonItem.enabled = YES;
-            self.collectionView.scrollEnabled = YES;
-            dispatch_source_cancel(sourceTimer);
-            
-            NSString* format = NSLocalizedString(@"Total %@", @"");
-            self.totalBarButtonItem.title = [NSString stringWithFormat: format, @([self totalCorrect])];
-            
-#if 0   //TODO: Add the resume views
-            NSUInteger score = [self totalCorrect];
-            BOOL needsResume = ![ResumeViewController hasDisplayedForScore: score];
-            
-            if( needsResume ) {
-                ResumeViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier: @"ResumeViewController"];
-                vc.score = score;
+            if( _currentAnimatedCell < [self collectionView: nil numberOfItemsInSection: 0] ) {
+                NSIndexPath* indexPath = [NSIndexPath indexPathForRow: _currentAnimatedCell inSection: 0];
+                ResultsCollectionViewFlowLayout* layout = (ResultsCollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
                 
-                MZFormSheetController* formSheet = [[MZFormSheetController alloc] initWithViewController: vc];
-                formSheet.transitionStyle = MZFormSheetTransitionStyleFade;
-                formSheet.presentedFormSheetSize = CGSizeMake(300., 360.);
-                formSheet.didTapOnBackgroundViewCompletionHandler = ^(CGPoint location) {
-                    [self mz_dismissFormSheetControllerAnimated: YES completionHandler: NULL];
-                };
-                [self mz_presentFormSheetController: formSheet
-                                           animated: YES
-                                  completionHandler: NULL];
+                [layout setPosition: kResultCollectionViewCellPositionCenter atIndexPath: indexPath animated: YES];
+                
+                [self.collectionView scrollToItemAtIndexPath: indexPath atScrollPosition: UICollectionViewScrollPositionCenteredVertically animated: YES];
+                
+                _currentAnimatedCell++;
             }
-#endif
-        }
-    });
-    
-    dispatch_resume(sourceTimer);
+            else {
+                self.continueBarButtonItem.enabled = YES;
+                self.collectionView.scrollEnabled = YES;
+                dispatch_source_cancel(sourceTimer);
+                
+                NSString* format = NSLocalizedString(@"Total %@", @"");
+                self.totalBarButtonItem.title = [NSString stringWithFormat: format, @([self totalCorrect])];
+            }
+        });
+        
+        dispatch_resume(sourceTimer);
+        _animationTimer = sourceTimer;
+    }
 }
 
 #pragma mark - UICollectionViewDataSource

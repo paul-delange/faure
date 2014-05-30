@@ -19,7 +19,7 @@
 #pragma mark - UIView
 - (void) drawRect:(CGRect)rect {
     
-    CGRect titleRect = self.textLabel.frame;
+    //CGRect titleRect = self.textLabel.frame;
     CGRect answerRect = self.detailTextLabel.frame;
     
     CGContextRef ctx = UIGraphicsGetCurrentContext();

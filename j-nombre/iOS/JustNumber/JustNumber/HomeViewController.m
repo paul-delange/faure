@@ -87,9 +87,8 @@
 #pragma mark - UIViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
-    
-    UIImage* blurred = [self.backgroundImageView.image applyDarkEffect];
-    UIImage* template = [blurred imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate];
+
+    UIImage* template = [self.backgroundImageView.image imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate];
     self.backgroundImageView.image = template;
     
     self.adsLabel.text = NSLocalizedString(@"Advertising", @"");
