@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UIViewController
+#import "GAITrackedViewController.h"
+
+@interface HomeViewController : GAITrackedViewController
 
 - (IBAction)menuPushed:(id)sender;
 - (IBAction)unwindGame:(UIStoryboardSegue*)sender;

@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "GAITrackedViewController.h"
+
 @class Theme;
 
-@interface AdviceTableViewController : UIViewController
+@interface AdviceTableViewController : GAITrackedViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

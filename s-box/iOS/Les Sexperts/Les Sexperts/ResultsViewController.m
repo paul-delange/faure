@@ -7,7 +7,6 @@
 //
 
 #import "ResultsViewController.h"
-#import "ResumeViewController.h"
 #import "MZFormSheetController.h"
 
 #import "ContentLock.h"
@@ -41,6 +40,7 @@
 {
     [super viewDidLoad];
 	NSParameterAssert(self.answersArray);
+    self.screenName = @"Results";
     
     self.title = NSLocalizedString(@"Results", @"");
     

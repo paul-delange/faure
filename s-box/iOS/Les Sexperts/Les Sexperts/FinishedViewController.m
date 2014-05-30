@@ -32,6 +32,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.screenName = @"Finished";
     
     UIColor* topColor = [UIColor colorWithRed: 35/255. green: 40/255. blue: 43/255. alpha: 1.];
     UIColor* centerColor = [UIColor colorWithRed: 39/255. green: 56/255. blue: 66/255. alpha: 1.];

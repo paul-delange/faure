@@ -10,26 +10,23 @@
 
 #import "ContentLock.h"
 
-//#import "GADBannerView.h"
-//#import "GADRequest.h"
+#import "GADBannerView.h"
+#import "GADRequest.h"
 
-#import "InMobi.h"
-#import "IMBanner.h"
+#define kBannerSize kGADAdSizeBanner
 
-#define kBannerSize CGSizeMake(320, 50)
-
-@interface AdvertisementNavigationController () <IMBannerDelegate> {
+@interface AdvertisementNavigationController () <GADBannerViewDelegate> {
     __weak UIView* _contentView;
 }
 
-@property (weak) IMBanner* bannerView;
+@property (weak) GADBannerView* bannerView;
 @property (strong) NSLayoutConstraint* contentViewHeightConstraint;
 @end
 
 @implementation AdvertisementNavigationController
 
 - (void) showAdView {
-    self.contentViewHeightConstraint.constant = -kBannerSize.height;
+    self.contentViewHeightConstraint.constant = -kBannerSize.size.height;
     
     [self.view layoutIfNeeded];
     [UIView animateWithDuration: 0.5 animations:^{
@@ -55,10 +52,6 @@
 }
 
 #pragma mark - NSObject
-+ (void) initialize {
-    [InMobi initialize: @"5f8cfe36e2584af38424d074069aeef5"];
-}
-
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder: aDecoder];
     if( self ) {
@@ -86,9 +79,11 @@
     contentView.translatesAutoresizingMaskIntoConstraints = NO;
     self.view = [[UIView alloc] initWithFrame: contentView.frame];
     
-    IMBanner* banner = [[IMBanner alloc] initWithFrame: CGRectMake(0, 0, 320, 50) appId: @"5f8cfe36e2584af38424d074069aeef5" adSize: IM_UNIT_320x50];
-    banner.translatesAutoresizingMaskIntoConstraints = NO;
+    GADBannerView* banner = [[GADBannerView alloc] initWithAdSize: kBannerSize];
     banner.delegate = self;
+    banner.adUnitID = @"ca-app-pub-1332160865070772/3760720045";
+    banner.rootViewController = self;
+    banner.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview: banner];
     self.bannerView = banner;
     
@@ -147,10 +142,8 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
     
-    [self.bannerView loadBanner];
-    
-    /*
     GADRequest* request = [GADRequest request];
+    request.gender = kGADGenderMale;
     
     request.testDevices = @[ GAD_SIMULATOR_ID,
                              @"5847239deac1f26ea408b154815af621"            //Paul iPhone4
@@ -159,7 +152,6 @@
     self.bannerView.delegate = self;
     
     [self.bannerView loadRequest: request];
-     */
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
@@ -167,25 +159,13 @@
     
     [self hideAdView];
     self.bannerView.delegate = nil;
-    [self.bannerView stopLoading];
-    //[self.bannerView loadRequest: nil];
+    [self.bannerView loadRequest: nil];
 }
 
 - (BOOL) shouldAutomaticallyForwardAppearanceMethods {
     return YES;
 }
 
-#pragma mark IMBannerDelegate
-- (void)bannerDidReceiveAd:(IMBanner *)banner {
-    [self showAdView];
-}
-
-- (void)banner:(IMBanner *)banner didFailToReceiveAdWithError:(IMError *)error {
-    [self hideAdView];
-    DLogError(error);
-}
-
-/*
 #pragma mark - GADBannerViewDelegate
 - (void)adViewDidReceiveAd:(GADBannerView *)view {
     [self showAdView];
@@ -194,6 +174,6 @@
 - (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error {
    [self hideAdView];
     DLogError(error);
-}*/
+}
 
 @end

@@ -13,7 +13,9 @@
 
 #import "ReceiptValidator.h"
 
-#import "InMobi.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
 
 #import <StoreKit/StoreKit.h>
 #import <AdColony/AdColony.h>
@@ -44,6 +46,9 @@
     
     
 #if !PAID_VERSION
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-50743104-3"];
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
     NSURL* receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
     if( !isValidReceipt(receiptURL) ) {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"Not Verified"
@@ -66,6 +71,35 @@
 #endif
     
      
+    return YES;
+}
+
+- (BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    NSString *urlString = [url absoluteString];
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    
+    // setCampaignParametersFromUrl: parses Google Analytics campaign ("UTM")
+    // parameters from a string url into a Map that can be set on a Tracker.
+    GAIDictionaryBuilder *hitParams = [[GAIDictionaryBuilder alloc] init];
+    
+    // Set campaign data on the map, not the tracker directly because it only
+    // needs to be sent once.
+    [[hitParams setCampaignParametersFromUrl:urlString] build];
+    
+    // Campaign source is the only required campaign field. If previous call
+    // did not set a campaign source, use the hostname as a referrer instead.
+    if(![hitParams valueForKey:kGAICampaignSource] && [url host].length !=0) {
+        // Set campaign data on the map, not the tracker.
+        [hitParams setValue: @"referrer" forKey: kGAICampaignMedium];
+        [hitParams setValue: [url host] forKey: kGAICampaignSource];
+    }
+    
+    GAIDictionaryBuilder* viewBuilder = [GAIDictionaryBuilder createAppView];
+    [viewBuilder setAll: [hitParams build]];
+    
+    [tracker send: [viewBuilder build]];
+    
     return YES;
 }
 

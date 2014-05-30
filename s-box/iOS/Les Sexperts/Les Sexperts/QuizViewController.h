@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuizViewController : UIViewController
+#import "GAITrackedViewController.h"
+
+@interface QuizViewController : GAITrackedViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 

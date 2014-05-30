@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UnlockViewController : UIViewController
+#import "GAITrackedViewController.h"
+
+@interface UnlockViewController : GAITrackedViewController
 
 @property (nonatomic, assign) BOOL canWatchVideo;
 

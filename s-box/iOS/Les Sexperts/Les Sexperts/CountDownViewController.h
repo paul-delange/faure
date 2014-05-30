@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CountDownViewController : UIViewController
+#import "GAITrackedViewController.h"
+
+@interface CountDownViewController : GAITrackedViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *countDownLabel;
 @property (weak, nonatomic) IBOutlet UILabel *instructionLabel;

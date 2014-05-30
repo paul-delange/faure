@@ -72,6 +72,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.screenName = @"CountDown";
+    
     self.countDownLabel.hidden = YES;
     self.instructionLabel.text = NSLocalizedString(@"69 seconds to see if you are a real Sexpert...", @"");
     

@@ -92,6 +92,7 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder: aDecoder];
     if( self ) {
+        self.screenName = @"Unlock";
         [[SKPaymentQueue defaultQueue] addTransactionObserver: self];
     }
     return self;

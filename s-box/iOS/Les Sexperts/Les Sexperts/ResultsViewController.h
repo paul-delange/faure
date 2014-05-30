@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResultsViewController : UIViewController
+#import "GAITrackedViewController.h"
+
+@interface ResultsViewController : GAITrackedViewController
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 

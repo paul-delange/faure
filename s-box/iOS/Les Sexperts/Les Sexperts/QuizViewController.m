@@ -177,6 +177,7 @@
 - (id) initWithCoder:(NSCoder *)aDecoder {
     self =[super initWithCoder: aDecoder];
     if( self ) {
+        self.screenName = @"Quiz";
         _timeRemaining = 69.;
     }
     return self;

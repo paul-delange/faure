@@ -14,8 +14,7 @@
 
 #import "IBActionSheet.h"
 
-#import "IMInterstitial.h"
-#import "IMIncentivisedDelegate.h"
+#import "GADInterstitial.h"
 
 @import Accounts;
 @import Social;
@@ -23,8 +22,8 @@
 
 #define HAS_CONFIGURED_FACEBOOK     0
 
-@interface HomeViewController () <IBActionSheetDelegate, MFMailComposeViewControllerDelegate, IMInterstitialDelegate, UINavigationControllerDelegate> {
-    IMInterstitial *_interstitial;
+@interface HomeViewController () <IBActionSheetDelegate, MFMailComposeViewControllerDelegate, GADInterstitialDelegate, UINavigationControllerDelegate> {
+    GADInterstitial *_interstitial;
 }
 
 @property (strong) ACAccountStore* accountStore;
@@ -88,11 +87,7 @@
 - (IBAction)unwindGame:(UIStoryboardSegue*)sender {
 #if !PAID_VERSION
     if( [ContentLock tryLock] ) {
-        _interstitial = [[IMInterstitial alloc] initWithAppId:@"5f8cfe36e2584af38424d074069aeef5"];
-        _interstitial.delegate = self;
-        [_interstitial loadInterstitial];
-        
-        /*GADRequest* request = [GADRequest request];
+        GADRequest* request = [GADRequest request];
         request.testDevices = @[ GAD_SIMULATOR_ID,
                                  @"5847239deac1f26ea408b154815af621"            //Paul iPhone4
                                  ];
@@ -101,7 +96,6 @@
         _interstitial.adUnitID = @"ca-app-pub-1332160865070772/5237453245";
         _interstitial.delegate = self;
         [_interstitial loadRequest:[GADRequest request]];
-         */
     }
 #endif
 }
@@ -129,7 +123,7 @@
         // Custom initialization
         _accountStore = [ACAccountStore new];
         self.navigationController.delegate = self;
-        
+        self.screenName = @"Home";
         [[NSNotificationCenter defaultCenter] addObserver: self
                                                  selector: @selector(appWasUnlocked:)
                                                      name: ContentLockWasRemovedNotification
@@ -345,20 +339,6 @@
     [self dismissViewControllerAnimated: YES completion: NULL];
 }
 
-#pragma mark - IMInterstitialDelegate
-- (void)interstitialDidReceiveAd:(IMInterstitial *)ad {
-    if( ad.state == kIMInterstitialStateReady ) {
-        [ad presentInterstitialAnimated: YES];
-        _interstitial.delegate = nil;
-        _interstitial = nil;
-    }
-}
-
-- (void) interstitial:(IMInterstitial *)ad didFailToReceiveAdWithError:(IMError *)error {
-    DLogError(error);
-}
-
-/*
 #pragma mark - GADInterstitialDelegate
 - (void) interstitialDidReceiveAd:(GADInterstitial *)ad {
     [_interstitial presentFromRootViewController: self];
@@ -368,7 +348,7 @@
 
 - (void) interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error {
     DLogError(error);
-}*/
+}
 
 #if !PAID_VERSION
 #pragma mark - UINavigationControllerDelegate
@@ -376,10 +356,15 @@
     
     if( viewController == self && animated ) {
         if( [ContentLock tryLock] ) {
-            _interstitial = [[IMInterstitial alloc] initWithAppId:@"5f8cfe36e2584af38424d074069aeef5"];
+            GADRequest* request = [GADRequest request];
+            request.testDevices = @[ GAD_SIMULATOR_ID,
+                                     @"5847239deac1f26ea408b154815af621"            //Paul iPhone4
+                                     ];
+            
+            _interstitial = [[GADInterstitial alloc] init];
+            _interstitial.adUnitID = @"ca-app-pub-1332160865070772/5237453245";
             _interstitial.delegate = self;
-            [_interstitial loadInterstitial];
-        }
+            [_interstitial loadRequest:[GADRequest request]];        }
     }
 }
 #endif

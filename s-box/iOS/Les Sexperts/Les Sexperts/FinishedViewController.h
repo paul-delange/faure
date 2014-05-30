@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FinishedViewController : UIViewController
+#import "GAITrackedViewController.h"
+
+@interface FinishedViewController : GAITrackedViewController
 
 @property (copy) NSArray* questionsArray;
 @property (copy) NSArray* answersArray;

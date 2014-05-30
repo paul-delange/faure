@@ -54,6 +54,7 @@ NSString * const NSUserDefaultsAdviceAvailableCount = @"8A9EA00C4";
         }
         
         self.title = _theme.name;
+        self.screenName = _theme.name;
         
         if( [self isViewLoaded] ) {
             NSError* error;
