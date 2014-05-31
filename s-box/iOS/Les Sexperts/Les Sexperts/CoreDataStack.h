@@ -12,10 +12,20 @@
 
 + (instancetype) stackWithStoreFilename: (NSString*) storeFilename;
 
+@property (copy, nonatomic) NSString* dataLanguage;
+
 - (BOOL) save;
 
-- (NSManagedObjectContext*) persistentStoreManagedObjectContext;
 - (NSManagedObjectContext*) mainQueueManagedObjectContext;
-- (NSURL*) storeURL;
+
+@end
+
+@interface NSManagedObjectContext (CoreDataStack)
+
+/** Save a managed object context in a thread safe manner */
+- (BOOL) threadSafeSave: (NSError *__autoreleasing*) error;
+
+/** Return the locale for the database backing this context */
+- (NSLocale*) locale;
 
 @end

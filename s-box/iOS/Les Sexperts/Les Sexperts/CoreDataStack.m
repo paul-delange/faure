@@ -8,27 +8,31 @@
 
 #import "CoreDataStack.h"
 
+#import "NSBundle+Seeding.h"
+#import "NSLocale+ContentLanguage.h"
+
+#include <objc/runtime.h>
 #import <CoreData/CoreData.h>
 
-void SetExcludeFromBackupAttributeForItemAtPath(NSString *path)
-{
-    NSCParameterAssert(path);
-    NSCAssert([[NSFileManager defaultManager] fileExistsAtPath:path], @"Cannot set Exclude from Backup attribute for non-existant item at path: '%@'", path);
-    
-    NSError *error = nil;
-    NSURL *URL = [NSURL fileURLWithPath:path];
-    
-    BOOL success = [URL setResourceValue:@(YES) forKey:NSURLIsExcludedFromBackupKey error:&error];
-    if (!success) {
-        DLogError(error);
-    }
-}
+#define     ASSOCIATIVE_KEY_DATA_STACK      "core.data.stack"
+
+#if TARGET_OS_IPHONE
+#define SEARCH_PATH_FROM_APPLE_GUIDELINES   NSDocumentDirectory
+#else
+#define SEARCH_PATH_FROM_APPLE_GUIDELINES   NSDocumentDirectory
+#endif
+
+NSString * const NSUserDefaultsContentLanguageKey = @"ContentLanguage";
+
+@interface NSManagedObjectContext (CoreDataStackInternal)
+@property (strong, nonatomic) CoreDataStack* stack;
+@end
 
 @interface CoreDataStack ()
 
 - (id) initWithStoreFileName: (NSString*) storeFileName;
-+ (NSPersistentStoreCoordinator*) createPersistentStoreCoordinator: (NSManagedObjectModel*) model atPath: (NSString*) storePath;
 
+@property (strong, nonatomic) NSPersistentStore* dataStore;
 @property (strong, nonatomic) NSManagedObjectModel* managedObjectModel;
 @property (strong, nonatomic) NSManagedObjectContext* mainQueueManagedObjectContext;
 @property (strong, nonatomic) NSManagedObjectContext* persistentStoreManagedObjectContext;
@@ -45,46 +49,91 @@ void SetExcludeFromBackupAttributeForItemAtPath(NSString *path)
 - (id) initWithStoreFileName: (NSString*) storeFileName {
     NSParameterAssert([NSThread isMainThread]);
     
-    if( !storeFileName )
-        storeFileName = @"data.sqlite";
-    
     self = [super init];
     if( self ) {
         
-#if TARGET_OS_IPHONE
-        NSSearchPathDirectory domain = NSLibraryDirectory;
-#else
-        NSSearchPathDirectory domain = NSDocumentDirectory;
-#endif
+        _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles: nil];
+        
+        NSDictionary* readwriteOptions = @{NSSQLitePragmasOption : @{ @"journal_mode" : @"DELETE" },
+                                           NSMigratePersistentStoresAutomaticallyOption : @YES,
+                                           NSInferMappingModelAutomaticallyOption : @YES
+                                           };
+        
+        NSPersistentStoreCoordinator* psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: _managedObjectModel];
+        
+        NSSearchPathDirectory domain = SEARCH_PATH_FROM_APPLE_GUIDELINES;
         NSArray *paths = NSSearchPathForDirectoriesInDomains(domain, NSUserDomainMask, YES);
-        
-        NSString* storeDirectoryPath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
-        NSString* storeFilePath = [storeDirectoryPath stringByAppendingPathComponent: storeFileName];
+        NSString* writeableDirectoryPath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
         
 #if TARGET_OS_IPHONE
-        if( ![[NSFileManager defaultManager] fileExistsAtPath: storeFilePath] ) {
-            if( [[NSBundle mainBundle] pathForResource: storeFileName ofType: nil] ) {
-                //Have a seed db
-                NSError* error = nil;
-                [[NSFileManager defaultManager] copyItemAtPath: [[NSBundle mainBundle] pathForResource: storeFileName ofType: nil]
-                                                        toPath: storeFilePath
-                                                         error: &error];
-                DLogError(error);
-                
-                SetExcludeFromBackupAttributeForItemAtPath(storeFilePath);
-            }
-        }
-#else
-        if( [[NSFileManager defaultManager] fileExistsAtPath: storeFilePath] ) {
-            NSError* error;
-            [[NSFileManager defaultManager] removeItemAtPath: storeFilePath
-                                                       error: &error];
+        ///////////////     LEGACY SUPPORT  /////////////////
+        
+        /* At the beginning there was only french and all the data was stored in one database,
+         * ContentStore.sqlite. Later we decided to go international and store the data for
+         * each locale in a database called ContentStore_fr.sqlite for example.
+         *
+         * This next code takes the old database and sets it as the current french one.
+         */
+        NSSearchPathDirectory legacyDomain = NSLibraryDirectory;
+        NSArray *legacyPaths = NSSearchPathForDirectoriesInDomains(legacyDomain, NSUserDomainMask, YES);
+        NSString* legacyStoreDirectory = ([legacyPaths count] > 0) ? [legacyPaths objectAtIndex:0] : nil;
+        NSString* legacyStorePath = [legacyStoreDirectory stringByAppendingPathComponent: @"ContentLibrary.sqlite"];
+        if( [[NSFileManager defaultManager] fileExistsAtPath: legacyStorePath] ) {
+            NSString* frenchStoreName = [storeFileName stringByAppendingString: @"_fr"];
+            NSString* frenchStorePath = [writeableDirectoryPath stringByAppendingPathComponent: frenchStoreName];
             
+            frenchStorePath = [frenchStorePath stringByAppendingPathExtension: @"db"];
+            
+            NSError* error;
+            [[NSFileManager defaultManager] moveItemAtPath: legacyStorePath
+                                                    toPath: frenchStorePath
+                                                     error: &error];
+            DLogError(error);
+            
+            NSURL* frenchStoreURL = [NSURL fileURLWithPath: frenchStorePath];
+            [frenchStoreURL setResourceValue: @YES forKey: NSURLIsExcludedFromBackupKey error: &error];
             DLogError(error);
         }
+        NSParameterAssert(![[NSFileManager defaultManager] fileExistsAtPath: legacyStorePath]);
+        
+        ///////////////   END  LEGACY SUPPORT  /////////////////
 #endif
-        _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles: nil];
-        _persistentStoreCoordinator = [[self class] createPersistentStoreCoordinator: _managedObjectModel atPath: storeFilePath];
+        
+        NSString * language = [[NSUserDefaults standardUserDefaults] objectForKey: NSUserDefaultsContentLanguageKey];
+        NSString* writeableStoreFileName = [NSString stringWithFormat: @"%@_%@.db", storeFileName, language];
+        NSString* writeableStorePath = [writeableDirectoryPath stringByAppendingPathComponent: writeableStoreFileName];
+        NSURL* writeableStoreURL = [NSURL fileURLWithPath: writeableStorePath];
+        
+#if TARGET_OS_IPHONE
+        if(![[NSFileManager defaultManager] fileExistsAtPath: writeableStorePath] ) {
+            NSBundle* seedBundle = [NSBundle seedBundle];
+            
+            NSString* seedStorePath = [seedBundle pathForResource: writeableStoreFileName ofType: nil];
+            NSParameterAssert([[NSFileManager defaultManager] fileExistsAtPath: seedStorePath]);
+            
+            NSError* error;
+            [[NSFileManager defaultManager] copyItemAtPath: seedStorePath
+                                                    toPath: writeableStorePath
+                                                     error: &error];
+            DLogError(error);
+        }
+        NSParameterAssert([[NSFileManager defaultManager] fileExistsAtPath: writeableStorePath]);
+#else
+        if( [[NSFileManager defaultManager] fileExistsAtPath: writeableStorePath] ) {
+            [[NSFileManager defaultManager] removeItemAtPath: writeableStorePath
+                                                       error: nil];
+        }
+#endif
+        
+        NSError* error;
+        _dataStore = [psc addPersistentStoreWithType: NSSQLiteStoreType
+                                       configuration: nil
+                                                 URL: writeableStoreURL
+                                             options: readwriteOptions
+                                               error: &error];
+        DLogError(error);
+        
+        _persistentStoreCoordinator = psc;
         
         self.persistentStoreManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType: NSPrivateQueueConcurrencyType];
         self.persistentStoreManagedObjectContext.persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -95,6 +144,10 @@ void SetExcludeFromBackupAttributeForItemAtPath(NSString *path)
         self.mainQueueManagedObjectContext.parentContext = self.persistentStoreManagedObjectContext;
         self.mainQueueManagedObjectContext.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy;
         self.mainQueueManagedObjectContext.undoManager = nil;
+        
+        self.mainQueueManagedObjectContext.stack = self;
+        self.persistentStoreManagedObjectContext.stack = self;
+        
         
         [[NSNotificationCenter defaultCenter] addObserver: self
                                                  selector: @selector(handleManagedObjectContextDidSaveNotification:)
@@ -115,52 +168,65 @@ void SetExcludeFromBackupAttributeForItemAtPath(NSString *path)
     return nil;
 }
 
-+ (NSPersistentStoreCoordinator*) createPersistentStoreCoordinator:(NSManagedObjectModel *)model atPath:(NSString *)storePath {
-    NSURL* storeURL = [NSURL fileURLWithPath: storePath];
-    NSParameterAssert(model);
-    NSParameterAssert(storeURL);
+- (NSString*) dataLanguage {
+    NSURL* storeURL = self.dataStore.URL;
+    NSString* lastPathComponent = [storeURL lastPathComponent];
+    NSString* fileName = [lastPathComponent stringByDeletingPathExtension];
+    NSArray* components = [fileName componentsSeparatedByString: @"_"];
+    NSParameterAssert(components.count == 2);
+    NSRange baseNameRange = [fileName rangeOfString: components[0]];
     
+    NSUInteger baseNameEndIndex = baseNameRange.location + baseNameRange.length + 1;
+    NSUInteger baseNameLength = [fileName length] - baseNameEndIndex;
+    
+    return [fileName substringWithRange: NSMakeRange(baseNameEndIndex, baseNameLength)];
+}
+
+- (void) setDataLanguage:(NSString *)dataLanguage {
     NSError* error;
-    
-    /* In iOS7 there is a new WAL journal mode. This mode is better for databases that are frequently written to while being read. For us,
-     the database is almost never written to and so it is better to use the rollback method. Because WAL is the default, we need to explicitly turn
-     it off here.
-     
-     References:
-     
-     https://developer.apple.com/library/ios/releasenotes/DataManagement/WhatsNew_CoreData_iOS/
-     http://www.sqlite.org/wal.html
-     
-     */
-    NSDictionary* options = @{
-                              NSSQLitePragmasOption : @{ @"journal_mode" : @"DELETE" },
-                              NSMigratePersistentStoresAutomaticallyOption : @YES,
-                              NSInferMappingModelAutomaticallyOption : @YES
-                              };
-    
-    NSPersistentStoreCoordinator* psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: model];
-    if([psc addPersistentStoreWithType: NSSQLiteStoreType configuration: nil URL: storeURL options: options error: &error] ) {
-        return psc;
-    }
-    else {
-        switch (error.code) {
-            case NSMigrationError:
-            case NSMigrationCancelledError:
-            case NSMigrationMissingSourceModelError:
-            case NSMigrationMissingMappingModelError:
-            case NSMigrationManagerSourceStoreError:
-            case NSMigrationManagerDestinationStoreError:
-            case NSEntityMigrationPolicyError:
-            case NSInferredMappingModelError:
-            case NSExternalRecordImportError:
-            default:
-                break;
-        }
-        
+    if(![self.persistentStoreCoordinator removePersistentStore: self.dataStore error: &error]) {
         DLogError(error);
-        
-        return nil;
     }
+    
+    NSURL* storeURL = self.dataStore.URL;
+    NSString* lastPathComponent = [storeURL lastPathComponent];
+    NSString* fileName = [lastPathComponent stringByDeletingPathExtension];
+    NSArray* components = [fileName componentsSeparatedByString: @"_"];
+    NSParameterAssert(components.count == 2);
+    NSString* userDomain = components[0];
+    
+    NSString* writeableStoreFileName = [NSString stringWithFormat: @"%@_%@.db", userDomain, dataLanguage];
+#if TARGET_OS_IPHONE
+    NSBundle* seedBundle = [NSBundle seedBundle];
+    NSURL* seedStoreURL = [seedBundle URLForResource: writeableStoreFileName withExtension: nil];
+#else
+    NSSearchPathDirectory domain = SEARCH_PATH_FROM_APPLE_GUIDELINES;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(domain, NSUserDomainMask, YES);
+    NSString* writeableDirectoryPath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    NSString* writeableStorePath = [writeableDirectoryPath stringByAppendingPathComponent: writeableStoreFileName];
+    if( [[NSFileManager defaultManager] fileExistsAtPath: writeableStorePath] ) {
+        [[NSFileManager defaultManager] removeItemAtPath: writeableStorePath
+                                                   error: &error];
+        DLogError(error);
+    }
+    
+    NSURL* seedStoreURL = [NSURL fileURLWithPath: writeableStorePath];
+#endif
+    
+    NSDictionary* readwriteOptions = @{ NSSQLitePragmasOption : @{ @"journal_mode" : @"DELETE" },
+                                        NSMigratePersistentStoresAutomaticallyOption : @YES,
+                                        NSInferMappingModelAutomaticallyOption : @YES
+                                       };
+    
+    self.dataStore = [self.persistentStoreCoordinator addPersistentStoreWithType: NSSQLiteStoreType
+                                                                   configuration: nil
+                                                                             URL: seedStoreURL
+                                                                         options: readwriteOptions
+                                                                           error: &error];
+    DLogError(error);
+    
+    [[NSUserDefaults standardUserDefaults] setObject: dataLanguage forKey: NSUserDefaultsContentLanguageKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (NSManagedObjectContext*) mainQueueManagedObjectContext {
@@ -200,6 +266,49 @@ void SetExcludeFromBackupAttributeForItemAtPath(NSString *path)
     [self.mainQueueManagedObjectContext performBlock: ^{
         [self.mainQueueManagedObjectContext mergeChangesFromContextDidSaveNotification: notification];
     }];
+}
+
+#pragma mark - NSObject
++ (void) initialize {
+    
+    NSDictionary* defaultOptions = @{
+                                     NSUserDefaultsContentLanguageKey : [NSLocale contentLanguageNearestDeviceLanguage]
+                                     };
+    [[NSUserDefaults standardUserDefaults] registerDefaults: defaultOptions];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
+
+@end
+
+@implementation NSManagedObjectContext (CoreDataStack)
+
+- (BOOL) threadSafeSave: (NSError *__autoreleasing*) error {
+    CoreDataStack* stack = self.stack;
+    NSParameterAssert(stack);
+    return [stack save];
+}
+
+- (void) setStack:(CoreDataStack *)stack {
+    objc_setAssociatedObject(self, ASSOCIATIVE_KEY_DATA_STACK, stack, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CoreDataStack*) stack {
+    return objc_getAssociatedObject(self, ASSOCIATIVE_KEY_DATA_STACK);
+}
+
+- (NSLocale*) locale {
+    CoreDataStack* stack = self.stack;
+    NSString* identifier = stack.dataLanguage;
+    return [NSLocale localeWithLocaleIdentifier: identifier];
+}
+
+- (NSFetchRequest *)fetchRequestFromTemplateWithName:(NSString *)name substitutionVariables:(NSDictionary *)variables {
+    CoreDataStack* stack = self.stack;
+    NSParameterAssert(stack);
+    
+    NSManagedObjectModel* mom = stack.managedObjectModel;
+    return [mom fetchRequestFromTemplateWithName: name substitutionVariables: variables];
 }
 
 @end

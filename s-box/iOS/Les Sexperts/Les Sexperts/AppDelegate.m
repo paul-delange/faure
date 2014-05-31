@@ -78,11 +78,13 @@ NSString * const NSUserDefaultsWantsPushNotificationsKey = @"WantsPushNotificati
         };
         [self.window.rootViewController mz_presentFormSheetController: formSheet
                                                              animated: YES
-                                                    completionHandler: NULL];
+                                                    completionHandler:^(MZFormSheetController *formSheetController) {
+                                                        [UIApplication sharedApplication].applicationIconBadgeNumber--;
+                                                    }];
         
         return YES;
     }
-
+    
     return NO;
 }
 
@@ -124,7 +126,9 @@ NSString * const NSUserDefaultsWantsPushNotificationsKey = @"WantsPushNotificati
         };
         [self.window.rootViewController mz_presentFormSheetController: formSheet
                                                              animated: YES
-                                                    completionHandler: NULL];
+                                                    completionHandler: ^(MZFormSheetController *formSheetController) {
+                                                        [UIApplication sharedApplication].applicationIconBadgeNumber--;
+                                                    }];
         
         return YES;
     }
@@ -136,7 +140,7 @@ NSString * const NSUserDefaultsWantsPushNotificationsKey = @"WantsPushNotificati
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    self.dataStack = [CoreDataStack stackWithStoreFilename: @"ContentLibrary.sqlite"];
+    self.dataStack = [CoreDataStack stackWithStoreFilename: @"Data"];
     
     
 #if !PAID_VERSION
@@ -225,26 +229,29 @@ logging: NO];
 
 - (void) application:(UIApplication *)application willUpdateToVersion:(NSString *)newVersion fromVersion:(NSString *)previousVersion {
     
-    /* HACK
-     *
-     * I didn't implement this category from the first version so I don't know if this is a fresh install or an update from a version
-     * that didn't have version tracking before.
-     *
-     * To fix that I'm going to look for a plist property instead
-     */
-    
-    BOOL isUpgradeFromUntrackedVersion = [[NSUserDefaults standardUserDefaults] objectForKey: kUserPreferenceHasShuffledQuestionsKey] ? YES : NO;
-    
-    if( isUpgradeFromUntrackedVersion ) {
-        NSString* title = NSLocalizedString(@"New!", @"");
-        NSString* msg = NSLocalizedString(@"Would you like to receive exlusive jokes and advice via regular notifications?", @"");
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
-                                                        message: msg
-                                                       delegate: self
-                                              cancelButtonTitle: NSLocalizedString(@"No thanks", @"")
-                                              otherButtonTitles: NSLocalizedString(@"Yes", @""), nil];
-        alert.tag = kAlertViewTagOptInPushNotifications;
-        [alert show];
+    if(!previousVersion) {
+        
+        /* HACK
+         *
+         * I didn't implement this category from the first version so I don't know if this is a fresh install or an update from a version
+         * that didn't have version tracking before.
+         *
+         * To fix that I'm going to look for a plist property instead
+         */
+        
+        BOOL isUpgradeFromUntrackedVersion = [[NSUserDefaults standardUserDefaults] objectForKey: kUserPreferenceHasShuffledQuestionsKey] ? YES : NO;
+        
+        if( isUpgradeFromUntrackedVersion ) {
+            NSString* title = NSLocalizedString(@"New!", @"");
+            NSString* msg = NSLocalizedString(@"Would you like to receive exlusive jokes and advice via regular notifications?", @"");
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
+                                                            message: msg
+                                                           delegate: self
+                                                  cancelButtonTitle: NSLocalizedString(@"No thanks", @"")
+                                                  otherButtonTitles: NSLocalizedString(@"Yes", @""), nil];
+            alert.tag = kAlertViewTagOptInPushNotifications;
+            [alert show];
+        }
     }
 }
 

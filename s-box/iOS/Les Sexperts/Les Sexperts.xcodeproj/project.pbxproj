@@ -129,6 +129,9 @@
 		FD70E8AA193898A0007E3363 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD70E8A9193898A0007E3363 /* Parse.framework */; };
 		FD70E8AC19389DD2007E3363 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FD70E8AB19389DD2007E3363 /* Settings.bundle */; };
 		FD70E8AD19389E46007E3363 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF2112E18C8D8E200C8621F /* MobileCoreServices.framework */; };
+		FD70E8B21939B341007E3363 /* NSLocale+ContentLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD70E8B11939B341007E3363 /* NSLocale+ContentLanguage.m */; };
+		FD70E8B51939B396007E3363 /* NSBundle+Seeding.m in Sources */ = {isa = PBXBuildFile; fileRef = FD70E8B41939B396007E3363 /* NSBundle+Seeding.m */; };
+		FD70E8C91939BB27007E3363 /* Seed Data in Resources */ = {isa = PBXBuildFile; fileRef = FD70E8C81939BB27007E3363 /* Seed Data */; };
 		FD8524D918CEF056005E6A3F /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524D818CEF056005E6A3F /* AdColony.framework */; };
 		FD8524DB18CEF2D1005E6A3F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524DA18CEF2D1005E6A3F /* CoreMedia.framework */; };
 		FD8524DD18CEF2E1005E6A3F /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524DC18CEF2E1005E6A3F /* EventKit.framework */; };
@@ -270,6 +273,11 @@
 		FD70E8A9193898A0007E3363 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		FD70E8AB19389DD2007E3363 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		FD70E8AE19393AB1007E3363 /* ContentLibrary 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ContentLibrary 2.xcdatamodel"; sourceTree = "<group>"; };
+		FD70E8B01939B341007E3363 /* NSLocale+ContentLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLocale+ContentLanguage.h"; sourceTree = "<group>"; };
+		FD70E8B11939B341007E3363 /* NSLocale+ContentLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLocale+ContentLanguage.m"; sourceTree = "<group>"; };
+		FD70E8B31939B396007E3363 /* NSBundle+Seeding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Seeding.h"; sourceTree = "<group>"; };
+		FD70E8B41939B396007E3363 /* NSBundle+Seeding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Seeding.m"; sourceTree = "<group>"; };
+		FD70E8C81939BB27007E3363 /* Seed Data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Seed Data"; path = "Les Sexperts/Les Sexperts/Seed Data"; sourceTree = "<group>"; };
 		FD8524D818CEF056005E6A3F /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdColony.framework; path = AdColony/AdColony.framework; sourceTree = "<group>"; };
 		FD8524DA18CEF2D1005E6A3F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		FD8524DC18CEF2E1005E6A3F /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
@@ -508,6 +516,8 @@
 		FD2BA43C18C06FA3009AFC9F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FD70E8B31939B396007E3363 /* NSBundle+Seeding.h */,
+				FD70E8B41939B396007E3363 /* NSBundle+Seeding.m */,
 				FD70E8A61938981E007E3363 /* UIApplication+Versioning.h */,
 				FD70E8A71938981E007E3363 /* UIApplication+Versioning.m */,
 				FD2BA45D18C086FE009AFC9F /* Entities */,
@@ -519,6 +529,8 @@
 				FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */,
 				FDAD91E718C7C093009CFC7F /* ResultsCollectionViewFlowLayout.h */,
 				FDAD91E818C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m */,
+				FD70E8B01939B341007E3363 /* NSLocale+ContentLanguage.h */,
+				FD70E8B11939B341007E3363 /* NSLocale+ContentLanguage.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -526,6 +538,7 @@
 		FD2BA43D18C06FC8009AFC9F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FD70E8C81939BB27007E3363 /* Seed Data */,
 				FDA6FE8618F2ACF700C72C5D /* Main.storyboard */,
 				FD51091318E755BE003D58C7 /* Localizable.strings */,
 				FD1D86B018D8D3CE00F333A6 /* american_typewriter.ttf */,
@@ -800,6 +813,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD70E8C91939BB27007E3363 /* Seed Data in Resources */,
 				FD2BA41E18C06F95009AFC9F /* Images.xcassets in Resources */,
 				FD51091518E755BE003D58C7 /* Localizable.strings in Resources */,
 				FD1D86B118D8D3CE00F333A6 /* american_typewriter.ttf in Resources */,
@@ -935,6 +949,8 @@
 				FD51091118E74AE3003D58C7 /* TimerView.m in Sources */,
 				FD1D861218D3325B00F333A6 /* MZFormSheetController.m in Sources */,
 				FDCF131E18C4CE5D002F0B1D /* CountDownViewController.m in Sources */,
+				FD70E8B21939B341007E3363 /* NSLocale+ContentLanguage.m in Sources */,
+				FD70E8B51939B396007E3363 /* NSBundle+Seeding.m in Sources */,
 				FD2BA50418C0B994009AFC9F /* AdviceTableViewController.m in Sources */,
 				FD2BA50A18C0C3F2009AFC9F /* ContentLock.m in Sources */,
 				FD2BA44018C0730F009AFC9F /* HomeViewController.m in Sources */,

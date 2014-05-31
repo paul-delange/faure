@@ -94,83 +94,93 @@
 
 #pragma mark - Actions
 - (IBAction) generatorPushed:(id)sender {
+    
+    _dataStack = [CoreDataStack stackWithStoreFilename: @"Data"];
+    
     [self.progressIndicator startAnimation: sender];
     
-    self.statusLabel.stringValue = @"Reading question list...";
     
-    NSString* questionsFilePath = [[NSBundle mainBundle] pathForResource: @"questions" ofType: @"csv"];
-    NSArray* questions = [NSArray arrayWithContentsOfCSVFile: questionsFilePath];
+    NSArray* languages = [[NSBundle mainBundle] localizations];
     
-    NSString* answersFilePath = [[NSBundle mainBundle] pathForResource: @"answers" ofType: @"csv"];
-    NSArray* answers = [NSArray arrayWithContentsOfCSVFile: answersFilePath];
-    
-    NSManagedObjectContext* context = _dataStack.persistentStoreManagedObjectContext;
-
-    for(NSArray* qsrc in questions) {
-        if( [qsrc count] != 3 )
-            continue;
+    for(NSString* language in languages) {
+        _dataStack.dataLanguage = language;
         
-        id qid = qsrc[0];
-        NSArray* asrc = [answers filteredArrayUsingPredicate: [NSPredicate predicateWithBlock: ^BOOL(id evaluatedObject, NSDictionary *bindings) {
-            NSArray* answer = (NSArray*)evaluatedObject;
+        self.statusLabel.stringValue = @"Reading question list...";
+        
+        NSString* questionsFilePath = [[NSBundle mainBundle] pathForResource: @"questions" ofType: @"csv"];
+        NSArray* questions = [NSArray arrayWithContentsOfCSVFile: questionsFilePath];
+        
+        NSString* answersFilePath = [[NSBundle mainBundle] pathForResource: @"answers" ofType: @"csv"];
+        NSArray* answers = [NSArray arrayWithContentsOfCSVFile: answersFilePath];
+        
+        NSManagedObjectContext* context = _dataStack.mainQueueManagedObjectContext;
+        
+        for(NSArray* qsrc in questions) {
+            if( [qsrc count] != 3 )
+                continue;
             
-            if( [answer count] != 4 )
-                return NO;
+            id qid = qsrc[0];
+            NSArray* asrc = [answers filteredArrayUsingPredicate: [NSPredicate predicateWithBlock: ^BOOL(id evaluatedObject, NSDictionary *bindings) {
+                NSArray* answer = (NSArray*)evaluatedObject;
+                
+                if( [answer count] != 4 )
+                    return NO;
+                
+                id aqid = answer[1];
+                return [aqid isEqual: qid];
+            }]];
+            NSParameterAssert([asrc count]);
             
-            id aqid = answer[1];
-            return [aqid isEqual: qid];
-        }]];
-        NSParameterAssert([asrc count]);
+            [self questionFromSource: qsrc withAnswers: asrc inContext: context];
+            self.statusLabel.stringValue = [NSString stringWithFormat: @"Added question %@/%lu", qid, (unsigned long)[questions count]];
+        }
         
-        [self questionFromSource: qsrc withAnswers: asrc inContext: context];
-        self.statusLabel.stringValue = [NSString stringWithFormat: @"Added question %@/%lu", qid, (unsigned long)[questions count]];
-    }
-    
-    self.statusLabel.stringValue = @"Reading advice list...";
-    
-    NSString* themesFilePath = [[NSBundle mainBundle] pathForResource: @"themes" ofType: @"csv"];
-    NSArray* themes = [NSArray arrayWithContentsOfCSVFile:  themesFilePath];
-    
-    NSString* adviceFilePath = [[NSBundle mainBundle] pathForResource: @"conseils" ofType: @"csv"];
-    NSArray* advices = [NSArray arrayWithContentsOfCSVFile: adviceFilePath];
-
-    for(NSArray* asrc in advices) {
-        if( [asrc count] < 5)
-            continue;
+        self.statusLabel.stringValue = @"Reading advice list...";
         
-        id tid = asrc[3];
-        NSArray* tsrc = [themes filteredArrayUsingPredicate: [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
-            NSArray* theme = (NSArray*)evaluatedObject;
+        NSString* themesFilePath = [[NSBundle mainBundle] pathForResource: @"themes" ofType: @"csv"];
+        NSArray* themes = [NSArray arrayWithContentsOfCSVFile:  themesFilePath];
+        
+        NSString* adviceFilePath = [[NSBundle mainBundle] pathForResource: @"conseils" ofType: @"csv"];
+        NSArray* advices = [NSArray arrayWithContentsOfCSVFile: adviceFilePath];
+        
+        for(NSArray* asrc in advices) {
+            if( [asrc count] < 5)
+                continue;
             
-            id atid = theme[0];
-            return [atid isEqual: tid];
-        }]];
-        NSParameterAssert([tsrc count] == 1);
+            id tid = asrc[3];
+            NSArray* tsrc = [themes filteredArrayUsingPredicate: [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+                NSArray* theme = (NSArray*)evaluatedObject;
+                
+                id atid = theme[0];
+                return [atid isEqual: tid];
+            }]];
+            NSParameterAssert([tsrc count] == 1);
+            
+            [self adviceFromSource: asrc inTheme: [tsrc lastObject] inContent: context];
+        }
         
-        [self adviceFromSource: asrc inTheme: [tsrc lastObject] inContent: context];
+        self.statusLabel.stringValue = @"Reading joke list...";
+        
+        NSString* jokesFilePath = [[NSBundle mainBundle] pathForResource: @"blagues" ofType: @"csv"];
+        NSArray* jokes = [NSArray arrayWithContentsOfCSVFile: jokesFilePath];
+        
+        jokes = [jokes subarrayWithRange: NSMakeRange(1, [jokes count]-1)];
+        
+        for(NSArray* jsrc in jokes) {
+            [self jokeFromSource: jsrc inContext: context];
+        }
+        
+        [_dataStack save];
+        
+        [self.progressIndicator stopAnimation: sender];
+        self.statusLabel.stringValue = [NSString stringWithFormat: @"Database ready in %@", language];
     }
-    
-    self.statusLabel.stringValue = @"Reading joke list...";
-    
-    NSString* jokesFilePath = [[NSBundle mainBundle] pathForResource: @"blagues" ofType: @"csv"];
-    NSArray* jokes = [NSArray arrayWithContentsOfCSVFile: jokesFilePath];
-    
-    jokes = [jokes subarrayWithRange: NSMakeRange(1, [jokes count]-1)];
-    
-    for(NSArray* jsrc in jokes) {
-        [self jokeFromSource: jsrc inContext: context];
-    }
-    
-    [_dataStack save];
-    
-    [self.progressIndicator stopAnimation: sender];
-    self.statusLabel.stringValue = [NSString stringWithFormat: @"Database ready at: %@", _dataStack.storeURL];
 }
 
 #pragma mark - UIApplicationDelegate
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    _dataStack = [CoreDataStack stackWithStoreFilename: @"ContentLibrary.sqlite"];
+    
 }
 
 @end

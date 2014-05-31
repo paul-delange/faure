@@ -7,19 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD29D67018E2001E00DD5675 /* blagues.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD29D66D18E2001E00DD5675 /* blagues.csv */; };
-		FD29D67118E2001E00DD5675 /* conseils.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD29D66E18E2001E00DD5675 /* conseils.csv */; };
-		FD29D67218E2001E00DD5675 /* themes.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD29D66F18E2001E00DD5675 /* themes.csv */; };
 		FD2BA47A18C08780009AFC9F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA47918C08780009AFC9F /* Cocoa.framework */; };
-		FD2BA48418C08780009AFC9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA48218C08780009AFC9F /* InfoPlist.strings */; };
 		FD2BA48618C08780009AFC9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA48518C08780009AFC9F /* main.m */; };
-		FD2BA48A18C08780009AFC9F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA48818C08780009AFC9F /* Credits.rtf */; };
 		FD2BA48D18C08780009AFC9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA48C18C08780009AFC9F /* AppDelegate.m */; };
-		FD2BA49018C08780009AFC9F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA48E18C08780009AFC9F /* MainMenu.xib */; };
 		FD2BA49218C08780009AFC9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA49118C08780009AFC9F /* Images.xcassets */; };
 		FD2BA49918C08780009AFC9F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA49818C08780009AFC9F /* XCTest.framework */; };
 		FD2BA49A18C08780009AFC9F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA47918C08780009AFC9F /* Cocoa.framework */; };
-		FD2BA4A218C08780009AFC9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA4A018C08780009AFC9F /* InfoPlist.strings */; };
 		FD2BA4A418C08780009AFC9F /* ImporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4A318C08780009AFC9F /* ImporterTests.m */; };
 		FD2BA4B018C087E5009AFC9F /* ContentLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4AE18C087E5009AFC9F /* ContentLibrary.xcdatamodeld */; };
 		FD2BA4C018C08801009AFC9F /* _Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4B118C08801009AFC9F /* _Advice.m */; };
@@ -33,9 +26,15 @@
 		FD2BA4C818C08801009AFC9F /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4BD18C08801009AFC9F /* Question.m */; };
 		FD2BA4C918C08801009AFC9F /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4BF18C08801009AFC9F /* Theme.m */; };
 		FD2BA4CD18C0881F009AFC9F /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4CC18C0881F009AFC9F /* CoreDataStack.m */; };
-		FD2BA4E918C08A7A009AFC9F /* answers.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA4E718C08A7A009AFC9F /* answers.csv */; };
-		FD2BA4EA18C08A7A009AFC9F /* questions.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA4E818C08A7A009AFC9F /* questions.csv */; };
 		FD2BA4F618C08BA2009AFC9F /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4F518C08BA2009AFC9F /* CHCSVParser.m */; };
+		FD70E8C31939B8C3007E3363 /* NSBundle+Seeding.m in Sources */ = {isa = PBXBuildFile; fileRef = FD70E8C01939B8C3007E3363 /* NSBundle+Seeding.m */; };
+		FD70E8C41939B8C3007E3363 /* NSLocale+ContentLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD70E8C21939B8C3007E3363 /* NSLocale+ContentLanguage.m */; };
+		FD70E8CB1939BC7C007E3363 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD70E8CA1939BC7C007E3363 /* MainMenu.xib */; };
+		FD70E8CC1939BCBF007E3363 /* blagues.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD70E8CE1939BCBF007E3363 /* blagues.csv */; };
+		FD70E8D01939BCE0007E3363 /* conseils.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD70E8D21939BCE0007E3363 /* conseils.csv */; };
+		FD70E8D31939BCE3007E3363 /* themes.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD70E8D51939BCE3007E3363 /* themes.csv */; };
+		FD70E8D61939BCE8007E3363 /* answers.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD70E8D81939BCE8007E3363 /* answers.csv */; };
+		FD70E8D91939BCEB007E3363 /* questions.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD70E8DB1939BCEB007E3363 /* questions.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,27 +48,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FD29D66D18E2001E00DD5675 /* blagues.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = blagues.csv; sourceTree = "<group>"; };
-		FD29D66E18E2001E00DD5675 /* conseils.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = conseils.csv; sourceTree = "<group>"; };
-		FD29D66F18E2001E00DD5675 /* themes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = themes.csv; sourceTree = "<group>"; };
 		FD2BA47618C08780009AFC9F /* Importer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Importer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2BA47918C08780009AFC9F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FD2BA47C18C08780009AFC9F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		FD2BA47D18C08780009AFC9F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FD2BA47E18C08780009AFC9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD2BA48118C08780009AFC9F /* Importer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Importer-Info.plist"; sourceTree = "<group>"; };
-		FD2BA48318C08780009AFC9F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FD2BA48518C08780009AFC9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FD2BA48718C08780009AFC9F /* Importer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Importer-Prefix.pch"; sourceTree = "<group>"; };
-		FD2BA48918C08780009AFC9F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		FD2BA48B18C08780009AFC9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FD2BA48C18C08780009AFC9F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FD2BA48F18C08780009AFC9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		FD2BA49118C08780009AFC9F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FD2BA49718C08780009AFC9F /* ImporterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImporterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2BA49818C08780009AFC9F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FD2BA49F18C08780009AFC9F /* ImporterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ImporterTests-Info.plist"; sourceTree = "<group>"; };
-		FD2BA4A118C08780009AFC9F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FD2BA4A318C08780009AFC9F /* ImporterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImporterTests.m; sourceTree = "<group>"; };
 		FD2BA4AF18C087E5009AFC9F /* ContentLibrary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContentLibrary.xcdatamodel; sourceTree = "<group>"; };
 		FD2BA4B118C08801009AFC9F /* _Advice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Advice.m; sourceTree = SOURCE_ROOT; };
@@ -89,10 +81,18 @@
 		FD2BA4BF18C08801009AFC9F /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = SOURCE_ROOT; };
 		FD2BA4CB18C0881F009AFC9F /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataStack.h; path = "../../Les Sexperts/Les Sexperts/CoreDataStack.h"; sourceTree = "<group>"; };
 		FD2BA4CC18C0881F009AFC9F /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataStack.m; path = "../../Les Sexperts/Les Sexperts/CoreDataStack.m"; sourceTree = "<group>"; };
-		FD2BA4E718C08A7A009AFC9F /* answers.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = answers.csv; sourceTree = "<group>"; };
-		FD2BA4E818C08A7A009AFC9F /* questions.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = questions.csv; sourceTree = "<group>"; };
 		FD2BA4F418C08BA2009AFC9F /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHCSVParser.h; path = CHCSVParser/CHCSVParser/CHCSVParser.h; sourceTree = SOURCE_ROOT; };
 		FD2BA4F518C08BA2009AFC9F /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHCSVParser.m; path = CHCSVParser/CHCSVParser/CHCSVParser.m; sourceTree = SOURCE_ROOT; };
+		FD70E8BF1939B8C3007E3363 /* NSBundle+Seeding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBundle+Seeding.h"; path = "../../Les Sexperts/Les Sexperts/NSBundle+Seeding.h"; sourceTree = "<group>"; };
+		FD70E8C01939B8C3007E3363 /* NSBundle+Seeding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+Seeding.m"; path = "../../Les Sexperts/Les Sexperts/NSBundle+Seeding.m"; sourceTree = "<group>"; };
+		FD70E8C11939B8C3007E3363 /* NSLocale+ContentLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSLocale+ContentLanguage.h"; path = "../../Les Sexperts/Les Sexperts/NSLocale+ContentLanguage.h"; sourceTree = "<group>"; };
+		FD70E8C21939B8C3007E3363 /* NSLocale+ContentLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSLocale+ContentLanguage.m"; path = "../../Les Sexperts/Les Sexperts/NSLocale+ContentLanguage.m"; sourceTree = "<group>"; };
+		FD70E8CA1939BC7C007E3363 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		FD70E8CF1939BCCC007E3363 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text; name = fr; path = fr.lproj/blagues.csv; sourceTree = "<group>"; };
+		FD70E8D11939BCE0007E3363 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text; name = fr; path = fr.lproj/conseils.csv; sourceTree = "<group>"; };
+		FD70E8D41939BCE3007E3363 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text; name = fr; path = fr.lproj/themes.csv; sourceTree = "<group>"; };
+		FD70E8D71939BCE8007E3363 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text; name = fr; path = fr.lproj/answers.csv; sourceTree = "<group>"; };
+		FD70E8DA1939BCEB007E3363 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text; name = fr; path = fr.lproj/questions.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +158,10 @@
 		FD2BA47F18C08780009AFC9F /* Importer */ = {
 			isa = PBXGroup;
 			children = (
+				FD70E8BF1939B8C3007E3363 /* NSBundle+Seeding.h */,
+				FD70E8C01939B8C3007E3363 /* NSBundle+Seeding.m */,
+				FD70E8C11939B8C3007E3363 /* NSLocale+ContentLanguage.h */,
+				FD70E8C21939B8C3007E3363 /* NSLocale+ContentLanguage.m */,
 				FD2BA4F418C08BA2009AFC9F /* CHCSVParser.h */,
 				FD2BA4F518C08BA2009AFC9F /* CHCSVParser.m */,
 				FD2BA4CB18C0881F009AFC9F /* CoreDataStack.h */,
@@ -165,7 +169,6 @@
 				FD2BA4CA18C08806009AFC9F /* Entities */,
 				FD2BA48B18C08780009AFC9F /* AppDelegate.h */,
 				FD2BA48C18C08780009AFC9F /* AppDelegate.m */,
-				FD2BA48E18C08780009AFC9F /* MainMenu.xib */,
 				FD2BA49118C08780009AFC9F /* Images.xcassets */,
 				FD2BA48018C08780009AFC9F /* Supporting Files */,
 			);
@@ -175,17 +178,16 @@
 		FD2BA48018C08780009AFC9F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FD29D66D18E2001E00DD5675 /* blagues.csv */,
-				FD29D66E18E2001E00DD5675 /* conseils.csv */,
-				FD29D66F18E2001E00DD5675 /* themes.csv */,
-				FD2BA4E718C08A7A009AFC9F /* answers.csv */,
-				FD2BA4E818C08A7A009AFC9F /* questions.csv */,
+				FD70E8CA1939BC7C007E3363 /* MainMenu.xib */,
+				FD70E8CE1939BCBF007E3363 /* blagues.csv */,
+				FD70E8D21939BCE0007E3363 /* conseils.csv */,
+				FD70E8D51939BCE3007E3363 /* themes.csv */,
+				FD70E8D81939BCE8007E3363 /* answers.csv */,
+				FD70E8DB1939BCEB007E3363 /* questions.csv */,
 				FD2BA4AE18C087E5009AFC9F /* ContentLibrary.xcdatamodeld */,
 				FD2BA48118C08780009AFC9F /* Importer-Info.plist */,
-				FD2BA48218C08780009AFC9F /* InfoPlist.strings */,
 				FD2BA48518C08780009AFC9F /* main.m */,
 				FD2BA48718C08780009AFC9F /* Importer-Prefix.pch */,
-				FD2BA48818C08780009AFC9F /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -203,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				FD2BA49F18C08780009AFC9F /* ImporterTests-Info.plist */,
-				FD2BA4A018C08780009AFC9F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -290,6 +291,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = FD2BA46D18C08780009AFC9F;
 			productRefGroup = FD2BA47718C08780009AFC9F /* Products */;
@@ -307,15 +309,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD29D67218E2001E00DD5675 /* themes.csv in Resources */,
-				FD2BA4E918C08A7A009AFC9F /* answers.csv in Resources */,
-				FD2BA4EA18C08A7A009AFC9F /* questions.csv in Resources */,
-				FD2BA48418C08780009AFC9F /* InfoPlist.strings in Resources */,
+				FD70E8D31939BCE3007E3363 /* themes.csv in Resources */,
+				FD70E8D61939BCE8007E3363 /* answers.csv in Resources */,
+				FD70E8D91939BCEB007E3363 /* questions.csv in Resources */,
 				FD2BA49218C08780009AFC9F /* Images.xcassets in Resources */,
-				FD2BA48A18C08780009AFC9F /* Credits.rtf in Resources */,
-				FD29D67018E2001E00DD5675 /* blagues.csv in Resources */,
-				FD29D67118E2001E00DD5675 /* conseils.csv in Resources */,
-				FD2BA49018C08780009AFC9F /* MainMenu.xib in Resources */,
+				FD70E8CC1939BCBF007E3363 /* blagues.csv in Resources */,
+				FD70E8D01939BCE0007E3363 /* conseils.csv in Resources */,
+				FD70E8CB1939BC7C007E3363 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,7 +323,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD2BA4A218C08780009AFC9F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,10 +351,12 @@
 			files = (
 				FD2BA4C218C08801009AFC9F /* _Joke.m in Sources */,
 				FD2BA48D18C08780009AFC9F /* AppDelegate.m in Sources */,
+				FD70E8C31939B8C3007E3363 /* NSBundle+Seeding.m in Sources */,
 				FD2BA4B018C087E5009AFC9F /* ContentLibrary.xcdatamodeld in Sources */,
 				FD2BA4C518C08801009AFC9F /* Advice.m in Sources */,
 				FD2BA48618C08780009AFC9F /* main.m in Sources */,
 				FD2BA4C018C08801009AFC9F /* _Advice.m in Sources */,
+				FD70E8C41939B8C3007E3363 /* NSLocale+ContentLanguage.m in Sources */,
 				FD2BA4C418C08801009AFC9F /* _Theme.m in Sources */,
 				FD2BA4C718C08801009AFC9F /* Joke.m in Sources */,
 				FD2BA4F618C08BA2009AFC9F /* CHCSVParser.m in Sources */,
@@ -387,36 +388,44 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FD2BA48218C08780009AFC9F /* InfoPlist.strings */ = {
+		FD70E8CE1939BCBF007E3363 /* blagues.csv */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FD2BA48318C08780009AFC9F /* en */,
+				FD70E8CF1939BCCC007E3363 /* fr */,
 			);
-			name = InfoPlist.strings;
+			name = blagues.csv;
 			sourceTree = "<group>";
 		};
-		FD2BA48818C08780009AFC9F /* Credits.rtf */ = {
+		FD70E8D21939BCE0007E3363 /* conseils.csv */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FD2BA48918C08780009AFC9F /* en */,
+				FD70E8D11939BCE0007E3363 /* fr */,
 			);
-			name = Credits.rtf;
+			name = conseils.csv;
 			sourceTree = "<group>";
 		};
-		FD2BA48E18C08780009AFC9F /* MainMenu.xib */ = {
+		FD70E8D51939BCE3007E3363 /* themes.csv */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FD2BA48F18C08780009AFC9F /* Base */,
+				FD70E8D41939BCE3007E3363 /* fr */,
 			);
-			name = MainMenu.xib;
+			name = themes.csv;
 			sourceTree = "<group>";
 		};
-		FD2BA4A018C08780009AFC9F /* InfoPlist.strings */ = {
+		FD70E8D81939BCE8007E3363 /* answers.csv */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FD2BA4A118C08780009AFC9F /* en */,
+				FD70E8D71939BCE8007E3363 /* fr */,
 			);
-			name = InfoPlist.strings;
+			name = answers.csv;
+			sourceTree = "<group>";
+		};
+		FD70E8DB1939BCEB007E3363 /* questions.csv */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD70E8DA1939BCEB007E3363 /* fr */,
+			);
+			name = questions.csv;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
