@@ -5,6 +5,8 @@
 
 const struct AdviceAttributes AdviceAttributes = {
 	.free = @"free",
+	.isNew = @"isNew",
+	.remoteID = @"remoteID",
 	.text = @"text",
 	.title = @"title",
 };
@@ -47,6 +49,11 @@ const struct AdviceFetchedProperties AdviceFetchedProperties = {
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
+	if ([key isEqualToString:@"isNewValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"isNew"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
@@ -75,6 +82,39 @@ const struct AdviceFetchedProperties AdviceFetchedProperties = {
 - (void)setPrimitiveFreeValue:(BOOL)value_ {
 	[self setPrimitiveFree:[NSNumber numberWithBool:value_]];
 }
+
+
+
+
+
+@dynamic isNew;
+
+
+
+- (BOOL)isNewValue {
+	NSNumber *result = [self isNew];
+	return [result boolValue];
+}
+
+- (void)setIsNewValue:(BOOL)value_ {
+	[self setIsNew:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveIsNewValue {
+	NSNumber *result = [self primitiveIsNew];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveIsNewValue:(BOOL)value_ {
+	[self setPrimitiveIsNew:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
+@dynamic remoteID;
+
 
 
 

@@ -125,6 +125,10 @@
 		FD70E89619387EB2007E3363 /* libAdapterInMobi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD70E89519387EB2007E3363 /* libAdapterInMobi.a */; };
 		FD70E89F193882CB007E3363 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD70E89E193882CB007E3363 /* libGoogleAnalyticsServices.a */; };
 		FD70E8A31938892E007E3363 /* libAdapterSDKAdColony.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD70E8A21938892E007E3363 /* libAdapterSDKAdColony.a */; };
+		FD70E8A81938981E007E3363 /* UIApplication+Versioning.m in Sources */ = {isa = PBXBuildFile; fileRef = FD70E8A71938981E007E3363 /* UIApplication+Versioning.m */; };
+		FD70E8AA193898A0007E3363 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD70E8A9193898A0007E3363 /* Parse.framework */; };
+		FD70E8AC19389DD2007E3363 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FD70E8AB19389DD2007E3363 /* Settings.bundle */; };
+		FD70E8AD19389E46007E3363 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF2112E18C8D8E200C8621F /* MobileCoreServices.framework */; };
 		FD8524D918CEF056005E6A3F /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524D818CEF056005E6A3F /* AdColony.framework */; };
 		FD8524DB18CEF2D1005E6A3F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524DA18CEF2D1005E6A3F /* CoreMedia.framework */; };
 		FD8524DD18CEF2E1005E6A3F /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524DC18CEF2E1005E6A3F /* EventKit.framework */; };
@@ -261,6 +265,11 @@
 		FD70E8A01938892E007E3363 /* GADMAdapterAdColonyExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMAdapterAdColonyExtras.h; sourceTree = "<group>"; };
 		FD70E8A11938892E007E3363 /* GADMAdapterAdColonyInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADMAdapterAdColonyInitializer.h; sourceTree = "<group>"; };
 		FD70E8A21938892E007E3363 /* libAdapterSDKAdColony.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdapterSDKAdColony.a; sourceTree = "<group>"; };
+		FD70E8A61938981E007E3363 /* UIApplication+Versioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Versioning.h"; sourceTree = "<group>"; };
+		FD70E8A71938981E007E3363 /* UIApplication+Versioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Versioning.m"; sourceTree = "<group>"; };
+		FD70E8A9193898A0007E3363 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		FD70E8AB19389DD2007E3363 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		FD70E8AE19393AB1007E3363 /* ContentLibrary 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ContentLibrary 2.xcdatamodel"; sourceTree = "<group>"; };
 		FD8524D818CEF056005E6A3F /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdColony.framework; path = AdColony/AdColony.framework; sourceTree = "<group>"; };
 		FD8524DA18CEF2D1005E6A3F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		FD8524DC18CEF2E1005E6A3F /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
@@ -340,6 +349,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD70E8AD19389E46007E3363 /* MobileCoreServices.framework in Frameworks */,
 				FD0829EA1937E81F00781624 /* Security.framework in Frameworks */,
 				FDF2112918C8D8B900C8621F /* AdSupport.framework in Frameworks */,
 				FD8524E318CEF305005E6A3F /* libz.dylib in Frameworks */,
@@ -352,6 +362,7 @@
 				FD8524E118CEF2FB005E6A3F /* Social.framework in Frameworks */,
 				FD8524DF18CEF2EA005E6A3F /* MediaPlayer.framework in Frameworks */,
 				FD70E89619387EB2007E3363 /* libAdapterInMobi.a in Frameworks */,
+				FD70E8AA193898A0007E3363 /* Parse.framework in Frameworks */,
 				FDD08B041933562400D9DCF0 /* libInMobi-4.3.0.a in Frameworks */,
 				FD8524DD18CEF2E1005E6A3F /* EventKit.framework in Frameworks */,
 				FD8524DB18CEF2D1005E6A3F /* CoreMedia.framework in Frameworks */,
@@ -429,6 +440,7 @@
 				FD29D60D18DEDAF200DD5675 /* QuartzCore.framework */,
 				FD29D60B18DEDAE500DD5675 /* MessageUI.framework */,
 				FD29D60918DEDAD500DD5675 /* EventKitUI.framework */,
+				FD70E8A9193898A0007E3363 /* Parse.framework */,
 				FD8524E218CEF305005E6A3F /* libz.dylib */,
 				FD8524E018CEF2FB005E6A3F /* Social.framework */,
 				FD8524DE18CEF2EA005E6A3F /* MediaPlayer.framework */,
@@ -496,6 +508,8 @@
 		FD2BA43C18C06FA3009AFC9F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FD70E8A61938981E007E3363 /* UIApplication+Versioning.h */,
+				FD70E8A71938981E007E3363 /* UIApplication+Versioning.m */,
 				FD2BA45D18C086FE009AFC9F /* Entities */,
 				FD2BA44418C082EC009AFC9F /* CoreDataStack.h */,
 				FD2BA44518C082EC009AFC9F /* CoreDataStack.m */,
@@ -521,6 +535,7 @@
 				FD2BA40A18C06F95009AFC9F /* Les Sexperts-Info.plist */,
 				FD29D6C218E2052300DD5675 /* Sexbox-Info.plist */,
 				FD2BA41D18C06F95009AFC9F /* Images.xcassets */,
+				FD70E8AB19389DD2007E3363 /* Settings.bundle */,
 			);
 			name = Resources;
 			path = ..;
@@ -740,6 +755,11 @@
 					};
 					FD2BA3FE18C06F95009AFC9F = {
 						DevelopmentTeam = SHLVY923BZ;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -784,6 +804,7 @@
 				FD51091518E755BE003D58C7 /* Localizable.strings in Resources */,
 				FD1D86B118D8D3CE00F333A6 /* american_typewriter.ttf in Resources */,
 				FDA6FE8718F2ACF700C72C5D /* Main.storyboard in Resources */,
+				FD70E8AC19389DD2007E3363 /* Settings.bundle in Resources */,
 				FD2BA4FE18C09CF1009AFC9F /* ContentLibrary.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -815,7 +836,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mogenerator -m \"ContentLibrary.xcdatamodeld/ContentLibrary.xcdatamodel/\" --template-var arc=true --output-dir \"Les Sexperts\"    ";
+			shellScript = "mogenerator -m \"ContentLibrary.xcdatamodeld/ContentLibrary 2.xcdatamodel/\" --template-var arc=true --output-dir \"Les Sexperts\"    ";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -879,6 +900,7 @@
 				FD2BA4D318C08879009AFC9F /* _Advice.m in Sources */,
 				FD29D60818DD9A6900DD5675 /* UIImage+ImageEffects.m in Sources */,
 				FD2BA4E618C08885009AFC9F /* Theme.m in Sources */,
+				FD70E8A81938981E007E3363 /* UIApplication+Versioning.m in Sources */,
 				FD1D861518D3325B00F333A6 /* UIImage+Additional.m in Sources */,
 				FDCF132718C5B74E002F0B1D /* FinishedViewController.m in Sources */,
 				FD54AB8E18C0E07D0012695C /* ReceiptValidator.m in Sources */,
@@ -1093,6 +1115,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					AdColony,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Les Sexperts/Les Sexperts-Prefix.pch";
@@ -1115,7 +1138,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Les Sexperts: conseils, blagues et quiz coquins";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "298D7369-2E16-46EA-8974-1E96DF5228FE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1130,6 +1153,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					AdColony,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Les Sexperts/Les Sexperts-Prefix.pch";
@@ -1152,7 +1176,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Les Sexperts: conseils, blagues et quiz coquins";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "298D7369-2E16-46EA-8974-1E96DF5228FE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1193,9 +1217,10 @@
 		FD2BA44E18C085EA009AFC9F /* ContentLibrary.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				FD70E8AE19393AB1007E3363 /* ContentLibrary 2.xcdatamodel */,
 				FD2BA44F18C085EA009AFC9F /* ContentLibrary.xcdatamodel */,
 			);
-			currentVersion = FD2BA44F18C085EA009AFC9F /* ContentLibrary.xcdatamodel */;
+			currentVersion = FD70E8AE19393AB1007E3363 /* ContentLibrary 2.xcdatamodel */;
 			name = ContentLibrary.xcdatamodeld;
 			path = "Les Sexperts/ContentLibrary.xcdatamodeld";
 			sourceTree = "<group>";

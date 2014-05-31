@@ -38,4 +38,6 @@ extern NSString * const kContentUnlockProductIdentifier;
 
 extern NSString * const kAppName(void);
 
+extern NSString * const NSUserDefaultsWantsPushNotificationsKey;
+
 #endif

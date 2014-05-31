@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UIApplication+Versioning.h"
+
 @class CoreDataStack;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegateVersioning>
 
 @property (strong, nonatomic) UIWindow *window;
 

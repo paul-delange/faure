@@ -22,6 +22,8 @@
 
 #define HAS_CONFIGURED_FACEBOOK     0
 
+#define kAlertViewTagOptInPushNotifications 445
+
 @interface HomeViewController () <IBActionSheetDelegate, MFMailComposeViewControllerDelegate, GADInterstitialDelegate, UINavigationControllerDelegate> {
     GADInterstitial *_interstitial;
 }
@@ -348,6 +350,29 @@
 
 - (void) interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error {
     DLogError(error);
+    if( ![[NSUserDefaults standardUserDefaults] objectForKey: NSUserDefaultsWantsPushNotificationsKey] ) {
+        NSString* msg = NSLocalizedString(@"Would you like to receive exlusive jokes and advice via regular notifications?", @"");
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: nil
+                                                        message: msg
+                                                       delegate: [[UIApplication sharedApplication] delegate]
+                                              cancelButtonTitle: NSLocalizedString(@"No thanks", @"")
+                                              otherButtonTitles: NSLocalizedString(@"Yes", @""), nil];
+        alert.tag = kAlertViewTagOptInPushNotifications;
+        [alert show];
+    }
+}
+
+- (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
+    if( ![[NSUserDefaults standardUserDefaults] objectForKey: NSUserDefaultsWantsPushNotificationsKey] ) {
+        NSString* msg = NSLocalizedString(@"Would you like to receive exlusive jokes and advice via regular notifications?", @"");
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: nil
+                                                        message: msg
+                                                       delegate: [[UIApplication sharedApplication] delegate]
+                                              cancelButtonTitle: NSLocalizedString(@"No thanks", @"")
+                                              otherButtonTitles: NSLocalizedString(@"Yes", @""), nil];
+        alert.tag = kAlertViewTagOptInPushNotifications;
+        [alert show];
+    }
 }
 
 #if !PAID_VERSION

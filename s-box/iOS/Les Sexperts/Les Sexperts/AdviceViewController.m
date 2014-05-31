@@ -41,7 +41,10 @@
 }
 
 - (void) reloadData {
-    self.title = self.advice.theme.name;
+    if( ![self.title length] ) {
+        self.title = self.advice.theme.name;
+    }
+    
     self.titleLabel.text = [NSString stringWithFormat: @"\n%@\n ", self.advice.title];
     self.textView.text = self.advice.text;
 }

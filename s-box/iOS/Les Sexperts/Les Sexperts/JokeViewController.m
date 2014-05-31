@@ -88,7 +88,21 @@
     gradient.anchorPoint = CGPointMake(CGRectGetMinX(gradient.bounds), 0);
     
     [self.view.layer insertSublayer: gradient atIndex: 0];
+}
 
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear: animated];
+    
+    NSManagedObjectContext* context = kMainManagedObjectContext();
+    
+    self.joke.isNew = @NO;
+    
+    [context performBlockAndWait: ^{
+        NSError* error;
+        [context save: &error];
+        DLogError(error);
+    }];
+    
 }
 
 @end
