@@ -171,7 +171,7 @@ logging: NO];
                   clientKey:@"vW4Ib2RfvCqIxMH2MEem3Yr1FoqmDnGCEhrgm7KM"];
     
     PFInstallation* installation = [PFInstallation currentInstallation];
-    [installation setValue: @"fr" forKey: @"language"];
+    [installation setValue: self.dataStack.dataLanguage forKey: @"language"];
     [installation saveInBackground];
     
     //If the user has responded somewhere, ask for this
@@ -376,6 +376,11 @@ logging: NO];
 }
 
 @end
+
+NSString * const kAppName() {
+    NSDictionary* infoDict = [[NSBundle mainBundle] localizedInfoDictionary];
+    return [infoDict objectForKey: (id)kCFBundleNameKey];
+}
 
 NSManagedObjectContext * kMainManagedObjectContext(void) {
     NSCParameterAssert([NSThread isMainThread]);

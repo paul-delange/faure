@@ -22,8 +22,6 @@
 #define SEARCH_PATH_FROM_APPLE_GUIDELINES   NSDocumentDirectory
 #endif
 
-NSString * const NSUserDefaultsContentLanguageKey = @"ContentLanguage";
-
 @interface NSManagedObjectContext (CoreDataStackInternal)
 @property (strong, nonatomic) CoreDataStack* stack;
 @end
@@ -99,7 +97,7 @@ NSString * const NSUserDefaultsContentLanguageKey = @"ContentLanguage";
         ///////////////   END  LEGACY SUPPORT  /////////////////
 #endif
         
-        NSString * language = [[NSUserDefaults standardUserDefaults] objectForKey: NSUserDefaultsContentLanguageKey];
+        NSString * language = [NSLocale contentLanguageNearestDeviceLanguage];
         NSString* writeableStoreFileName = [NSString stringWithFormat: @"%@_%@.db", storeFileName, language];
         NSString* writeableStorePath = [writeableDirectoryPath stringByAppendingPathComponent: writeableStoreFileName];
         NSURL* writeableStoreURL = [NSURL fileURLWithPath: writeableStorePath];
@@ -230,9 +228,6 @@ NSString * const NSUserDefaultsContentLanguageKey = @"ContentLanguage";
                                                                          options: readwriteOptions
                                                                            error: &error];
     DLogError(error);
-    
-    [[NSUserDefaults standardUserDefaults] setObject: dataLanguage forKey: NSUserDefaultsContentLanguageKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (NSManagedObjectContext*) mainQueueManagedObjectContext {
@@ -273,17 +268,6 @@ NSString * const NSUserDefaultsContentLanguageKey = @"ContentLanguage";
         [self.mainQueueManagedObjectContext mergeChangesFromContextDidSaveNotification: notification];
     }];
 #endif
-}
-
-#pragma mark - NSObject
-+ (void) initialize {
-    
-    NSDictionary* defaultOptions = @{
-                                     NSUserDefaultsContentLanguageKey : [NSLocale contentLanguageNearestDeviceLanguage]
-                                     };
-    [[NSUserDefaults standardUserDefaults] registerDefaults: defaultOptions];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
 }
 
 @end

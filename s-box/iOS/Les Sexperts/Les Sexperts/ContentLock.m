@@ -82,13 +82,13 @@ NSString * ContentLockWasRemovedNotification = @"ContentLockRemoved";
         
         DLogError(error);
     }
-    else {
+    
+    
         NSParameterAssert([response.products count] == 1);
         SKProduct* product = response.products.lastObject;
         SKPayment* payment = [SKPayment paymentWithProduct: product];
         
         [[SKPaymentQueue defaultQueue] addPayment: payment];
-    }
 }
 
 + (void)request:(SKRequest *)request didFailWithError:(NSError *)error {

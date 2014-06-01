@@ -179,7 +179,7 @@
     if( self ) {
         self.screenName = @"Quiz";
 #if DEBUG
-        _timeRemaining = 5.;
+        _timeRemaining = 69.;
 #else
         _timeRemaining = 69.;
 #endif

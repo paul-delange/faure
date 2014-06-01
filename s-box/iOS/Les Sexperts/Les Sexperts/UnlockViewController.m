@@ -23,7 +23,7 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
     kUnlockFeatureTypeCount
 };
 
-@interface UnlockViewController () <UITableViewDataSource, UITableViewDelegate, SKPaymentTransactionObserver, AdColonyAdDelegate>
+@interface UnlockViewController () <UITableViewDataSource, UITableViewDelegate, SKPaymentTransactionObserver, AdColonyAdDelegate, SKProductsRequestDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *titleImage;
@@ -94,6 +94,12 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
     if( self ) {
         self.screenName = @"Unlock";
         [[SKPaymentQueue defaultQueue] addTransactionObserver: self];
+        
+        NSSet* productIdentifiers = [NSSet setWithObject: kContentUnlockProductIdentifier];
+        SKProductsRequest* productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers: productIdentifiers];
+        productsRequest.delegate =  self;
+        [productsRequest start];
+        
     }
     return self;
 }
@@ -108,7 +114,7 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.titleLabel.text = NSLocalizedString(@"Version Complete", @"Version complète");
-    [self.buyButton setTitle: NSLocalizedString(@"Become a Sexpert - 1,79€", @"Devenir un(e) Sexpert(e)") forState: UIControlStateNormal];
+    [self.buyButton setTitle: NSLocalizedString(@"Become a Sexpert", @"Devenir un(e) Sexpert(e)") forState: UIControlStateNormal];
     
     self.buyButton.layer.borderColor = [UIColor blackColor].CGColor;
     self.buyButton.layer.borderWidth = 1.;
@@ -235,6 +241,17 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
                                               otherButtonTitles: nil];
         [alert show];
         
+    }
+}
+
+#pragma mark - SKProductsRequestDelegate
+- (void) productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
+    SKProduct* product = response.products.lastObject;
+    
+    if( product ) {
+        NSString* price = [NSNumberFormatter localizedStringFromNumber: product.price numberStyle: NSNumberFormatterCurrencyStyle];
+        NSString* title = [NSString localizedStringWithFormat: NSLocalizedString(@"Become a Sexpert - %@", @""), price];
+        [self.buyButton setTitle: title forState: UIControlStateNormal];
     }
 }
 

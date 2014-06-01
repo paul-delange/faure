@@ -138,6 +138,8 @@
 		FD8524DF18CEF2EA005E6A3F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524DE18CEF2EA005E6A3F /* MediaPlayer.framework */; };
 		FD8524E118CEF2FB005E6A3F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524E018CEF2FB005E6A3F /* Social.framework */; };
 		FD8524E318CEF305005E6A3F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8524E218CEF305005E6A3F /* libz.dylib */; };
+		FD98E96B193B03FE008975C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA40B18C06F95009AFC9F /* InfoPlist.strings */; };
+		FD98E96C193B03FF008975C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD2BA40B18C06F95009AFC9F /* InfoPlist.strings */; };
 		FDA6FE8718F2ACF700C72C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDA6FE8618F2ACF700C72C5D /* Main.storyboard */; };
 		FDA6FE8818F2ACF700C72C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDA6FE8618F2ACF700C72C5D /* Main.storyboard */; };
 		FDAD91E918C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD91E818C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m */; };
@@ -239,6 +241,8 @@
 		FD51091018E74AE3003D58C7 /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerView.m; sourceTree = "<group>"; };
 		FD51091818E755E2003D58C7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FD51091918E75AAB003D58C7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "Les Sexperts/Les Sexperts/fr.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		FD543A41193AFF5300A43AE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FD543A42193AFF5B00A43AE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FD54AB8718C0DFFD0012695C /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = OpenSSL/libcrypto.a; sourceTree = "<group>"; };
 		FD54AB8818C0DFFD0012695C /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = OpenSSL/libssl.a; sourceTree = "<group>"; };
 		FD54AB8C18C0E07D0012695C /* ReceiptValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptValidator.h; sourceTree = "<group>"; };
@@ -802,6 +806,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD29D6B918E2052300DD5675 /* Images.xcassets in Resources */,
+				FD98E96C193B03FF008975C0 /* InfoPlist.strings in Resources */,
 				FDA6FE8818F2ACF700C72C5D /* Main.storyboard in Resources */,
 				FD51091618E755BE003D58C7 /* Localizable.strings in Resources */,
 				FD29D6BA18E2052300DD5675 /* american_typewriter.ttf in Resources */,
@@ -814,6 +819,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD70E8C91939BB27007E3363 /* Seed Data in Resources */,
+				FD98E96B193B03FE008975C0 /* InfoPlist.strings in Resources */,
 				FD2BA41E18C06F95009AFC9F /* Images.xcassets in Resources */,
 				FD51091518E755BE003D58C7 /* Localizable.strings in Resources */,
 				FD1D86B118D8D3CE00F333A6 /* american_typewriter.ttf in Resources */,
@@ -964,6 +970,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FD51091818E755E2003D58C7 /* fr */,
+				FD543A42193AFF5B00A43AE8 /* en */,
 			);
 			name = InfoPlist.strings;
 			path = "Les Sexperts/Les Sexperts";
@@ -973,6 +980,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FD51091918E75AAB003D58C7 /* fr */,
+				FD543A41193AFF5300A43AE8 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1154,7 +1162,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Les Sexperts: conseils, blagues et quiz coquins";
-				PROVISIONING_PROFILE = "298D7369-2E16-46EA-8974-1E96DF5228FE";
+				PROVISIONING_PROFILE = "3C16DFFD-DEF0-4F40-8B26-321F40210242";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1192,7 +1200,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Les Sexperts: conseils, blagues et quiz coquins";
-				PROVISIONING_PROFILE = "298D7369-2E16-46EA-8974-1E96DF5228FE";
+				PROVISIONING_PROFILE = "3C16DFFD-DEF0-4F40-8B26-321F40210242";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

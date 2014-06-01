@@ -28,18 +28,19 @@
 - (Question*) questionFromSource: (NSArray*) qsrc withAnswers: (NSArray*) answers inContext: (NSManagedObjectContext*) context {
     NSParameterAssert([qsrc count] == 3);
     Question* question = [NSEntityDescription insertNewObjectForEntityForName: @"Question" inManagedObjectContext: context];
-    question.text = qsrc[2];
+    question.text = [qsrc[2] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString: @" \""]];
+    question.text = [question.text stringByReplacingOccurrencesOfString: @"\"\"" withString: @"\""];
     //question.explanation = qsrc[3];
     
     //NSLog(@"Q: %@", question.text);
     
     for(NSArray* asrc in answers) {
-        NSParameterAssert([asrc count] == 4);
+        NSParameterAssert([asrc count] >= 4);
         id correct = [[asrc[3] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString: @" \""]] lowercaseString];
         NSParameterAssert([correct isEqualToString: @"true"] || [correct isEqualToString: @"false"]);
         
         Answer* answer = [NSEntityDescription insertNewObjectForEntityForName: @"Answer" inManagedObjectContext: context];
-        answer.text =  asrc[2];
+        answer.text =  [asrc[2] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString: @" \""]];
         answer.isCorrect = ([correct isEqualToString: @"true"]) ? @YES : @NO;
         [question.answersSet addObject: answer];
     }
@@ -126,7 +127,7 @@
             NSArray* asrc = [answers filteredArrayUsingPredicate: [NSPredicate predicateWithBlock: ^BOOL(id evaluatedObject, NSDictionary *bindings) {
                 NSArray* answer = (NSArray*)evaluatedObject;
                 
-                if( [answer count] != 4 )
+                if( [answer count] < 4 )
                     return NO;
                 
                 id aqid = answer[1];
