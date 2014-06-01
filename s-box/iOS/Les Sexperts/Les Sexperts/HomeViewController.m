@@ -24,8 +24,11 @@
 
 #define kAlertViewTagOptInPushNotifications 445
 
-@interface HomeViewController () <IBActionSheetDelegate, MFMailComposeViewControllerDelegate, GADInterstitialDelegate, UINavigationControllerDelegate> {
+@interface HomeViewController () <IBActionSheetDelegate, MFMailComposeViewControllerDelegate, GADInterstitialDelegate, UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning> {
+    
     GADInterstitial *_interstitial;
+    
+    UINavigationControllerOperation _lastOperation;
 }
 
 @property (strong) ACAccountStore* accountStore;
@@ -393,5 +396,64 @@
     }
 }
 #endif
+
+- (id<UIViewControllerAnimatedTransitioning>) navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+    _lastOperation = operation;
+    return self;
+}
+
+#pragma mark - UIViewControllerAnimatedTransitioning
+- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
+    return 0.3;
+}
+
+- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
+    UIViewController * fromVC = [transitionContext viewControllerForKey: UITransitionContextFromViewControllerKey];
+    UIViewController * toVC = [transitionContext viewControllerForKey: UITransitionContextToViewControllerKey];
+    
+    UIView* container = [transitionContext containerView];
+    NSTimeInterval duration = [self transitionDuration: transitionContext];
+    
+    switch (_lastOperation) {
+        case UINavigationControllerOperationPop:
+        {
+            toVC.view.frame = CGRectMake(-CGRectGetWidth(container.frame), 0, CGRectGetWidth(container.frame), CGRectGetHeight(container.frame));
+            [container addSubview: toVC.view];
+            
+            [UIView animateWithDuration: duration
+                                  delay: 0
+                                options: UIViewAnimationOptionCurveEaseIn
+                             animations: ^{
+                                 toVC.view.frame = container.bounds;
+                                 fromVC.view.frame = CGRectMake(CGRectGetWidth(container.frame), 0, CGRectGetWidth(container.frame), CGRectGetHeight(container.frame));
+                             } completion:^(BOOL finished) {
+                                 [fromVC.view removeFromSuperview];
+                                 [transitionContext completeTransition: finished];
+                             }];
+            break;
+        }
+        case UINavigationControllerOperationPush:
+        {
+            toVC.view.frame = CGRectMake(CGRectGetWidth(container.frame), 0, CGRectGetWidth(container.frame), CGRectGetHeight(container.frame));
+            [container addSubview: toVC.view];
+            
+            [UIView animateWithDuration: duration
+                                  delay: 0
+                                options: UIViewAnimationOptionCurveEaseIn
+                             animations: ^{
+                                 toVC.view.frame = container.bounds;
+                                 fromVC.view.frame = CGRectMake(-CGRectGetWidth(container.frame), 0, CGRectGetWidth(container.frame), CGRectGetHeight(container.frame));
+                             } completion:^(BOOL finished) {
+                                 [fromVC.view removeFromSuperview];
+                                 [transitionContext completeTransition: finished];
+                             }];
+            break;
+        }
+        default:
+            break;
+    }
+    
+    _lastOperation = UINavigationControllerOperationNone;
+}
 
 @end

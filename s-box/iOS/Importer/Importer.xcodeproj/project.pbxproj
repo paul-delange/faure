@@ -14,7 +14,6 @@
 		FD2BA49918C08780009AFC9F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA49818C08780009AFC9F /* XCTest.framework */; };
 		FD2BA49A18C08780009AFC9F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2BA47918C08780009AFC9F /* Cocoa.framework */; };
 		FD2BA4A418C08780009AFC9F /* ImporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4A318C08780009AFC9F /* ImporterTests.m */; };
-		FD2BA4B018C087E5009AFC9F /* ContentLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4AE18C087E5009AFC9F /* ContentLibrary.xcdatamodeld */; };
 		FD2BA4C018C08801009AFC9F /* _Advice.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4B118C08801009AFC9F /* _Advice.m */; };
 		FD2BA4C118C08801009AFC9F /* _Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4B218C08801009AFC9F /* _Answer.m */; };
 		FD2BA4C218C08801009AFC9F /* _Joke.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2BA4B318C08801009AFC9F /* _Joke.m */; };
@@ -35,6 +34,7 @@
 		FD70E8D31939BCE3007E3363 /* themes.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD70E8D51939BCE3007E3363 /* themes.csv */; };
 		FD70E8D61939BCE8007E3363 /* answers.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD70E8D81939BCE8007E3363 /* answers.csv */; };
 		FD70E8D91939BCEB007E3363 /* questions.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD70E8DB1939BCEB007E3363 /* questions.csv */; };
+		FD70E8E51939F0CA007E3363 /* ContentLibrary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD70E8E21939F0CA007E3363 /* ContentLibrary.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,6 @@
 		FD2BA49818C08780009AFC9F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FD2BA49F18C08780009AFC9F /* ImporterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ImporterTests-Info.plist"; sourceTree = "<group>"; };
 		FD2BA4A318C08780009AFC9F /* ImporterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImporterTests.m; sourceTree = "<group>"; };
-		FD2BA4AF18C087E5009AFC9F /* ContentLibrary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContentLibrary.xcdatamodel; sourceTree = "<group>"; };
 		FD2BA4B118C08801009AFC9F /* _Advice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Advice.m; sourceTree = SOURCE_ROOT; };
 		FD2BA4B218C08801009AFC9F /* _Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Answer.m; sourceTree = SOURCE_ROOT; };
 		FD2BA4B318C08801009AFC9F /* _Joke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Joke.m; sourceTree = SOURCE_ROOT; };
@@ -93,6 +92,13 @@
 		FD70E8D41939BCE3007E3363 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text; name = fr; path = fr.lproj/themes.csv; sourceTree = "<group>"; };
 		FD70E8D71939BCE8007E3363 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text; name = fr; path = fr.lproj/answers.csv; sourceTree = "<group>"; };
 		FD70E8DA1939BCEB007E3363 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text; name = fr; path = fr.lproj/questions.csv; sourceTree = "<group>"; };
+		FD70E8DC1939D585007E3363 /* en */ = {isa = PBXFileReference; lastKnownFileType = text; name = en; path = en.lproj/blagues.csv; sourceTree = "<group>"; };
+		FD70E8DD1939D585007E3363 /* en */ = {isa = PBXFileReference; lastKnownFileType = text; name = en; path = en.lproj/conseils.csv; sourceTree = "<group>"; };
+		FD70E8DE1939D585007E3363 /* en */ = {isa = PBXFileReference; lastKnownFileType = text; name = en; path = en.lproj/themes.csv; sourceTree = "<group>"; };
+		FD70E8DF1939D585007E3363 /* en */ = {isa = PBXFileReference; lastKnownFileType = text; name = en; path = en.lproj/answers.csv; sourceTree = "<group>"; };
+		FD70E8E01939D585007E3363 /* en */ = {isa = PBXFileReference; lastKnownFileType = text; name = en; path = en.lproj/questions.csv; sourceTree = "<group>"; };
+		FD70E8E31939F0CA007E3363 /* ContentLibrary 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ContentLibrary 2.xcdatamodel"; sourceTree = "<group>"; };
+		FD70E8E41939F0CA007E3363 /* ContentLibrary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContentLibrary.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,13 +184,13 @@
 		FD2BA48018C08780009AFC9F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FD70E8E21939F0CA007E3363 /* ContentLibrary.xcdatamodeld */,
 				FD70E8CA1939BC7C007E3363 /* MainMenu.xib */,
 				FD70E8CE1939BCBF007E3363 /* blagues.csv */,
 				FD70E8D21939BCE0007E3363 /* conseils.csv */,
 				FD70E8D51939BCE3007E3363 /* themes.csv */,
 				FD70E8D81939BCE8007E3363 /* answers.csv */,
 				FD70E8DB1939BCEB007E3363 /* questions.csv */,
-				FD2BA4AE18C087E5009AFC9F /* ContentLibrary.xcdatamodeld */,
 				FD2BA48118C08780009AFC9F /* Importer-Info.plist */,
 				FD2BA48518C08780009AFC9F /* main.m */,
 				FD2BA48718C08780009AFC9F /* Importer-Prefix.pch */,
@@ -340,7 +346,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mogenerator -m \"../Les Sexperts/ContentLibrary.xcdatamodeld/ContentLibrary.xcdatamodel/\" --template-var arc=true";
+			shellScript = "mogenerator -m \"../Les Sexperts/ContentLibrary.xcdatamodeld/ContentLibrary 2.xcdatamodel/\" --template-var arc=true";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -352,12 +358,12 @@
 				FD2BA4C218C08801009AFC9F /* _Joke.m in Sources */,
 				FD2BA48D18C08780009AFC9F /* AppDelegate.m in Sources */,
 				FD70E8C31939B8C3007E3363 /* NSBundle+Seeding.m in Sources */,
-				FD2BA4B018C087E5009AFC9F /* ContentLibrary.xcdatamodeld in Sources */,
 				FD2BA4C518C08801009AFC9F /* Advice.m in Sources */,
 				FD2BA48618C08780009AFC9F /* main.m in Sources */,
 				FD2BA4C018C08801009AFC9F /* _Advice.m in Sources */,
 				FD70E8C41939B8C3007E3363 /* NSLocale+ContentLanguage.m in Sources */,
 				FD2BA4C418C08801009AFC9F /* _Theme.m in Sources */,
+				FD70E8E51939F0CA007E3363 /* ContentLibrary.xcdatamodeld in Sources */,
 				FD2BA4C718C08801009AFC9F /* Joke.m in Sources */,
 				FD2BA4F618C08BA2009AFC9F /* CHCSVParser.m in Sources */,
 				FD2BA4C318C08801009AFC9F /* _Question.m in Sources */,
@@ -392,6 +398,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FD70E8CF1939BCCC007E3363 /* fr */,
+				FD70E8DC1939D585007E3363 /* en */,
 			);
 			name = blagues.csv;
 			sourceTree = "<group>";
@@ -400,6 +407,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FD70E8D11939BCE0007E3363 /* fr */,
+				FD70E8DD1939D585007E3363 /* en */,
 			);
 			name = conseils.csv;
 			sourceTree = "<group>";
@@ -408,6 +416,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FD70E8D41939BCE3007E3363 /* fr */,
+				FD70E8DE1939D585007E3363 /* en */,
 			);
 			name = themes.csv;
 			sourceTree = "<group>";
@@ -416,6 +425,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FD70E8D71939BCE8007E3363 /* fr */,
+				FD70E8DF1939D585007E3363 /* en */,
 			);
 			name = answers.csv;
 			sourceTree = "<group>";
@@ -424,6 +434,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FD70E8DA1939BCEB007E3363 /* fr */,
+				FD70E8E01939D585007E3363 /* en */,
 			);
 			name = questions.csv;
 			sourceTree = "<group>";
@@ -598,12 +609,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		FD2BA4AE18C087E5009AFC9F /* ContentLibrary.xcdatamodeld */ = {
+		FD70E8E21939F0CA007E3363 /* ContentLibrary.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				FD2BA4AF18C087E5009AFC9F /* ContentLibrary.xcdatamodel */,
+				FD70E8E31939F0CA007E3363 /* ContentLibrary 2.xcdatamodel */,
+				FD70E8E41939F0CA007E3363 /* ContentLibrary.xcdatamodel */,
 			);
-			currentVersion = FD2BA4AF18C087E5009AFC9F /* ContentLibrary.xcdatamodel */;
+			currentVersion = FD70E8E31939F0CA007E3363 /* ContentLibrary 2.xcdatamodel */;
 			name = ContentLibrary.xcdatamodeld;
 			path = "../../Les Sexperts/ContentLibrary.xcdatamodeld";
 			sourceTree = "<group>";

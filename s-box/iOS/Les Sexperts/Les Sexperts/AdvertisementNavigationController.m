@@ -55,6 +55,7 @@
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder: aDecoder];
     if( self ) {
+        
         [[NSNotificationCenter defaultCenter] addObserver: self
                                                  selector: @selector(contentWasUnlocked:)
                                                      name: ContentLockWasRemovedNotification

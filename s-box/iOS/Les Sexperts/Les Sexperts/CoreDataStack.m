@@ -183,6 +183,12 @@ NSString * const NSUserDefaultsContentLanguageKey = @"ContentLanguage";
 }
 
 - (void) setDataLanguage:(NSString *)dataLanguage {
+    
+    [self save];
+    
+    [self.mainQueueManagedObjectContext reset];
+    [self.persistentStoreManagedObjectContext reset];
+    
     NSError* error;
     if(![self.persistentStoreCoordinator removePersistentStore: self.dataStore error: &error]) {
         DLogError(error);
@@ -262,10 +268,11 @@ NSString * const NSUserDefaultsContentLanguageKey = @"ContentLanguage";
 
 - (void)handleManagedObjectContextDidSaveNotification:(NSNotification *)notification {
     NSAssert(notification.object == self.persistentStoreManagedObjectContext, @"Received NSManagedObjectContextDidSaveNotification on an unexpected context: %@", notification.object);
-    
+#if TARGET_OS_IPHONE
     [self.mainQueueManagedObjectContext performBlock: ^{
         [self.mainQueueManagedObjectContext mergeChangesFromContextDidSaveNotification: notification];
     }];
+#endif
 }
 
 #pragma mark - NSObject

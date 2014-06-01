@@ -105,15 +105,18 @@
     for(NSString* language in languages) {
         _dataStack.dataLanguage = language;
         
+        NSString* bundlePath = [[NSBundle mainBundle] pathForResource: language ofType: @"lproj"];
+        NSBundle* langBundle = [NSBundle bundleWithPath: bundlePath];
+        
         self.statusLabel.stringValue = @"Reading question list...";
         
-        NSString* questionsFilePath = [[NSBundle mainBundle] pathForResource: @"questions" ofType: @"csv"];
+        NSString* questionsFilePath = [langBundle pathForResource: @"questions" ofType: @"csv"];
         NSArray* questions = [NSArray arrayWithContentsOfCSVFile: questionsFilePath];
         
-        NSString* answersFilePath = [[NSBundle mainBundle] pathForResource: @"answers" ofType: @"csv"];
+        NSString* answersFilePath = [langBundle pathForResource: @"answers" ofType: @"csv"];
         NSArray* answers = [NSArray arrayWithContentsOfCSVFile: answersFilePath];
         
-        NSManagedObjectContext* context = _dataStack.mainQueueManagedObjectContext;
+        NSManagedObjectContext* context = _dataStack.persistentStoreManagedObjectContext;
         
         for(NSArray* qsrc in questions) {
             if( [qsrc count] != 3 )
@@ -137,10 +140,10 @@
         
         self.statusLabel.stringValue = @"Reading advice list...";
         
-        NSString* themesFilePath = [[NSBundle mainBundle] pathForResource: @"themes" ofType: @"csv"];
+        NSString* themesFilePath = [langBundle pathForResource: @"themes" ofType: @"csv"];
         NSArray* themes = [NSArray arrayWithContentsOfCSVFile:  themesFilePath];
         
-        NSString* adviceFilePath = [[NSBundle mainBundle] pathForResource: @"conseils" ofType: @"csv"];
+        NSString* adviceFilePath = [langBundle pathForResource: @"conseils" ofType: @"csv"];
         NSArray* advices = [NSArray arrayWithContentsOfCSVFile: adviceFilePath];
         
         for(NSArray* asrc in advices) {
@@ -161,7 +164,7 @@
         
         self.statusLabel.stringValue = @"Reading joke list...";
         
-        NSString* jokesFilePath = [[NSBundle mainBundle] pathForResource: @"blagues" ofType: @"csv"];
+        NSString* jokesFilePath = [langBundle pathForResource: @"blagues" ofType: @"csv"];
         NSArray* jokes = [NSArray arrayWithContentsOfCSVFile: jokesFilePath];
         
         jokes = [jokes subarrayWithRange: NSMakeRange(1, [jokes count]-1)];

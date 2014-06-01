@@ -17,6 +17,7 @@
 - (BOOL) save;
 
 - (NSManagedObjectContext*) mainQueueManagedObjectContext;
+- (NSManagedObjectContext*) persistentStoreManagedObjectContext;
 
 @end
 
