@@ -14,7 +14,6 @@
 		FDCAEEE9190D690500F6A640 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEEE8190D690500F6A640 /* AppDelegate.m */; };
 		FDCAEEEC190D690500F6A640 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDCAEEEA190D690500F6A640 /* MainMenu.xib */; };
 		FDCAEEEE190D690500F6A640 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDCAEEED190D690500F6A640 /* Images.xcassets */; };
-		FDCAEF40190D6FDB00F6A640 /* GData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDCAEF25190D6FC900F6A640 /* GData.framework */; };
 		FDCAEF46190D774400F6A640 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF44190D774400F6A640 /* Data.xcdatamodeld */; };
 		FDCAEF49190D775000F6A640 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF48190D775000F6A640 /* CoreDataStack.m */; };
 		FDCAEF4C190D777100F6A640 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF4B190D777100F6A640 /* JSONParser.m */; };
@@ -25,44 +24,6 @@
 		FDEB6273191385B800BCA8D3 /* NSBundle+Seeding.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEB6270191385B800BCA8D3 /* NSBundle+Seeding.m */; };
 		FDEB6274191385B800BCA8D3 /* NSLocale+ContentLanguages.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEB6272191385B800BCA8D3 /* NSLocale+ContentLanguages.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		FDCAEF24190D6FC900F6A640 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FDCAEF1C190D6FC900F6A640 /* GData.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4F38F6A60B66E91D00B24B81;
-			remoteInfo = GDataFramework;
-		};
-		FDCAEF26190D6FC900F6A640 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FDCAEF1C190D6FC900F6A640 /* GData.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4F1C6E0F1027B3CE00B46459;
-			remoteInfo = GDataTouchStaticLib;
-		};
-		FDCAEF28190D6FC900F6A640 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FDCAEF1C190D6FC900F6A640 /* GData.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4F14A9DD0B1276B70072EBB8;
-			remoteInfo = GDataUnitTests;
-		};
-		FDCAEF2A190D6FC900F6A640 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FDCAEF1C190D6FC900F6A640 /* GData.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4F85E018103B83B700B4C418;
-			remoteInfo = GDataIPhoneUnitTests;
-		};
-		FDCAEF2C190D6FC900F6A640 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FDCAEF1C190D6FC900F6A640 /* GData.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4F1AD9020B71603F00DC0485;
-			remoteInfo = DevelopmentTestTool;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		FDCAEED2190D690500F6A640 /* Importer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Importer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,7 +41,6 @@
 		FDCAEEEB190D690500F6A640 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		FDCAEEED190D690500F6A640 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FDCAEEF4190D690500F6A640 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		FDCAEF1C190D6FC900F6A640 /* GData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GData.xcodeproj; path = gdata/GData.xcodeproj; sourceTree = "<group>"; };
 		FDCAEF45190D774400F6A640 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
 		FDCAEF47190D775000F6A640 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataStack.h; path = ../../JustNumber/JustNumber/CoreDataStack.h; sourceTree = "<group>"; };
 		FDCAEF48190D775000F6A640 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataStack.m; path = ../../JustNumber/JustNumber/CoreDataStack.m; sourceTree = "<group>"; };
@@ -103,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDCAEF40190D6FDB00F6A640 /* GData.framework in Frameworks */,
 				FDCAEED6190D690500F6A640 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,7 +90,6 @@
 		FDCAEED4190D690500F6A640 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FDCAEF1C190D6FC900F6A640 /* GData.xcodeproj */,
 				FDCAEED5190D690500F6A640 /* Cocoa.framework */,
 				FDCAEEF4190D690500F6A640 /* XCTest.framework */,
 				FDCAEED7190D690500F6A640 /* Other Frameworks */,
@@ -188,18 +146,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FDCAEF1D190D6FC900F6A640 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FDCAEF25190D6FC900F6A640 /* GData.framework */,
-				FDCAEF27190D6FC900F6A640 /* libGDataTouchStaticLib.a */,
-				FDCAEF29190D6FC900F6A640 /* GDataUnitTests.octest */,
-				FDCAEF2B190D6FC900F6A640 /* GDataIPhoneUnitTests.octest */,
-				FDCAEF2D190D6FC900F6A640 /* DevelopmentTestTool */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -241,56 +187,12 @@
 			mainGroup = FDCAEEC9190D690500F6A640;
 			productRefGroup = FDCAEED3190D690500F6A640 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = FDCAEF1D190D6FC900F6A640 /* Products */;
-					ProjectRef = FDCAEF1C190D6FC900F6A640 /* GData.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				FDCAEED1190D690500F6A640 /* Importer */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		FDCAEF25190D6FC900F6A640 /* GData.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = GData.framework;
-			remoteRef = FDCAEF24190D6FC900F6A640 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FDCAEF27190D6FC900F6A640 /* libGDataTouchStaticLib.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libGDataTouchStaticLib.a;
-			remoteRef = FDCAEF26190D6FC900F6A640 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FDCAEF29190D6FC900F6A640 /* GDataUnitTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = GDataUnitTests.octest;
-			remoteRef = FDCAEF28190D6FC900F6A640 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FDCAEF2B190D6FC900F6A640 /* GDataIPhoneUnitTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = GDataIPhoneUnitTests.octest;
-			remoteRef = FDCAEF2A190D6FC900F6A640 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FDCAEF2D190D6FC900F6A640 /* DevelopmentTestTool */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = DevelopmentTestTool;
-			remoteRef = FDCAEF2C190D6FC900F6A640 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FDCAEED0190D690500F6A640 /* Resources */ = {

@@ -241,8 +241,6 @@
 		FD51091018E74AE3003D58C7 /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerView.m; sourceTree = "<group>"; };
 		FD51091818E755E2003D58C7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FD51091918E75AAB003D58C7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "Les Sexperts/Les Sexperts/fr.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		FD543A41193AFF5300A43AE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		FD543A42193AFF5B00A43AE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FD54AB8718C0DFFD0012695C /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = OpenSSL/libcrypto.a; sourceTree = "<group>"; };
 		FD54AB8818C0DFFD0012695C /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = OpenSSL/libssl.a; sourceTree = "<group>"; };
 		FD54AB8C18C0E07D0012695C /* ReceiptValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptValidator.h; sourceTree = "<group>"; };
@@ -970,7 +968,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				FD51091818E755E2003D58C7 /* fr */,
-				FD543A42193AFF5B00A43AE8 /* en */,
 			);
 			name = InfoPlist.strings;
 			path = "Les Sexperts/Les Sexperts";
@@ -980,7 +977,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				FD51091918E75AAB003D58C7 /* fr */,
-				FD543A41193AFF5300A43AE8 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

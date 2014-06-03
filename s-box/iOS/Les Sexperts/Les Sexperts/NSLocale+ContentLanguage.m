@@ -60,7 +60,7 @@
             return matchingContentLanguages[0];
     }
 #endif
-    return @"en";   //Default to english
+    return @"fr";   //Default to english
 }
 
 @end

@@ -14,7 +14,12 @@
 
 #import "IBActionSheet.h"
 
+#if USE_MEDIATION
 #import "GADInterstitial.h"
+#else
+#import "IMInterstitial.h"
+#import "IMInterstitialDelegate.h"
+#endif
 
 @import Accounts;
 @import Social;
@@ -24,9 +29,19 @@
 
 #define kAlertViewTagOptInPushNotifications 445
 
-@interface HomeViewController () <IBActionSheetDelegate, MFMailComposeViewControllerDelegate, GADInterstitialDelegate, UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning> {
+@interface HomeViewController () <IBActionSheetDelegate, MFMailComposeViewControllerDelegate,
+#if USE_MEDIATION
+GADInterstitialDelegate,
+#else
+IMInterstitialDelegate,
+#endif
+UINavigationControllerDelegate, UIViewControllerAnimatedTransitioning> {
     
+#if USE_MEDIATION
     GADInterstitial *_interstitial;
+#else
+    IMInterstitial *_interstitial;
+#endif
     
     UINavigationControllerOperation _lastOperation;
 }
@@ -92,6 +107,7 @@
 - (IBAction)unwindGame:(UIStoryboardSegue*)sender {
 #if !PAID_VERSION
     if( [ContentLock tryLock] ) {
+#if USE_MEDIATION
         GADRequest* request = [GADRequest request];
         request.testDevices = @[ GAD_SIMULATOR_ID,
                                  @"5847239deac1f26ea408b154815af621"            //Paul iPhone4
@@ -101,6 +117,11 @@
         _interstitial.adUnitID = @"ca-app-pub-1332160865070772/5237453245";
         _interstitial.delegate = self;
         [_interstitial loadRequest:[GADRequest request]];
+#else
+        _interstitial = [[IMInterstitial alloc] initWithAppId: @"5f8cfe36e2584af38424d074069aeef5"];
+        _interstitial.delegate = self;
+        [_interstitial loadInterstitial];
+#endif
     }
 #endif
 }
@@ -344,24 +365,17 @@
     [self dismissViewControllerAnimated: YES completion: NULL];
 }
 
+#if USE_MEDIATION
 #pragma mark - GADInterstitialDelegate
 - (void) interstitialDidReceiveAd:(GADInterstitial *)ad {
     [_interstitial presentFromRootViewController: self];
-    _interstitial.delegate = nil;
     _interstitial = nil;
 }
 
 - (void) interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error {
     DLogError(error);
     if( ![[NSUserDefaults standardUserDefaults] objectForKey: NSUserDefaultsWantsPushNotificationsKey] ) {
-        NSString* msg = NSLocalizedString(@"Would you like to receive exlusive jokes and advice via regular notifications?", @"");
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: nil
-                                                        message: msg
-                                                       delegate: [[UIApplication sharedApplication] delegate]
-                                              cancelButtonTitle: NSLocalizedString(@"No thanks", @"")
-                                              otherButtonTitles: NSLocalizedString(@"Yes", @""), nil];
-        alert.tag = kAlertViewTagOptInPushNotifications;
-        [alert show];
+        [self interstitialDidDismissScreen: ad];
     }
 }
 
@@ -377,6 +391,33 @@
         [alert show];
     }
 }
+#else
+#pragma mark - IMInterstitialDelegate
+- (void) interstitialDidReceiveAd:(IMInterstitial *)ad {
+    [_interstitial presentInterstitialAnimated: YES];
+    [_interstitial stopLoading];
+}
+
+- (void) interstitial:(IMInterstitial *)ad didFailToReceiveAdWithError:(IMError *)error {
+    DLogError(error);
+    if( ![[NSUserDefaults standardUserDefaults] objectForKey: NSUserDefaultsWantsPushNotificationsKey] ) {
+        [self interstitialDidDismissScreen: ad];
+    }
+}
+
+- (void) interstitialDidDismissScreen:(IMInterstitial *)ad {
+    if( ![[NSUserDefaults standardUserDefaults] objectForKey: NSUserDefaultsWantsPushNotificationsKey] ) {
+        NSString* msg = NSLocalizedString(@"Would you like to receive exlusive jokes and advice via regular notifications?", @"");
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: nil
+                                                        message: msg
+                                                       delegate: [[UIApplication sharedApplication] delegate]
+                                              cancelButtonTitle: NSLocalizedString(@"No thanks", @"")
+                                              otherButtonTitles: NSLocalizedString(@"Yes", @""), nil];
+        alert.tag = kAlertViewTagOptInPushNotifications;
+        [alert show];
+    }
+}
+#endif
 
 #if !PAID_VERSION
 #pragma mark - UINavigationControllerDelegate
@@ -384,6 +425,7 @@
     
     if( viewController == self && animated ) {
         if( [ContentLock tryLock] ) {
+#if USE_MEDIATION
             GADRequest* request = [GADRequest request];
             request.testDevices = @[ GAD_SIMULATOR_ID,
                                      @"5847239deac1f26ea408b154815af621"            //Paul iPhone4
@@ -392,7 +434,13 @@
             _interstitial = [[GADInterstitial alloc] init];
             _interstitial.adUnitID = @"ca-app-pub-1332160865070772/5237453245";
             _interstitial.delegate = self;
-            [_interstitial loadRequest:[GADRequest request]];        }
+            [_interstitial loadRequest:[GADRequest request]];
+#else
+            _interstitial = [[IMInterstitial alloc] initWithAppId: @"5f8cfe36e2584af38424d074069aeef5"];
+            _interstitial.delegate = self;
+            [_interstitial loadInterstitial];
+#endif
+        }
     }
 }
 #endif
