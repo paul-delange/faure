@@ -87,7 +87,7 @@
     unitLabel.backgroundColor = [UIColor clearColor];
     unitLabel.text = @"";
     unitLabel.textAlignment = NSTextAlignmentRight;
-    unitLabel.font = [UIFont preferredFontForTextStyle: UIFontTextStyleFootnote];
+    unitLabel.font = self.font;
     unitLabel.textColor = [self tintColor];
     
     UIButton* clearButton = [UIButton buttonWithType: UIButtonTypeCustom];

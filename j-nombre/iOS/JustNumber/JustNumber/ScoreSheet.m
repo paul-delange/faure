@@ -5,6 +5,9 @@
 #import "Score.h"
 #import "Question.h"
 
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
+
 @interface ScoreSheet ()
 
 // Private interface goes here.
@@ -56,6 +59,14 @@
 
 - (BOOL) crossOfQuestion:(Question *)question {
     NSManagedObjectContext* ctx = NSManagedObjectContextGetMain();
+    
+    NSUInteger tries = [self triesForQuestion: question];
+    
+    NSString* lang = [ctx.locale objectForKey: NSLocaleLanguageCode];
+    [[[GAI sharedInstance] defaultTracker] send: [[GAIDictionaryBuilder createEventWithCategory: lang
+                                                                                         action: @"CrossOff"
+                                                                                          label: [question.identifier stringValue]
+                                                                                          value: @(tries)] build]];
     
     Score* score = [Score scoreForQuestion: question];
     
@@ -120,8 +131,8 @@
         DLogError(error);
     }
     
-
-
+    
+    
     
     return score.numberOfTriesValue;
 }

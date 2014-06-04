@@ -14,6 +14,10 @@
 #import "ContentLock.h"
 #import "ReceiptValidator.h"
 
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
+
 #import <AdColony/AdColony.h>
 #import <FacebookSDK/FacebookSDK.h>
 
@@ -45,6 +49,11 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
 #pragma mark - UIApplicationDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [[GAI sharedInstance] setTrackUncaughtExceptions: YES];
+    [[GAI sharedInstance] trackerWithTrackingId: @"UA-51633568-1"];
+    
+    
     if( [ContentLock tryLock] ) {   //Don't bother if we are unlocked
         [AdColony configureWithAppID: @"app58f910a3d6a944b095"
                              zoneIDs: @[@"vz153675589c3349788c"]
@@ -80,6 +89,33 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
     return [FBAppCall handleOpenURL: url sourceApplication: sourceApplication fallbackHandler:^(FBAppCall *call) {
         DLog(@"Unhandled deep link: %@", url);
     }];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *) url {
+    
+    NSString *urlString = [url absoluteString];
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    
+    // setCampaignParametersFromUrl: parses Google Analytics campaign ("UTM")
+    // parameters from a string url into a Map that can be set on a Tracker.
+    GAIDictionaryBuilder *hitParams = [[GAIDictionaryBuilder alloc] init];
+    
+    // Set campaign data on the map, not the tracker directly because it only
+    // needs to be sent once.
+    [hitParams setCampaignParametersFromUrl:urlString];
+    
+    // Campaign source is the only required campaign field. If previous call
+    // did not set a campaign source, use the hostname as a referrer instead.
+    if(![hitParams valueForKey:kGAICampaignSource] && [url host].length !=0) {
+        // Set campaign data on the map, not the tracker.
+        [hitParams setValue: @"referrer" forKey: kGAICampaignMedium];
+        [hitParams setValue: [url host] forKey: kGAICampaignSource];
+    }
+    
+    [tracker send: [[[GAIDictionaryBuilder createAppView] setAll: [hitParams build]] build]];
+    
+    return YES;
 }
 
 #pragma mark - AdColonyDelegate

@@ -116,6 +116,8 @@
     self = [super initWithCoder: aDecoder];
     if( self) {
         
+        self.screenName = @"Store";
+        
 #if !TARGET_IPHONE_SIMULATOR
         [[SKPaymentQueue defaultQueue] addTransactionObserver: self];
         

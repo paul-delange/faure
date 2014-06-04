@@ -108,14 +108,10 @@
                                                                        options: 0
                                                                        metrics: nil
                                                                          views: NSDictionaryOfVariableBindings(contentView)]];
-    [self.view addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"V:[banner]|"
+    [self.view addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"V:|[contentView][banner]"
                                                                        options: 0
                                                                        metrics: nil
                                                                          views: NSDictionaryOfVariableBindings(contentView, banner)]];
-    [self.view addConstraints: [NSLayoutConstraint constraintsWithVisualFormat: @"V:|[contentView]"
-                                                                       options: 0
-                                                                       metrics: nil
-                                                                         views: NSDictionaryOfVariableBindings(contentView)]];
     self.contentViewHeightConstraint = [NSLayoutConstraint constraintWithItem: contentView
                                                                     attribute: NSLayoutAttributeHeight
                                                                     relatedBy: NSLayoutRelationEqual

@@ -25,10 +25,7 @@
 
 typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
     
-    kSettingsTableViewSectionRecommend = 0,
-    kSettingsTableViewSectionRate,
-    kSettingsTableViewSectionPremium,
-    kSettingsTableViewSectionShareFacebook,
+    kSettingsTableViewSectionShareFacebook = 0,
     kSettingsTableViewSectionShareTwitter,
     kSettingsTableViewSectionContactUs,
     
@@ -67,37 +64,6 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
             NSDictionary* dict;
             
             switch (section) {
-                case kSettingsTableViewSectionPremium:
-                {
-                    if( [ContentLock tryLock] ) {
-                    dict = @{
-                             ITEM_TITLE_KEY : NSLocalizedString(@"Become a Premium Member", @""),
-                             ITEM_ACTION_KEY : [NSValue valueWithPointer: @selector(premiumPushed:)],
-                             ITEM_IMAGE_NAME_KEY : @"ic_menu_store"
-                             };
-                    }
-                    break;
-                }
-                case kSettingsTableViewSectionRecommend:
-                {
-                    
-                        dict = @{
-                                 ITEM_TITLE_KEY : NSLocalizedString(@"Recommend the App", @""),
-                                 ITEM_ACTION_KEY : [NSValue valueWithPointer: @selector(recommendPushed:)],
-                                 ITEM_IMAGE_NAME_KEY : @"ic_menu_trophies"
-                                 };
-                    break;
-                }
-                case kSettingsTableViewSectionRate:
-                {
-                    dict = @{
-                             ITEM_TITLE_KEY : NSLocalizedString(@"Rate the App", @""),
-                                 ITEM_ACTION_KEY : [NSValue valueWithPointer: @selector(ratePushed:)],
-                                 ITEM_IMAGE_NAME_KEY : @"ic_menu_fb"
-                                 };
-                    
-                    break;
-                }
                 case kSettingsTableViewSectionShareFacebook:
                 {
                     dict = @{
@@ -123,7 +89,7 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
                 {
                                                 dict = @{
                                      ITEM_TITLE_KEY : NSLocalizedString(@"Contact Us", @""),
-                                     ITEM_ACTION_KEY : [NSValue valueWithPointer: @selector(ratePushed:)],
+                                     ITEM_ACTION_KEY : [NSValue valueWithPointer: @selector(contactUsPushed:)],
                                      ITEM_IMAGE_NAME_KEY : @"ic_menu_review"
                                      };
     
@@ -156,29 +122,6 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
     }];
 }
 
-- (void) premiumPushed: (id) sender {
-    if( [ContentLock unlockWithCompletion: ^(NSError* error) {
-        
-        if( !error ) {
-            [self.tableView reloadData];
-        }
-        
-        DLogError(error);
-    }] ) {
-        
-    }
-    else {
-        NSString* title = NSLocalizedString(@"Store not available", @"");
-        NSString* msg = NSLocalizedString(@"Your device settings are blocking the store. Please enable In-App Purchases and try again.", @"");
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
-                                                        message: msg
-                                                       delegate: nil
-                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
-                                              otherButtonTitles: nil];
-        [alert show];
-    }
-}
-
 - (void) likePushed: (id) sender {
     [self followUsOn: SLServiceTypeFacebook completion: ^(NSError *error) {
         
@@ -189,30 +132,6 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
     [self followUsOn: SLServiceTypeTwitter completion: ^(NSError *error) {
         
     }];
-}
-
-- (IBAction) recommendPushed:(id)sender {
-    
-}
-
-- (IBAction) ratePushed: (id)sender {
-    NSString* app_id = @"870090206";
-    
-#if TARGET_IPHONE_SIMULATOR
-    //Can't use this for review, but works on simulator
-    NSDictionary* params = @{ SKStoreProductParameterITunesItemIdentifier : @([app_id integerValue]) };
-    
-    SKStoreProductViewController* storeVC = [SKStoreProductViewController new];
-    [storeVC loadProductWithParameters: params completionBlock: NULL];
-    storeVC.delegate = self;
-    [self presentViewController: storeVC animated: YES completion: NULL];
-#else
-    NSString* appPagePath = [NSString stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@", app_id];
-    
-    NSURL* appPageURL = [NSURL URLWithString: appPagePath];
-    
-    [[UIApplication sharedApplication] openURL: appPageURL];
-#endif
 }
 
 #pragma mark - UIViewController

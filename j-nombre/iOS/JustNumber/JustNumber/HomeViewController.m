@@ -76,6 +76,8 @@
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder: aDecoder];
     if( self ) {
+        self.screenName = @"Home";
+        
         [[NSNotificationCenter defaultCenter] addObserver: self
                                                  selector: @selector(purchaseWasMade:)
                                                      name: ContentLockWasRemovedNotification

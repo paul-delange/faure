@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StoreViewController : UIViewController
+#import "GAITrackedViewController.h"
+
+@interface StoreViewController : GAITrackedViewController
 
 @end

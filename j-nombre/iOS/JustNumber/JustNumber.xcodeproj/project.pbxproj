@@ -40,6 +40,11 @@
 		FDA0DF931906773E009F5541 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDA0DF921906773E009F5541 /* Images.xcassets */; };
 		FDA3F208191DEDCB007D07A8 /* GameViewController+SocialMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA3F207191DEDCB007D07A8 /* GameViewController+SocialMedia.m */; };
 		FDA3F20C19202834007D07A8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA3F20B19202834007D07A8 /* FacebookSDK.framework */; };
+		FDBCAA1C193F18D300D5A696 /* GameViewController+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBCAA1B193F18D300D5A696 /* GameViewController+Animations.m */; };
+		FDBCAA25193F284700D5A696 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDBCAA24193F284700D5A696 /* libGoogleAnalyticsServices.a */; };
+		FDBCAA27193F307700D5A696 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FDBCAA26193F307700D5A696 /* libsqlite3.dylib */; };
+		FDBCAA35193F313600D5A696 /* libInMobi-4.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDBCAA34193F313600D5A696 /* libInMobi-4.3.0.a */; };
+		FDBCAA37193F314400D5A696 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDBCAA36193F314400D5A696 /* EventKitUI.framework */; };
 		FDCAEEC8190CFDAB00F6A640 /* UINumberField.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEEC7190CFDAB00F6A640 /* UINumberField.m */; };
 		FDCAEF43190D765500F6A640 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF41190D765500F6A640 /* Data.xcdatamodeld */; };
 		FDCAEF5E190E18C700F6A640 /* _Level.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF5C190E18C700F6A640 /* _Level.m */; };
@@ -129,6 +134,29 @@
 		FDA3F206191DEDCB007D07A8 /* GameViewController+SocialMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GameViewController+SocialMedia.h"; sourceTree = "<group>"; };
 		FDA3F207191DEDCB007D07A8 /* GameViewController+SocialMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GameViewController+SocialMedia.m"; sourceTree = "<group>"; };
 		FDA3F20B19202834007D07A8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		FDBCAA1A193F18D300D5A696 /* GameViewController+Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GameViewController+Animations.h"; sourceTree = "<group>"; };
+		FDBCAA1B193F18D300D5A696 /* GameViewController+Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GameViewController+Animations.m"; sourceTree = "<group>"; };
+		FDBCAA1E193F284700D5A696 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		FDBCAA1F193F284700D5A696 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		FDBCAA20193F284700D5A696 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		FDBCAA21193F284700D5A696 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		FDBCAA22193F284700D5A696 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		FDBCAA23193F284700D5A696 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		FDBCAA24193F284700D5A696 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		FDBCAA26193F307700D5A696 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		FDBCAA29193F313600D5A696 /* IMBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBanner.h; sourceTree = "<group>"; };
+		FDBCAA2A193F313600D5A696 /* IMBannerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBannerDelegate.h; sourceTree = "<group>"; };
+		FDBCAA2B193F313600D5A696 /* IMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMConstants.h; sourceTree = "<group>"; };
+		FDBCAA2C193F313600D5A696 /* IMError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMError.h; sourceTree = "<group>"; };
+		FDBCAA2D193F313600D5A696 /* IMIncentivisedDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMIncentivisedDelegate.h; sourceTree = "<group>"; };
+		FDBCAA2E193F313600D5A696 /* IMInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMInterstitial.h; sourceTree = "<group>"; };
+		FDBCAA2F193F313600D5A696 /* IMInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMInterstitialDelegate.h; sourceTree = "<group>"; };
+		FDBCAA30193F313600D5A696 /* IMNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNative.h; sourceTree = "<group>"; };
+		FDBCAA31193F313600D5A696 /* IMNativeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNativeDelegate.h; sourceTree = "<group>"; };
+		FDBCAA32193F313600D5A696 /* InMobi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InMobi.h; sourceTree = "<group>"; };
+		FDBCAA33193F313600D5A696 /* InMobiAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InMobiAnalytics.h; sourceTree = "<group>"; };
+		FDBCAA34193F313600D5A696 /* libInMobi-4.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libInMobi-4.3.0.a"; sourceTree = "<group>"; };
+		FDBCAA36193F314400D5A696 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		FDCAEEC6190CFDAB00F6A640 /* UINumberField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINumberField.h; sourceTree = "<group>"; };
 		FDCAEEC7190CFDAB00F6A640 /* UINumberField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINumberField.m; sourceTree = "<group>"; };
 		FDCAEF42190D765500F6A640 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
@@ -170,6 +198,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDBCAA37193F314400D5A696 /* EventKitUI.framework in Frameworks */,
+				FDBCAA27193F307700D5A696 /* libsqlite3.dylib in Frameworks */,
 				FDEB629B1913DB9700BCA8D3 /* MediaPlayer.framework in Frameworks */,
 				FDEB62991913DB8D00BCA8D3 /* libz.dylib in Frameworks */,
 				FDEB62971913DB8400BCA8D3 /* Social.framework in Frameworks */,
@@ -190,6 +220,8 @@
 				FDA0DF851906773E009F5541 /* UIKit.framework in Frameworks */,
 				FDA0DF811906773E009F5541 /* Foundation.framework in Frameworks */,
 				FDA3F20C19202834007D07A8 /* FacebookSDK.framework in Frameworks */,
+				FDBCAA35193F313600D5A696 /* libInMobi-4.3.0.a in Frameworks */,
+				FDBCAA25193F284700D5A696 /* libGoogleAnalyticsServices.a in Frameworks */,
 				FD3BB6A4190CE23D008D8798 /* StoreKit.framework in Frameworks */,
 				FD3BB6BA190CEE5C008D8798 /* libGoogleAdMobAds.a in Frameworks */,
 			);
@@ -201,6 +233,8 @@
 		FD3BB68F190CDAE5008D8798 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FDBCAA28193F313600D5A696 /* InMobi */,
+				FDBCAA1D193F284700D5A696 /* Google Analytics */,
 				FDCAEF5B190E18BC00F6A640 /* mogenerator */,
 				FD3BB6AF190CEE5C008D8798 /* Admob */,
 				FD3BB690190CDB18008D8798 /* JASidePanels */,
@@ -252,6 +286,8 @@
 				FD3BB6A6190CEC07008D8798 /* GameViewController.m */,
 				FDA3F206191DEDCB007D07A8 /* GameViewController+SocialMedia.h */,
 				FDA3F207191DEDCB007D07A8 /* GameViewController+SocialMedia.m */,
+				FDBCAA1A193F18D300D5A696 /* GameViewController+Animations.h */,
+				FDBCAA1B193F18D300D5A696 /* GameViewController+Animations.m */,
 			);
 			name = "In-Game";
 			sourceTree = "<group>";
@@ -303,6 +339,8 @@
 		FDA0DF7F1906773E009F5541 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDBCAA36193F314400D5A696 /* EventKitUI.framework */,
+				FDBCAA26193F307700D5A696 /* libsqlite3.dylib */,
 				FDA3F20B19202834007D07A8 /* FacebookSDK.framework */,
 				FDEB629A1913DB9700BCA8D3 /* MediaPlayer.framework */,
 				FDEB62981913DB8D00BCA8D3 /* libz.dylib */,
@@ -402,6 +440,39 @@
 				FD9B21D91913828500D6129A /* UIApplication+Versioning.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		FDBCAA1D193F284700D5A696 /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				FDBCAA1E193F284700D5A696 /* GAI.h */,
+				FDBCAA1F193F284700D5A696 /* GAIDictionaryBuilder.h */,
+				FDBCAA20193F284700D5A696 /* GAIFields.h */,
+				FDBCAA21193F284700D5A696 /* GAILogger.h */,
+				FDBCAA22193F284700D5A696 /* GAITrackedViewController.h */,
+				FDBCAA23193F284700D5A696 /* GAITracker.h */,
+				FDBCAA24193F284700D5A696 /* libGoogleAnalyticsServices.a */,
+			);
+			path = "Google Analytics";
+			sourceTree = "<group>";
+		};
+		FDBCAA28193F313600D5A696 /* InMobi */ = {
+			isa = PBXGroup;
+			children = (
+				FDBCAA29193F313600D5A696 /* IMBanner.h */,
+				FDBCAA2A193F313600D5A696 /* IMBannerDelegate.h */,
+				FDBCAA2B193F313600D5A696 /* IMConstants.h */,
+				FDBCAA2C193F313600D5A696 /* IMError.h */,
+				FDBCAA2D193F313600D5A696 /* IMIncentivisedDelegate.h */,
+				FDBCAA2E193F313600D5A696 /* IMInterstitial.h */,
+				FDBCAA2F193F313600D5A696 /* IMInterstitialDelegate.h */,
+				FDBCAA30193F313600D5A696 /* IMNative.h */,
+				FDBCAA31193F313600D5A696 /* IMNativeDelegate.h */,
+				FDBCAA32193F313600D5A696 /* InMobi.h */,
+				FDBCAA33193F313600D5A696 /* InMobiAnalytics.h */,
+				FDBCAA34193F313600D5A696 /* libInMobi-4.3.0.a */,
+			);
+			path = InMobi;
 			sourceTree = "<group>";
 		};
 		FDCAEF5B190E18BC00F6A640 /* mogenerator */ = {
@@ -537,6 +608,7 @@
 				FDEB627C191386D900BCA8D3 /* ScoreSheet.m in Sources */,
 				FDA0DF911906773E009F5541 /* AppDelegate.m in Sources */,
 				FD3BB6AA190CEDEA008D8798 /* AdvertisementNavigationController.m in Sources */,
+				FDBCAA1C193F18D300D5A696 /* GameViewController+Animations.m in Sources */,
 				FD3BB6C2190CEE9F008D8798 /* CoreDataStack.m in Sources */,
 				FDCAEF66190E18E500F6A640 /* Question.m in Sources */,
 				FDCAEF43190D765500F6A640 /* Data.xcdatamodeld in Sources */,
@@ -671,6 +743,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Admob",
 					"$(PROJECT_DIR)/OpenSSL",
+					"$(PROJECT_DIR)/Google",
+					Analytics,
+					"$(PROJECT_DIR)/InMobi",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -706,6 +781,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Admob",
 					"$(PROJECT_DIR)/OpenSSL",
+					"$(PROJECT_DIR)/Google",
+					Analytics,
+					"$(PROJECT_DIR)/InMobi",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

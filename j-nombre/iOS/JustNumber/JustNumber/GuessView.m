@@ -32,7 +32,7 @@
     [_guesses addObject: guessValue];
     
     UILabel* guessLabel = [[UILabel alloc] initWithFrame: CGRectZero];
-    guessLabel.font = [UIFont systemFontOfSize: 15];
+    guessLabel.font = [UIFont boldSystemFontOfSize: 16];
     guessLabel.textAlignment = NSTextAlignmentCenter;
     guessLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     guessLabel.translatesAutoresizingMaskIntoConstraints = NO;

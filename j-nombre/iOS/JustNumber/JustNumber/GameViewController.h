@@ -10,7 +10,9 @@
 
 @class Level;
 
-@interface GameViewController : UIViewController
+#import "GAITrackedViewController.h"
+
+@interface GameViewController : GAITrackedViewController
 
 @property (strong, nonatomic) Level* level;
 

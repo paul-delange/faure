@@ -10,6 +10,11 @@
 
 #import "Question.h"
 
+#import "CoreDataStack.h"
+
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
+
 #import <FacebookSDK/FacebookSDK.h>
 
 @import Accounts;
@@ -19,6 +24,13 @@
 - (void) shareQuestion: (Question*) question on:(NSString *)serviceType completion:(void (^)(NSError *))completion {
     NSParameterAssert([serviceType isEqualToString: SLServiceTypeFacebook] || [serviceType isEqualToString: SLServiceTypeTwitter]);
     NSParameterAssert(completion);
+    
+    NSString* lang = [NSManagedObjectContextGetMain().locale objectForKey: NSLocaleLanguageCode];
+    [[[GAI sharedInstance] defaultTracker] send: [[GAIDictionaryBuilder createEventWithCategory: lang
+                                                                                         action: serviceType
+                                                                                          label: [question.identifier stringValue]
+                                                                                          value: nil] build]];
+    
     if( [serviceType isEqualToString: SLServiceTypeTwitter] ) {
         if( [SLComposeViewController isAvailableForServiceType: serviceType] ) {
             SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType: serviceType];

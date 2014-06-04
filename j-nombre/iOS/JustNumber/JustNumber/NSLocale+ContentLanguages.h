@@ -14,7 +14,6 @@
 /** @return An array of the available ISO content language identifiers that were bundled with the app at compile time */
 + (NSArray*) availableContentLanguages;
 
-
 /** @return The language groups that were bundled with the app */
 + (NSArray*) availableLanguageGroups;
 

@@ -8,6 +8,7 @@
 
 #import "GameViewController.h"
 #import "GameViewController+SocialMedia.h"
+#import "GameViewController+Animations.h"
 
 #import "UINumberField.h"
 
@@ -22,6 +23,8 @@
 #import "GuessView.h"
 
 #import "UIImage+ImageEffects.h"
+
+#import "GAI.h"
 
 #define kAlertViewCorrectTag    914
 #define kAlertViewHelpTag       915
@@ -188,10 +191,14 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
         }
         case NSOrderedSame:
         {
-            
             BOOL success = [sheet crossOfQuestion: question];
             NSParameterAssert(success);
             
+            [self animateCorrectAnswer: ^(BOOL finished) {
+                [self advance];
+            }];
+            
+            /*
             NSString* format = NSLocalizedString(@"%@...\n%@", @"The year François Hollande was born...\n1957");
             NSString* msg;
             
@@ -211,6 +218,7 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
                                                   otherButtonTitles: NSLocalizedString(@"Share", @""), nil];
             alert.tag = kAlertViewCorrectTag;
             [alert show];
+             */
             break;
         }
     }
@@ -240,6 +248,14 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+- (id) initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder: aDecoder];
+    if( self ) {
+        self.screenName = @"Game";
+    }
+    return self;
+}
+
 #pragma mark - UIViewController
 - (void) viewDidLoad {
     [super viewDidLoad];
@@ -260,6 +276,7 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
     for(UIView* v in self.numberButtons) {
         v.layer.cornerRadius = 5.;
     }
+    
     self.okButton.layer.cornerRadius = 5.;
 }
 
