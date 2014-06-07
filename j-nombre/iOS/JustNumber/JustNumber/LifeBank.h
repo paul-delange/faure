@@ -32,4 +32,8 @@ extern NSString * kCoinPurseValueDidChangeNotification;
 /** @return The total number of lives available */
 + (NSUInteger) count;
 
+#if DEBUG
++ (void) set: (NSInteger) lives;
+#endif
+
 @end

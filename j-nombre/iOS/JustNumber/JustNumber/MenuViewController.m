@@ -15,6 +15,7 @@
 #import "AppDelegate.h"
 
 #import "ContentLock.h"
+#import "LifeBank.h"
 
 @import StoreKit;
 @import MessageUI;
@@ -23,16 +24,20 @@
 #define ITEM_IMAGE_NAME_KEY     @"img"
 #define ITEM_ACTION_KEY         @"action"
 
+#define kAlertViewTagSetLives   91
+
 typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
     
     kSettingsTableViewSectionShareFacebook = 0,
     kSettingsTableViewSectionShareTwitter,
     kSettingsTableViewSectionContactUs,
-    
+#if DEBUG
+    kSettingsTableViewSectionSetLives,
+#endif
     kSettingsTableViewSectionCount
 };
 
-@interface MenuViewController () <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, SKStoreProductViewControllerDelegate> {
+@interface MenuViewController () <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate, SKStoreProductViewControllerDelegate, UIAlertViewDelegate> {
     NSArray* _sections;
 }
 
@@ -95,6 +100,18 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
     
                     break;
                 }
+#if DEBUG
+                case kSettingsTableViewSectionSetLives:
+                {
+                    dict = @{
+                             ITEM_TITLE_KEY : @"Manually Set Lives",
+                             ITEM_ACTION_KEY : [NSValue valueWithPointer: @selector(setLives:)],
+                             ITEM_IMAGE_NAME_KEY : @"ic_menu_review",
+                             @"COLOR" : [UIColor redColor]
+                             };
+                    break;
+                }
+#endif
                 default:
                     break;
             }
@@ -111,6 +128,19 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
 }
 
 #pragma mark - Actions
+#if DEBUG
+- (IBAction) setLives:(id)sender {
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: nil
+                                                    message: @"How many lives do you want?"
+                                                   delegate: self
+                                          cancelButtonTitle: @"Cancel"
+                                          otherButtonTitles: @"Set", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alert.tag = kAlertViewTagSetLives;
+    [alert show];
+}
+#endif
+
 - (IBAction) contactUsPushed: (id)sender {
     MFMailComposeViewController* vc = [MFMailComposeViewController new];
     [vc setToRecipients: @[NSLocalizedString(@"gilmert.bentley@gmail.com", @"")]];
@@ -187,6 +217,14 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
     cell.textLabel.text = data[ITEM_TITLE_KEY];
     cell.imageView.image = data[ITEM_IMAGE_NAME_KEY] ? [UIImage imageNamed: data[ITEM_IMAGE_NAME_KEY]] : nil;
     
+    UIColor* color = data[@"COLOR"];
+    if( color ) {
+        cell.textLabel.textColor = color;
+    }
+    else {
+        cell.textLabel.textColor = [UIColor whiteColor];
+    }
+    
     return cell;
 }
 
@@ -227,5 +265,23 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
     [self dismissViewControllerAnimated: YES completion: NULL];
 }
 
+#if DEBUG
+#pragma mark - UIAlertViewDelegate
+- (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    switch (alertView.tag) {
+        case kAlertViewTagSetLives:
+        {
+            if( buttonIndex != alertView.cancelButtonIndex ) {
+                UITextField* field = [alertView textFieldAtIndex: 0];
+                NSInteger val = [field.text intValue];
+                [LifeBank set: val];
+            }
+            break;
+        }
+        default:
+            break;
+    }
+}
+#endif
 
 @end

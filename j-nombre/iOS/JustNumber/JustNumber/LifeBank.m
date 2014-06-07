@@ -66,6 +66,63 @@ NSString * kCoinPurseValueDidChangeNotification = @"CoinPurseValueChanged";
 
 @implementation LifeBank
 
+#if DEBUG
++ (void) set: (NSInteger) lives {
+#if USE_KEYCHAIN
+    CFMutableDictionaryRef query = CFDictionaryCreateMutable(NULL, 5, NULL, NULL);
+    
+    CFDictionaryAddValue(query, kSecClass, kSecClassGenericPassword);
+    CFDictionaryAddValue(query, kSecAttrAccount, CFSTR("94%"));
+    CFDictionaryAddValue(query, kSecAttrService, CFSTR("Coins"));
+    CFDictionaryAddValue(query, kSecReturnData, kCFBooleanTrue);
+    
+    if( KEYCHAIN_SUPPORTED_BY_iCLOUD ) {
+        /* This attribute is only available on iOS 7.0.3+. If the user has updated their phone from an earlier version,
+         this attribute is false. For this reason we can search for "any" value here */
+        CFDictionaryAddValue(query, kSecAttrSynchronizable, kSecAttrSynchronizableAny);
+    }
+    
+    CFTypeRef result = NULL;
+    OSStatus status = SecItemCopyMatching(query, &result);
+    
+    if( status == errSecSuccess ) {
+        NSArray* transactions = @[@(lives)];
+        
+        CFMutableDictionaryRef update = CFDictionaryCreateMutable(NULL, 2, NULL, NULL);
+        
+        CFDataRef data = (__bridge_retained CFDataRef)[NSKeyedArchiver archivedDataWithRootObject: transactions];
+        CFDictionaryAddValue(update, kSecValueData, data);
+        
+        if( KEYCHAIN_SUPPORTED_BY_iCLOUD ) {
+            /* Update this while we have the chance */
+            CFDictionaryAddValue(update, kSecAttrSynchronizable, kCFBooleanTrue);
+        }
+        
+        CFDictionaryRemoveValue(query, kSecReturnData);
+        
+        status = SecItemUpdate(query, update);
+        if( status != errSecSuccess ) {
+            DLog(@"Error adding coins: %@", NSStringFromOSStatus(status));
+        }
+        
+        CFRelease(data);
+        CFRelease(update);
+    }
+    else {
+        DLog(@"Failed to add coins: %@", NSStringFromOSStatus(status));
+    }
+    
+    CFRelease(query);
+#else
+    [[NSUserDefaults standardUserDefaults] setInteger: lives forKey: NSUserDefaultsCoinsKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+#endif
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName: kCoinPurseValueDidChangeNotification
+                                                        object: nil];
+}
+#endif
+
 + (void) addLives:(NSInteger)coins {
     NSParameterAssert(coins > 0);
     
