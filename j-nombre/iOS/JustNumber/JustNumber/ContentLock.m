@@ -136,7 +136,7 @@ NSString * ContentLockWasRemovedNotification = @"ContentLockRemoved";
                 
                 NSURL* appReceiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
                 if( isValidReceipt(appReceiptURL) ) {
-                    NSParameterAssert(isUnlockSubscriptionPurchased());
+                    //NSParameterAssert(isUnlockSubscriptionPurchased());
                     
                     [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
                     

@@ -13,6 +13,7 @@
 #import "ContentLock.h"
 
 #import "Level.h"
+#import "AppDelegate.h"
 
 #import "LifeCountView.h"
 
@@ -31,6 +32,8 @@
 
 @interface StoreViewController () <SKPaymentTransactionObserver, SKProductsRequestDelegate, AdColonyAdDelegate> {
     NSArray* _productsOrderedByPrice;
+    
+    dispatch_source_t _timer;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -114,11 +117,32 @@
                                                  selector: @selector(lifeCountChanged:)
                                                      name: kCoinPurseValueDidChangeNotification
                                                    object: nil];
+        
+        dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+        dispatch_source_set_timer(timer, dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC), 0.0 * NSEC_PER_SEC, (1ull * NSEC_PER_SEC) / 10);
+        dispatch_source_set_event_handler(timer, ^{
+            AppDelegate* delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+            UILocalNotification* notification = [delegate rechargeNotification];
+            NSParameterAssert(notification);
+            
+            NSInteger remaining = [notification.fireDate timeIntervalSinceNow];
+            
+            NSInteger seconds = remaining % 60;
+            NSInteger minute = (remaining - seconds) / 60;
+            
+            self.timeUntilFreeLabel.text = [NSString stringWithFormat: NSLocalizedString(@"%02d:%02d", @""), minute, seconds];
+            
+        });
+        dispatch_resume(timer);
+        
+        _timer = timer;
     }
     return self;
 }
 
 - (void) dealloc {
+     dispatch_source_cancel(_timer);
+    
     [[NSNotificationCenter defaultCenter] removeObserver: self];
     [[SKPaymentQueue defaultQueue] removeTransactionObserver: self];
 }
@@ -133,10 +157,7 @@
     self.title = [NSString localizedStringWithFormat: NSLocalizedString(@"Level %@", @""), [Level currentLevel].identifier];
     
     self.titleLabel.text = NSLocalizedString(@"No more lives!", @"");
-    
-#if !TARGET_IPHONE_SIMULATOR
-    self.buyButton.enabled = _product == nil ? NO : YES;
-#endif
+    self.timeUntilFreeLabel.text = @"";
     
     LifeCountView* countView = [[LifeCountView alloc] initWithFrame: CGRectMake(0, 0, 40, 40)];
     UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithCustomView: countView];

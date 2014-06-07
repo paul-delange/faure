@@ -130,11 +130,7 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
     Question* question = [self.level nextQuestion];
     
     NSUInteger tries = [sheet triesForQuestion: question];
-    BOOL isFreeTry = !(tries > 0 && tries < 6);
-    
-    if( ![ContentLock tryLock] ) {
-        isFreeTry = YES;
-    }
+    BOOL isFreeTry = NO;
     
     NSLog(@"%d tries for %@", tries, question.identifier);
     
@@ -180,7 +176,7 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
                 if( ![[NSUserDefaults standardUserDefaults] boolForKey: NSUserDefaultsShownHelpExplanation] ) {
                     
                     NSString* title = NSLocalizedString(@"Ouch, that one cost!", @"");
-                    NSString* msg = NSLocalizedString(@"For every question, you get one free guess. After that, you lose one life per guess until five guesses. After five guesses you can guess as much as you want for no penalty. Still can't find the answer? You can always ask your friends for help with the button in the top right!", @"");
+                    NSString* msg = NSLocalizedString(@"You lose one life per wrong guess. Can't find the answer? You can always ask your friends for help with the button in the top right!", @"");
                     UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
                                                                     message: msg
                                                                    delegate: self

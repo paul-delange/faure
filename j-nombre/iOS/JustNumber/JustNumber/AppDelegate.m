@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "GameViewController+Animations.h"
+
 #import "CoreDataStack.h"
 
 #import "LifeBank.h"
@@ -37,6 +39,11 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
 
 @implementation AppDelegate
 
+- (UILocalNotification*) rechargeNotification {
+    NSArray* notifs = [UIApplication sharedApplication].scheduledLocalNotifications;
+    return notifs.lastObject;
+}
+
 - (CoreDataStack*) dataStore {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -56,10 +63,14 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
     return _facebookSession;
 }
 
+#pragma mark - NSObject
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
+}
+
 #pragma mark - UIApplicationDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
     [[GAI sharedInstance] setTrackUncaughtExceptions: YES];
     [[GAI sharedInstance] trackerWithTrackingId: @"UA-51633568-1"];
     
@@ -71,7 +82,7 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
 #if DEBUG
                              logging: YES];
 #else
-                             logging: NO];
+    logging: NO];
 #endif
     }
     
@@ -86,6 +97,11 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
         [alert show];
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(coinValueChanged:)
+                                                 name: kCoinPurseValueDidChangeNotification
+                                               object: nil];
+    
     return YES;
 }
 
@@ -99,6 +115,13 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
     return [FBAppCall handleOpenURL: url sourceApplication: sourceApplication fallbackHandler:^(FBAppCall *call) {
         DLog(@"Unhandled deep link: %@", url);
     }];
+}
+
+- (void) application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    [LifeBank addLives: 50];
+    
+    [self.window.rootViewController animateMessage: NSLocalizedString(@"Ready to go continue!", @"")
+                                        completion: nil];
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *) url {
@@ -129,8 +152,10 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
 }
 
 - (void) applicationDidBecomeActive:(UIApplication *)application {
-    [FBAppEvents activateApp];
+    application.applicationIconBadgeNumber = 0;
     
+    
+    [FBAppEvents activateApp];
     [FBAppCall handleDidBecomeActiveWithSession: self.facebookSession];
 }
 
@@ -163,6 +188,23 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
         SKReceiptRefreshRequest* refresh = [[SKReceiptRefreshRequest alloc] initWithReceiptProperties: nil];
         refresh.delegate = (id<SKRequestDelegate>)self;
         [refresh start];
+    }
+}
+
+#pragma mark - Notifications
+- (void) coinValueChanged: (NSNotification*) notification {
+    if( [LifeBank count] <= 0 ) {
+        
+        AppDelegate* delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        
+        if( !delegate.rechargeNotification ) {
+            UILocalNotification* localNotification = [UILocalNotification new];
+            localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow: 30 * 60];
+            localNotification.alertBody = NSLocalizedString(@"50 lives available!", @"");
+            localNotification.soundName = UILocalNotificationDefaultSoundName;
+            localNotification.applicationIconBadgeNumber = 50;
+            [[UIApplication sharedApplication] scheduleLocalNotification: localNotification];
+        }
     }
 }
 

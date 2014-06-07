@@ -71,13 +71,7 @@
     }
     
     _count = count;
-    
-    if( [ContentLock tryLock] ) {
-        self.textLabel.text = [@(count) stringValue];
-    }
-    else {
-        self.textLabel.text = NSLocalizedString(@"∞", @"");
-    }
+    self.textLabel.text = [@(count) stringValue];
 }
 
 - (void) commonInit {
@@ -93,13 +87,8 @@
     label.translatesAutoresizingMaskIntoConstraints = NO;
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor whiteColor];
-    
-    if( [ContentLock tryLock] ) {
-        label.text = [@(_count) stringValue];
-    }
-    else {
-        label.text = NSLocalizedString(@"∞", @"");
-    }
+    label.text = [@(_count) stringValue];
+ 
     
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont preferredFontForTextStyle: UIFontTextStyleFootnote];
@@ -139,22 +128,6 @@
     self.layer.shadowColor = [[UIColor redColor] CGColor];
     self.layer.shadowRadius = 5.;
     self.layer.shadowOpacity = 0.;
-    
-    [[NSNotificationCenter defaultCenter] addObserver: self
-                                             selector: @selector(contentUnlocked:)
-                                                 name: ContentLockWasRemovedNotification
-                                               object: nil];
-}
-
-#pragma mark - Notifications
-- (void) contentUnlocked: (NSNotification*) notification {
-    if( [ContentLock tryLock] ) {
-        self.textLabel.text = [@(_count) stringValue];
-    }
-    else {
-        self.textLabel.text = NSLocalizedString(@"∞", @"");
-    }
-    
 }
 
 #pragma mark - NSObject

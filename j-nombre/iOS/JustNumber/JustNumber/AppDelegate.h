@@ -13,6 +13,8 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+- (UILocalNotification*) rechargeNotification;
+
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) CoreDataStack* dataStore;
