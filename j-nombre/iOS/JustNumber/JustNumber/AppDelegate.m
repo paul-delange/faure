@@ -23,6 +23,8 @@
 #import <AdColony/AdColony.h>
 #import <FacebookSDK/FacebookSDK.h>
 
+#define MINUTES_TO_WAIT_FOR_FREE_LIVES  30
+
 @import StoreKit;
 
 #define kAlertViewTagMustGetReceipt 444
@@ -102,6 +104,10 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
                                                  name: kCoinPurseValueDidChangeNotification
                                                object: nil];
     
+    if( launchOptions[UIApplicationLaunchOptionsLocalNotificationKey] ) {
+        [self application: application didReceiveLocalNotification: launchOptions[UIApplicationLaunchOptionsLocalNotificationKey]];
+    }
+    
     return YES;
 }
 
@@ -118,9 +124,10 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
 }
 
 - (void) application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    [LifeBank addLives: 50];
+    [LifeBank addLives: LIVES_WHEN_WAITING];
     
-    [self.window.rootViewController animateMessage: NSLocalizedString(@"Ready to go continue!", @"")
+    NSString* msg = [NSString localizedStringWithFormat: NSLocalizedString(@"+%d new lives!", @""), LIVES_WHEN_WAITING];
+    [self.window.rootViewController animateMessage: msg
                                         completion: nil];
 }
 
@@ -199,10 +206,10 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
         
         if( !delegate.rechargeNotification ) {
             UILocalNotification* localNotification = [UILocalNotification new];
-            localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow: 30 * 60];
-            localNotification.alertBody = NSLocalizedString(@"50 lives available!", @"");
+            localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow: MINUTES_TO_WAIT_FOR_FREE_LIVES * 60];
+            localNotification.alertBody = [NSString localizedStringWithFormat: NSLocalizedString(@"+%d lives available!", @""), LIVES_WHEN_WAITING];
             localNotification.soundName = UILocalNotificationDefaultSoundName;
-            localNotification.applicationIconBadgeNumber = 50;
+            localNotification.applicationIconBadgeNumber = LIVES_WHEN_WAITING;
             [[UIApplication sharedApplication] scheduleLocalNotification: localNotification];
         }
     }

@@ -10,6 +10,14 @@
 
 #import "UIImage+ImageEffects.h"
 
+#import <objc/runtime.h>
+
+@interface UIViewController (AnimationsInternal)
+
+@property (copy, nonatomic) void (^completion)(BOOL finished);
+
+@end
+
 @implementation UIViewController (Animations)
 
 - (void) animateMessage: (NSString*) message completion: (void (^)(BOOL finished)) completion {
@@ -28,6 +36,7 @@
     UIImageView* background = [[UIImageView alloc] initWithImage: blurred];
     background.contentMode = UIViewContentModeScaleAspectFit;
     background.alpha = 0.;
+    background.userInteractionEnabled = YES;
     [self.view addSubview: background];
     
     UILabel* label = [[UILabel alloc] initWithFrame: CGRectZero];
@@ -65,6 +74,12 @@
                                                           constant: -CGRectGetWidth(self.view.frame)];
     [background addConstraint: x];
     
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget: self
+                                                                          action: @selector(backgroundTapped:)];
+    [background addGestureRecognizer: tap];
+    
+     self.completion = completion;
+    
     [UIView animateWithDuration: 0.3
                           delay: 0.0
                         options: UIViewAnimationOptionCurveEaseIn
@@ -82,20 +97,49 @@
                                           animations:^{
                                               [label layoutIfNeeded];
                                           } completion:^(BOOL finished) {
-                                              x.constant = CGRectGetWidth(self.view.bounds);
-                                              [UIView animateWithDuration: 0.3
-                                                                    delay: 0.05 * [message length]
-                                                                  options: UIViewAnimationOptionCurveEaseOut
-                                                               animations:^{
-                                                                   background.alpha = 0.;
-                                                                   [label layoutIfNeeded];
-                                                               } completion:^(BOOL finished) {
-                                                                   [background removeFromSuperview];
-                                                                   if( completion )
-                                                                       completion(finished);
-                                                               }];
+                                              
                                           }];
                      }];
+    
+   
+}
+
+- (IBAction) backgroundTapped:(UITapGestureRecognizer*)sender {
+    
+    UIView* background = sender.view;
+    NSLayoutConstraint* x;
+    for(NSLayoutConstraint* constraint in background.constraints) {
+        if( constraint.firstAttribute == NSLayoutAttributeCenterX &&
+           constraint.secondAttribute == NSLayoutAttributeCenterX ) {
+            x = constraint;
+            break;
+        }
+    }
+    
+    x.constant = CGRectGetWidth(self.view.bounds);
+    [UIView animateWithDuration: 0.3
+                          delay: 0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         background.alpha = 0.;
+                         [background layoutIfNeeded];
+                     } completion:^(BOOL finished) {
+                         [background removeFromSuperview];
+                         if( self.completion ) {
+                             self.completion(finished);
+                         }
+                         
+                         self.completion = nil;
+                     }];
+}
+
+- (void) setCompletion:(void (^)(BOOL))completion {
+    objc_setAssociatedObject(self, @selector(completion), completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (void(^)(BOOL)) completion {
+    void (^obj)(BOOL) = objc_getAssociatedObject(self, @selector(completion));
+    return obj;
 }
 
 @end

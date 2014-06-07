@@ -11,6 +11,8 @@
 
 #define COST_OF_BAD_RESPONSE        1
 
+#define LIVES_WHEN_WAITING          4
+
 #if DEBUG
 #define DEFAULT_LIVES_VALUE         7
 #else

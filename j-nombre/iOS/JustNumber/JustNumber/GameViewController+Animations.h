@@ -10,6 +10,6 @@
 
 @interface UIViewController (Animations)
 
-- (void) animateMessage: (NSString*) message completion: (void (^)(BOOL finished)) completion ;
+- (void) animateMessage: (NSString*) message completion: (void (^)(BOOL finished)) completion;
 
 @end

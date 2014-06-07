@@ -123,14 +123,16 @@
         dispatch_source_set_event_handler(timer, ^{
             AppDelegate* delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
             UILocalNotification* notification = [delegate rechargeNotification];
-            NSParameterAssert(notification);
-            
+            if( notification ) {
             NSInteger remaining = [notification.fireDate timeIntervalSinceNow];
             
             NSInteger seconds = remaining % 60;
             NSInteger minute = (remaining - seconds) / 60;
             
             self.timeUntilFreeLabel.text = [NSString stringWithFormat: NSLocalizedString(@"%02d:%02d", @""), minute, seconds];
+            }
+            else
+                self.timeUntilFreeLabel.text = @"00:00";
             
         });
         dispatch_resume(timer);
@@ -179,7 +181,7 @@
     self.videoButton.enabled = [AdColony isVirtualCurrencyRewardAvailableForZone: @"vz153675589c3349788c"];
     self.publicityExplanationLabel.text = NSLocalizedString(@"1500 and 5000 life packs remove advertisements!", @"");
     
-    NSString* lives = [NSString localizedStringWithFormat: NSLocalizedString(@"%d lives", @""), 50];
+    NSString* lives = [NSString localizedStringWithFormat: NSLocalizedString(@"%d lives", @""), LIVES_WHEN_WAITING];
     NSString* message = [NSString stringWithFormat: NSLocalizedString(@"You will get %@ for free in:", @""), lives];
     
     NSRange livesRange = [message rangeOfString: lives];
