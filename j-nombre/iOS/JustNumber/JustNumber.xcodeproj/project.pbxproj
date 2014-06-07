@@ -743,8 +743,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Admob",
 					"$(PROJECT_DIR)/OpenSSL",
-					"$(PROJECT_DIR)/Google",
-					Analytics,
+					"\"$(PROJECT_DIR)/Google Analytics\"",
 					"$(PROJECT_DIR)/InMobi",
 				);
 				OTHER_LDFLAGS = "-ObjC";
@@ -781,8 +780,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Admob",
 					"$(PROJECT_DIR)/OpenSSL",
-					"$(PROJECT_DIR)/Google",
-					Analytics,
+					"\"$(PROJECT_DIR)/Google Analytics\"",
 					"$(PROJECT_DIR)/InMobi",
 				);
 				OTHER_LDFLAGS = "-ObjC";

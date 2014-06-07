@@ -68,7 +68,7 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
                 {
                     dict = @{
                              
-                             ITEM_TITLE_KEY : NSLocalizedString(@"Like us on Facebook", @""),
+                             ITEM_TITLE_KEY : NSLocalizedString(@"Follow us on Facebook", @""),
                              ITEM_ACTION_KEY : [NSValue valueWithPointer: @selector(likePushed:)],
                              ITEM_IMAGE_NAME_KEY : @"ic_menu_language"
                              };
@@ -113,7 +113,7 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
 #pragma mark - Actions
 - (IBAction) contactUsPushed: (id)sender {
     MFMailComposeViewController* vc = [MFMailComposeViewController new];
-    [vc setToRecipients: @[NSLocalizedString(@"contact@bentley.fr", @"")]];
+    [vc setToRecipients: @[NSLocalizedString(@"gilmert.bentley@gmail.com", @"")]];
     [vc setSubject: [NSString stringWithFormat: NSLocalizedString(@"%@ Support", @""), kAppName()]];
     vc.mailComposeDelegate = self;
     vc.modalPresentationStyle = UIModalPresentationFormSheet;
@@ -123,14 +123,33 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
 }
 
 - (void) likePushed: (id) sender {
-    [self followUsOn: SLServiceTypeFacebook completion: ^(NSError *error) {
-        
+    
+    [self.sidePanelController followUsOn: SLServiceTypeFacebook completion: ^(NSError *error) {
+        /*if( !error ) {
+            UITableViewCell* cell = (UITableViewCell*)sender;
+            NSIndexPath* indexPath = [self.tableView indexPathForCell: cell];
+            
+            NSMutableArray* sections = [_sections mutableCopy];
+            [sections removeObjectAtIndex: indexPath.row];
+            _sections = [sections copy];
+            
+            [self.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
+        }*/
     }];
 }
 
 - (void) followPushed: (id) sender {
-    [self followUsOn: SLServiceTypeTwitter completion: ^(NSError *error) {
-        
+    [self.sidePanelController followUsOn: SLServiceTypeTwitter completion: ^(NSError *error) {
+        /*if( !error ) {
+            UITableViewCell* cell = (UITableViewCell*)sender;
+            NSIndexPath* indexPath = [self.tableView indexPathForCell: cell];
+            
+            NSMutableArray* sections = [_sections mutableCopy];
+            [sections removeObjectAtIndex: indexPath.row];
+            _sections = [sections copy];
+            
+            [self.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
+        }*/
     }];
 }
 

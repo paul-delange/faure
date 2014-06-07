@@ -8,8 +8,8 @@
 
 #import "GameViewController.h"
 
-@interface GameViewController (Animations)
+@interface UIViewController (Animations)
 
-- (void) animateCorrectAnswer: (void (^)(BOOL finished)) completion;
+- (void) animateMessage: (NSString*) message completion: (void (^)(BOOL finished)) completion ;
 
 @end

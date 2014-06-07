@@ -46,6 +46,16 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
     return _dataStore;
 }
 
+- (FBSession*) facebookSession {
+    if( !_facebookSession ) {
+        _facebookSession = [FBSession new];
+        if( _facebookSession.state == FBSessionStateCreatedTokenLoaded ) {
+            [_facebookSession openWithCompletionHandler: nil];
+        }
+    }
+    return _facebookSession;
+}
+
 #pragma mark - UIApplicationDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -116,6 +126,16 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
     [tracker send: [[[GAIDictionaryBuilder createAppView] setAll: [hitParams build]] build]];
     
     return YES;
+}
+
+- (void) applicationDidBecomeActive:(UIApplication *)application {
+    [FBAppEvents activateApp];
+    
+    [FBAppCall handleDidBecomeActiveWithSession: self.facebookSession];
+}
+
+- (void) applicationWillTerminate:(UIApplication *)application {
+    [self.facebookSession close];
 }
 
 #pragma mark - AdColonyDelegate

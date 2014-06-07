@@ -194,7 +194,7 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
             BOOL success = [sheet crossOfQuestion: question];
             NSParameterAssert(success);
             
-            [self animateCorrectAnswer: ^(BOOL finished) {
+            [self animateMessage: NSLocalizedString(@"Correct\nAnswer!", @"") completion: ^(BOOL finished) {
                 [self advance];
             }];
             
@@ -390,28 +390,7 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
             }
             break;
         }
-        case kAlertViewBragTag:
-        {
-            if( buttonIndex == actionSheet.cancelButtonIndex ) {
-                [self advance];
-            }
-            else {
-                NSString* serviceType = SLServiceTypeFacebook;
-                
-                switch (buttonIndex) {
-                    case 1:
-                        serviceType = SLServiceTypeTwitter;
-                        break;
-                    default:
-                        break;
-                }
-                
-                [self shareAnswer: [self.level nextQuestion] on: serviceType completion: ^(NSError *error) {
-                    [self advance];
-                }];
-            }
-            break;
-        }
+        
         default:
             break;
     }

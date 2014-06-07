@@ -10,9 +10,9 @@
 
 #import "UIImage+ImageEffects.h"
 
-@implementation GameViewController (Animations)
+@implementation UIViewController (Animations)
 
-- (void) animateCorrectAnswer: (void (^)(BOOL finished)) completion {
+- (void) animateMessage: (NSString*) message completion: (void (^)(BOOL finished)) completion {
     CGSize size = self.view.bounds.size;
     
     UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
@@ -35,8 +35,9 @@
     label.textColor = [UIColor redColor];
     label.shadowColor = [UIColor whiteColor];
     label.shadowOffset = CGSizeMake(2, 2);
-    label.text = NSLocalizedString(@"That's\nRight!", @"");
+    label.text = message;
     label.numberOfLines = 0;
+    label.textAlignment = NSTextAlignmentCenter;
     label.translatesAutoresizingMaskIntoConstraints = NO;
     
     [background addSubview: label];
@@ -48,6 +49,13 @@
                                                             attribute: NSLayoutAttributeCenterY
                                                            multiplier: 1.0
                                                              constant: 0.0]];
+    [background addConstraint: [NSLayoutConstraint constraintWithItem: label
+                                                       attribute: NSLayoutAttributeWidth
+                                                       relatedBy: NSLayoutRelationLessThanOrEqual
+                                                          toItem: background
+                                                       attribute: NSLayoutAttributeWidth
+                                                      multiplier: 1.0
+                                                        constant: -40]];
     NSLayoutConstraint* x = [NSLayoutConstraint constraintWithItem: label
                                                          attribute: NSLayoutAttributeCenterX
                                                          relatedBy: NSLayoutRelationEqual
@@ -76,7 +84,7 @@
                                           } completion:^(BOOL finished) {
                                               x.constant = CGRectGetWidth(self.view.bounds);
                                               [UIView animateWithDuration: 0.3
-                                                                    delay: 0.6
+                                                                    delay: 0.05 * [message length]
                                                                   options: UIViewAnimationOptionCurveEaseOut
                                                                animations:^{
                                                                    background.alpha = 0.;

@@ -17,7 +17,7 @@ NSString * const kAppName() {
 }
 
 NSString * const kAppStoreURL(void) {
-    return @"http://appstore.com/justenombre";
+    return @"https://itunes.apple.com/app/id870090206";
 }
 
 int main(int argc, char * argv[])
