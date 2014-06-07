@@ -45,6 +45,18 @@ NSString * ContentLockWasRemovedNotification = @"ContentLockRemoved";
 #endif
 }
 
++ (BOOL) unlock {
+#if TARGET_IPHONE_SIMULATOR
+    [[NSUserDefaults standardUserDefaults] setBool: YES forKey: @"SimulatorContentLocked"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+#else
+    manuallyOverrideSubscriptionLock();
+#endif
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
+    return YES;
+}
+
 + (BOOL) lock {
     return NO;
 }

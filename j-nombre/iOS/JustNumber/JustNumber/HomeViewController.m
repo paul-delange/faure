@@ -15,6 +15,7 @@
 #import "ContentLock.h"
 
 #import "Level.h"
+#import "LifeBank.h"
 
 #import "UIImage+ImageEffects.h"
 
@@ -46,7 +47,7 @@
             sender.on = YES;
         }
         else {
-        
+            [LifeBank addLives: 50];
         }
         
         DLogError(error);

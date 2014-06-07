@@ -10,7 +10,12 @@
 
 
 #define COST_OF_BAD_RESPONSE        1
+
+#if DEBUG
 #define DEFAULT_LIVES_VALUE         7
+#else
+#define DEFAULT_LIVES_VALUE         50
+#endif
 
 extern NSString * kCoinPurseValueDidChangeNotification;
 

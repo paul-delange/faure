@@ -7,6 +7,7 @@
 //
 
 #import "StoreViewController.h"
+#import "GameViewController+Animations.h"
 
 #import "LifeBank.h"
 #import "ContentLock.h"
@@ -18,6 +19,10 @@
 #import <AdColony/AdColony.h>
 
 #import "UIImage+ImageEffects.h"
+#import "ProductButton.h"
+
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
 
 @import StoreKit;
 
@@ -25,26 +30,37 @@
 //v4vc: v4vccb2bd400a3924698bf
 
 @interface StoreViewController () <SKPaymentTransactionObserver, SKProductsRequestDelegate, AdColonyAdDelegate> {
-    SKProduct* _product;
+    NSArray* _productsOrderedByPrice;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIButton *buyButton;
-@property (weak, nonatomic) IBOutlet UIButton *videoButton;
-@property (weak, nonatomic) IBOutlet UIButton *unlockButton;
-@property (weak, nonatomic) IBOutlet UIButton *restorePushed;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *buyTransactionWaiting;
 @property (weak, nonatomic) IBOutlet LifeCountView *lifeCountView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
-@property (weak, nonatomic) IBOutlet UILabel *premiumBenefitLabel;
-@property (weak, nonatomic) IBOutlet UILabel *becomePremiumLabel;
-@property (weak, nonatomic) IBOutlet UIView *premiumBoxView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *unlockActivityIndicator;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *restoreActivityIndicator;
+@property (weak, nonatomic) IBOutlet ProductButton *videoButton;
+@property (strong, nonatomic) IBOutletCollection(ProductButton) NSArray *productButtons;
+@property (weak, nonatomic) IBOutlet UILabel *timeUntilFreeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *freeExplanationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *publicityExplanationLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
 @implementation StoreViewController
+
+- (void) setActive: (BOOL) active {
+    if( active ) {
+        for(ProductButton* button in self.productButtons) {
+            button.hidden = YES;
+        }
+        [self.activityIndicator startAnimating];
+    }
+    else {
+        for(ProductButton* button in self.productButtons) {
+            button.hidden = NO;
+        }
+        [self.activityIndicator stopAnimating];
+    }
+}
 
 #pragma mark - Notifications
 - (void) lifeCountChanged: (NSNotification*) notification {
@@ -52,62 +68,29 @@
 }
 
 #pragma mark - Actions
-- (IBAction)restorePushed:(UIButton *)sender {
-    self.restorePushed.hidden = YES;
-    [self.restoreActivityIndicator startAnimating];
-    
-    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
-}
-
-- (IBAction)unlockPushed:(id)sender {
-    self.unlockButton.hidden = YES;
-    [self.unlockActivityIndicator startAnimating];
-    
-    if( ![ContentLock unlockWithCompletion: ^(NSError *error) {
-        
-        if( !error ) {
-            [self performSegueWithIdentifier: @"UnwindToGame" sender: sender];
-        }
-        
-        DLogError(error);
-        
-        self.unlockButton.hidden = NO;
-        [self.unlockActivityIndicator stopAnimating];
-        
-    }]) {
-        NSString* title = NSLocalizedString(@"Store not available", @"");
-        NSString* msg = NSLocalizedString(@"Your device settings are blocking the store. Please enable In-App Purchases and try again.", @"");
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
-                                                        message: msg
-                                                       delegate: nil
-                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
-                                              otherButtonTitles: nil];
-        [alert show];
-        
-        self.unlockButton.hidden = NO;
-        [self.unlockActivityIndicator stopAnimating];
-    }
-}
-
-
 - (IBAction)videoPushed:(id)sender {
     [AdColony playVideoAdForZone: @"vz153675589c3349788c"
                     withDelegate: self
-                withV4VCPrePopup: YES
+                withV4VCPrePopup: NO
                 andV4VCPostPopup: NO];
 }
 
 
 - (IBAction)buyPushed:(id)sender {
+    
+    NSInteger index = [self.productButtons indexOfObject: sender];
+    index--;
+    
 #if !TARGET_IPHONE_SIMULATOR
+    SKProduct* _product = _productsOrderedByPrice[index];
+    
     NSParameterAssert(_product);
     SKPayment* payment = [SKPayment paymentWithProduct: _product];
     [[SKPaymentQueue defaultQueue] addPayment: payment];
-    
-    self.buyButton.hidden = YES;
-    [self.buyTransactionWaiting startAnimating];
+    [self setActive: YES];
 #else
-    [LifeBank addLives: 200];
+    int quantities[] = {200, 1500, 5000};
+    [LifeBank addLives: quantities[index]];
 #endif
 }
 
@@ -121,7 +104,7 @@
 #if !TARGET_IPHONE_SIMULATOR
         [[SKPaymentQueue defaultQueue] addTransactionObserver: self];
         
-        NSSet* productIdentifiers = [NSSet setWithObjects: @"extra_lives", kContentUnlockProductIdentifier, nil];
+        NSSet* productIdentifiers = [NSSet setWithObjects: @"extra_lives", @"extra_lives_1500", @"extra_lives_5000", nil];
         SKProductsRequest* productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers: productIdentifiers];
         productsRequest.delegate = self;
         [productsRequest start];
@@ -160,24 +143,31 @@
     self.navigationItem.rightBarButtonItem = item;
     self.lifeCountView = countView;
     
-    self.becomePremiumLabel.text = NSLocalizedString(@"or become a Premium member", @"");
-    self.premiumBenefitLabel.text = NSLocalizedString(@"✓ UNLIMITED lives\n✓ NO advertisements", @"");
-    [self.unlockButton setTitle: NSLocalizedString(@"Go Premium!", @"") forState: UIControlStateNormal];
-    self.premiumBoxView.layer.cornerRadius = 5.;
+    const int quantities[] = {25, 200, 1500, 5000};
+    NSString* prices[] = { NSLocalizedString(@"Free!", @""), @"...", @"...", @"..." };
     
-    NSArray* buttons = @[self.buyButton, self.videoButton, self.unlockButton, self.restorePushed];
-    for(UIButton* button in buttons) {
-        button.backgroundColor = [UIColor whiteColor];
-        button.layer.cornerRadius = 5.f;
-        button.layer.borderColor = [[UIColor blackColor] CGColor];
-        button.layer.borderWidth = 1.;
+    for(ProductButton* button in self.productButtons) {
+        NSInteger index = [self.productButtons indexOfObject: button];
+        int quantity = quantities[index];
+        button.quantity = [NSString localizedStringWithFormat: NSLocalizedString(@"+%d", @"+XXX lives (store)"), quantity];
+        button.price = prices[index];
+        button.enabled = NO;
+        button.tintColor = [UIColor whiteColor];
     }
     
-    [self.videoButton setTitle: NSLocalizedString(@"...try again later", @"") forState: UIControlStateDisabled];
-    [self.videoButton setTitle: NSLocalizedString(@"Get 10 free lives", @"") forState: UIControlStateNormal];
-    [self.restorePushed setTitle: NSLocalizedString(@"Resore previous Purchase", @"") forState: UIControlStateNormal];
-    
     self.videoButton.enabled = [AdColony isVirtualCurrencyRewardAvailableForZone: @"vz153675589c3349788c"];
+    self.publicityExplanationLabel.text = NSLocalizedString(@"1500 and 5000 life packs remove advertisements!", @"");
+    
+    NSString* lives = [NSString localizedStringWithFormat: NSLocalizedString(@"%d lives", @""), 50];
+    NSString* message = [NSString stringWithFormat: NSLocalizedString(@"You will get %@ for free in:", @""), lives];
+    
+    NSRange livesRange = [message rangeOfString: lives];
+    
+    NSMutableAttributedString* attr = [[NSMutableAttributedString alloc] initWithString: message
+                                                                             attributes: @{ NSFontAttributeName : self.freeExplanationLabel.font }];
+    [attr setAttributes: @{ NSFontAttributeName : [UIFont boldSystemFontOfSize: self.freeExplanationLabel.font.pointSize + 3] } range: livesRange];
+    self.freeExplanationLabel.attributedText = attr;
+    
 }
 
 #pragma mark - SKPaymentTransactionObserver
@@ -188,21 +178,25 @@
             {
                 //TODO: Check receipt
                 
-                [LifeBank addLives: 200];
+                NSString* identifier = transaction.payment.productIdentifier;
+                SKProduct* product = [[_productsOrderedByPrice filteredArrayUsingPredicate: [NSPredicate predicateWithFormat: @"productIdentifier = %@", identifier]] lastObject];
+                NSInteger index = [_productsOrderedByPrice indexOfObject: product];
                 
-                self.buyButton.hidden = NO;
-                [self.buyTransactionWaiting stopAnimating];
+                int quantities[] = {200, 1500, 5000};
+                
+                [LifeBank addLives: quantities[index]];
+
+                [self animateMessage: NSLocalizedString(@"Ready to go continue!", @"") completion: nil];
+                
+                if( index > 0 ) {
+                    [ContentLock unlock];
+                }
+                
                 [queue finishTransaction: transaction];
+                [self setActive: NO];
                 break;
             }
-            case SKPaymentTransactionStateRestored:
-            {
-                [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
-                
-                [self.navigationController popViewControllerAnimated: YES];
-                [queue finishTransaction: transaction];
-                break;
-            }
+            
             case SKPaymentTransactionStateFailed:
             {
                 NSString* title = NSLocalizedString(@"No purchase made", @"");
@@ -215,9 +209,8 @@
                                                       otherButtonTitles: nil];
                 [alert show];
                 
-                self.buyButton.hidden = NO;
-                [self.buyTransactionWaiting stopAnimating];
                 [queue finishTransaction: transaction];
+                [self setActive: NO];
                 break;
             }
             default:
@@ -226,61 +219,47 @@
     }
 }
 
-- (void) paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {
-    if( [ContentLock tryLock] ) {
-        self.restorePushed.hidden = NO;
-        [self.restoreActivityIndicator stopAnimating];
-        
-        NSString* msg = NSLocalizedString(@"No purchases found. Please use the Premium button above.", @"");
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: nil
-                                                        message: msg
-                                                       delegate: nil
-                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
-                                              otherButtonTitles: nil];
-        [alert show];
+#pragma mark - SKProductsRequestDelegate
+- (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
+    
+    if( [response.invalidProductIdentifiers count] ) {
+        NSString* str = [response.invalidProductIdentifiers componentsJoinedByString: @";"];
+        [[[GAI sharedInstance] defaultTracker] send: [[GAIDictionaryBuilder createEventWithCategory: @"Store"
+                                                                                             action: @"Invalid"
+                                                                                              label: str
+                                                                                              value: nil] build]];
     }
-    else {
-        [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
-        [self performSegueWithIdentifier: @"UnwindToGame" sender: nil];
-        [self.restoreActivityIndicator stopAnimating];
+    
+    NSMutableArray* validProducts = [NSMutableArray array];
+    
+    for(SKProduct* product in response.products) {
+        if([product.productIdentifier rangeOfString: @"extra_lives"].location != NSNotFound ) {
+            [validProducts addObject: product];
+        }
+    }
+    
+    [validProducts sortedArrayUsingSelector: @selector(price)];
+    _productsOrderedByPrice = [validProducts copy];
+    
+    for(SKProduct* prod in _productsOrderedByPrice) {
+        NSInteger index = [_productsOrderedByPrice indexOfObject: prod] + 1;
+        ProductButton* button = [self.productButtons objectAtIndex: index];
+        button.price = [NSNumberFormatter localizedStringFromNumber: prod.price numberStyle: NSNumberFormatterCurrencyStyle];
+        button.enabled = YES;
     }
 }
 
-- (void) paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error {
-    NSString* title = NSLocalizedString(@"Restore failed", @"");
-    NSString* message = [error localizedDescription];
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
-                                                    message: message
+- (void) request:(SKRequest *)request didFailWithError:(NSError *)error {
+    DLogError(error);
+    
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"No purchase made", @"")
+                                                    message: [error localizedDescription]
                                                    delegate: nil
                                           cancelButtonTitle: NSLocalizedString(@"OK", @"")
                                           otherButtonTitles: nil];
     [alert show];
     
-    self.restorePushed.hidden = NO;
-    [self.restoreActivityIndicator stopAnimating];
-}
-
-#pragma mark - SKProductsRequestDelegate
-- (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
-    
-    for(SKProduct* product in response.products) {
-        if( [product.productIdentifier isEqualToString: kContentUnlockProductIdentifier] ) {
-            NSString* price = [NSNumberFormatter localizedStringFromNumber: product.price numberStyle: NSNumberFormatterCurrencyStyle];
-            NSString* title = [NSString localizedStringWithFormat: NSLocalizedString(@"Go Premium! (%@)", @""), price];
-            [self.unlockButton setTitle: title forState: UIControlStateNormal];
-        }
-        else if([product.productIdentifier isEqualToString: @"extra_lives"] ) {
-            _product = product;
-        }
-    }
-    
-    if( _product ) {
-        self.buyButton.enabled = YES;
-        
-        NSString* price = [NSNumberFormatter localizedStringFromNumber: _product.price numberStyle: NSNumberFormatterCurrencyStyle];
-        NSString* title = [NSString localizedStringWithFormat: NSLocalizedString(@"+200 lives (%@)", @""), price];
-        [self.buyButton setTitle: title forState: UIControlStateNormal];
-    }
+    [self setActive: NO];
 }
 
 #pragma mark - AdColonyAdDelegate

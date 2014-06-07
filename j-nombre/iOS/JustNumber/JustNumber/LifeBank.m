@@ -22,7 +22,9 @@
  
  */
 #define USE_KEYCHAIN    1       //1 - use keychain, 0 - use NSUserDefaults
-#define KEYCHAIN_SUPPORTED_BY_iCLOUD    ( (&kSecAttrSynchronizable != NULL) && (&kSecAttrSynchronizableAny != NULL) )
+#define KEYCHAIN_SUPPORTED_BY_iCLOUD    0 //( (&kSecAttrSynchronizable != NULL) && (&kSecAttrSynchronizableAny != NULL) )
+
+// DON'T KNOW HOW TO MERGE ICLOUD CONFLICTS FOR THE KEYCHAIN...
 
 #if !DEBUG && !USE_KEYCHAIN
 #error Do not release this code in production

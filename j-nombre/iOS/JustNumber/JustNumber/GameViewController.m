@@ -24,7 +24,10 @@
 
 #import "UIImage+ImageEffects.h"
 
+#import "CoreDataStack.h"
+
 #import "GAI.h"
+#import "GAIDictionaryBuilder.h"
 
 #define kAlertViewCorrectTag    914
 #define kAlertViewHelpTag       915
@@ -99,6 +102,12 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
                                                   otherButtonTitles: NSLocalizedString(@"Facebook", @""), NSLocalizedString(@"Twitter", @""), nil];
             alert.tag = kAlertViewEndGameTag;
             [alert show];
+            
+            NSLocale* locale = NSManagedObjectContextGetMain().locale;
+            [[[GAI sharedInstance] defaultTracker] send: [[GAIDictionaryBuilder createEventWithCategory: @"Feature Requests"
+                                                                                                 action: @"New Levels"
+                                                                                                  label: locale.localeIdentifier
+                                                                                                  value: nil] build]];
         }
     }
     
