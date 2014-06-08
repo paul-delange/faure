@@ -83,6 +83,19 @@
 
 - (IBAction)buyPushed:(id)sender {
     
+    if( ![SKPaymentQueue canMakePayments] ) {
+        NSString* title = NSLocalizedString(@"Store not available", @"");
+        NSString* msg = NSLocalizedString(@"Your device settings are blocking the store. Please enable In-App Purchases and try again.", @"");
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
+                                                        message: msg
+                                                       delegate: nil
+                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                              otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+    
+    
     NSInteger index = [self.productButtons indexOfObject: sender];
     index--;
     

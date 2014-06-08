@@ -86,7 +86,7 @@
     }];
     
     NSManagedObjectContext* context = _stack.mainQueueManagedObjectContext;
-    for(NSDictionary* row in [[rows allValues] reverseObjectEnumerator]) {
+    for(NSDictionary* row in [rows allValues]) {
         Question* question = [Question insertInManagedObjectContext: context];
         question.text = row[@"text"];
         question.answer = @([row[@"value"] integerValue]);

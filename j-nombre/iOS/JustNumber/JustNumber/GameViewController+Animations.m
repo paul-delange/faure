@@ -125,11 +125,12 @@
                          [background layoutIfNeeded];
                      } completion:^(BOOL finished) {
                          [background removeFromSuperview];
-                         if( self.completion ) {
-                             self.completion(finished);
-                         }
-                         
+                         void (^comp)(BOOL) = self.completion;
                          self.completion = nil;
+                         
+                         if( comp ) {
+                             comp(finished);
+                         }
                      }];
 }
 

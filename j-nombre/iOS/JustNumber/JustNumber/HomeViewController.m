@@ -20,6 +20,7 @@
 #import "UIImage+ImageEffects.h"
 
 #define kAlertViewEndGameTag    916
+#define kAlertViewAdsBlockTag   777
 
 @interface HomeViewController () <UIAlertViewDelegate>
 
@@ -41,27 +42,17 @@
 }
 
 - (IBAction)adsPushed:(UISwitch*)sender {
-    if( ![ContentLock unlockWithCompletion: ^(NSError *error) {
-        
-        if( error ) {
-            sender.on = YES;
-        }
-        else {
-            [LifeBank addLives: 50];
-        }
-        
-        DLogError(error);
-    }]) {
-        NSString* title = NSLocalizedString(@"Store not available", @"");
-        NSString* msg = NSLocalizedString(@"Your device settings are blocking the store. Please enable In-App Purchases and try again.", @"");
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
-                                                        message: msg
-                                                       delegate: nil
-                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
-                                              otherButtonTitles: nil];
-        [alert show];
-        sender.on = YES;
-    }
+    
+    NSString* title = NSLocalizedString(@"Thank you!", @"");
+    NSString* msg = [NSString localizedStringWithFormat: NSLocalizedString(@"For a small price you can turn off advertisement and get +%d extra lives!", @""), LIVES_FOR_AD_STOP];
+    
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
+                                                    message: msg
+                                                   delegate: self
+                                          cancelButtonTitle: NSLocalizedString(@"Cancel", @"")
+                                          otherButtonTitles: NSLocalizedString(@"Continue", @""), nil];
+    alert.tag = kAlertViewAdsBlockTag;
+    [alert show];
 }
 
 #pragma mark - Notififications
@@ -155,6 +146,36 @@
                 [self followUsOn: serviceType completion: ^(NSError *error) {
                     
                 }];
+            }
+            break;
+        }
+        case kAlertViewAdsBlockTag:
+        {
+            if( buttonIndex == alertView.cancelButtonIndex ) {
+                self.adsSwitch.on = YES;
+            }
+            else {
+                if( ![ContentLock unlockWithCompletion: ^(NSError *error) {
+                    
+                    if( error ) {
+                        self.adsSwitch.on = YES;
+                    }
+                    else {
+                        [LifeBank addLives: LIVES_FOR_AD_STOP];
+                    }
+                    
+                    DLogError(error);
+                }]) {
+                    NSString* title = NSLocalizedString(@"Store not available", @"");
+                    NSString* msg = NSLocalizedString(@"Your device settings are blocking the store. Please enable In-App Purchases and try again.", @"");
+                    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
+                                                                    message: msg
+                                                                   delegate: nil
+                                                          cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                                          otherButtonTitles: nil];
+                    [alert show];
+                    self.adsSwitch.on = YES;
+                }
             }
             break;
         }

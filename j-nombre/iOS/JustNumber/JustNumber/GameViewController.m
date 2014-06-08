@@ -29,6 +29,7 @@
 
 #import "GAI.h"
 #import "GAIDictionaryBuilder.h"
+#import "GADInterstitial.h"
 
 #define kAlertViewCorrectTag    914
 #define kAlertViewHelpTag       915
@@ -39,7 +40,9 @@
 
 static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationShown";
 
-@interface GameViewController () <UINumberFieldDelegate, UIAlertViewDelegate, UIActionSheetDelegate>
+@interface GameViewController () <UINumberFieldDelegate, UIAlertViewDelegate, UIActionSheetDelegate, GADInterstitialDelegate> {
+    GADInterstitial *_interstitial;
+}
 
 @property (weak, nonatomic) IBOutlet UINumberField *inputView;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *numberButtons;
@@ -85,6 +88,11 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
 
 - (void) leveledUp {
     //self.level is already set
+    [self animateMessage: NSLocalizedString(@"New Level!", @"") completion:^(BOOL finished) {
+        if( _interstitial.isReady ) {
+            [_interstitial presentFromRootViewController: self];
+        }
+    }];
 }
 
 - (void) advance {
@@ -243,25 +251,25 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
             }];
             
             /*
-            NSString* format = NSLocalizedString(@"%@...\n%@", @"The year François Hollande was born...\n1957");
-            NSString* msg;
-            
-            if( question.unit ) {
-                format = NSLocalizedString(@"%@...\n%@ %@", @"The distance between Paris & Marseille...\n775 (Km)");
-                msg = [NSString localizedStringWithFormat: format, question.text, [question formattedAnswerString], question.unit];
-            }
-            else {
-                msg = [NSString localizedStringWithFormat: format, question.text, [question formattedAnswerString]];
-            }
-            
-            NSString* title = NSLocalizedString(@"That's right!", @"");
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
-                                                            message: msg
-                                                           delegate: self
-                                                  cancelButtonTitle: NSLocalizedString(@"Continue", @"")
-                                                  otherButtonTitles: NSLocalizedString(@"Share", @""), nil];
-            alert.tag = kAlertViewCorrectTag;
-            [alert show];
+             NSString* format = NSLocalizedString(@"%@...\n%@", @"The year François Hollande was born...\n1957");
+             NSString* msg;
+             
+             if( question.unit ) {
+             format = NSLocalizedString(@"%@...\n%@ %@", @"The distance between Paris & Marseille...\n775 (Km)");
+             msg = [NSString localizedStringWithFormat: format, question.text, [question formattedAnswerString], question.unit];
+             }
+             else {
+             msg = [NSString localizedStringWithFormat: format, question.text, [question formattedAnswerString]];
+             }
+             
+             NSString* title = NSLocalizedString(@"That's right!", @"");
+             UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
+             message: msg
+             delegate: self
+             cancelButtonTitle: NSLocalizedString(@"Continue", @"")
+             otherButtonTitles: NSLocalizedString(@"Share", @""), nil];
+             alert.tag = kAlertViewCorrectTag;
+             [alert show];
              */
             break;
         }
@@ -296,8 +304,24 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
     self = [super initWithCoder: aDecoder];
     if( self ) {
         self.screenName = @"Game";
+        
+        if( [ContentLock tryLock] ) {
+        GADRequest* request = [GADRequest request];
+        request.testDevices = @[ GAD_SIMULATOR_ID,
+                                 @"5847239deac1f26ea408b154815af621"            //Paul iPhone4
+                                 ];
+        
+        _interstitial = [[GADInterstitial alloc] init];
+        _interstitial.adUnitID = @"ca-app-pub-1332160865070772/1859473640";
+        _interstitial.delegate = self;
+        [_interstitial loadRequest:[GADRequest request]];
+        }
     }
     return self;
+}
+
+- (void) dealloc {
+    _interstitial.delegate = nil;
 }
 
 #pragma mark - UIViewController
@@ -435,10 +459,30 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
             }
             break;
         }
-        
+            
         default:
             break;
     }
+}
+
+#pragma mark - GADInterstitialDelegate
+- (void) interstitialDidDismissScreen:(GADInterstitial *)ad {
+    if( [ad hasBeenUsed] && [ContentLock tryLock] ) {
+        //Get another one:
+        GADRequest* request = [GADRequest request];
+        request.testDevices = @[ GAD_SIMULATOR_ID,
+                                 @"5847239deac1f26ea408b154815af621"            //Paul iPhone4
+                                 ];
+        
+        _interstitial = [[GADInterstitial alloc] init];
+        _interstitial.adUnitID = @"ca-app-pub-1332160865070772/1859473640";
+        _interstitial.delegate = self;
+        [_interstitial loadRequest:[GADRequest request]];
+    }
+}
+
+- (void) interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error {
+    DLogError(error);
 }
 
 @end
