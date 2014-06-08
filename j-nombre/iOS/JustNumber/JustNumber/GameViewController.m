@@ -21,6 +21,7 @@
 
 #import "LifeCountView.h"
 #import "GuessView.h"
+#import "JokerButton.h"
 
 #import "UIImage+ImageEffects.h"
 
@@ -43,10 +44,12 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
 @property (weak, nonatomic) IBOutlet UINumberField *inputView;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *numberButtons;
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
+@property (weak, nonatomic) IBOutlet JokerButton *jokerButton;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak) IBOutlet LifeCountView* lifeCountView;
 @property (weak, nonatomic) IBOutlet GuessView *guessView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UILabel *jokerLabel;
 
 @end
 
@@ -72,6 +75,10 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
     self.guessView.actualValue = question.answer;
     self.guessView.automaticallyFormatsInput = question.formatsValue;
     self.guessView.unitString = question.unit;
+    
+    BOOL jokerVisible = [[ScoreSheet currentScoreSheet] jokerUsedForQuestion: question];
+    self.jokerButton.enabled = !jokerVisible;
+    self.jokerLabel.text = jokerVisible ? [question rangeString] : @"";
     
     DLog(@"Ans: %@", question.answer);
 }
@@ -122,6 +129,38 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
 - (IBAction)numberPushed:(UIButton *)sender {
     NSInteger index = [self.numberButtons indexOfObject: sender];
     [self.inputView appendInteger: index];
+}
+
+- (IBAction)jokerPushed:(UIButton*)sender {
+    
+    NSUInteger lives = [LifeBank count];
+    
+    if( lives < COST_OF_JOKER ) {
+        //Can not attempt -> show popup that we need to buy before continuing...
+        [self performSegueWithIdentifier: @"StorePushSegue" sender: sender];
+        return;
+    }
+    
+    ScoreSheet* sheet = [ScoreSheet currentScoreSheet];
+    Question* question = [self.level nextQuestion];
+    
+    [sheet useJokerForQuestion: question];
+    sender.enabled = NO;
+    
+    self.jokerLabel.text = [question rangeString];
+    self.lifeCountView.count -= COST_OF_JOKER;
+    
+    [UIView animateWithDuration: 0.3
+                     animations:^{
+                         [self.jokerLabel layoutIfNeeded];
+                     }];
+    
+    
+    NSString* lang = [NSManagedObjectContextGetMain().locale objectForKey: NSLocaleLanguageCode];
+    [[[GAI sharedInstance] defaultTracker] send: [[GAIDictionaryBuilder createEventWithCategory: lang
+                                                                                         action: @"Joker"
+                                                                                          label: [question.identifier stringValue]
+                                                                                          value: nil] build]];
 }
 
 - (IBAction)okPushed:(UIButton *)sender {
@@ -282,6 +321,7 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
         v.layer.cornerRadius = 5.;
     }
     
+    self.jokerButton.layer.cornerRadius = 5.;
     self.okButton.layer.cornerRadius = 5.;
 }
 

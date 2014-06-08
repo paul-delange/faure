@@ -10,8 +10,9 @@
 
 
 #define COST_OF_BAD_RESPONSE        1
+#define COST_OF_JOKER               10
 
-#define LIVES_WHEN_WAITING          4
+#define LIVES_WHEN_WAITING          50
 
 #if DEBUG
 #define DEFAULT_LIVES_VALUE         7

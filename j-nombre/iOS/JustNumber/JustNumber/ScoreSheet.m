@@ -1,6 +1,7 @@
 #import "ScoreSheet.h"
 
 #import "CoreDataStack.h"
+#import "LifeBank.h"
 
 #import "Score.h"
 #import "Question.h"
@@ -64,7 +65,7 @@
     
     NSString* lang = [ctx.locale objectForKey: NSLocaleLanguageCode];
     [[[GAI sharedInstance] defaultTracker] send: [[GAIDictionaryBuilder createEventWithCategory: lang
-                                                                                         action: @"CrossOff"
+                                                                                         action: @"Answered"
                                                                                           label: [question.identifier stringValue]
                                                                                           value: @(tries)] build]];
     
@@ -115,8 +116,6 @@
 }
 
 - (NSUInteger) triesForQuestion: (Question*) question {
-    
-    
     Score* score = [Score scoreForQuestion: question];
     
     if( !score) {
@@ -130,11 +129,35 @@
         [ctx threadSafeSave: &error];
         DLogError(error);
     }
-    
-    
-    
-    
+ 
     return score.numberOfTriesValue;
+}
+
+- (void) useJokerForQuestion: (Question*) question {
+    Score* score = [Score scoreForQuestion: question];
+    
+    NSManagedObjectContext* ctx = NSManagedObjectContextGetMain();
+    
+    if( !score) {
+        score = [Score insertInManagedObjectContext: ctx];
+        score.question_id = question.identifier;
+        score.sheet = self;
+    }
+    
+    score.jokerUsedValue = YES;
+    
+    NSError* error;
+    [ctx threadSafeSave: &error];
+    DLogError(error);
+    
+    [LifeBank subtractLives: COST_OF_JOKER];
+    
+    return;
+}
+
+- (BOOL) jokerUsedForQuestion: (Question*) question {
+    Score* score = [Score scoreForQuestion: question];
+    return score.jokerUsedValue;
 }
 
 @end

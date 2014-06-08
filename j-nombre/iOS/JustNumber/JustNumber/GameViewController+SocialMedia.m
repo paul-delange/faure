@@ -34,7 +34,7 @@
     
     NSString* lang = [NSManagedObjectContextGetMain().locale objectForKey: NSLocaleLanguageCode];
     [[[GAI sharedInstance] defaultTracker] send: [[GAIDictionaryBuilder createEventWithCategory: lang
-                                                                                         action: serviceType
+                                                                                         action: [NSString stringWithFormat: @"Help - %@", serviceType]
                                                                                           label: [question.identifier stringValue]
                                                                                           value: nil] build]];
     
@@ -165,7 +165,7 @@
         return;
     }
     
-    [[[GAI sharedInstance] defaultTracker] send: [[GAIDictionaryBuilder createEventWithCategory: @"Social"
+    [[[GAI sharedInstance] defaultTracker] send: [[GAIDictionaryBuilder createEventWithCategory: [locale objectForKey: NSLocaleLanguageCode]
                                                                                         action: @"Follow"
                                                                                          label: serviceType
                                                                                           value: nil] build]];

@@ -69,6 +69,7 @@
 		FDEB62971913DB8400BCA8D3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEB62961913DB8400BCA8D3 /* Social.framework */; };
 		FDEB62991913DB8D00BCA8D3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEB62981913DB8D00BCA8D3 /* libz.dylib */; };
 		FDEB629B1913DB9700BCA8D3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEB629A1913DB9700BCA8D3 /* MediaPlayer.framework */; };
+		FDEDCEDF1943F26E004FE801 /* JokerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEDCEDE1943F26E004FE801 /* JokerButton.m */; };
 		FDFF1E8C191921470099665A /* GuessView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFF1E8B191921470099665A /* GuessView.m */; };
 /* End PBXBuildFile section */
 
@@ -194,6 +195,8 @@
 		FDEB62961913DB8400BCA8D3 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		FDEB62981913DB8D00BCA8D3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		FDEB629A1913DB9700BCA8D3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		FDEDCEDD1943F26E004FE801 /* JokerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokerButton.h; sourceTree = "<group>"; };
+		FDEDCEDE1943F26E004FE801 /* JokerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokerButton.m; sourceTree = "<group>"; };
 		FDFF1E8A191921470099665A /* GuessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuessView.h; sourceTree = "<group>"; };
 		FDFF1E8B191921470099665A /* GuessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuessView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -425,6 +428,8 @@
 				FDFF1E8B191921470099665A /* GuessView.m */,
 				FDA8CBE01942B6EB0024383C /* ProductButton.h */,
 				FDA8CBE11942B6EB0024383C /* ProductButton.m */,
+				FDEDCEDD1943F26E004FE801 /* JokerButton.h */,
+				FDEDCEDE1943F26E004FE801 /* JokerButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -615,6 +620,7 @@
 				FDA8CBE21942B6EB0024383C /* ProductButton.m in Sources */,
 				FD3BB69C190CDB6D008D8798 /* MenuViewController.m in Sources */,
 				FDFF1E8C191921470099665A /* GuessView.m in Sources */,
+				FDEDCEDF1943F26E004FE801 /* JokerButton.m in Sources */,
 				FDEB627C191386D900BCA8D3 /* ScoreSheet.m in Sources */,
 				FDA0DF911906773E009F5541 /* AppDelegate.m in Sources */,
 				FD3BB6AA190CEDEA008D8798 /* AdvertisementNavigationController.m in Sources */,

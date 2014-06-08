@@ -17,12 +17,12 @@
 		FDCAEF46190D774400F6A640 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF44190D774400F6A640 /* Data.xcdatamodeld */; };
 		FDCAEF49190D775000F6A640 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF48190D775000F6A640 /* CoreDataStack.m */; };
 		FDCAEF4C190D777100F6A640 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF4B190D777100F6A640 /* JSONParser.m */; };
-		FDCAEF54190D7A0B00F6A640 /* _Level.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF4E190D7A0B00F6A640 /* _Level.m */; };
-		FDCAEF55190D7A0B00F6A640 /* _Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF4F190D7A0B00F6A640 /* _Question.m */; };
 		FDCAEF56190D7A0B00F6A640 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF51190D7A0B00F6A640 /* Level.m */; };
 		FDCAEF57190D7A0B00F6A640 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAEF53190D7A0B00F6A640 /* Question.m */; };
 		FDEB6273191385B800BCA8D3 /* NSBundle+Seeding.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEB6270191385B800BCA8D3 /* NSBundle+Seeding.m */; };
 		FDEB6274191385B800BCA8D3 /* NSLocale+ContentLanguages.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEB6272191385B800BCA8D3 /* NSLocale+ContentLanguages.m */; };
+		FDEDCEDB1943ECBF004FE801 /* _Level.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEDCED91943ECBF004FE801 /* _Level.m */; };
+		FDEDCEDC1943ECBF004FE801 /* _Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEDCEDA1943ECBF004FE801 /* _Question.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +46,6 @@
 		FDCAEF48190D775000F6A640 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataStack.m; path = ../../JustNumber/JustNumber/CoreDataStack.m; sourceTree = "<group>"; };
 		FDCAEF4A190D777100F6A640 /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
 		FDCAEF4B190D777100F6A640 /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONParser.m; sourceTree = "<group>"; };
-		FDCAEF4E190D7A0B00F6A640 /* _Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Level.m; sourceTree = "<group>"; };
-		FDCAEF4F190D7A0B00F6A640 /* _Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Question.m; sourceTree = "<group>"; };
 		FDCAEF50190D7A0B00F6A640 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		FDCAEF51190D7A0B00F6A640 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
 		FDCAEF52190D7A0B00F6A640 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
@@ -56,6 +54,8 @@
 		FDEB6270191385B800BCA8D3 /* NSBundle+Seeding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+Seeding.m"; path = "../../JustNumber/JustNumber/NSBundle+Seeding.m"; sourceTree = "<group>"; };
 		FDEB6271191385B800BCA8D3 /* NSLocale+ContentLanguages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSLocale+ContentLanguages.h"; path = "../../JustNumber/JustNumber/NSLocale+ContentLanguages.h"; sourceTree = "<group>"; };
 		FDEB6272191385B800BCA8D3 /* NSLocale+ContentLanguages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSLocale+ContentLanguages.m"; path = "../../JustNumber/JustNumber/NSLocale+ContentLanguages.m"; sourceTree = "<group>"; };
+		FDEDCED91943ECBF004FE801 /* _Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Level.m; sourceTree = "<group>"; };
+		FDEDCEDA1943ECBF004FE801 /* _Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Question.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,12 +110,12 @@
 		FDCAEEDB190D690500F6A640 /* Importer */ = {
 			isa = PBXGroup;
 			children = (
+				FDEDCED91943ECBF004FE801 /* _Level.m */,
+				FDEDCEDA1943ECBF004FE801 /* _Question.m */,
 				FDEB626F191385B800BCA8D3 /* NSBundle+Seeding.h */,
 				FDEB6270191385B800BCA8D3 /* NSBundle+Seeding.m */,
 				FDEB6271191385B800BCA8D3 /* NSLocale+ContentLanguages.h */,
 				FDEB6272191385B800BCA8D3 /* NSLocale+ContentLanguages.m */,
-				FDCAEF4E190D7A0B00F6A640 /* _Level.m */,
-				FDCAEF4F190D7A0B00F6A640 /* _Question.m */,
 				FDCAEF50190D7A0B00F6A640 /* Level.h */,
 				FDCAEF51190D7A0B00F6A640 /* Level.m */,
 				FDCAEF52190D7A0B00F6A640 /* Question.h */,
@@ -229,8 +229,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDEDCEDC1943ECBF004FE801 /* _Question.m in Sources */,
+				FDEDCEDB1943ECBF004FE801 /* _Level.m in Sources */,
 				FDEB6274191385B800BCA8D3 /* NSLocale+ContentLanguages.m in Sources */,
-				FDCAEF54190D7A0B00F6A640 /* _Level.m in Sources */,
 				FDCAEEE9190D690500F6A640 /* AppDelegate.m in Sources */,
 				FDCAEF56190D7A0B00F6A640 /* Level.m in Sources */,
 				FDCAEF46190D774400F6A640 /* Data.xcdatamodeld in Sources */,
@@ -238,7 +239,6 @@
 				FDCAEEE2190D690500F6A640 /* main.m in Sources */,
 				FDCAEF4C190D777100F6A640 /* JSONParser.m in Sources */,
 				FDCAEF57190D7A0B00F6A640 /* Question.m in Sources */,
-				FDCAEF55190D7A0B00F6A640 /* _Question.m in Sources */,
 				FDCAEF49190D775000F6A640 /* CoreDataStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

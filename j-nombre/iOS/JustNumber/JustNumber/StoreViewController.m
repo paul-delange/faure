@@ -22,6 +22,8 @@
 #import "UIImage+ImageEffects.h"
 #import "ProductButton.h"
 
+#import "CoreDataStack.h"
+
 #import "GAI.h"
 #import "GAIDictionaryBuilder.h"
 
@@ -124,15 +126,15 @@
             AppDelegate* delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
             UILocalNotification* notification = [delegate rechargeNotification];
             if( notification ) {
-            NSInteger remaining = [notification.fireDate timeIntervalSinceNow];
-            
-            NSInteger seconds = remaining % 60;
-            NSInteger minute = (remaining - seconds) / 60;
-            
-            self.timeUntilFreeLabel.text = [NSString stringWithFormat: NSLocalizedString(@"%02d:%02d", @""), minute, seconds];
+                NSInteger remaining = [notification.fireDate timeIntervalSinceNow];
+                
+                NSInteger seconds = remaining % 60;
+                NSInteger minute = (remaining - seconds) / 60;
+                
+                self.timeUntilFreeLabel.text = [NSString stringWithFormat: NSLocalizedString(@"%02d:%02d", @""), minute, seconds];
             }
             else
-                self.timeUntilFreeLabel.text = @"00:00";
+                self.timeUntilFreeLabel.text = NSLocalizedString(@"Cooling down...", @"");
             
         });
         dispatch_resume(timer);
@@ -143,7 +145,7 @@
 }
 
 - (void) dealloc {
-     dispatch_source_cancel(_timer);
+    dispatch_source_cancel(_timer);
     
     [[NSNotificationCenter defaultCenter] removeObserver: self];
     [[SKPaymentQueue defaultQueue] removeTransactionObserver: self];
@@ -208,7 +210,7 @@
                 int quantities[] = {200, 1500, 5000};
                 
                 [LifeBank addLives: quantities[index]];
-
+                
                 [self animateMessage: NSLocalizedString(@"Ready to go continue!", @"") completion: nil];
                 
                 if( index > 0 ) {
@@ -219,7 +221,7 @@
                 [self setActive: NO];
                 break;
             }
-            
+                
             case SKPaymentTransactionStateFailed:
             {
                 NSString* title = NSLocalizedString(@"No purchase made", @"");
@@ -247,8 +249,11 @@
     
     if( [response.invalidProductIdentifiers count] ) {
         NSString* str = [response.invalidProductIdentifiers componentsJoinedByString: @";"];
-        [[[GAI sharedInstance] defaultTracker] send: [[GAIDictionaryBuilder createEventWithCategory: @"Store"
-                                                                                             action: @"Invalid"
+        
+        NSManagedObjectContext* ctx = NSManagedObjectContextGetMain();
+        NSLocale* locale = ctx.locale;
+        [[[GAI sharedInstance] defaultTracker] send: [[GAIDictionaryBuilder createEventWithCategory: [locale objectForKey: NSLocaleLanguageCode]
+                                                                                             action: @"Invalid Products"
                                                                                               label: str
                                                                                               value: nil] build]];
     }

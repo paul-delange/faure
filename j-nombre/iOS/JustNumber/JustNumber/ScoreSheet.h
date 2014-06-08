@@ -13,4 +13,7 @@
 
 - (NSUInteger) triesForQuestion: (Question*) question;
 
+- (void) useJokerForQuestion: (Question*) question;
+- (BOOL) jokerUsedForQuestion: (Question*) question;
+
 @end

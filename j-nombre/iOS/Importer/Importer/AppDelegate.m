@@ -52,6 +52,16 @@
                     rowDict[@"value"] = val;
                     break;
                 }
+                case 4:
+                {
+                    rowDict[@"min"] = val;
+                    break;
+                }
+                case 5:
+                {
+                    rowDict[@"max"] = val;
+                    break;
+                }
                 case 6:
                 {
                     rowDict[@"lvl"] = val;
@@ -83,6 +93,8 @@
         question.unit = row[@"unit"];
         question.identifier = @([row[@"id"] integerValue]);
         question.formats = @([row[@"format"] integerValue]);
+        question.minValue = @([row[@"min"] integerValue]);
+        question.maxValue = @([row[@"max"] integerValue]);
         
         NSFetchRequest* lvlRequest = [NSFetchRequest fetchRequestWithEntityName: @"Level"];
         [lvlRequest setPredicate: [NSPredicate predicateWithFormat: @"identifier = %d", [row[@"lvl"] integerValue]]];
@@ -123,23 +135,26 @@
     for(NSDictionary* entry in worksheetEntries) {
         NSDictionary* content = entry[@"content"];
         NSString* lang = content[@"$t"];
-        NSLog(@"Starting: %@", lang);
-        NSArray* links = entry[@"link"];
-        NSDictionary* cellsLink = links[1];
         
-        NSString* cellsPath = [cellsLink[@"href"] stringByReplacingOccurrencesOfString: @"basic" withString: @"values"];
-        
-        NSString* cellsJSONPath = [cellsPath stringByAppendingString: @"?alt=json"];
-        
-        NSLog(@"URL: %@", cellsJSONPath);
-        
-        NSURL* cellsURL = [NSURL URLWithString: cellsJSONPath];
-        
-        NSData* cellData = [NSData dataWithContentsOfURL: cellsURL];
-        
-        stack.dataLanguage = lang;
-        [self startParsing: nil spreadsheet: cellData stack: stack];
-        
+        if( [[NSLocale currentLocale] displayNameForKey: NSLocaleLanguageCode value: lang] ) {
+            
+            NSLog(@"Starting: %@", lang);
+            NSArray* links = entry[@"link"];
+            NSDictionary* cellsLink = links[1];
+            
+            NSString* cellsPath = [cellsLink[@"href"] stringByReplacingOccurrencesOfString: @"basic" withString: @"values"];
+            
+            NSString* cellsJSONPath = [cellsPath stringByAppendingString: @"?alt=json"];
+            
+            NSLog(@"URL: %@", cellsJSONPath);
+            
+            NSURL* cellsURL = [NSURL URLWithString: cellsJSONPath];
+            
+            NSData* cellData = [NSData dataWithContentsOfURL: cellsURL];
+            
+            stack.dataLanguage = lang;
+            [self startParsing: nil spreadsheet: cellData stack: stack];
+        }
     }
 }
 

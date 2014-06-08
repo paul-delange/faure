@@ -5,4 +5,6 @@
 
 - (NSString*) formattedAnswerString;
 
+- (NSString*) rangeString;
+
 @end

@@ -10,6 +10,11 @@
 
 @implementation Question
 
-// Custom logic goes here.
+- (void) willSave {
+    [super willSave];
+
+    NSAssert([self.answer integerValue] <= [self.maxValue integerValue], @"Question %@ has an answer more than it's max", self.text);
+    NSAssert([self.answer integerValue] >= [self.minValue integerValue], @"Question %@ has an answer less than it's min", self.text);
+}
 
 @end
