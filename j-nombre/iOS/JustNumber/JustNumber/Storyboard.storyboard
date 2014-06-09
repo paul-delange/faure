@@ -117,6 +117,18 @@
                                 <color key="shadowColor" red="0.087390981610000001" green="0.39040035010000002" blue="0.69622379540000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="2" height="2"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6c-Sk-3GI">
+                                <rect key="frame" x="239" y="72" width="61" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="More" image="plus">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="morePushed:" destination="xtA-tk-GJf" eventType="touchUpInside" id="YZS-VR-TMq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -126,6 +138,7 @@
                             <constraint firstAttribute="trailing" secondItem="9aO-fX-XgD" secondAttribute="trailing" id="Dhb-lk-yoJ"/>
                             <constraint firstItem="v16-wc-SVT" firstAttribute="leading" secondItem="TKz-6p-kv1" secondAttribute="leading" constant="20" symbolic="YES" id="FfA-Gl-Img"/>
                             <constraint firstItem="O8O-7J-s9A" firstAttribute="top" secondItem="v16-wc-SVT" secondAttribute="bottom" constant="8" symbolic="YES" id="OQG-7g-bL9"/>
+                            <constraint firstItem="Q6c-Sk-3GI" firstAttribute="top" secondItem="URl-hU-Avy" secondAttribute="bottom" constant="20" symbolic="YES" id="Qtr-7O-9K9"/>
                             <constraint firstAttribute="centerX" secondItem="O8O-7J-s9A" secondAttribute="centerX" id="SGe-hp-6oI"/>
                             <constraint firstItem="9aO-fX-XgD" firstAttribute="leading" secondItem="TKz-6p-kv1" secondAttribute="leading" id="SOd-uA-Txn"/>
                             <constraint firstItem="v16-wc-SVT" firstAttribute="top" secondItem="URl-hU-Avy" secondAttribute="bottom" constant="20" symbolic="YES" id="VB6-pG-Qbm"/>
@@ -134,6 +147,7 @@
                             <constraint firstItem="O8O-7J-s9A" firstAttribute="leading" secondItem="v16-wc-SVT" secondAttribute="trailing" constant="8" id="nHq-jq-3q6"/>
                             <constraint firstAttribute="trailing" secondItem="cm8-Mf-0wL" secondAttribute="trailing" id="qBO-hz-c0k"/>
                             <constraint firstItem="LJX-5C-yM4" firstAttribute="top" secondItem="cm8-Mf-0wL" secondAttribute="bottom" id="sfe-cQ-q9F"/>
+                            <constraint firstAttribute="trailing" secondItem="Q6c-Sk-3GI" secondAttribute="trailing" constant="20" symbolic="YES" id="vMg-kk-VeF"/>
                             <constraint firstAttribute="centerX" secondItem="p35-de-PSf" secondAttribute="centerX" id="z86-A9-Yaq"/>
                         </constraints>
                     </view>
@@ -143,6 +157,7 @@
                         <outlet property="adsSwitch" destination="Rlz-hw-xlm" id="bsL-4s-9BN"/>
                         <outlet property="backgroundImageView" destination="cm8-Mf-0wL" id="t66-FJ-1Xn"/>
                         <outlet property="buyViewGroup" destination="p35-de-PSf" id="ELq-k3-kYO"/>
+                        <outlet property="moreButton" destination="Q6c-Sk-3GI" id="5cm-WP-4j7"/>
                         <outlet property="playButton" destination="FwE-WR-YUL" id="5iX-5n-8P8"/>
                         <outlet property="titleLabel" destination="O8O-7J-s9A" id="mQP-bQ-dl5"/>
                     </connections>
@@ -727,6 +742,7 @@
         <image name="background" width="320" height="568"/>
         <image name="help" width="32" height="32"/>
         <image name="play" width="110" height="82"/>
+        <image name="plus" width="32" height="32"/>
         <image name="reveal-icon" width="22" height="17"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

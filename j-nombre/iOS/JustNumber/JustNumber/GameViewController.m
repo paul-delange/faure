@@ -89,7 +89,7 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
 - (void) leveledUp {
     //self.level is already set
     [self animateMessage: NSLocalizedString(@"New Level!", @"") completion:^(BOOL finished) {
-        if( _interstitial.isReady ) {
+        if( _interstitial.isReady && [ContentLock tryLock]) {
             [_interstitial presentFromRootViewController: self];
         }
     }];

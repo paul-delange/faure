@@ -32,6 +32,8 @@
 		FD3BB6D5190CEF67008D8798 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BB6D4190CEF67008D8798 /* CFNetwork.framework */; };
 		FD3BB6D7190CEF8D008D8798 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BB6D6190CEF8D008D8798 /* SystemConfiguration.framework */; };
 		FD5F2F8F19300D7200266546 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F2F8E19300D7200266546 /* UIImage+ImageEffects.m */; };
+		FD85FA0819453E9600977C56 /* libChartboost.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD85FA0719453E9600977C56 /* libChartboost.a */; };
+		FD85FA111945409900977C56 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD85FA101945409900977C56 /* libGoogleAnalyticsServices.a */; };
 		FDA0DF811906773E009F5541 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA0DF801906773E009F5541 /* Foundation.framework */; };
 		FDA0DF831906773E009F5541 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA0DF821906773E009F5541 /* CoreGraphics.framework */; };
 		FDA0DF851906773E009F5541 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA0DF841906773E009F5541 /* UIKit.framework */; };
@@ -43,7 +45,6 @@
 		FDA3F20C19202834007D07A8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA3F20B19202834007D07A8 /* FacebookSDK.framework */; };
 		FDA8CBE21942B6EB0024383C /* ProductButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA8CBE11942B6EB0024383C /* ProductButton.m */; };
 		FDBCAA1C193F18D300D5A696 /* GameViewController+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBCAA1B193F18D300D5A696 /* GameViewController+Animations.m */; };
-		FDBCAA25193F284700D5A696 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDBCAA24193F284700D5A696 /* libGoogleAnalyticsServices.a */; };
 		FDBCAA27193F307700D5A696 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FDBCAA26193F307700D5A696 /* libsqlite3.dylib */; };
 		FDBCAA35193F313600D5A696 /* libInMobi-4.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDBCAA34193F313600D5A696 /* libInMobi-4.3.0.a */; };
 		FDBCAA37193F314400D5A696 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDBCAA36193F314400D5A696 /* EventKitUI.framework */; };
@@ -120,6 +121,16 @@
 		FD3BB6D6190CEF8D008D8798 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FD5F2F8D19300D7200266546 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "JustNumber/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		FD5F2F8E19300D7200266546 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "JustNumber/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		FD85FA0519453E9600977C56 /* CBMoreAppsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMoreAppsButton.h; sourceTree = "<group>"; };
+		FD85FA0619453E9600977C56 /* Chartboost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chartboost.h; sourceTree = "<group>"; };
+		FD85FA0719453E9600977C56 /* libChartboost.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libChartboost.a; sourceTree = "<group>"; };
+		FD85FA0A1945409900977C56 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		FD85FA0B1945409900977C56 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		FD85FA0C1945409900977C56 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		FD85FA0D1945409900977C56 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		FD85FA0E1945409900977C56 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		FD85FA0F1945409900977C56 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		FD85FA101945409900977C56 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		FD9B21D81913828500D6129A /* UIApplication+Versioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Versioning.h"; sourceTree = "<group>"; };
 		FD9B21D91913828500D6129A /* UIApplication+Versioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Versioning.m"; sourceTree = "<group>"; };
 		FDA0DF7D1906773E009F5541 /* JustNumber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustNumber.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,13 +153,6 @@
 		FDA8CBE11942B6EB0024383C /* ProductButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductButton.m; sourceTree = "<group>"; };
 		FDBCAA1A193F18D300D5A696 /* GameViewController+Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GameViewController+Animations.h"; sourceTree = "<group>"; };
 		FDBCAA1B193F18D300D5A696 /* GameViewController+Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GameViewController+Animations.m"; sourceTree = "<group>"; };
-		FDBCAA1E193F284700D5A696 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		FDBCAA1F193F284700D5A696 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		FDBCAA20193F284700D5A696 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
-		FDBCAA21193F284700D5A696 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
-		FDBCAA22193F284700D5A696 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		FDBCAA23193F284700D5A696 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		FDBCAA24193F284700D5A696 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		FDBCAA26193F307700D5A696 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		FDBCAA29193F313600D5A696 /* IMBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBanner.h; sourceTree = "<group>"; };
 		FDBCAA2A193F313600D5A696 /* IMBannerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMBannerDelegate.h; sourceTree = "<group>"; };
@@ -209,9 +213,11 @@
 				FDBCAA37193F314400D5A696 /* EventKitUI.framework in Frameworks */,
 				FDBCAA27193F307700D5A696 /* libsqlite3.dylib in Frameworks */,
 				FDEB629B1913DB9700BCA8D3 /* MediaPlayer.framework in Frameworks */,
+				FD85FA111945409900977C56 /* libGoogleAnalyticsServices.a in Frameworks */,
 				FDEB62991913DB8D00BCA8D3 /* libz.dylib in Frameworks */,
 				FDEB62971913DB8400BCA8D3 /* Social.framework in Frameworks */,
 				FDEB62951913DB7B00BCA8D3 /* EventKit.framework in Frameworks */,
+				FD85FA0819453E9600977C56 /* libChartboost.a in Frameworks */,
 				FDEB62931913DB7500BCA8D3 /* CoreMedia.framework in Frameworks */,
 				FD3BB6D7190CEF8D008D8798 /* SystemConfiguration.framework in Frameworks */,
 				FD3BB6D5190CEF67008D8798 /* CFNetwork.framework in Frameworks */,
@@ -230,7 +236,6 @@
 				FDA0DF811906773E009F5541 /* Foundation.framework in Frameworks */,
 				FDA3F20C19202834007D07A8 /* FacebookSDK.framework in Frameworks */,
 				FDBCAA35193F313600D5A696 /* libInMobi-4.3.0.a in Frameworks */,
-				FDBCAA25193F284700D5A696 /* libGoogleAnalyticsServices.a in Frameworks */,
 				FD3BB6A4190CE23D008D8798 /* StoreKit.framework in Frameworks */,
 				FD3BB6BA190CEE5C008D8798 /* libGoogleAdMobAds.a in Frameworks */,
 			);
@@ -242,8 +247,9 @@
 		FD3BB68F190CDAE5008D8798 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FD85FA091945409900977C56 /* GoogleAnalytics */,
+				FD85FA0419453E9600977C56 /* Chartboost */,
 				FDBCAA28193F313600D5A696 /* InMobi */,
-				FDBCAA1D193F284700D5A696 /* Google Analytics */,
 				FDCAEF5B190E18BC00F6A640 /* mogenerator */,
 				FD3BB6AF190CEE5C008D8798 /* Admob */,
 				FD3BB690190CDB18008D8798 /* JASidePanels */,
@@ -324,6 +330,30 @@
 				FD234F611942C7B5000F0F4F /* libAdapterInMobi.a */,
 			);
 			path = Admob;
+			sourceTree = "<group>";
+		};
+		FD85FA0419453E9600977C56 /* Chartboost */ = {
+			isa = PBXGroup;
+			children = (
+				FD85FA0519453E9600977C56 /* CBMoreAppsButton.h */,
+				FD85FA0619453E9600977C56 /* Chartboost.h */,
+				FD85FA0719453E9600977C56 /* libChartboost.a */,
+			);
+			path = Chartboost;
+			sourceTree = "<group>";
+		};
+		FD85FA091945409900977C56 /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				FD85FA0A1945409900977C56 /* GAI.h */,
+				FD85FA0B1945409900977C56 /* GAIDictionaryBuilder.h */,
+				FD85FA0C1945409900977C56 /* GAIFields.h */,
+				FD85FA0D1945409900977C56 /* GAILogger.h */,
+				FD85FA0E1945409900977C56 /* GAITrackedViewController.h */,
+				FD85FA0F1945409900977C56 /* GAITracker.h */,
+				FD85FA101945409900977C56 /* libGoogleAnalyticsServices.a */,
+			);
+			path = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
 		FDA0DF741906773E009F5541 = {
@@ -454,20 +484,6 @@
 				FD9B21D91913828500D6129A /* UIApplication+Versioning.m */,
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		FDBCAA1D193F284700D5A696 /* Google Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				FDBCAA1E193F284700D5A696 /* GAI.h */,
-				FDBCAA1F193F284700D5A696 /* GAIDictionaryBuilder.h */,
-				FDBCAA20193F284700D5A696 /* GAIFields.h */,
-				FDBCAA21193F284700D5A696 /* GAILogger.h */,
-				FDBCAA22193F284700D5A696 /* GAITrackedViewController.h */,
-				FDBCAA23193F284700D5A696 /* GAITracker.h */,
-				FDBCAA24193F284700D5A696 /* libGoogleAnalyticsServices.a */,
-			);
-			path = "Google Analytics";
 			sourceTree = "<group>";
 		};
 		FDBCAA28193F313600D5A696 /* InMobi */ = {
@@ -759,8 +775,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Admob",
 					"$(PROJECT_DIR)/OpenSSL",
-					"\"$(PROJECT_DIR)/Google Analytics\"",
+					"$(PROJECT_DIR)/GoogleAnalytics",
 					"$(PROJECT_DIR)/InMobi",
+					"$(PROJECT_DIR)/Chartboost",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -796,8 +813,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Admob",
 					"$(PROJECT_DIR)/OpenSSL",
-					"\"$(PROJECT_DIR)/Google Analytics\"",
+					"$(PROJECT_DIR)/GoogleAnalytics",
 					"$(PROJECT_DIR)/InMobi",
+					"$(PROJECT_DIR)/Chartboost",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

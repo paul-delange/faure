@@ -23,6 +23,8 @@
 #import <AdColony/AdColony.h>
 #import <FacebookSDK/FacebookSDK.h>
 
+#import "Chartboost.h"
+
 #define MINUTES_TO_WAIT_FOR_FREE_LIVES  30
 
 @import StoreKit;
@@ -35,7 +37,7 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
     return stack.mainQueueManagedObjectContext;
 }
 
-@interface AppDelegate () <AdColonyDelegate, UIAlertViewDelegate>
+@interface AppDelegate () <AdColonyDelegate, UIAlertViewDelegate, ChartboostDelegate>
 
 @end
 
@@ -76,6 +78,7 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
     [[GAI sharedInstance] setTrackUncaughtExceptions: YES];
     [[GAI sharedInstance] trackerWithTrackingId: @"UA-51633568-1"];
     
+    [Chartboost startWithAppId:@"538599bec26ee44403321df0" appSignature:@"929ab7ea551776277d88bf26fdb2cb656dae7ea8" delegate: self];
     
     if( [ContentLock tryLock] ) {   //Don't bother if we are unlocked
         [AdColony configureWithAppID: @"app58f910a3d6a944b095"
@@ -161,7 +164,6 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
 - (void) applicationDidBecomeActive:(UIApplication *)application {
     application.applicationIconBadgeNumber = 0;
     
-    
     [FBAppEvents activateApp];
     [FBAppCall handleDidBecomeActiveWithSession: self.facebookSession];
 }
@@ -196,6 +198,40 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
         refresh.delegate = (id<SKRequestDelegate>)self;
         [refresh start];
     }
+}
+
+#pragma mark - ChartboostDelegate
+-(void) didDismissMoreApps {
+    [[Chartboost sharedChartboost] cacheMoreApps: CBLocationHomeScreen];
+}
+
+- (void) didFailToLoadMoreApps:(CBLoadError)error {
+    NSString* (^toString)(CBLoadError) = ^(CBLoadError error) {
+        switch (error) {
+            case CBLoadErrorInternal:
+                return @"CBLoadErrorInternal";
+            case CBLoadErrorInternetUnavailable:
+                return @"CBLoadErrorInternetUnavailable";
+            case CBLoadErrorTooManyConnections:
+                return @"CBLoadErrorTooManyConnections";
+            case CBLoadErrorWrongOrientation:
+                return @"CBLoadErrorWrongOrientation";
+            case CBLoadErrorFirstSessionInterstitialsDisabled:
+                return @"CBLoadErrorFirstSessionInterstitialsDisabled";
+            case CBLoadErrorNetworkFailure:
+                return @"CBLoadErrorNetworkFailure";
+            case CBLoadErrorNoAdFound:
+                return @"CBLoadErrorNoAdFound";
+            case CBLoadErrorSessionNotStarted:
+                return @"CBLoadErrorSessionNotStarted";
+            case CBLoadErrorAgeGateFailure:
+                return @"CBLoadErrorAgeGateFailure";
+            case CBLoadErrorUserCancellation:
+                return @"CBLoadErrorUserCancellation";
+        }
+    };
+    
+    DLog(@"Charboost failure: %@", toString(error));
 }
 
 #pragma mark - Notifications

@@ -19,6 +19,8 @@
 
 #import "UIImage+ImageEffects.h"
 
+#import "Chartboost.h"
+
 #define kAlertViewEndGameTag    916
 #define kAlertViewAdsBlockTag   777
 
@@ -30,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UIButton *moreButton;
 
 @end
 
@@ -39,6 +42,10 @@
 - (IBAction)menuPushed:(id)sender {
     JASidePanelController* panelVC = self.sidePanelController;
     [panelVC showLeftPanelAnimated: YES];
+}
+
+- (IBAction)morePushed:(UIButton *)sender {
+    [[Chartboost sharedChartboost] showMoreApps: CBLocationHomeScreen];
 }
 
 - (IBAction)adsPushed:(UISwitch*)sender {
@@ -89,6 +96,10 @@
     self.titleLabel.text = kAppName();
     
     self.navigationController.navigationBar.topItem.title = @"";
+    
+    self.moreButton.titleLabel.numberOfLines = 0;
+    [self.moreButton setTitle: NSLocalizedString(@"More\nApps", @"") forState: UIControlStateNormal];
+    [self.moreButton setTitleColor: [[UIColor whiteColor] colorWithAlphaComponent: 0.75] forState: UIControlStateDisabled];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -96,6 +107,11 @@
     [self.navigationController setNavigationBarHidden: YES animated: YES];
     
     self.buyViewGroup.hidden = ![ContentLock tryLock];
+    
+    self.moreButton.enabled = [[Chartboost sharedChartboost] hasCachedMoreApps: CBLocationHomeScreen];
+    if( !self.moreButton.enabled ) {
+        [[Chartboost sharedChartboost] cacheMoreApps: CBLocationHomeScreen];
+    }
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
