@@ -121,6 +121,7 @@
 		FD54AB8918C0DFFD0012695C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8718C0DFFD0012695C /* libcrypto.a */; };
 		FD54AB8A18C0DFFD0012695C /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8818C0DFFD0012695C /* libssl.a */; };
 		FD54AB8E18C0E07D0012695C /* ReceiptValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */; };
+		FD62F19B194BAD70001A99A6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD62F19A194BAD70001A99A6 /* FacebookSDK.framework */; };
 		FD70E89319387DED007E3363 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD70E89219387DED007E3363 /* libGoogleAdMobAds.a */; };
 		FD70E89619387EB2007E3363 /* libAdapterInMobi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD70E89519387EB2007E3363 /* libAdapterInMobi.a */; };
 		FD70E89F193882CB007E3363 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD70E89E193882CB007E3363 /* libGoogleAnalyticsServices.a */; };
@@ -245,6 +246,7 @@
 		FD54AB8818C0DFFD0012695C /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = OpenSSL/libssl.a; sourceTree = "<group>"; };
 		FD54AB8C18C0E07D0012695C /* ReceiptValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptValidator.h; sourceTree = "<group>"; };
 		FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptValidator.m; sourceTree = "<group>"; };
+		FD62F19A194BAD70001A99A6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		FD70E88619387DED007E3363 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
 		FD70E88719387DED007E3363 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
 		FD70E88819387DED007E3363 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				FD70E89319387DED007E3363 /* libGoogleAdMobAds.a in Frameworks */,
 				FDF2113118C8D8FE00C8621F /* SystemConfiguration.framework in Frameworks */,
 				FDF2112B18C8D8C300C8621F /* CoreTelephony.framework in Frameworks */,
+				FD62F19B194BAD70001A99A6 /* FacebookSDK.framework in Frameworks */,
 				FDF2112718C8D8AB00C8621F /* AudioToolbox.framework in Frameworks */,
 				FDF2112518C8D89E00C8621F /* AVFoundation.framework in Frameworks */,
 				FD70E89F193882CB007E3363 /* libGoogleAnalyticsServices.a in Frameworks */,
@@ -443,6 +446,7 @@
 		FD2BA40118C06F95009AFC9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD62F19A194BAD70001A99A6 /* FacebookSDK.framework */,
 				FD0829E91937E81F00781624 /* Security.framework */,
 				FD0829E71937E80F00781624 /* libsqlite3.0.dylib */,
 				FDD08B0519335A4900D9DCF0 /* libsqlite3.dylib */,

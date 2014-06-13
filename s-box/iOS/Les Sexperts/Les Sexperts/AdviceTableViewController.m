@@ -87,6 +87,8 @@ NSString * const NSUserDefaultsAdviceAvailableCount = @"8A9EA00C4";
                                                  selector: @selector(contentWasUnlocked:)
                                                      name: NSUserDefaultsDidChangeNotification
                                                    object: nil];
+        
+        self.automaticallyAdjustsScrollViewInsets = YES;
     }
     return self;
 }

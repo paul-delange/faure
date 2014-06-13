@@ -388,29 +388,3 @@ NSManagedObjectContext * kMainManagedObjectContext(void) {
     CoreDataStack* stack = delegate.dataStack;
     return stack.mainQueueManagedObjectContext;
 }
-
-/* Parse hack */
-
-NSString *FBTokenInformationExpirationDateKey = @"";
-NSString *FBTokenInformationTokenKey = @"";
-NSString *FBTokenInformationUserFBIDKey = @"";
-@interface FBAppCall:NSObject
-@end
-@implementation FBAppCall
-@end
-@interface FBRequest:NSObject
-@end
-@implementation FBRequest
-@end
-@interface FBSession:NSObject
-@end
-@implementation FBSession
-@end
-@interface FBSessionTokenCaching:NSObject
-@end
-@implementation FBSessionTokenCaching
-@end
-@interface FBSessionTokenCachingStrategy:NSObject
-@end
-@implementation FBSessionTokenCachingStrategy
-@end

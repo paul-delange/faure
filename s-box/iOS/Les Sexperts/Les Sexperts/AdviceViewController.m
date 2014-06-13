@@ -53,6 +53,15 @@
 - (IBAction)sharePushed:(id)sender {
 }
 
+#pragma mark - NSObject
+- (instancetype) initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder: aDecoder];
+    if( self) {
+        //self.automaticallyAdjustsScrollViewInsets = YES;
+    }
+    return self;
+}
+
 #pragma mark - UIViewController
 - (void)viewDidLoad
 {

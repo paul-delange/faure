@@ -41,7 +41,7 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
     _canWatchVideo = canWatchVideo;
 
     if( [self isViewLoaded] )
-        self.videoButton.enabled = _canWatchVideo;
+        self.videoButton.hidden = !_canWatchVideo;
 }
 
 #pragma mark - Action
@@ -134,7 +134,7 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
     [self.videoButton setTitle: NSLocalizedString(@"...try again later", @"") forState: UIControlStateDisabled];
     
     if( !self.canWatchVideo )
-        self.videoButton.enabled = NO;
+        self.videoButton.hidden = YES;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
