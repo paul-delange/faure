@@ -120,7 +120,6 @@
 		FD51091618E755BE003D58C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD51091318E755BE003D58C7 /* Localizable.strings */; };
 		FD54AB8918C0DFFD0012695C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8718C0DFFD0012695C /* libcrypto.a */; };
 		FD54AB8A18C0DFFD0012695C /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD54AB8818C0DFFD0012695C /* libssl.a */; };
-		FD54AB8E18C0E07D0012695C /* ReceiptValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */; };
 		FD62F19B194BAD70001A99A6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD62F19A194BAD70001A99A6 /* FacebookSDK.framework */; };
 		FD70E89319387DED007E3363 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD70E89219387DED007E3363 /* libGoogleAdMobAds.a */; };
 		FD70E89619387EB2007E3363 /* libAdapterInMobi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD70E89519387EB2007E3363 /* libAdapterInMobi.a */; };
@@ -153,7 +152,6 @@
 		FDCF133018C5BF4F002F0B1D /* JokePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCF132F18C5BF4F002F0B1D /* JokePageViewController.m */; };
 		FDD08B041933562400D9DCF0 /* libInMobi-4.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD08B031933562400D9DCF0 /* libInMobi-4.3.0.a */; };
 		FDD08B0619335A4900D9DCF0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD08B0519335A4900D9DCF0 /* libsqlite3.dylib */; };
-		FDE6493919222FCD0058B213 /* ReceiptValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */; };
 		FDF2112018C8D44900C8621F /* AdvertisementNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF2111F18C8D44900C8621F /* AdvertisementNavigationController.m */; };
 		FDF2112518C8D89E00C8621F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF2112418C8D89E00C8621F /* AVFoundation.framework */; };
 		FDF2112718C8D8AB00C8621F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF2112618C8D8AB00C8621F /* AudioToolbox.framework */; };
@@ -244,8 +242,6 @@
 		FD51091918E75AAB003D58C7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "Les Sexperts/Les Sexperts/fr.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		FD54AB8718C0DFFD0012695C /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = OpenSSL/libcrypto.a; sourceTree = "<group>"; };
 		FD54AB8818C0DFFD0012695C /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = OpenSSL/libssl.a; sourceTree = "<group>"; };
-		FD54AB8C18C0E07D0012695C /* ReceiptValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptValidator.h; sourceTree = "<group>"; };
-		FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptValidator.m; sourceTree = "<group>"; };
 		FD62F19A194BAD70001A99A6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		FD70E88619387DED007E3363 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
 		FD70E88719387DED007E3363 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
@@ -531,8 +527,6 @@
 				FD2BA44518C082EC009AFC9F /* CoreDataStack.m */,
 				FD2BA50818C0C3F2009AFC9F /* ContentLock.h */,
 				FD2BA50918C0C3F2009AFC9F /* ContentLock.m */,
-				FD54AB8C18C0E07D0012695C /* ReceiptValidator.h */,
-				FD54AB8D18C0E07D0012695C /* ReceiptValidator.m */,
 				FDAD91E718C7C093009CFC7F /* ResultsCollectionViewFlowLayout.h */,
 				FDAD91E818C7C093009CFC7F /* ResultsCollectionViewFlowLayout.m */,
 				FD70E8B01939B341007E3363 /* NSLocale+ContentLanguage.h */,
@@ -892,7 +886,6 @@
 				FD29D69018E2052300DD5675 /* Answer.m in Sources */,
 				FD29D69118E2052300DD5675 /* JokePageViewController.m in Sources */,
 				FD29D69218E2052300DD5675 /* AdvertisementNavigationController.m in Sources */,
-				FDE6493919222FCD0058B213 /* ReceiptValidator.m in Sources */,
 				FD29D69318E2052300DD5675 /* main.m in Sources */,
 				FD29D69418E2052300DD5675 /* JokeViewController.m in Sources */,
 				FD29D69518E2052300DD5675 /* MZFormSheetBackgroundWindowViewController.m in Sources */,
@@ -925,7 +918,6 @@
 				FD70E8A81938981E007E3363 /* UIApplication+Versioning.m in Sources */,
 				FD1D861518D3325B00F333A6 /* UIImage+Additional.m in Sources */,
 				FDCF132718C5B74E002F0B1D /* FinishedViewController.m in Sources */,
-				FD54AB8E18C0E07D0012695C /* ReceiptValidator.m in Sources */,
 				FD1D861C18D332BF00F333A6 /* MZAppearance.m in Sources */,
 				FD2BA50118C0A696009AFC9F /* ThemeCollectionViewController.m in Sources */,
 				FD2BA4D518C08879009AFC9F /* _Joke.m in Sources */,

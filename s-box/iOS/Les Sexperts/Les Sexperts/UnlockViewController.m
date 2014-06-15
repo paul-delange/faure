@@ -10,7 +10,6 @@
 #import "MZFormSheetController.h"
 
 #import "ContentLock.h"
-#import "ReceiptValidator.h"
 
 #import <AdColony/AdColony.h>
 
@@ -39,7 +38,7 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
 
 - (void) setCanWatchVideo:(BOOL)canWatchVideo {
     _canWatchVideo = canWatchVideo;
-
+    
     if( [self isViewLoaded] )
         self.videoButton.hidden = !_canWatchVideo;
 }
@@ -186,6 +185,9 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
     for(SKPaymentTransaction* transactioin in transactions) {
         switch (transactioin.transactionState) {
             case SKPaymentTransactionStateRestored:
+                [[NSUserDefaults standardUserDefaults] setBool: YES forKey: @"SimulatorContentLocked"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
                 [queue finishTransaction: transactioin];
                 break;
             default:
@@ -208,39 +210,19 @@ typedef NS_ENUM(NSUInteger, kUnlockFeatureType) {
 }
 
 - (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {
-    NSURL* appReceiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
-    if( isValidReceipt(appReceiptURL) ) {
-        if( isUnlockSubscriptionPurchased() ) {
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
-            
-            [self mz_dismissFormSheetControllerAnimated: YES completionHandler: NULL];
-        }
-        else {
-            NSString* msg = NSLocalizedString(@"No purchases found. Please use the Buy button below.", @"");
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle: nil
-                                                            message: msg
-                                                           delegate: nil
-                                                  cancelButtonTitle: NSLocalizedString(@"OK", @"")
-                                                  otherButtonTitles: nil];
-            [alert show];
-        }
+    if( ![ContentLock tryLock] ) {
+        [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
+        
+        [self mz_dismissFormSheetControllerAnimated: YES completionHandler: NULL];
     }
     else {
-        NSError* error = [NSError errorWithDomain: @"In-App"
-                                             code: -666     //You are the devil
-                                         userInfo: nil];
-        DLogError(error);
-        
-        NSString* title = NSLocalizedString(@"Purchases disabled", @"");
-        NSString* msg = NSLocalizedString(@"You must enable In-App Purchases in your device Settings app (General > Restrictions > In-App Purchases)", @"");
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
+        NSString* msg = NSLocalizedString(@"No purchases found. Please use the Buy button below.", @"");
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: nil
                                                         message: msg
                                                        delegate: nil
                                               cancelButtonTitle: NSLocalizedString(@"OK", @"")
                                               otherButtonTitles: nil];
         [alert show];
-        
     }
 }
 

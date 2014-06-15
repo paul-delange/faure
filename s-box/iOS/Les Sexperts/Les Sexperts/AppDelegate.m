@@ -13,8 +13,6 @@
 #import "Joke.h"
 #import "Advice.h"
 
-#import "ReceiptValidator.h"
-
 #import "JokeViewController.h"
 #import "AdviceViewController.h"
 #import "MZFormSheetController.h"
@@ -29,7 +27,6 @@
 
 #define kUserPreferenceHasShuffledQuestionsKey  @"questions_shuffled"
 
-#define kAlertViewTagMustGetReceipt 444
 #define kAlertViewTagOptInPushNotifications 445
 
 NSString * const NSUserDefaultsWantsPushNotificationsKey = @"WantsPushNotifications";
@@ -146,17 +143,6 @@ NSString * const NSUserDefaultsWantsPushNotificationsKey = @"WantsPushNotificati
 #if !PAID_VERSION
     [[GAI sharedInstance] trackerWithTrackingId:@"UA-50743104-3"];
     [GAI sharedInstance].trackUncaughtExceptions = YES;
-    
-    NSURL* receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
-    if( !isValidReceipt(receiptURL) ) {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"Not Verified"
-                                                        message: @"This version of the app was not downloaded from the app store. Please push OK to verify the app with your Apple account. Make sure it is a Sandbox account!"
-                                                       delegate: self
-                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
-                                              otherButtonTitles:  nil];
-        alert.tag = kAlertViewTagMustGetReceipt;
-        [alert show];
-    }
     
     [AdColony configureWithAppID: @"app62e13e977a034655a5"
                          zoneIDs: @[@"vzd5640bc5e87746d083"]
@@ -334,26 +320,9 @@ logging: NO];
     
 }
 
-#pragma mark - SKRequestDelegate
-- (void)requestDidFinish:(SKRequest *)request {
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"All Done"
-                                                    message: @"Great! Now you can continue."
-                                                   delegate: nil
-                                          cancelButtonTitle: NSLocalizedString(@"OK", @"")
-                                          otherButtonTitles: nil];
-    [alert show];
-}
-
 #pragma mark - UIAlertViewDelegate
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (alertView.tag) {
-        case kAlertViewTagMustGetReceipt:
-        {
-            SKReceiptRefreshRequest* refresh = [[SKReceiptRefreshRequest alloc] initWithReceiptProperties: nil];
-            refresh.delegate = (id<SKRequestDelegate>)self;
-            [refresh start];
-            break;
-        }
         case kAlertViewTagOptInPushNotifications:
         {
             if( alertView.cancelButtonIndex == buttonIndex ) {

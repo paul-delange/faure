@@ -10,8 +10,6 @@
 
 #import <objc/runtime.h>
 
-#import "ReceiptValidator.h"
-
 static const void* kCompletionHandlerAssocationKey = "PurchaseCompletionHandler";
 
 NSString * const kContentUnlockProductIdentifier = @"sexpert_unlock";
@@ -52,11 +50,7 @@ NSString * ContentLockWasRemovedNotification = @"ContentLockRemoved";
 #if PAID_VERSION
     return NO;
 #else
-#if TARGET_IPHONE_SIMULATOR
     return ![[NSUserDefaults standardUserDefaults] boolForKey: @"SimulatorContentLocked"];
-#else
-    return !isUnlockSubscriptionPurchased();
-#endif
 #endif
 }
 
@@ -124,24 +118,14 @@ NSString * ContentLockWasRemovedNotification = @"ContentLockRemoved";
                 kContentLockRemovedHandler handler = objc_getAssociatedObject(self, kCompletionHandlerAssocationKey);
                 objc_setAssociatedObject(self, kCompletionHandlerAssocationKey, nil,  OBJC_ASSOCIATION_COPY);
                 
-                NSURL* appReceiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
-                if( isValidReceipt(appReceiptURL) ) {
-                    NSParameterAssert(isUnlockSubscriptionPurchased());
+                [[NSUserDefaults standardUserDefaults] setBool: YES forKey: @"SimulatorContentLocked"];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
                     
                     [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
                     
                     if( handler )
                         handler(nil);
-                }
-                else {
-                    NSError* error = [NSError errorWithDomain: @"In-App"
-                                                         code: -666     //You are the devil
-                                                     userInfo: nil];
-                    if( handler )
-                        handler(error);
-                    
-                    DLogError(error);
-                }
+  
                 
                 [queue finishTransaction: transaction];
                 break;
