@@ -220,7 +220,10 @@ IMBannerDelegate
 - (void) banner:(IMBanner *)banner didFailToReceiveAdWithError:(IMError *)error {
     //HACK: This fails on the very first launch...
     if( error.code == kIMErrorInternal && retryCount < 10 ) {
-        [banner loadBanner];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [banner loadBanner];
+        });
+        
         retryCount++;
     }
     
