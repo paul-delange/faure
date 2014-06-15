@@ -237,7 +237,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="EXc-gB-JnB" kind="push" id="qVT-y8-It1"/>
+                                    <segue destination="nbU-5h-MJs" kind="push" id="eZd-3y-HyX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCY-JC-K7i">
@@ -810,17 +810,61 @@
             <point key="canvasLocation" x="771" y="-947"/>
         </scene>
         <!--Joke Page View Controller-->
-        <scene sceneID="JPK-3M-wf5">
+        <scene sceneID="UZg-2S-vPw">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="EXc-gB-JnB" customClass="JokePageViewController" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="gZG-Lk-nBS"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BTK-HU-F6W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="nbU-5h-MJs" customClass="JokePageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GIz-2c-UoO"/>
+                        <viewControllerLayoutGuide type="bottom" id="uji-E0-yJ4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WOh-bm-922">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="V7T-L9-yI9">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem systemItem="rewind" id="EfN-DC-I2D">
+                                        <connections>
+                                            <action selector="previousPushed:" destination="nbU-5h-MJs" id="FMI-ne-hl1"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2uc-lu-c4R"/>
+                                    <barButtonItem systemItem="fastForward" id="897-Vx-atW">
+                                        <connections>
+                                            <action selector="nextPushed:" destination="nbU-5h-MJs" id="feb-ap-Mmj"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZ1-7W-azd">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V7T-L9-yI9" firstAttribute="top" secondItem="uZ1-7W-azd" secondAttribute="bottom" id="0fu-js-6uk"/>
+                            <constraint firstItem="V7T-L9-yI9" firstAttribute="leading" secondItem="WOh-bm-922" secondAttribute="leading" id="92z-dS-8ag"/>
+                            <constraint firstItem="uZ1-7W-azd" firstAttribute="leading" secondItem="WOh-bm-922" secondAttribute="leading" id="Bmk-tG-fkT"/>
+                            <constraint firstAttribute="trailing" secondItem="uZ1-7W-azd" secondAttribute="trailing" id="CJF-RG-oMa"/>
+                            <constraint firstItem="uZ1-7W-azd" firstAttribute="top" secondItem="WOh-bm-922" secondAttribute="top" id="Rat-EJ-nR9"/>
+                            <constraint firstAttribute="trailing" secondItem="V7T-L9-yI9" secondAttribute="trailing" id="cS6-DE-UBA"/>
+                            <constraint firstAttribute="bottom" secondItem="V7T-L9-yI9" secondAttribute="bottom" id="fEn-M9-34r"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="zdT-SC-NQz"/>
+                    <connections>
+                        <outlet property="backButton" destination="EfN-DC-I2D" id="zZ6-Mt-RXj"/>
+                        <outlet property="containerView" destination="uZ1-7W-azd" id="A1a-0p-TfV"/>
+                        <outlet property="nextButton" destination="897-Vx-atW" id="0zL-MI-iEN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="byg-iB-Fug" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1865" y="-1039"/>
+            <point key="canvasLocation" x="1894" y="-1137"/>
         </scene>
         <!--Joke View Controller-->
         <scene sceneID="eAY-GV-Pbg">

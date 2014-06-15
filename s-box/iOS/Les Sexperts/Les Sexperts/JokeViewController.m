@@ -8,10 +8,13 @@
 
 #import "JokeViewController.h"
 
-#import "Joke.h"    
+#import "Joke.h"
 #import "UIImage+ImageEffects.h"
 
 #import "ContentLock.h"
+
+#import "MZFormSheetController.h"
+#import "UnlockViewController.h"
 
 #define HTML_FORMAT @"<html><body bgcolor=\"#000000\" text=\"#FFFFFF\" face=\"American Typewriter\" size=\"5\">%@</body></html>"
 #define HTML_STRING_FROM_TEXT( text ) [NSString stringWithFormat: HTML_FORMAT, text]
@@ -24,6 +27,11 @@
 @end
 
 @implementation JokeViewController
+
+- (void) setJoke:(Joke *)joke {
+    _joke = joke;
+    self.blocked = !_joke.freeValue && [ContentLock tryLock];
+}
 
 - (void) setBlocked:(BOOL)blocked {
     if( _blocked != blocked ) {
@@ -40,6 +48,23 @@
                                             saturationDeltaFactor: 1.8
                                                         maskImage: nil];
             self.maskImageView.hidden = NO;
+            
+            if( !self.formSheetController ) {
+                UnlockViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier: @"UnlockViewController"];
+                
+                
+                MZFormSheetController* formSheet = [[MZFormSheetController alloc] initWithViewController: vc];
+                formSheet.transitionStyle = MZFormSheetTransitionStyleFade;
+                formSheet.presentedFormSheetSize = CGSizeMake(300., 360.);
+                formSheet.didTapOnBackgroundViewCompletionHandler = ^(CGPoint location) {
+                    [self mz_dismissFormSheetControllerAnimated: YES completionHandler: NULL];
+                };
+                [self mz_presentFormSheetController: formSheet
+                                           animated: YES
+                                  completionHandler: ^(MZFormSheetController* controller) {
+                                      vc.canWatchVideo = NO;
+                                  }];
+            }
         }
         else {
             self.maskImageView.hidden = YES;
@@ -102,6 +127,24 @@
         [context save: &error];
         DLogError(error);
     }];
+    
+    if( self.blocked && !self.formSheetController ) {
+        
+        UnlockViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier: @"UnlockViewController"];
+        
+        
+        MZFormSheetController* formSheet = [[MZFormSheetController alloc] initWithViewController: vc];
+        formSheet.transitionStyle = MZFormSheetTransitionStyleFade;
+        formSheet.presentedFormSheetSize = CGSizeMake(300., 360.);
+        formSheet.didTapOnBackgroundViewCompletionHandler = ^(CGPoint location) {
+            [self mz_dismissFormSheetControllerAnimated: YES completionHandler: NULL];
+        };
+        [self mz_presentFormSheetController: formSheet
+                                   animated: YES
+                          completionHandler: ^(MZFormSheetController* controller) {
+                              vc.canWatchVideo = NO;
+                          }];
+    }
     
 }
 

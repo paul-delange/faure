@@ -13,23 +13,52 @@
 #import "ContentLock.h"
 
 #import "UnlockViewController.h"
-#import "MZFormSheetController.h"
 
 @import MessageUI;
 
-@interface JokePageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, MFMailComposeViewControllerDelegate> {
+@interface JokePageViewController () <MFMailComposeViewControllerDelegate> {
     NSArray* _jokes;
     Joke*    _currentJoke;
 }
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem* backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem* nextButton;
-@property (weak) UIBarButtonItem* shareButton;
-@property (weak, nonatomic) IBOutlet UILabel* counterLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem* shareButton;
+
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) UIViewController *currentViewController;
 
 @end
 
 @implementation JokePageViewController
+
+- (void) setViewControllers: (NSArray*) controllers direction:(UIPageViewControllerNavigationDirection)direction animated:(BOOL)animated completion:(void (^)(BOOL))completion {
+    
+    UIViewController* oldViewController = self.currentViewController;
+    UIViewController* newViewController = controllers.lastObject;
+    
+    [oldViewController willMoveToParentViewController: nil];
+    
+    [self addChildViewController: newViewController];
+    
+    newViewController.view.frame = self.containerView.bounds;
+    
+    [self pageViewController: self willTransitionToViewControllers: controllers];
+    
+    [UIView transitionWithView: self.containerView
+                      duration: 0.3
+                       options: UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        [oldViewController.view removeFromSuperview];
+                        [self.containerView addSubview: newViewController.view];
+                    } completion:^(BOOL finished) {
+                        [oldViewController removeFromParentViewController];
+                        [newViewController didMoveToParentViewController: self];
+                        
+                        self.currentViewController = newViewController;
+                    }];
+    
+}
 
 #pragma mark - Actions
 - (IBAction) addPushed:(id)sender {
@@ -59,13 +88,7 @@
 }
 
 - (IBAction) nextPushed:(id)sender {
-    UIViewController* currentVC;
-    for(JokeViewController* jokeVC in self.viewControllers) {
-        if( [jokeVC.joke isEqual: _currentJoke] ) {
-            currentVC = jokeVC;
-            break;
-        }
-    }
+    UIViewController* currentVC = self.currentViewController;
     
     JokeViewController* nextVC = (JokeViewController*)[self pageViewController: self viewControllerAfterViewController: currentVC];
     if( nextVC ) {
@@ -75,13 +98,7 @@
 }
 
 - (IBAction) previousPushed:(id)sender {
-    UIViewController* currentVC;
-    for(JokeViewController* jokeVC in self.viewControllers) {
-        if( [jokeVC.joke isEqual: _currentJoke] ) {
-            currentVC = jokeVC;
-            break;
-        }
-    }
+    UIViewController* currentVC = self.currentViewController;
     
     JokeViewController* previousVC = (JokeViewController*)[self pageViewController: self viewControllerBeforeViewController: currentVC];
     if( previousVC ) {
@@ -94,8 +111,6 @@
 - (id) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder: aDecoder];
     if( self) {
-        self.dataSource = self;
-        self.delegate = self;
         
         NSFetchRequest* fetch = [NSFetchRequest fetchRequestWithEntityName: @"Joke"];
         
@@ -187,7 +202,7 @@
 
 // Custom logic goes here.
 #pragma mark - UIPageViewControllerDataSource
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+- (UIViewController *)pageViewController:(UIViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     UIStoryboard* storyboard = pageViewController.storyboard;
     
     JokeViewController* previousVC = (JokeViewController*)viewController;
@@ -211,7 +226,7 @@
     return nil;
 }
 
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+- (UIViewController *)pageViewController:(UIViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     UIStoryboard* storyboard = pageViewController.storyboard;
     
     JokeViewController* previousVC = (JokeViewController*)viewController;
@@ -230,35 +245,12 @@
 }
 
 #pragma mark - UIPageViewControllerDelegate
-- (void) pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray *)pendingViewControllers {
+- (void) pageViewController:(UIViewController *)pageViewController willTransitionToViewControllers:(NSArray *)pendingViewControllers {
     NSParameterAssert([pendingViewControllers count] == 1);
     JokeViewController* jokeVC = [pendingViewControllers lastObject];
     _currentJoke = jokeVC.joke;
-    
-    NSUInteger index = [_jokes indexOfObject: _currentJoke];
-    
-    self.counterLabel.text = [NSString stringWithFormat: NSLocalizedString( @"%@/%@", @""), @(index+1), @(_jokes.count)];
-    
-    jokeVC.blocked = !_currentJoke.freeValue && [ContentLock tryLock];
+
     self.shareButton.enabled = !jokeVC.blocked;
-    NSLog(@"Blocked: %d", jokeVC.blocked);
-    
-    if( jokeVC.blocked && !self.formSheetController ) {
-        UnlockViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier: @"UnlockViewController"];
-        
-        
-        MZFormSheetController* formSheet = [[MZFormSheetController alloc] initWithViewController: vc];
-        formSheet.transitionStyle = MZFormSheetTransitionStyleFade;
-        formSheet.presentedFormSheetSize = CGSizeMake(300., 360.);
-        formSheet.didTapOnBackgroundViewCompletionHandler = ^(CGPoint location) {
-            [self mz_dismissFormSheetControllerAnimated: YES completionHandler: NULL];
-        };
-        [self mz_presentFormSheetController: formSheet
-                                   animated: YES
-                          completionHandler: ^(MZFormSheetController* controller) {
-                              vc.canWatchVideo = NO;
-                          }];
-    }
     
     if( [_currentJoke isEqual: [_jokes lastObject]] ) {
         self.nextButton.enabled = NO;

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JokePageViewController : UIPageViewController
+@interface JokePageViewController : UIViewController
 
 @end
