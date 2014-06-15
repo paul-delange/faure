@@ -28,6 +28,7 @@ IMBannerDelegate
 #endif
 >
 {
+    NSUInteger retryCount;
     __weak UIView* _contentView;
 }
 
@@ -218,8 +219,9 @@ IMBannerDelegate
 
 - (void) banner:(IMBanner *)banner didFailToReceiveAdWithError:(IMError *)error {
     //HACK: This fails on the very first launch...
-    if( error.code == kIMErrorInternal ) {
+    if( error.code == kIMErrorInternal && retryCount < 10 ) {
         [banner loadBanner];
+        retryCount++;
     }
     
     DLogError(error);

@@ -243,6 +243,8 @@
 		FD54AB8718C0DFFD0012695C /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = OpenSSL/libcrypto.a; sourceTree = "<group>"; };
 		FD54AB8818C0DFFD0012695C /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = OpenSSL/libssl.a; sourceTree = "<group>"; };
 		FD62F19A194BAD70001A99A6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		FD62F19C194D482B001A99A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FD62F19D194D487F001A99A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FD70E88619387DED007E3363 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
 		FD70E88719387DED007E3363 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
 		FD70E88819387DED007E3363 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
@@ -964,6 +966,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FD51091818E755E2003D58C7 /* fr */,
+				FD62F19C194D482B001A99A6 /* en */,
 			);
 			name = InfoPlist.strings;
 			path = "Les Sexperts/Les Sexperts";
@@ -973,6 +976,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FD51091918E75AAB003D58C7 /* fr */,
+				FD62F19D194D487F001A99A6 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
