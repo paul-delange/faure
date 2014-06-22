@@ -14,7 +14,6 @@
 
 #import "LifeBank.h"
 #import "ContentLock.h"
-#import "ReceiptValidator.h"
 
 #import "GAI.h"
 #import "GAIFields.h"
@@ -27,15 +26,13 @@
 
 @import StoreKit;
 
-#define kAlertViewTagMustGetReceipt 444
-
 NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
     AppDelegate* del = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     CoreDataStack* stack = del.dataStore;
     return stack.mainQueueManagedObjectContext;
 }
 
-@interface AppDelegate () <AdColonyDelegate, UIAlertViewDelegate>
+@interface AppDelegate () <AdColonyDelegate>
 
 @end
 
@@ -85,17 +82,6 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
 #else
     logging: NO];
 #endif
-    }
-    
-    NSURL* receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
-    if( !isValidReceipt(receiptURL) ) {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"Not Verified"
-                                                        message: @"This version of the app was not downloaded from the app store. Please push OK to verify the app with your Apple account. Make sure it is a Sandbox account!"
-                                                       delegate: self
-                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
-                                              otherButtonTitles:  nil];
-        alert.tag = kAlertViewTagMustGetReceipt;
-        [alert show];
     }
     
     [[NSNotificationCenter defaultCenter] addObserver: self
@@ -185,15 +171,6 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
                                           cancelButtonTitle: NSLocalizedString(@"OK", @"")
                                           otherButtonTitles: nil];
     [alert show];
-}
-
-#pragma mark - UIAlertViewDelegate
-- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if( alertView.tag == kAlertViewTagMustGetReceipt ) {
-        SKReceiptRefreshRequest* refresh = [[SKReceiptRefreshRequest alloc] initWithReceiptProperties: nil];
-        refresh.delegate = (id<SKRequestDelegate>)self;
-        [refresh start];
-    }
 }
 
 #pragma mark - Notifications

@@ -88,6 +88,8 @@
     self.adsLabel.text = NSLocalizedString(@"Advertising", @"");
     self.titleLabel.text = kAppName();
     
+    [self.playButton setTitle: NSLocalizedString(@"Play", @"") forState: UIControlStateNormal];
+    
     self.navigationController.navigationBar.topItem.title = @"";
 }
 

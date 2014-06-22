@@ -88,11 +88,14 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
 
 - (void) leveledUp {
     //self.level is already set
-    [self animateMessage: NSLocalizedString(@"New Level!", @"") completion:^(BOOL finished) {
-        if( _interstitial.isReady && [ContentLock tryLock]) {
-            [_interstitial presentFromRootViewController: self];
-        }
-    }];
+    
+    if( self.level.identifierValue % 3 == 0 ) {
+        [self animateMessage: NSLocalizedString(@"New Level!", @"") completion:^(BOOL finished) {
+            if( _interstitial.isReady && [ContentLock tryLock]) {
+                [_interstitial presentFromRootViewController: self];
+            }
+        }];
+    }
 }
 
 - (void) advance {
@@ -306,15 +309,15 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
         self.screenName = @"Game";
         
         if( [ContentLock tryLock] ) {
-        GADRequest* request = [GADRequest request];
-        request.testDevices = @[ GAD_SIMULATOR_ID,
-                                 @"5847239deac1f26ea408b154815af621"            //Paul iPhone4
-                                 ];
-        
-        _interstitial = [[GADInterstitial alloc] init];
-        _interstitial.adUnitID = @"ca-app-pub-1332160865070772/1859473640";
-        _interstitial.delegate = self;
-        [_interstitial loadRequest:[GADRequest request]];
+            GADRequest* request = [GADRequest request];
+            request.testDevices = @[ GAD_SIMULATOR_ID,
+                                     @"5847239deac1f26ea408b154815af621"            //Paul iPhone4
+                                     ];
+            
+            _interstitial = [[GADInterstitial alloc] init];
+            _interstitial.adUnitID = @"ca-app-pub-1332160865070772/1859473640";
+            _interstitial.delegate = self;
+            [_interstitial loadRequest:[GADRequest request]];
         }
     }
     return self;

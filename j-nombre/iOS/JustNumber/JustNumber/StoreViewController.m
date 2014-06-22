@@ -132,7 +132,7 @@
                                                  selector: @selector(lifeCountChanged:)
                                                      name: kCoinPurseValueDidChangeNotification
                                                    object: nil];
-        
+        /*
         dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
         dispatch_source_set_timer(timer, dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC), 0.0 * NSEC_PER_SEC, (1ull * NSEC_PER_SEC) / 10);
         dispatch_source_set_event_handler(timer, ^{
@@ -153,12 +153,14 @@
         dispatch_resume(timer);
         
         _timer = timer;
+         */
     }
     return self;
 }
 
 - (void) dealloc {
-    dispatch_source_cancel(_timer);
+    if( _timer )
+        dispatch_source_cancel(_timer);
     
     [[NSNotificationCenter defaultCenter] removeObserver: self];
     [[SKPaymentQueue defaultQueue] removeTransactionObserver: self];
@@ -175,6 +177,8 @@
     
     self.titleLabel.text = NSLocalizedString(@"No more lives!", @"");
     self.timeUntilFreeLabel.text = @"";
+    
+    self.timeUntilFreeLabel.text = NSLocalizedString(@"Cooling down...", @"");
     
     LifeCountView* countView = [[LifeCountView alloc] initWithFrame: CGRectMake(0, 0, 40, 40)];
     UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithCustomView: countView];

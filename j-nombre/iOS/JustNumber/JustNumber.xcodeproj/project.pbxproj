@@ -20,7 +20,6 @@
 		FD3BB6BA190CEE5C008D8798 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BB6B9190CEE5C008D8798 /* libGoogleAdMobAds.a */; };
 		FD3BB6BD190CEE94008D8798 /* ContentLock.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BB6BC190CEE94008D8798 /* ContentLock.m */; };
 		FD3BB6C2190CEE9F008D8798 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BB6BF190CEE9F008D8798 /* CoreDataStack.m */; };
-		FD3BB6C3190CEE9F008D8798 /* ReceiptValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BB6C1190CEE9F008D8798 /* ReceiptValidator.m */; };
 		FD3BB6C6190CEED5008D8798 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BB6C4190CEED5008D8798 /* libcrypto.a */; };
 		FD3BB6C7190CEED5008D8798 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BB6C5190CEED5008D8798 /* libssl.a */; };
 		FD3BB6C9190CEF2E008D8798 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BB6C8190CEF2E008D8798 /* AVFoundation.framework */; };
@@ -31,6 +30,7 @@
 		FD3BB6D3190CEF5D008D8798 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BB6D2190CEF5D008D8798 /* MobileCoreServices.framework */; };
 		FD3BB6D5190CEF67008D8798 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BB6D4190CEF67008D8798 /* CFNetwork.framework */; };
 		FD3BB6D7190CEF8D008D8798 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3BB6D6190CEF8D008D8798 /* SystemConfiguration.framework */; };
+		FD568ED819567003003FB492 /* PlayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FD568ED719567003003FB492 /* PlayButton.m */; };
 		FD5F2F8F19300D7200266546 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F2F8E19300D7200266546 /* UIImage+ImageEffects.m */; };
 		FD85FA111945409900977C56 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD85FA101945409900977C56 /* libGoogleAnalyticsServices.a */; };
 		FDA0DF811906773E009F5541 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA0DF801906773E009F5541 /* Foundation.framework */; };
@@ -106,8 +106,6 @@
 		FD3BB6BC190CEE94008D8798 /* ContentLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentLock.m; sourceTree = "<group>"; };
 		FD3BB6BE190CEE9F008D8798 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		FD3BB6BF190CEE9F008D8798 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
-		FD3BB6C0190CEE9F008D8798 /* ReceiptValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptValidator.h; sourceTree = "<group>"; };
-		FD3BB6C1190CEE9F008D8798 /* ReceiptValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptValidator.m; sourceTree = "<group>"; };
 		FD3BB6C4190CEED5008D8798 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = OpenSSL/libcrypto.a; sourceTree = "<group>"; };
 		FD3BB6C5190CEED5008D8798 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = OpenSSL/libssl.a; sourceTree = "<group>"; };
 		FD3BB6C8190CEF2E008D8798 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -118,6 +116,8 @@
 		FD3BB6D2190CEF5D008D8798 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		FD3BB6D4190CEF67008D8798 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		FD3BB6D6190CEF8D008D8798 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FD568ED619567003003FB492 /* PlayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayButton.h; sourceTree = "<group>"; };
+		FD568ED719567003003FB492 /* PlayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayButton.m; sourceTree = "<group>"; };
 		FD5F2F8D19300D7200266546 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "JustNumber/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		FD5F2F8E19300D7200266546 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "JustNumber/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		FD85FA0A1945409900977C56 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
@@ -444,6 +444,8 @@
 				FDA8CBE11942B6EB0024383C /* ProductButton.m */,
 				FDEDCEDD1943F26E004FE801 /* JokerButton.h */,
 				FDEDCEDE1943F26E004FE801 /* JokerButton.m */,
+				FD568ED619567003003FB492 /* PlayButton.h */,
+				FD568ED719567003003FB492 /* PlayButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -460,8 +462,6 @@
 				FDCAEF60190E18D500F6A640 /* Entities */,
 				FD3BB6BE190CEE9F008D8798 /* CoreDataStack.h */,
 				FD3BB6BF190CEE9F008D8798 /* CoreDataStack.m */,
-				FD3BB6C0190CEE9F008D8798 /* ReceiptValidator.h */,
-				FD3BB6C1190CEE9F008D8798 /* ReceiptValidator.m */,
 				FD3BB6BB190CEE94008D8798 /* ContentLock.h */,
 				FD3BB6BC190CEE94008D8798 /* ContentLock.m */,
 				FD9B21D81913828500D6129A /* UIApplication+Versioning.h */,
@@ -629,7 +629,6 @@
 				FDCAEF66190E18E500F6A640 /* Question.m in Sources */,
 				FDCAEF43190D765500F6A640 /* Data.xcdatamodeld in Sources */,
 				FD3BB696190CDB18008D8798 /* UIViewController+JASidePanel.m in Sources */,
-				FD3BB6C3190CEE9F008D8798 /* ReceiptValidator.m in Sources */,
 				FDCAEF5F190E18C700F6A640 /* _Question.m in Sources */,
 				FDEB626D1913851F00BCA8D3 /* NSLocale+ContentLanguages.m in Sources */,
 				FDCAEF5E190E18C700F6A640 /* _Level.m in Sources */,
@@ -637,6 +636,7 @@
 				FDEB6280191386E200BCA8D3 /* _ScoreSheet.m in Sources */,
 				FDCAEF65190E18E500F6A640 /* Level.m in Sources */,
 				FDA0DF8D1906773E009F5541 /* main.m in Sources */,
+				FD568ED819567003003FB492 /* PlayButton.m in Sources */,
 				FDA3F208191DEDCB007D07A8 /* GameViewController+SocialMedia.m in Sources */,
 				FD3BB69F190CDB77008D8798 /* HomeViewController.m in Sources */,
 				FD5F2F8F19300D7200266546 /* UIImage+ImageEffects.m in Sources */,

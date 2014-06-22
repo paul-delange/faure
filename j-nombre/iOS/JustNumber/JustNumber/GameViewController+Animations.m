@@ -41,7 +41,7 @@
     
     UILabel* label = [[UILabel alloc] initWithFrame: CGRectZero];
     label.font = [UIFont fontWithName: @"Chalkduster" size: 32.];
-    label.textColor = [UIColor redColor];
+    label.textColor = [UIColor greenColor];
     label.shadowColor = [UIColor whiteColor];
     label.shadowOffset = CGSizeMake(2, 2);
     label.text = message;

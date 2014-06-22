@@ -10,8 +10,6 @@
 
 #import <objc/runtime.h>
 
-#import "ReceiptValidator.h"
-
 static const void* kCompletionHandlerAssocationKey = "PurchaseCompletionHandler";
 
 NSString * const kPurchaseWasMadeNotification = @"PurchaseNotification";
@@ -48,11 +46,11 @@ NSString * ContentLockWasRemovedNotification = @"ContentLockRemoved";
 + (BOOL) unlock {
 #if TARGET_IPHONE_SIMULATOR
     [[NSUserDefaults standardUserDefaults] setBool: YES forKey: @"SimulatorContentLocked"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 #else
-    manuallyOverrideSubscriptionLock();
+    [[NSUserDefaults standardUserDefaults] setBool: YES forKey: @"ContentLock"];
 #endif
     
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
     return YES;
 }
@@ -65,7 +63,7 @@ NSString * ContentLockWasRemovedNotification = @"ContentLockRemoved";
 #if TARGET_IPHONE_SIMULATOR
     return ![[NSUserDefaults standardUserDefaults] boolForKey: @"SimulatorContentLocked"];
 #else
-    return !isUnlockSubscriptionPurchased();
+    return ![[NSUserDefaults standardUserDefaults] boolForKey: @"ContentLock"];
 #endif
 }
 
@@ -134,24 +132,10 @@ NSString * ContentLockWasRemovedNotification = @"ContentLockRemoved";
                 kContentLockRemovedHandler handler = objc_getAssociatedObject(self, kCompletionHandlerAssocationKey);
                 objc_setAssociatedObject(self, kCompletionHandlerAssocationKey, nil,  OBJC_ASSOCIATION_COPY);
                 
-                NSURL* appReceiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
-                if( isValidReceipt(appReceiptURL) ) {
-                    //NSParameterAssert(isUnlockSubscriptionPurchased());
-                    
-                    [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
-                    
+                [self unlock];
+                
                     if( handler )
                         handler(nil);
-                }
-                else {
-                    NSError* error = [NSError errorWithDomain: @"In-App"
-                                                         code: -666     //You are the devil
-                                                     userInfo: nil];
-                    if( handler )
-                        handler(error);
-                    
-                    DLogError(error);
-                }
                 
                 [queue finishTransaction: transaction];
                 break;
