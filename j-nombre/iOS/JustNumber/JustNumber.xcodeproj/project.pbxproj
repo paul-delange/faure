@@ -118,6 +118,7 @@
 		FD3BB6D6190CEF8D008D8798 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FD568ED619567003003FB492 /* PlayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayButton.h; sourceTree = "<group>"; };
 		FD568ED719567003003FB492 /* PlayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayButton.m; sourceTree = "<group>"; };
+		FD568F5719592127003FB492 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FD5F2F8D19300D7200266546 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "JustNumber/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		FD5F2F8E19300D7200266546 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "JustNumber/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		FD85FA0A1945409900977C56 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
@@ -564,6 +565,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				fr,
 			);
 			mainGroup = FDA0DF741906773E009F5541;
 			productRefGroup = FDA0DF7E1906773E009F5541 /* Products */;
@@ -653,6 +655,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FDA0DF8A1906773E009F5541 /* en */,
+				FD568F5719592127003FB492 /* fr */,
 			);
 			name = InfoPlist.strings;
 			path = JustNumber;
