@@ -19,7 +19,7 @@
 #if DEBUG
 #define DEFAULT_LIVES_VALUE         7
 #else
-#define DEFAULT_LIVES_VALUE         200
+#define DEFAULT_LIVES_VALUE         150
 #endif
 
 extern NSString * kCoinPurseValueDidChangeNotification;

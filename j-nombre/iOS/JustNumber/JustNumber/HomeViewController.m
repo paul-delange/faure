@@ -10,7 +10,6 @@
 #import "JASidePanelController.h"
 #import "UIViewController+JASidePanel.h"
 #import "GameViewController.h"
-#import "GameViewController+SocialMedia.h"
 
 #import "ContentLock.h"
 
@@ -18,6 +17,7 @@
 #import "LifeBank.h"
 
 #import "UIImage+ImageEffects.h"
+#import "UIViewController+SocialMedia.h"
 
 #define kAlertViewEndGameTag    916
 #define kAlertViewAdsBlockTag   777
@@ -114,12 +114,12 @@
         }
         else {
             NSString* title = NSLocalizedString(@"No more levels!", @"");
-            NSString* msg = NSLocalizedString(@"New levels are coming soon, follow us on Facebook or Twitter to find out more!", @"");
+            NSString* msg = NSLocalizedString(@"New levels are coming soon, follow us on Twitter to find out more!", @"");
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
                                                             message: msg
                                                            delegate: self
                                                   cancelButtonTitle: NSLocalizedString(@"OK", @"")
-                                                  otherButtonTitles: NSLocalizedString(@"Facebook", @""), NSLocalizedString(@"Twitter", @""), nil];
+                                                  otherButtonTitles: NSLocalizedString(@"Follow", @""), nil];
             alert.tag = kAlertViewEndGameTag;
             [alert show];
             return NO;
@@ -135,17 +135,7 @@
         case kAlertViewEndGameTag:
         {
             if( buttonIndex != alertView.cancelButtonIndex ) {
-                NSString* serviceType = SLServiceTypeFacebook;
-                
-                switch (buttonIndex) {
-                    case 1:
-                        serviceType = SLServiceTypeTwitter;
-                        break;
-                    default:
-                        break;
-                }
-                
-                [self followUsOn: serviceType completion: ^(NSError *error) {
+                [self followUsOn: SLServiceTypeTwitter completion: ^(NSError *error) {
                     
                 }];
             }

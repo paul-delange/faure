@@ -40,8 +40,8 @@
 		FDA0DF8D1906773E009F5541 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA0DF8C1906773E009F5541 /* main.m */; };
 		FDA0DF911906773E009F5541 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA0DF901906773E009F5541 /* AppDelegate.m */; };
 		FDA0DF931906773E009F5541 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDA0DF921906773E009F5541 /* Images.xcassets */; };
-		FDA3F208191DEDCB007D07A8 /* GameViewController+SocialMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA3F207191DEDCB007D07A8 /* GameViewController+SocialMedia.m */; };
-		FDA3F20C19202834007D07A8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA3F20B19202834007D07A8 /* FacebookSDK.framework */; };
+		FDA62156195C229000FAAD0A /* UIViewController+SocialMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA62155195C229000FAAD0A /* UIViewController+SocialMedia.m */; };
+		FDA62159195C25F000FAAD0A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDA62157195C25F000FAAD0A /* Localizable.strings */; };
 		FDA8CBE21942B6EB0024383C /* ProductButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA8CBE11942B6EB0024383C /* ProductButton.m */; };
 		FDBCAA1C193F18D300D5A696 /* GameViewController+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBCAA1B193F18D300D5A696 /* GameViewController+Animations.m */; };
 		FDBCAA27193F307700D5A696 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FDBCAA26193F307700D5A696 /* libsqlite3.dylib */; };
@@ -143,9 +143,10 @@
 		FDA0DF921906773E009F5541 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = JustNumber/Images.xcassets; sourceTree = "<group>"; };
 		FDA0DF991906773E009F5541 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FDA0DFCD1906B7DA009F5541 /* sb_juste_nombre.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = sb_juste_nombre.pdf; path = ../../sb_juste_nombre.pdf; sourceTree = "<group>"; };
-		FDA3F206191DEDCB007D07A8 /* GameViewController+SocialMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GameViewController+SocialMedia.h"; sourceTree = "<group>"; };
-		FDA3F207191DEDCB007D07A8 /* GameViewController+SocialMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GameViewController+SocialMedia.m"; sourceTree = "<group>"; };
-		FDA3F20B19202834007D07A8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		FDA62154195C229000FAAD0A /* UIViewController+SocialMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SocialMedia.h"; sourceTree = "<group>"; };
+		FDA62155195C229000FAAD0A /* UIViewController+SocialMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SocialMedia.m"; sourceTree = "<group>"; };
+		FDA62158195C25F000FAAD0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = JustNumber/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FDA6215A195C25F700FAAD0A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FDA8CBE01942B6EB0024383C /* ProductButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductButton.h; sourceTree = "<group>"; };
 		FDA8CBE11942B6EB0024383C /* ProductButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductButton.m; sourceTree = "<group>"; };
 		FDBCAA1A193F18D300D5A696 /* GameViewController+Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GameViewController+Animations.h"; sourceTree = "<group>"; };
@@ -230,7 +231,6 @@
 				FDA0DF831906773E009F5541 /* CoreGraphics.framework in Frameworks */,
 				FDA0DF851906773E009F5541 /* UIKit.framework in Frameworks */,
 				FDA0DF811906773E009F5541 /* Foundation.framework in Frameworks */,
-				FDA3F20C19202834007D07A8 /* FacebookSDK.framework in Frameworks */,
 				FDBCAA35193F313600D5A696 /* libInMobi-4.3.0.a in Frameworks */,
 				FD3BB6A4190CE23D008D8798 /* StoreKit.framework in Frameworks */,
 				FD3BB6BA190CEE5C008D8798 /* libGoogleAdMobAds.a in Frameworks */,
@@ -294,8 +294,6 @@
 				FDEB62861913ABA100BCA8D3 /* StoreViewController.m */,
 				FD3BB6A5190CEC07008D8798 /* GameViewController.h */,
 				FD3BB6A6190CEC07008D8798 /* GameViewController.m */,
-				FDA3F206191DEDCB007D07A8 /* GameViewController+SocialMedia.h */,
-				FDA3F207191DEDCB007D07A8 /* GameViewController+SocialMedia.m */,
 				FDBCAA1A193F18D300D5A696 /* GameViewController+Animations.h */,
 				FDBCAA1B193F18D300D5A696 /* GameViewController+Animations.m */,
 			);
@@ -366,7 +364,6 @@
 			children = (
 				FDBCAA36193F314400D5A696 /* EventKitUI.framework */,
 				FDBCAA26193F307700D5A696 /* libsqlite3.dylib */,
-				FDA3F20B19202834007D07A8 /* FacebookSDK.framework */,
 				FDEB629A1913DB9700BCA8D3 /* MediaPlayer.framework */,
 				FDEB62981913DB8D00BCA8D3 /* libz.dylib */,
 				FDEB62961913DB8400BCA8D3 /* Social.framework */,
@@ -408,6 +405,7 @@
 		FDA0DFAF19067777009F5541 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FDA62157195C25F000FAAD0A /* Localizable.strings */,
 				FDEB6275191386A700BCA8D3 /* Seed Data */,
 				FD3BB6A2190CE22F008D8798 /* JustNumber.entitlements */,
 				FDA0DF881906773E009F5541 /* JustNumber-Info.plist */,
@@ -428,6 +426,8 @@
 				FD3BB6AE190CEE1A008D8798 /* Post-Game */,
 				FDA0DF8F1906773E009F5541 /* AppDelegate.h */,
 				FDA0DF901906773E009F5541 /* AppDelegate.m */,
+				FDA62154195C229000FAAD0A /* UIViewController+SocialMedia.h */,
+				FDA62155195C229000FAAD0A /* UIViewController+SocialMedia.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -582,6 +582,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDA62159195C25F000FAAD0A /* Localizable.strings in Resources */,
 				FDA0DF8B1906773E009F5541 /* InfoPlist.strings in Resources */,
 				FDA0DF931906773E009F5541 /* Images.xcassets in Resources */,
 				FDEB6276191386A700BCA8D3 /* Seed Data in Resources */,
@@ -619,6 +620,7 @@
 				FD3BB699190CDB33008D8798 /* AppViewController.m in Sources */,
 				FDEB62841913A5EE00BCA8D3 /* LifeBank.m in Sources */,
 				FDEB62871913ABA100BCA8D3 /* StoreViewController.m in Sources */,
+				FDA62156195C229000FAAD0A /* UIViewController+SocialMedia.m in Sources */,
 				FDA8CBE21942B6EB0024383C /* ProductButton.m in Sources */,
 				FD3BB69C190CDB6D008D8798 /* MenuViewController.m in Sources */,
 				FDFF1E8C191921470099665A /* GuessView.m in Sources */,
@@ -639,7 +641,6 @@
 				FDCAEF65190E18E500F6A640 /* Level.m in Sources */,
 				FDA0DF8D1906773E009F5541 /* main.m in Sources */,
 				FD568ED819567003003FB492 /* PlayButton.m in Sources */,
-				FDA3F208191DEDCB007D07A8 /* GameViewController+SocialMedia.m in Sources */,
 				FD3BB69F190CDB77008D8798 /* HomeViewController.m in Sources */,
 				FD5F2F8F19300D7200266546 /* UIImage+ImageEffects.m in Sources */,
 				FD3BB6BD190CEE94008D8798 /* ContentLock.m in Sources */,
@@ -659,6 +660,15 @@
 			);
 			name = InfoPlist.strings;
 			path = JustNumber;
+			sourceTree = "<group>";
+		};
+		FDA62157195C25F000FAAD0A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FDA62158195C25F000FAAD0A /* en */,
+				FDA6215A195C25F700FAAD0A /* fr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -10,7 +10,7 @@
 
 #import "JASidePanelController.h"
 #import "UIViewController+JASidePanel.h"
-#import "GameViewController+SocialMedia.h"
+#import "UIViewController+SocialMedia.h"
 
 #import "AppDelegate.h"
 
@@ -28,8 +28,8 @@
 
 typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
     
-    kSettingsTableViewSectionShareFacebook = 0,
-    kSettingsTableViewSectionShareTwitter,
+    //kSettingsTableViewSectionShareFacebook = 0,
+    kSettingsTableViewSectionShareTwitter = 0,
     kSettingsTableViewSectionContactUs,
 #if DEBUG
     kSettingsTableViewSectionSetLives,
@@ -46,11 +46,6 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
 @end
 
 @implementation MenuViewController
-
-- (FBSession*) facebookSession {
-    AppDelegate* delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    return delegate.facebookSession;
-}
 
 - (CoreDataStack*) dataStack {
     AppDelegate* delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -69,7 +64,7 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
             NSDictionary* dict;
             
             switch (section) {
-                case kSettingsTableViewSectionShareFacebook:
+                /*case kSettingsTableViewSectionShareFacebook:
                 {
                     dict = @{
                              
@@ -79,14 +74,17 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
                              };
                     
                     break;
-                }
+                } */
                 case kSettingsTableViewSectionShareTwitter:
                 {
+                    
+                    if( [SLComposeViewController isAvailableForServiceType: SLServiceTypeTwitter] ) {
                             dict = @{
                                      ITEM_TITLE_KEY : NSLocalizedString(@"Follow us on Twitter", @""),
                                      ITEM_ACTION_KEY : [NSValue valueWithPointer: @selector(followPushed:)],
                                      ITEM_IMAGE_NAME_KEY : @"ic_menu_contact"
                                      };
+                    }
    
                     break;
                 }
@@ -149,22 +147,6 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
     vc.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentViewController: vc animated: YES completion: ^{
         
-    }];
-}
-
-- (void) likePushed: (id) sender {
-    
-    [self.sidePanelController followUsOn: SLServiceTypeFacebook completion: ^(NSError *error) {
-        /*if( !error ) {
-            UITableViewCell* cell = (UITableViewCell*)sender;
-            NSIndexPath* indexPath = [self.tableView indexPathForCell: cell];
-            
-            NSMutableArray* sections = [_sections mutableCopy];
-            [sections removeObjectAtIndex: indexPath.row];
-            _sections = [sections copy];
-            
-            [self.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
-        }*/
     }];
 }
 

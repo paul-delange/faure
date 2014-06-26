@@ -102,6 +102,7 @@
                      }];
     
    
+    [self performSelector: @selector(backgroundTapped:) withObject: tap afterDelay: 1.8];
 }
 
 - (IBAction) backgroundTapped:(UITapGestureRecognizer*)sender {
@@ -132,6 +133,8 @@
                              comp(finished);
                          }
                      }];
+    
+    [NSObject cancelPreviousPerformRequestsWithTarget: self selector: @selector(backgroundTapped:) object: sender];
 }
 
 - (void) setCompletion:(void (^)(BOOL))completion {

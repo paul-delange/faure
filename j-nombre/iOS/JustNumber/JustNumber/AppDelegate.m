@@ -20,7 +20,6 @@
 #import "GAIDictionaryBuilder.h"
 
 #import <AdColony/AdColony.h>
-#import <FacebookSDK/FacebookSDK.h>
 
 #define MINUTES_TO_WAIT_FOR_FREE_LIVES  30
 
@@ -50,16 +49,6 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
     });
     
     return _dataStore;
-}
-
-- (FBSession*) facebookSession {
-    if( !_facebookSession ) {
-        _facebookSession = [FBSession new];
-        if( _facebookSession.state == FBSessionStateCreatedTokenLoaded ) {
-            [_facebookSession openWithCompletionHandler: nil];
-        }
-    }
-    return _facebookSession;
 }
 
 #pragma mark - NSObject
@@ -102,12 +91,6 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
     }
 }
 
-- (BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [FBAppCall handleOpenURL: url sourceApplication: sourceApplication fallbackHandler:^(FBAppCall *call) {
-        DLog(@"Unhandled deep link: %@", url);
-    }];
-}
-
 - (void) application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     [LifeBank addLives: LIVES_WHEN_WAITING];
     
@@ -145,13 +128,6 @@ NSManagedObjectContext * const NSManagedObjectContextGetMain(void) {
 
 - (void) applicationDidBecomeActive:(UIApplication *)application {
     application.applicationIconBadgeNumber = 0;
-    
-    [FBAppEvents activateApp];
-    [FBAppCall handleDidBecomeActiveWithSession: self.facebookSession];
-}
-
-- (void) applicationWillTerminate:(UIApplication *)application {
-    [self.facebookSession close];
 }
 
 #pragma mark - AdColonyDelegate

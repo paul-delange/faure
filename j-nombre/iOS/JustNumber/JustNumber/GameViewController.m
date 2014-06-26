@@ -7,8 +7,8 @@
 //
 
 #import "GameViewController.h"
-#import "GameViewController+SocialMedia.h"
 #import "GameViewController+Animations.h"
+#import "UIViewController+SocialMedia.h"
 
 #import "UINumberField.h"
 
@@ -32,13 +32,13 @@
 #import "GADInterstitial.h"
 
 #define kAlertViewCorrectTag    914
-#define kAlertViewHelpTag       915
 #define kAlertViewHelpExpTag    918
 #define kAlertViewBragTag       917
 #define kAlertViewLastLifeTag   919
 #define kAlertViewEndGameTag    916
 
 static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationShown";
+static NSString * const NSUserDefaultsShownJokerExplanation  = @"JokerExplanationShown";
 
 @interface GameViewController () <UINumberFieldDelegate, UIAlertViewDelegate, UIActionSheetDelegate, GADInterstitialDelegate> {
     GADInterstitial *_interstitial;
@@ -181,9 +181,7 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
     
     NSUInteger tries = [sheet triesForQuestion: question];
     BOOL isFreeTry = NO;
-    
-    NSLog(@"%d tries for %@", tries, question.identifier);
-    
+
     if( !isFreeTry ) {
         
         NSUInteger lives = [LifeBank count];
@@ -225,7 +223,7 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
                 
                 if( ![[NSUserDefaults standardUserDefaults] boolForKey: NSUserDefaultsShownHelpExplanation] ) {
                     
-                    NSString* title = NSLocalizedString(@"Ouch, that one cost!", @"");
+                    NSString* title = NSLocalizedString(@"Ouch, that one hurt!", @"");
                     NSString* msg = NSLocalizedString(@"You lose one life per wrong guess. Can't find the answer? You can always ask your friends for help with the button in the top right!", @"");
                     UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
                                                                     message: msg
@@ -236,6 +234,20 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
                     [alert show];
                     
                     [[NSUserDefaults standardUserDefaults] setBool: YES forKey: NSUserDefaultsShownHelpExplanation];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
+                }
+                else if( ![[NSUserDefaults standardUserDefaults] boolForKey: NSUserDefaultsShownJokerExplanation] ) {
+                    
+                    NSString* title = NSLocalizedString(@"Not doing so well?", @"");
+                    NSString* msg = NSLocalizedString(@"Try using the green Joker button to help yourself for a small life cost", @"");
+                    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
+                                                                    message: msg
+                                                                   delegate: self
+                                                          cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                                          otherButtonTitles: nil];
+                    [alert show];
+                    
+                    [[NSUserDefaults standardUserDefaults] setBool: YES forKey: NSUserDefaultsShownJokerExplanation];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                 }
             }
@@ -252,28 +264,7 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
             [self animateMessage: NSLocalizedString(@"Correct\nAnswer!", @"") completion: ^(BOOL finished) {
                 [self advance];
             }];
-            
-            /*
-             NSString* format = NSLocalizedString(@"%@...\n%@", @"The year François Hollande was born...\n1957");
-             NSString* msg;
-             
-             if( question.unit ) {
-             format = NSLocalizedString(@"%@...\n%@ %@", @"The distance between Paris & Marseille...\n775 (Km)");
-             msg = [NSString localizedStringWithFormat: format, question.text, [question formattedAnswerString], question.unit];
-             }
-             else {
-             msg = [NSString localizedStringWithFormat: format, question.text, [question formattedAnswerString]];
-             }
-             
-             NSString* title = NSLocalizedString(@"That's right!", @"");
-             UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
-             message: msg
-             delegate: self
-             cancelButtonTitle: NSLocalizedString(@"Continue", @"")
-             otherButtonTitles: NSLocalizedString(@"Share", @""), nil];
-             alert.tag = kAlertViewCorrectTag;
-             [alert show];
-             */
+
             break;
         }
     }
@@ -282,14 +273,17 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
 }
 
 - (IBAction)helpPushed:(id)sender {
-    NSString* title = NSLocalizedString(@"Ask your friends for help on:", @"");
-    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle: title
-                                                       delegate: self
-                                              cancelButtonTitle: NSLocalizedString(@"Cancel", @"")
-                                         destructiveButtonTitle: nil
-                                              otherButtonTitles: NSLocalizedString(@"Facebook", @""), NSLocalizedString(@"Twitter", @""), nil];
-    sheet.tag = kAlertViewHelpTag;
-    [sheet showFromBarButtonItem: sender animated: YES];
+    
+    Question* question = [self.level nextQuestion];
+    NSString* format = NSLocalizedString(@"%@. Anyone know the answer?", @"Twitter");
+    NSString* msg = [NSString localizedStringWithFormat: format, question.text];
+    
+    UIActivityViewController* activityVC = [[UIActivityViewController alloc] initWithActivityItems: @[msg]
+                                                                             applicationActivities: nil];
+    [activityVC setCompletionHandler: ^(NSString *activityType, BOOL completed) {
+        [self dismissViewControllerAnimated: YES completion: nil];
+    }];
+    [self presentViewController: activityVC animated: YES completion: nil];
 }
 
 - (IBAction) unwindToGame:(UIStoryboardSegue*)sender {
@@ -419,50 +413,12 @@ static NSString * const NSUserDefaultsShownHelpExplanation  = @"HelpExplanationS
                 [self.navigationController popToRootViewControllerAnimated: YES];
             }
             else {
-                NSString* serviceType = SLServiceTypeFacebook;
-                
-                switch (buttonIndex) {
-                    case 1:
-                        serviceType = SLServiceTypeTwitter;
-                        break;
-                    default:
-                        break;
-                }
-                
-                [self followUsOn: serviceType completion: ^(NSError *error) {
+                [self followUsOn: SLServiceTypeTwitter completion: ^(NSError *error) {
                     [self.navigationController popToRootViewControllerAnimated: YES];
                 }];
             }
             break;
         }
-        default:
-            break;
-    }
-}
-
-#pragma mark - UIActionSheetDelegate
-- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    switch (actionSheet.tag) {
-        case kAlertViewHelpTag:
-        {
-            if( buttonIndex != actionSheet.cancelButtonIndex ) {
-                NSString* serviceType = SLServiceTypeFacebook;
-                
-                switch (buttonIndex) {
-                    case 1:
-                        serviceType = SLServiceTypeTwitter;
-                        break;
-                    default:
-                        break;
-                }
-                
-                [self shareQuestion: [self.level nextQuestion] on: serviceType completion: ^(NSError *error) {
-                    
-                }];
-            }
-            break;
-        }
-            
         default:
             break;
     }
