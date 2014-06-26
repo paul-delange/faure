@@ -366,6 +366,18 @@ static NSString * const NSUserDefaultsShownJokerExplanation  = @"JokerExplanatio
 }
 
 #pragma mark - UITextFieldDelegate
+- (BOOL) textFieldShouldBeginEditing:(UITextField *)textField {
+    return YES;
+}
+
+- (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString* reconstructed = [textField.text stringByReplacingCharactersInRange: range withString: string];
+    
+    if( [reconstructed rangeOfString: @"0"].location == 0 )
+        return NO;
+    
+    return YES;
+}
 
 #pragma mark - UINumberFieldDelegate
 - (void) numberField:(UINumberField *)numberField didChangeToValue:(NSInteger)integerValue {

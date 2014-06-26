@@ -181,7 +181,7 @@
     self.navigationItem.rightBarButtonItem = item;
     self.lifeCountView = countView;
     
-    const int quantities[] = {25, 200, 1500, 5000};
+    const int quantities[] = {10, 200, 1500, 5000};
     NSString* prices[] = { NSLocalizedString(@"Free!", @""), @"...", @"...", @"..." };
     
     for(ProductButton* button in self.productButtons) {

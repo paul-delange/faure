@@ -39,6 +39,11 @@
 }
 
 - (void) appendInteger: (NSInteger) integer {
+    
+    if( integer <= 0 && self.text.length == 0 ) {
+        return;
+    }
+    
     self.text = [self.text stringByAppendingFormat: @"%d", (int)integer];
 }
 
