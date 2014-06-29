@@ -90,11 +90,11 @@ static NSString * const NSUserDefaultsShownJokerExplanation  = @"JokerExplanatio
     //self.level is already set
     
     if( self.level.identifierValue % 3 == 0 ) {
-        [self animateMessage: NSLocalizedString(@"New Level!", @"") completion:^(BOOL finished) {
+        //[self animateMessage: NSLocalizedString(@"New Level!", @"") completion:^(BOOL finished) {
             if( _interstitial.isReady && [ContentLock tryLock]) {
                 [_interstitial presentFromRootViewController: self];
             }
-        }];
+        //}];
     }
 }
 

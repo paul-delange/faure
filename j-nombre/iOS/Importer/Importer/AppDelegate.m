@@ -85,7 +85,7 @@
         }
     }];
     
-    NSManagedObjectContext* context = _stack.mainQueueManagedObjectContext;
+     NSManagedObjectContext* context = _stack.mainQueueManagedObjectContext;
     for(NSDictionary* row in [rows allValues]) {
         Question* question = [Question insertInManagedObjectContext: context];
         question.text = row[@"text"];
@@ -104,7 +104,8 @@
         if( !lvl ) {
             lvl = [Level insertInManagedObjectContext: context];
             lvl.identifier = @([row[@"lvl"] integerValue]);
-            NSLog(@"Create lvl %@", lvl.identifier);
+            
+            NSLog(@"Created lvl %@", lvl.identifier);
         }
         
         question.level = lvl;
