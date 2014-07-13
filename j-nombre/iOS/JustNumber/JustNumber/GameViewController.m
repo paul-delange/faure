@@ -381,7 +381,7 @@ static NSString * const NSUserDefaultsShownJokerExplanation  = @"JokerExplanatio
 
 #pragma mark - UINumberFieldDelegate
 - (void) numberField:(UINumberField *)numberField didChangeToValue:(NSInteger)integerValue {
-    self.okButton.enabled = integerValue > 0;
+    self.okButton.enabled = integerValue >= 0;
 }
 
 #pragma mark - UIAlertViewDelegate

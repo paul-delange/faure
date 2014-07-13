@@ -40,7 +40,7 @@
 
 - (void) appendInteger: (NSInteger) integer {
     
-    if( integer <= 0 && self.text.length == 0 ) {
+    if( integer < 0 && self.text.length == 0 ) {
         return;
     }
     
