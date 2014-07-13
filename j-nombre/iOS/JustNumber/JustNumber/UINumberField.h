@@ -12,7 +12,7 @@
 
 @protocol UINumberFieldDelegate <UITextFieldDelegate>
 @optional
-- (void)numberField:(UINumberField *)numberField didChangeToValue: (NSInteger) integerValue;
+- (void)numberField:(UINumberField *)numberField didChangeToValue: (NSUInteger) integerValue;
 
 @end
 
@@ -21,7 +21,7 @@
 @property (copy, nonatomic) NSString* unitString;
 @property (assign, nonatomic) BOOL automaticallyFormatsInput;
 
-- (NSInteger) integerValue;
+- (double) integerValue;
 
 - (void) appendInteger: (NSInteger) integer;
 

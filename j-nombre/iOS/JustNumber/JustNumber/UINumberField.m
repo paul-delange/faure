@@ -32,10 +32,10 @@
     self.text = self.text;
 }
 
-- (NSInteger) integerValue {
+- (double) integerValue {
     NSCharacterSet* nonNumberSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
     NSString *numberString = [[self.text componentsSeparatedByCharactersInSet: nonNumberSet] componentsJoinedByString:@""];
-    return [numberString integerValue];
+    return [numberString doubleValue];
 }
 
 - (void) appendInteger: (NSInteger) integer {

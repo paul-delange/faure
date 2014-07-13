@@ -206,7 +206,7 @@ static NSString * const NSUserDefaultsShownJokerExplanation  = @"JokerExplanatio
         }
     }
     
-    NSUInteger answer = self.inputView.integerValue;
+    double answer = self.inputView.integerValue;
     
     NSComparisonResult result = [question.answer compare: @(answer)];
     
@@ -379,8 +379,8 @@ static NSString * const NSUserDefaultsShownJokerExplanation  = @"JokerExplanatio
 }
 
 #pragma mark - UINumberFieldDelegate
-- (void) numberField:(UINumberField *)numberField didChangeToValue:(NSInteger)integerValue {
-    self.okButton.enabled = integerValue >= 0;
+- (void) numberField:(UINumberField *)numberField didChangeToValue:(NSUInteger)integerValue {
+    self.okButton.enabled = YES;
 }
 
 #pragma mark - UIAlertViewDelegate
