@@ -179,7 +179,6 @@ static NSString * const NSUserDefaultsShownJokerExplanation  = @"JokerExplanatio
     ScoreSheet* sheet = [ScoreSheet currentScoreSheet];
     Question* question = [self.level nextQuestion];
     
-    NSUInteger tries = [sheet triesForQuestion: question];
     BOOL isFreeTry = NO;
 
     if( !isFreeTry ) {

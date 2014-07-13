@@ -10,6 +10,8 @@
 
 @interface GuessView () {
     NSMutableArray* _guesses;
+    
+    NSHashTable*    _guessConstraints;
 }
 
 @property (strong) NSNumberFormatter* numberFormatter;
@@ -73,7 +75,9 @@
     
     [self addSubview: guessLabel];
     
-    [self removeConstraints: self.constraints];
+    [self removeConstraints: _guessConstraints.allObjects];
+    
+    NSMutableArray* newConstraints = [NSMutableArray new];
     
     __block UIView* lastGuessView = nil;
     NSUInteger totalGuesses = [_guesses count];
@@ -81,7 +85,7 @@
     [self.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UILabel* guessView = obj;
         
-        [self addConstraint: [NSLayoutConstraint constraintWithItem: guessView
+        [newConstraints addObject: [NSLayoutConstraint constraintWithItem: guessView
                                                           attribute: NSLayoutAttributeCenterX
                                                           relatedBy: NSLayoutRelationEqual
                                                              toItem: self
@@ -90,7 +94,7 @@
                                                            constant: 0.0]];
         
         if( lastGuessView ) {
-            [self addConstraint: [NSLayoutConstraint constraintWithItem: guessView
+            [newConstraints addObject: [NSLayoutConstraint constraintWithItem: guessView
                                                               attribute: NSLayoutAttributeTop
                                                               relatedBy: NSLayoutRelationEqual
                                                                  toItem: lastGuessView
@@ -115,7 +119,13 @@
                                                                      attribute: NSLayoutAttributeBottom
                                                                     multiplier: 1.0
                                                                       constant: -32.];
-    [self addConstraint: finalConstant];
+    [newConstraints addObject: finalConstant];
+    
+    [self addConstraints: newConstraints];
+    [newConstraints enumerateObjectsUsingBlock: ^(id obj, NSUInteger idx, BOOL *stop) {
+        [_guessConstraints addObject: obj];
+    }];
+    
     
     [UIView animateWithDuration: animated * 0.3
                           delay: 0.0
@@ -149,6 +159,8 @@
     
     self.numberFormatter = numberFormatter;
     self.clipsToBounds = YES;
+    
+    _guessConstraints = [NSHashTable weakObjectsHashTable];
 }
 
 #pragma mark - NSObject
