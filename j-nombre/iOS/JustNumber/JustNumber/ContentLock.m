@@ -20,6 +20,27 @@ NSString * ContentLockWasRemovedNotification = @"ContentLockRemoved";
 
 @implementation ContentLock
 
++ (BOOL) restoreWithCompletion:(kContentLockRemovedHandler)completionHandler {
+#if TARGET_IPHONE_SIMULATOR
+    [[NSUserDefaults standardUserDefaults] setBool: YES forKey: @"SimulatorContentLocked"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName: ContentLockWasRemovedNotification object: nil];
+    completionHandler(NULL);
+    return YES;
+#else
+    if( ![SKPaymentQueue canMakePayments] )
+        return NO;
+    
+    objc_setAssociatedObject(self, kCompletionHandlerAssocationKey, completionHandler, OBJC_ASSOCIATION_COPY);
+    
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+    
+    return YES;
+#endif
+
+}
+
 + (BOOL) unlockWithCompletion: (kContentLockRemovedHandler) completionHandler {
 #if TARGET_IPHONE_SIMULATOR
     [[NSUserDefaults standardUserDefaults] setBool: YES forKey: @"SimulatorContentLocked"];

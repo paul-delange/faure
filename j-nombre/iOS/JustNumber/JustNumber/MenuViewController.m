@@ -31,6 +31,7 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
     //kSettingsTableViewSectionShareFacebook = 0,
     kSettingsTableViewSectionShareTwitter = 0,
     kSettingsTableViewSectionContactUs,
+    kSettingsTableViewSectionRestore,
 #if DEBUG
     kSettingsTableViewSectionSetLives,
 #endif
@@ -98,6 +99,17 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
     
                     break;
                 }
+                case kSettingsTableViewSectionRestore:
+                {
+                    if( [ContentLock tryLock] ) {
+                    dict = @{
+                             ITEM_TITLE_KEY : NSLocalizedString(@"Restore", @""),
+                             ITEM_ACTION_KEY : [NSValue valueWithPointer: @selector(restorePushed:)],
+                             ITEM_IMAGE_NAME_KEY : @"ic_menu_review"
+                             };
+                    }
+                    break;
+                }
 #if DEBUG
                 case kSettingsTableViewSectionSetLives:
                 {
@@ -163,6 +175,27 @@ typedef NS_ENUM(NSUInteger, kSettingsTableViewSection) {
             [self.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
         }*/
     }];
+}
+
+- (void) restorePushed: (id) sender {
+    if( ![ContentLock unlockWithCompletion: ^(NSError *error) {
+    
+        if(!error) {
+            [self constructAvailableOptions];
+            [self.tableView reloadData];
+        }
+    
+        DLogError(error);
+    }]) {
+        NSString* title = NSLocalizedString(@"Store not available", @"");
+        NSString* msg = NSLocalizedString(@"Your device settings are blocking the store. Please enable In-App Purchases and try again.", @"");
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle: title
+                                                        message: msg
+                                                       delegate: nil
+                                              cancelButtonTitle: NSLocalizedString(@"OK", @"")
+                                              otherButtonTitles: nil];
+        [alert show];
+    }
 }
 
 #pragma mark - UIViewController

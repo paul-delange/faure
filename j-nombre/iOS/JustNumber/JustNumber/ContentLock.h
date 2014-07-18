@@ -14,6 +14,8 @@ extern NSString * ContentLockWasRemovedNotification;
 
 @interface ContentLock : NSObject
 
++ (BOOL) restoreWithCompletion: (kContentLockRemovedHandler) completionHandler;
+
 + (BOOL) unlockWithCompletion: (kContentLockRemovedHandler) completionHandler;
 + (BOOL) unlock;
 + (BOOL) lock;
